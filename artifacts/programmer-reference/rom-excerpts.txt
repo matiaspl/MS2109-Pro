@@ -1,0 +1,953 @@
+        ╎   0x00004149      787f           mov r0, #0x7f
+        ╎   0x0000414b      e4             clr a
+       ┌──> 0x0000414c      f6             mov @r0, a
+       └──< 0x0000414d      d8fd           djnz r0, 0x414c
+        ╎   0x0000414f      75813c         mov 0x81, #0x3c
+       ┌──< 0x00004152      024190         ljmp 0x4190
+       │└─< 0x00004155      0231a5         ljmp 0x31a5
+       │    0x00004158      e4             clr a
+        ╎   0x00004190      901961         mov dptr, #0x1961
+        ╎   0x00004193      e4             clr a
+        ╎   0x00004194      7e01           mov r6, #0x01
+        ╎   0x00004196      93             movc a, @a+dptr
+        └─< 0x00004197      60bc           jz 0x4155
+            0x00004199      a3             inc dptr
+            0x0000419a      ff             mov r7, a
+            0x0000419b      543f           anl a, #0x3f
+        ┌─< 0x0000419d      30e509         jnb 0xe0.5, 0x41a9
+        │   0x000041a0      541f           anl a, #0x1f
+        │   0x000041a2      fe             mov r6, a
+        │   0x000041a3      e4             clr a
+            0x000031a5      120016         lcall 0x0016
+            0x000031a8      125f19         lcall 0x5f19
+            0x000031ab      1269b0         lcall 0x69b0
+            0x000031ae      e4             clr a
+            0x000031af      ff             mov r7, a
+            0x000031b0      126ef8         lcall 0x6ef8
+            0x000031b3      126d99         lcall 0x6d99
+        ┌─< 0x000031b6      300b0b         jnb 0x21.3, 0x31c4
+        │   0x000031b9      124f2e         lcall 0x4f2e
+        │   0x000031bc      123e47         lcall 0x3e47
+        │   0x000031bf      1268bf         lcall 0x68bf
+       ┌──< 0x000031c2      8006           sjmp 0x31ca
+       │└─> 0x000031c4      126d48         lcall 0x6d48
+       │    0x000031c7      125687         lcall 0x5687
+       └┌─< 0x000031ca      301107         jnb 0x22.1, 0x31d4
+        │   0x000031cd      d200           setb 0x20.0
+        │   0x000031cf      1262a0         lcall 0x62a0
+       ┌──< 0x000031d2      8003           sjmp 0x31d7
+       │└─> 0x000031d4      126c7d         lcall 0x6c7d
+       └──> 0x000031d7      123f0b         lcall 0x3f0b
+        ┌─< 0x000031da      300d08         jnb 0x21.5, 0x31e5
+        │   0x000031dd      12603c         lcall 0x603c
+        │   0x000031e0      1238ca         lcall 0x38ca
+        │   0x000031e3      920e           mov 0x21.6, c
+        └─> 0x000031e5      d203           setb 0x20.3
+            0x000031e7      126e0e         lcall 0x6e0e
+            0x000031ea      d203           setb 0x20.3
+            0x000031ec      126e1b         lcall 0x6e1b
+            0x000031ef      125884         lcall 0x5884
+            0x000031f2      124d54         lcall 0x4d54
+            0x000031f5      7f01           mov r7, #0x01
+            0x000031f7      126ef8         lcall 0x6ef8
+            0x000031fa      1222dc         lcall 0x22dc
+            0x000031fd      d2aa           setb 0xa8.2
+            0x000031ff      d2a8           setb 0xa8.0
+            0x00003201      d2a9           setb 0xa8.1
+            0x00003203      d2af           setb 0xa8.7
+            0x00003205      123e68         lcall 0x3e68
+            0x00003208      746e           mov a, #0x6e
+            0x0000320a      f0             movx @dptr, a
+        ┌─< 0x0000320b      300b03         jnb 0x21.3, 0x3211
+        │   0x0000320e      121455         lcall 0x1455
+        └─> 0x00003211      d3             setb c
+            0x00003212      90c777         mov dptr, #0xc777
+            0x00003215      e0             movx a, @dptr
+            0x00003216      946e           subb a, #0x6e
+            0x00003218      90c776         mov dptr, #0xc776
+            0x0000321b      e0             movx a, @dptr
+            0x0000321c      9400           subb a, #0x00
+        ┌─< 0x0000321e      4024           jc 0x3244
+        │   0x00003220      90c6f0         mov dptr, #0xc6f0
+        │   0x00003223      e0             movx a, @dptr
+       ┌──< 0x00003224      30e003         jnb 0xe0.0, 0x322a
+       ││   0x00003227      126f03         lcall 0x6f03
+       └──> 0x0000322a      90c6f0         mov dptr, #0xc6f0
+        │   0x0000322d      e0             movx a, @dptr
+       ┌──< 0x0000322e      30e103         jnb 0xe0.1, 0x3234
+       ││   0x00003231      126ff5         lcall 0x6ff5
+       └──> 0x00003234      123e68         lcall 0x3e68
+        │   0x00003237      7464           mov a, #0x64
+        │   0x00003239      f0             movx @dptr, a
+        │   0x0000323a      90c6f0         mov dptr, #0xc6f0
+        │   0x0000323d      e0             movx a, @dptr
+       ┌──< 0x0000323e      30e203         jnb 0xe0.2, 0x3244
+       ││   0x00003241      123973         lcall 0x3973
+       └└─> 0x00003244      90c6f0         mov dptr, #0xc6f0
+            0x00003247      e0             movx a, @dptr
+        ┌─< 0x00003248      30e303         jnb 0xe0.3, 0x324e
+        │   0x0000324b      125765         lcall 0x5765
+        └─> 0x0000324e      7f02           mov r7, #0x02
+            0x00003250      126ef8         lcall 0x6ef8
+            0x00003253      90c6f0         mov dptr, #0xc6f0
+            0x00003256      e0             movx a, @dptr
+        ┌─< 0x00003257      30e403         jnb 0xe0.4, 0x325d
+        │   0x0000325a      1251e4         lcall 0x51e4
+        └─> 0x0000325d      90c6f0         mov dptr, #0xc6f0
+            0x00005f19      e4             clr a
+            0x00005f1a      90c54e         mov dptr, #0xc54e
+            0x00005f1d      f0             movx @dptr, a
+            0x00005f1e      12682e         lcall 0x682e
+            0x00005f21      d208           setb 0x21.0
+            0x00005f23      126f17         lcall 0x6f17
+            0x00005f26      126869         lcall 0x6869
+            0x00005f29      90c77e         mov dptr, #0xc77e
+            0x00005f2c      e0             movx a, @dptr
+        ┌─< 0x00005f2d      b4011a         cjne a, #0x01, 0x5f4a
+       ┌──> 0x00005f30      90c54e         mov dptr, #0xc54e
+       ╎│   0x00005f33      e0             movx a, @dptr
+       ╎│   0x00005f34      c3             clr c
+       ╎│   0x00005f35      9402           subb a, #0x02
+      ┌───< 0x00005f37      5011           jnc 0x5f4a
+      │╎│   0x00005f39      e0             movx a, @dptr
+      │╎│   0x00005f3a      ff             mov r7, a
+      │╎│   0x00005f3b      04             inc a
+      │╎│   0x00005f3c      f0             movx @dptr, a
+      │╎│   0x00005f3d      1234a6         lcall 0x34a6
+      │╎│   0x00005f40      1228f5         lcall 0x28f5
+     ┌────< 0x00005f43      4005           jc 0x5f4a
+     ││╎│   0x00005f45      12682e         lcall 0x682e
+     ││└──< 0x00005f48      80e6           sjmp 0x5f30
+            0x0000682e      e4             clr a
+            0x0000682f      ff             mov r7, a
+            0x00006830      7ccb           mov r4, #0xcb
+            0x00006832      7dd0           mov r5, #0xd0
+        ┌─> 0x00006834      ed             mov a, r5
+        ╎   0x00006835      2f             add a, r7
+        ╎   0x00006836      f582           mov 0x82, a
+        ╎   0x00006838      e4             clr a
+        ╎   0x00006839      3c             addc a, r4
+        ╎   0x0000683a      f583           mov 0x83, a
+        ╎   0x0000683c      74ff           mov a, #0xff
+        ╎   0x0000683e      f0             movx @dptr, a
+        ╎   0x0000683f      0f             inc r7
+        ╎   0x00006840      ef             mov a, r7
+        └─< 0x00006841      b430f0         cjne a, #0x30, 0x6834
+            0x00006844      e4             clr a
+            0x00006845      90cbd4         mov dptr, #0xcbd4
+            0x00006848      f0             movx @dptr, a
+            0x00006849      a3             inc dptr
+            0x0000684a      f0             movx @dptr, a
+            0x000034a6      90c54f         mov dptr, #0xc54f
+            0x000034a9      ef             mov a, r7
+            0x000034aa      f0             movx @dptr, a
+            0x000034ab      e4             clr a
+            0x000034ac      a3             inc dptr
+            0x000034ad      f0             movx @dptr, a
+            0x000034ae      a3             inc dptr
+            0x000034af      f0             movx @dptr, a
+            0x000034b0      a3             inc dptr
+            0x000034b1      f0             movx @dptr, a
+            0x000034b2      a3             inc dptr
+            0x000034b3      f0             movx @dptr, a
+            0x000034b4      a3             inc dptr
+            0x000034b5      f0             movx @dptr, a
+            0x000034b6      a3             inc dptr
+            0x000034b7      f0             movx @dptr, a
+            0x000034b8      7f02           mov r7, #0x02
+            0x000034ba      fe             mov r6, a
+            0x000034bb      126bba         lcall 0x6bba
+            0x000034be      ef             mov a, r7
+            0x000034bf      7f00           mov r7, #0x00
+            0x000034c1      fe             mov r6, a
+            0x000034c2      c007           push 0x07
+            0x000034c4      c006           push 0x06
+            0x000034c6      7f03           mov r7, #0x03
+            0x000034c8      7e00           mov r6, #0x00
+            0x000034ca      126bba         lcall 0x6bba
+            0x000034cd      ef             mov a, r7
+            0x000034ce      fd             mov r5, a
+            0x000034cf      d0e0           pop 0xe0
+            0x000034d1      fe             mov r6, a
+            0x000034d2      d0e0           pop 0xe0
+            0x000034d4      4d             orl a, r5
+            0x000034d5      ff             mov r7, a
+            0x000034d6      90c552         mov dptr, #0xc552
+            0x000034d9      ee             mov a, r6
+            0x000034da      f0             movx @dptr, a
+            0x000034db      a3             inc dptr
+            0x000034dc      ef             mov a, r7
+            0x000034dd      f0             movx @dptr, a
+            0x000034de      d3             setb c
+            0x000034df      94fc           subb a, #0xfc
+            0x000034e1      ee             mov a, r6
+            0x000034e2      9413           subb a, #0x13
+        ┌─< 0x000034e4      507a           jnc 0x3560
+        │   0x000034e6      90c553         mov dptr, #0xc553
+        │   0x000034e9      e0             movx a, @dptr
+        │   0x000034ea      2434           add a, #0x34
+        │   0x000034ec      f0             movx @dptr, a
+        │   0x000034ed      90c552         mov dptr, #0xc552
+        │   0x000034f0      e0             movx a, @dptr
+        │   0x000034f1      3400           addc a, #0x00
+        │   0x000034f3      f0             movx @dptr, a
+        │   0x000034f4      90c554         mov dptr, #0xc554
+        │   0x000034f7      74cb           mov a, #0xcb
+        │   0x000034f9      f0             movx @dptr, a
+        │   0x000034fa      a3             inc dptr
+        │   0x000034fb      74d0           mov a, #0xd0
+        │   0x000034fd      f0             movx @dptr, a
+        │   0x000034fe      90c54f         mov dptr, #0xc54f
+        │   0x00003501      e0             movx a, @dptr
+       ┌──< 0x00003502      7018           jnz 0x351c
+       ││   0x00003504      90c552         mov dptr, #0xc552
+       ││   0x00003507      e0             movx a, @dptr
+       ││   0x00003508      fc             mov r4, a
+       ││   0x00003509      a3             inc dptr
+       ││   0x0000350a      e0             movx a, @dptr
+       ││   0x0000350b      fd             mov r5, a
+       ││   0x0000350c      a3             inc dptr
+       ││   0x0000350d      e0             movx a, @dptr
+       ││   0x0000350e      fe             mov r6, a
+       ││   0x0000350f      a3             inc dptr
+       ││   0x00003510      e0             movx a, @dptr
+       ││   0x00003511      aa06           mov r2, 0x06
+       ││   0x00003513      f9             mov r1, a
+       ││   0x00003514      7b01           mov r3, #0x01
+       ││   0x00003516      e4             clr a
+       ││   0x00003517      ff             mov r7, a
+       ││   0x00003518      fe             mov r6, a
+      ┌───< 0x00003519      025508         ljmp 0x5508
+      │└──> 0x0000351c      e4             clr a
+      │ │   0x0000351d      90c550         mov dptr, #0xc550
+      │ │   0x00003520      f0             movx @dptr, a
+      │ │   0x00003521      a3             inc dptr
+      │ │   0x00003522      f0             movx @dptr, a
+      │ │   0x00003523      90c552         mov dptr, #0xc552
+      │ │   0x00003526      e0             movx a, @dptr
+      │ │   0x00003527      fc             mov r4, a
+      │ │   0x00003528      a3             inc dptr
+      │ │   0x00003529      e0             movx a, @dptr
+      │ │   0x0000352a      fd             mov r5, a
+      │ │   0x0000352b      90c550         mov dptr, #0xc550
+      │ │   0x0000352e      e0             movx a, @dptr
+      │ │   0x0000352f      fe             mov r6, a
+      │ │   0x00003530      a3             inc dptr
+      │ │   0x00003531      e0             movx a, @dptr
+      │ │   0x00003532      ff             mov r7, a
+      │ │   0x00003533      c3             clr c
+      │ │   0x00003534      9d             subb a, r5
+      │ │   0x00003535      ee             mov a, r6
+      │ │   0x00003536      9c             subb a, r4
+      │┌──< 0x00003537      5027           jnc 0x3560
+      │││   0x00003539      126bba         lcall 0x6bba
+      │││   0x0000353c      90c550         mov dptr, #0xc550
+      │││   0x0000353f      e0             movx a, @dptr
+      │││   0x00003540      fc             mov r4, a
+      │││   0x00003541      a3             inc dptr
+      │││   0x00003542      e0             movx a, @dptr
+      │││   0x00003543      fd             mov r5, a
+      │││   0x00003544      90c554         mov dptr, #0xc554
+      │││   0x00003547      e0             movx a, @dptr
+      │││   0x00003548      fa             mov r2, a
+      │││   0x00003549      a3             inc dptr
+      │││   0x0000354a      e0             movx a, @dptr
+      │││   0x0000354b      2d             add a, r5
+      │││   0x0000354c      f582           mov 0x82, a
+      │││   0x0000354e      ea             mov a, r2
+      │││   0x0000354f      3c             addc a, r4
+      │││   0x00003550      f583           mov 0x83, a
+      │││   0x00003552      ef             mov a, r7
+      │││   0x00003553      f0             movx @dptr, a
+      │││   0x00003554      90c550         mov dptr, #0xc550
+      │││   0x00003557      e4             clr a
+      │││   0x00003558      75f001         mov 0xf0, #0x01
+      │││   0x0000355b      120590         lcall 0x0590
+            0x000028f5      e4             clr a
+            0x000028f6      90c54f         mov dptr, #0xc54f
+            0x000028f9      f0             movx @dptr, a
+            0x000028fa      a3             inc dptr
+            0x000028fb      f0             movx @dptr, a
+            0x000028fc      90cbd2         mov dptr, #0xcbd2
+            0x000028ff      e0             movx a, @dptr
+            0x00002900      fe             mov r6, a
+            0x00002901      a3             inc dptr
+            0x00002902      e0             movx a, @dptr
+            0x00002903      fd             mov r5, a
+            0x00002904      ed             mov a, r5
+            0x00002905      90c551         mov dptr, #0xc551
+            0x00002908      125e39         lcall 0x5e39
+            0x0000290b      e4             clr a
+            0x0000290c      a3             inc dptr
+            0x0000290d      125e40         lcall 0x5e40
+            0x00002910      90c788         mov dptr, #0xc788
+            0x00002913      f0             movx @dptr, a
+            0x00002914      d3             setb c
+            0x00002915      ef             mov a, r7
+            0x00002916      94fc           subb a, #0xfc
+            0x00002918      ee             mov a, r6
+            0x00002919      9413           subb a, #0x13
+        ┌─< 0x0000291b      4004           jc 0x2921
+        │   0x0000291d      7401           mov a, #0x01
+        │   0x0000291f      f0             movx @dptr, a
+        │   0x00002920      22             ret
+        └─> 0x00002921      90c54f         mov dptr, #0xc54f
+            0x00002924      74cb           mov a, #0xcb
+            0x00002926      f0             movx @dptr, a
+            0x00002927      a3             inc dptr
+            0x00002928      74d2           mov a, #0xd2
+            0x0000292a      f0             movx @dptr, a
+            0x0000292b      e4             clr a
+            0x0000292c      fd             mov r5, a
+            0x0000292d      fc             mov r4, a
+        ┌─> 0x0000292e      125e11         lcall 0x5e11
+       ┌──< 0x00002931      bd0001         cjne r5, #0x00, 0x2935
+       │╎   0x00002934      0c             inc r4
+       └──> 0x00002935      ed             mov a, r5
+        ╎   0x00002936      642e           xrl a, #0x2e
+        ╎   0x00002938      4c             orl a, r4
+        └─< 0x00002939      70f3           jnz 0x292e
+            0x0000293b      125e2c         lcall 0x5e2c
+            0x0000293e      a3             inc dptr
+            0x0000293f      e0             movx a, @dptr
+            0x00002940      fe             mov r6, a
+            0x00002941      a3             inc dptr
+            0x00002942      e0             movx a, @dptr
+            0x00002943      ff             mov r7, a
+            0x00002944      90c54f         mov dptr, #0xc54f
+            0x00002947      ee             mov a, r6
+            0x00002948      8ff0           mov 0xf0, r7
+            0x0000294a      120590         lcall 0x0590
+            0x0000294d      90c54f         mov dptr, #0xc54f
+            0x00002950      e0             movx a, @dptr
+            0x00002951      fa             mov r2, a
+            0x00002952      a3             inc dptr
+            0x00002953      e0             movx a, @dptr
+            0x00002954      f582           mov 0x82, a
+            0x00002956      8a83           mov 0x83, r2
+            0x00002958      e0             movx a, @dptr
+            0x00002959      fe             mov r6, a
+            0x0000295a      a3             inc dptr
+            0x0000295b      e0             movx a, @dptr
+            0x0000295c      fb             mov r3, a
+            0x0000295d      eb             mov a, r3
+            0x0000295e      125e36         lcall 0x5e36
+            0x00002961      90c553         mov dptr, #0xc553
+            0x00002964      e0             movx a, @dptr
+            0x00002965      fe             mov r6, a
+            0x00002966      a3             inc dptr
+            0x00002967      e0             movx a, @dptr
+            0x00002968      ff             mov r7, a
+            0x00002969      a3             inc dptr
+            0x0000296a      e0             movx a, @dptr
+            0x0000296b      6e             xrl a, r6
+        ┌─< 0x0000296c      7003           jnz 0x2971
+        │   0x0000296e      a3             inc dptr
+        │   0x0000296f      e0             movx a, @dptr
+        │   0x00002970      6f             xrl a, r7
+       ┌└─> 0x00002971      6008           jz 0x297b
+       │    0x00002973      90c788         mov dptr, #0xc788
+       │    0x00002976      7402           mov a, #0x02
+       │    0x00002978      f0             movx @dptr, a
+       │    0x00002979      c3             clr c
+       │    0x0000297a      22             ret
+       └──> 0x0000297b      e4             clr a
+            0x0000297c      90c553         mov dptr, #0xc553
+            0x0000297f      125e40         lcall 0x5e40
+            0x00002982      125e2c         lcall 0x5e2c
+            0x00002985      fc             mov r4, a
+            0x00002986      fd             mov r5, a
+        ┌─> 0x00002987      d3             setb c
+        ╎   0x00002988      90c552         mov dptr, #0xc552
+        ╎   0x0000298b      e0             movx a, @dptr
+        ╎   0x0000298c      9d             subb a, r5
+        ╎   0x0000298d      90c551         mov dptr, #0xc551
+        ╎   0x00002990      e0             movx a, @dptr
+        ╎   0x00002991      9c             subb a, r4
+       ┌──< 0x00002992      4009           jc 0x299d
+       │╎   0x00002994      125e11         lcall 0x5e11
+      ┌───< 0x00002997      bd0001         cjne r5, #0x00, 0x299b
+      ││╎   0x0000299a      0c             inc r4
+      └─└─< 0x0000299b      80ea           sjmp 0x2987
+       └──> 0x0000299d      125e2c         lcall 0x5e2c
+            0x000029a0      a3             inc dptr
+            0x000029a1      e0             movx a, @dptr
+            0x000029a2      fe             mov r6, a
+            0x000029a3      a3             inc dptr
+            0x000029a4      e0             movx a, @dptr
+            0x000029a5      ff             mov r7, a
+            0x000029a6      90c550         mov dptr, #0xc550
+            0x000029a9      e0             movx a, @dptr
+            0x000029aa      2f             add a, r7
+            0x000029ab      ff             mov r7, a
+            0x000029ac      90c54f         mov dptr, #0xc54f
+            0x000029af      e0             movx a, @dptr
+            0x000029b0      3e             addc a, r6
+            0x000029b1      cf             xch a, r7
+            0x000029b2      2402           add a, #0x02
+            0x000029b4      cf             xch a, r7
+            0x000029b5      3400           addc a, #0x00
+            0x000029b7      f0             movx @dptr, a
+            0x000029b8      a3             inc dptr
+            0x000029b9      ef             mov a, r7
+            0x000029ba      f0             movx @dptr, a
+            0x000029bb      90c54f         mov dptr, #0xc54f
+            0x000029be      e0             movx a, @dptr
+            0x000029bf      fc             mov r4, a
+            0x000029c0      a3             inc dptr
+            0x000029c1      e0             movx a, @dptr
+            0x000029c2      f582           mov 0x82, a
+            0x000029c4      8c83           mov 0x83, r4
+            0x000029c6      e0             movx a, @dptr
+            0x000029c7      fe             mov r6, a
+            0x000029c8      a3             inc dptr
+            0x000029c9      e0             movx a, @dptr
+            0x000029ca      fd             mov r5, a
+            0x000029cb      ed             mov a, r5
+            0x000029cc      125e36         lcall 0x5e36
+            0x000029cf      a3             inc dptr
+            0x000029d0      e0             movx a, @dptr
+            0x000029d1      6e             xrl a, r6
+        ┌─< 0x000029d2      7003           jnz 0x29d7
+            0x00005e11      90c54f         mov dptr, #0xc54f
+            0x00005e14      e0             movx a, @dptr
+            0x00005e15      fe             mov r6, a
+            0x00005e16      a3             inc dptr
+            0x00005e17      e0             movx a, @dptr
+            0x00005e18      2d             add a, r5
+            0x00005e19      f582           mov 0x82, a
+            0x00005e1b      ee             mov a, r6
+            0x00005e1c      3c             addc a, r4
+            0x00005e1d      f583           mov 0x83, a
+            0x00005e1f      e0             movx a, @dptr
+            0x00005e20      ff             mov r7, a
+            0x00005e21      90c555         mov dptr, #0xc555
+            0x00005e24      e4             clr a
+            0x00005e25      8ff0           mov 0xf0, r7
+            0x00005e27      120590         lcall 0x0590
+            0x00005e2a      0d             inc r5
+            0x00005e2b      22             ret
+            0x00005e2c      90c54f         mov dptr, #0xc54f
+            0x00005e2f      74cc           mov a, #0xcc
+            0x00005e31      f0             movx @dptr, a
+            0x00005e32      a3             inc dptr
+            0x00005e33      e4             clr a
+            0x00005e34      f0             movx @dptr, a
+            0x00005e35      22             ret
+            0x00005e36      90c553         mov dptr, #0xc553
+            0x00005e39      ff             mov r7, a
+            0x00005e3a      ee             mov a, r6
+            0x00005e3b      f0             movx @dptr, a
+            0x00005e3c      a3             inc dptr
+            0x00005e3d      ef             mov a, r7
+            0x00005e3e      f0             movx @dptr, a
+            0x00005e3f      22             ret
+            0x00005e40      f0             movx @dptr, a
+            0x00005e41      a3             inc dptr
+            0x00006ef8      90cbd4         mov dptr, #0xcbd4
+            0x00006efb      e0             movx a, @dptr
+        ┌─< 0x00006efc      30e003         jnb 0xe0.0, 0x6f02
+        │   0x00006eff      126fac         lcall 0x6fac
+        └─> 0x00006f02      22             ret
+            0x00006fac      90c584         mov dptr, #0xc584
+            0x00006faf      ef             mov a, r7
+            0x00006fb0      f0             movx @dptr, a
+            0x00006fb1      12cc00         lcall 0xcc00
+            0x00006fb4      22             ret
+            0x00004788      90cbd4         mov dptr, #0xcbd4
+            0x0000478b      e0             movx a, @dptr
+        ┌─< 0x0000478c      30e105         jnb 0xe0.1, 0x4794
+        │   0x0000478f      12cc10         lcall 0xcc10
+       ┌──< 0x00004792      8003           sjmp 0x4797
+       │└─> 0x00004794      122ad0         lcall 0x2ad0
+       └──> 0x00004797      c213           clr 0x22.3
+            0x00004799      22             ret
+            0x00002cb3      90cbd4         mov dptr, #0xcbd4
+            0x00002cb6      e0             movx a, @dptr
+        ┌─< 0x00002cb7      30e203         jnb 0xe0.2, 0x2cbd
+        │   0x00002cba      12cc20         lcall 0xcc20
+        └─> 0x00002cbd      e533           mov a, 0x33
+        ┌─< 0x00002cbf      30e003         jnb 0xe0.0, 0x2cc5
+        │   0x00002cc2      12703c         lcall 0x703c
+        └─> 0x00002cc5      e533           mov a, 0x33
+        ┌─< 0x00002cc7      30e103         jnb 0xe0.1, 0x2ccd
+        │   0x00002cca      126ffc         lcall 0x6ffc
+        └─> 0x00002ccd      e533           mov a, 0x33
+        ┌─< 0x00002ccf      30e203         jnb 0xe0.2, 0x2cd5
+        │   0x00002cd2      126069         lcall 0x6069
+        └─> 0x00002cd5      e532           mov a, 0x32
+        ┌─< 0x00002cd7      30e205         jnb 0xe0.2, 0x2cdf
+        │   0x00002cda      759302         mov 0x93, #0x02
+        │   0x00002cdd      d280           setb 0x80.0
+        └─> 0x00002cdf      e532           mov a, 0x32
+        ┌─< 0x00002ce1      20e303         jb 0xe0.3, 0x2ce7
+       ┌──< 0x00002ce4      022d7e         ljmp 0x2d7e
+       │└─> 0x00002ce7      759303         mov 0x93, #0x03
+       │    0x00002cea      d280           setb 0x80.0
+       │    0x00002cec      e530           mov a, 0x30
+       │┌─< 0x00002cee      30e141         jnb 0xe0.1, 0x2d32
+       ││   0x00002cf1      5330fd         anl 0x30, #0xfd
+            0x00005237      c0e0           push 0xe0
+            0x00005239      c0f0           push 0xf0
+            0x0000523b      c083           push 0x83
+            0x0000523d      c082           push 0x82
+            0x0000523f      c0d0           push 0xd0
+            0x00005241      75d000         mov 0xd0, #0x00
+            0x00005244      c000           push 0x00
+            0x00005246      c001           push 0x01
+            0x00005248      c002           push 0x02
+            0x0000524a      c003           push 0x03
+            0x0000524c      c004           push 0x04
+            0x0000524e      c005           push 0x05
+            0x00005250      c006           push 0x06
+            0x00005252      c007           push 0x07
+            0x00005254      90cbd4         mov dptr, #0xcbd4
+            0x00005257      e0             movx a, @dptr
+        ┌─< 0x00005258      30e305         jnb 0xe0.3, 0x5260
+        │   0x0000525b      12cc30         lcall 0xcc30
+       ┌──< 0x0000525e      800f           sjmp 0x526f
+       │└─> 0x00005260      90c776         mov dptr, #0xc776
+       │    0x00005263      e4             clr a
+       │    0x00005264      75f001         mov 0xf0, #0x01
+       │    0x00005267      120590         lcall 0x0590
+       │    0x0000526a      90f005         mov dptr, #0xf005
+       │    0x0000526d      e4             clr a
+       │    0x0000526e      f0             movx @dptr, a
+       └──> 0x0000526f      d007           pop 0x07
+            0x00005271      d006           pop 0x06
+            0x00005273      d005           pop 0x05
+            0x00005275      d004           pop 0x04
+            0x00005277      d003           pop 0x03
+            0x00005279      d002           pop 0x02
+            0x0000527b      d001           pop 0x01
+            0x0000527d      d000           pop 0x00
+            0x0000527f      d0d0           pop 0xd0
+            0x00005281      d082           pop 0x82
+            0x00005283      d083           pop 0x83
+            0x00005285      d0f0           pop 0xf0
+            0x00005287      d0e0           pop 0xe0
+            0x00005289      32             reti
+            0x000055ef      c0e0           push 0xe0
+            0x000055f1      c0f0           push 0xf0
+            0x000055f3      c083           push 0x83
+            0x000055f5      c082           push 0x82
+            0x000055f7      c0d0           push 0xd0
+            0x000055f9      75d000         mov 0xd0, #0x00
+            0x000055fc      c000           push 0x00
+            0x000055fe      c001           push 0x01
+            0x00005600      c002           push 0x02
+            0x00005602      c003           push 0x03
+            0x00005604      c004           push 0x04
+            0x00005606      c005           push 0x05
+            0x00005608      c006           push 0x06
+            0x0000560a      c007           push 0x07
+            0x0000560c      90cbd4         mov dptr, #0xcbd4
+            0x0000560f      e0             movx a, @dptr
+        ┌─< 0x00005610      30e405         jnb 0xe0.4, 0x5618
+        │   0x00005613      12cc40         lcall 0xcc40
+       ┌──< 0x00005616      8008           sjmp 0x5620
+       │└─> 0x00005618      90f006         mov dptr, #0xf006
+       │    0x0000561b      e4             clr a
+       │    0x0000561c      f0             movx @dptr, a
+       │    0x0000561d      753801         mov 0x38, #0x01
+       └──> 0x00005620      d007           pop 0x07
+            0x00005622      d006           pop 0x06
+            0x00005624      d005           pop 0x05
+            0x00005626      d004           pop 0x04
+            0x00005628      d003           pop 0x03
+            0x0000562a      d002           pop 0x02
+            0x0000562c      d001           pop 0x01
+            0x0000562e      d000           pop 0x00
+            0x00005630      d0d0           pop 0xd0
+            0x00005632      d082           pop 0x82
+            0x00005634      d083           pop 0x83
+            0x00005636      d0f0           pop 0xf0
+            0x00005638      d0e0           pop 0xe0
+            0x000057f6      c0e0           push 0xe0
+            0x000057f8      c0f0           push 0xf0
+            0x000057fa      c083           push 0x83
+            0x000057fc      c082           push 0x82
+            0x000057fe      c0d0           push 0xd0
+            0x00005800      75d000         mov 0xd0, #0x00
+            0x00005803      c000           push 0x00
+            0x00005805      c001           push 0x01
+            0x00005807      c002           push 0x02
+            0x00005809      c003           push 0x03
+            0x0000580b      c004           push 0x04
+            0x0000580d      c005           push 0x05
+            0x0000580f      c006           push 0x06
+            0x00005811      c007           push 0x07
+            0x00005813      90cbd4         mov dptr, #0xcbd4
+            0x00005816      e0             movx a, @dptr
+        ┌─< 0x00005817      30e505         jnb 0xe0.5, 0x581f
+        │   0x0000581a      12cc50         lcall 0xcc50
+       ┌──< 0x0000581d      8003           sjmp 0x5822
+       │└─> 0x0000581f      123269         lcall 0x3269
+       └──> 0x00005822      d007           pop 0x07
+            0x00005824      d006           pop 0x06
+            0x00005826      d005           pop 0x05
+            0x00005828      d004           pop 0x04
+            0x0000582a      d003           pop 0x03
+            0x0000582c      d002           pop 0x02
+            0x0000582e      d001           pop 0x01
+            0x00005830      d000           pop 0x00
+            0x00005832      d0d0           pop 0xd0
+            0x00005834      d082           pop 0x82
+            0x00005836      d083           pop 0x83
+            0x00005838      d0f0           pop 0xf0
+            0x0000583a      d0e0           pop 0xe0
+            0x0000583c      32             reti
+            0x0000583d      90c601         mov dptr, #0xc601
+            0x00005840      125a99         lcall 0x5a99
+            0x000065cd      90c5b2         mov dptr, #0xc5b2
+            0x000065d0      ee             mov a, r6
+            0x000065d1      f0             movx @dptr, a
+            0x000065d2      a3             inc dptr
+            0x000065d3      ef             mov a, r7
+            0x000065d4      f0             movx @dptr, a
+            0x000065d5      12700a         lcall 0x700a
+            0x000065d8      ac07           mov r4, 0x07
+            0x000065da      ed             mov a, r5
+            0x000065db      f4             cpl a
+            0x000065dc      5c             anl a, r4
+            0x000065dd      fc             mov r4, a
+            0x000065de      eb             mov a, r3
+            0x000065df      5d             anl a, r5
+            0x000065e0      4c             orl a, r4
+            0x000065e1      fc             mov r4, a
+            0x000065e2      90c5b2         mov dptr, #0xc5b2
+            0x000065e5      e0             movx a, @dptr
+            0x000065e6      fe             mov r6, a
+            0x000065e7      a3             inc dptr
+            0x000065e8      e0             movx a, @dptr
+            0x000065e9      ff             mov r7, a
+            0x000065ea      ad04           mov r5, 0x04
+        ┌─< 0x000065ec      027011         ljmp 0x7011
+        │   0x000065ef      a200           mov c, 0x20.0
+            0x0000700a      8f82           mov 0x82, r7
+            0x0000700c      8e83           mov 0x83, r6
+            0x0000700e      e0             movx a, @dptr
+            0x0000700f      ff             mov r7, a
+            0x00007010      22             ret
+            0x00007011      8f82           mov 0x82, r7
+            0x00007013      8e83           mov 0x83, r6
+            0x00007015      ed             mov a, r5
+            0x00007016      f0             movx @dptr, a
+            0x00007017      22             ret
+            0x00007018      ac05           mov r4, 0x05
+            0x0000701a      ab04           mov r3, 0x04
+            0x00004d54      90fe90         mov dptr, #0xfe90
+            0x00004d57      74f5           mov a, #0xf5
+            0x00004d59      f0             movx @dptr, a
+            0x00004d5a      a3             inc dptr
+            0x00004d5b      7494           mov a, #0x94
+            0x00004d5d      f0             movx @dptr, a
+            0x00004d5e      a3             inc dptr
+            0x00004d5f      74b4           mov a, #0xb4
+            0x00004d61      f0             movx @dptr, a
+            0x00004d62      a3             inc dptr
+            0x00004d63      e4             clr a
+            0x00004d64      f0             movx @dptr, a
+            0x00004d65      90fe90         mov dptr, #0xfe90
+            0x00004d68      e0             movx a, @dptr
+            0x00004d69      90c6a0         mov dptr, #0xc6a0
+            0x00004d6c      f0             movx @dptr, a
+            0x00004d6d      90fe90         mov dptr, #0xfe90
+            0x00004d70      e0             movx a, @dptr
+            0x00004d71      c3             clr c
+            0x00004d72      6480           xrl a, #0x80
+            0x00004d74      9480           subb a, #0x80
+            0x00004d76      7f00           mov r7, #0x00
+        ┌─< 0x00004d78      5002           jnc 0x4d7c
+        │   0x00004d7a      7fff           mov r7, #0xff
+        └─> 0x00004d7c      90c6a1         mov dptr, #0xc6a1
+            0x00004d7f      ef             mov a, r7
+            0x00004d80      f0             movx @dptr, a
+            0x00004d81      90fe91         mov dptr, #0xfe91
+            0x00004d84      e0             movx a, @dptr
+            0x00004d85      90c6a2         mov dptr, #0xc6a2
+            0x00004d88      f0             movx @dptr, a
+            0x00004d89      e4             clr a
+            0x00004d8a      a3             inc dptr
+            0x00004d8b      f0             movx @dptr, a
+            0x00004d8c      90fe93         mov dptr, #0xfe93
+            0x00004d8f      e0             movx a, @dptr
+            0x00004d90      90c6a4         mov dptr, #0xc6a4
+            0x00004d93      f0             movx @dptr, a
+            0x00004d94      90fe93         mov dptr, #0xfe93
+            0x00004d97      e0             movx a, @dptr
+            0x00004d98      c3             clr c
+            0x00004d99      6480           xrl a, #0x80
+            0x00004d9b      9480           subb a, #0x80
+            0x00004d9d      7f00           mov r7, #0x00
+        ┌─< 0x00004d9f      5002           jnc 0x4da3
+        │   0x00004da1      7fff           mov r7, #0xff
+        └─> 0x00004da3      90c6a5         mov dptr, #0xc6a5
+            0x00004da6      ef             mov a, r7
+            0x00004da7      f0             movx @dptr, a
+            0x00004da8      90fe92         mov dptr, #0xfe92
+            0x00004dab      e0             movx a, @dptr
+            0x00004dac      90c6a6         mov dptr, #0xc6a6
+            0x00004daf      f0             movx @dptr, a
+            0x00004db0      e4             clr a
+            0x00004db1      a3             inc dptr
+            0x00004db2      f0             movx @dptr, a
+            0x00004db3      22             ret
+            0x00004db4      e50f           mov a, 0x0f
+            0x00004db6      ff             mov r7, a
+            0x00004db7      e4             clr a
+        ┌─< 0x00004db8      7057           jnz 0x4e11
+        │   0x00004dba      ef             mov a, r7
+        │   0x00004dbb      24fe           add a, #0xfe
+       ┌──< 0x00004dbd      6013           jz 0x4dd2
+       ││   0x00004dbf      2402           add a, #0x02
+            0x000067f1      af10           mov r7, 0x10
+        ┌─< 0x000067f3      bf0111         cjne r7, #0x01, 0x6807
+        │   0x000067f6      850e39         mov 0x39, 0x0e
+        │   0x000067f9      85bc1b         mov 0x1b, 0xbc
+        │   0x000067fc      85bd1c         mov 0x1c, 0xbd
+        │   0x000067ff      85be1d         mov 0x1d, 0xbe
+        │   0x00006802      85bf1e         mov 0x1e, 0xbf
+       ┌──< 0x00006805      8006           sjmp 0x680d
+      ┌─└─> 0x00006807      bf0303         cjne r7, #0x03, 0x680d
+      ││    0x0000680a      850e3a         mov 0x3a, 0x0e
+      └└──> 0x0000680d      d216           setb 0x22.6
+            0x0000680f      22             ret
+            0x00006810      7d07           mov r5, #0x07
+            0x00006812      7f80           mov r7, #0x80
+            0x00006814      7efa           mov r6, #0xfa
+            0x00006816      127018         lcall 0x7018
+            0x00003e78      90c568         mov dptr, #0xc568
+            0x00003e7b      12087e         lcall 0x087e
+            0x00003e7e      7d80           mov r5, #0x80
+            0x00003e80      7f09           mov r7, #0x09
+            0x00003e82      7ef8           mov r6, #0xf8
+            0x00003e84      127018         lcall 0x7018
+            0x00003e87      90c568         mov dptr, #0xc568
+            0x00003e8a      120866         lcall 0x0866
+            0x00003e8d      e4             clr a
+            0x00003e8e      ad07           mov r5, 0x07
+            0x00003e90      7f62           mov r7, #0x62
+            0x00003e92      7efe           mov r6, #0xfe
+            0x00003e94      127011         lcall 0x7011
+            0x00003e97      90c568         mov dptr, #0xc568
+            0x00003e9a      120866         lcall 0x0866
+            0x00003e9d      7808           mov r0, #0x08
+            0x00003e9f      121e5f         lcall 0x1e5f
+            0x00003ea2      7f63           mov r7, #0x63
+            0x00003ea4      7efe           mov r6, #0xfe
+            0x00003ea6      127011         lcall 0x7011
+            0x00003ea9      90c568         mov dptr, #0xc568
+            0x00003eac      121e5a         lcall 0x1e5a
+            0x00003eaf      7f64           mov r7, #0x64
+            0x00003eb1      123eff         lcall 0x3eff
+            0x00003eb4      e4             clr a
+            0x00003eb5      ad07           mov r5, 0x07
+            0x00003eb7      7f65           mov r7, #0x65
+            0x00003eb9      123eff         lcall 0x3eff
+            0x00003ebc      7808           mov r0, #0x08
+            0x00003ebe      121e5f         lcall 0x1e5f
+            0x00003ec1      7f66           mov r7, #0x66
+            0x00003ec3      7efe           mov r6, #0xfe
+            0x00003ec5      127011         lcall 0x7011
+            0x00003ec8      90c56c         mov dptr, #0xc56c
+            0x00003ecb      121e5a         lcall 0x1e5a
+            0x00003ece      7f67           mov r7, #0x67
+            0x00003ed0      7efe           mov r6, #0xfe
+            0x00003ed2      127011         lcall 0x7011
+            0x00003ed5      90c56c         mov dptr, #0xc56c
+            0x00003ed8      120866         lcall 0x0866
+            0x00003edb      90c568         mov dptr, #0xc568
+            0x00003ede      121df7         lcall 0x1df7
+        ┌─< 0x00003ee1      7009           jnz 0x3eec
+        │   0x00003ee3      7d08           mov r5, #0x08
+        │   0x00003ee5      7f61           mov r7, #0x61
+        │   0x00003ee7      7efe           mov r6, #0xfe
+       ┌──< 0x00003ee9      027018         ljmp 0x7018
+       │└─> 0x00003eec      7d01           mov r5, #0x01
+       │    0x00003eee      7f61           mov r7, #0x61
+       │    0x00003ef0      7efe           mov r6, #0xfe
+       │    0x00003ef2      127018         lcall 0x7018
+       │    0x00003ef5      7d08           mov r5, #0x08
+       │    0x00003ef7      7f61           mov r7, #0x61
+       │    0x00003ef9      7efe           mov r6, #0xfe
+       │    0x00003efb      12000e         lcall 0x000e
+       │    0x00003efe      22             ret
+       │    0x00003eff      7efe           mov r6, #0xfe
+       │    0x00003f01      127011         lcall 0x7011
+       │    0x00003f04      90c56c         mov dptr, #0xc56c
+       │    0x00003f07      120866         lcall 0x0866
+       │    0x00003f0a      22             ret
+       │    0x00003f0b      90f80a         mov dptr, #0xf80a
+       │    0x00003f0e      e0             movx a, @dptr
+       │    0x00003f0f      4401           orl a, #0x01
+            0x00000866      e0             movx a, @dptr
+            0x00000867      fc             mov r4, a
+            0x00000868      a3             inc dptr
+            0x00000869      e0             movx a, @dptr
+            0x0000086a      fd             mov r5, a
+            0x0000086b      a3             inc dptr
+            0x0000086c      e0             movx a, @dptr
+            0x0000086d      fe             mov r6, a
+            0x0000086e      a3             inc dptr
+            0x0000086f      e0             movx a, @dptr
+            0x00000870      ff             mov r7, a
+            0x00000871      22             ret
+            0x00000872      e0             movx a, @dptr
+            0x00000873      f8             mov r0, a
+            0x00000874      a3             inc dptr
+            0x00000875      e0             movx a, @dptr
+            0x00000876      f9             mov r1, a
+            0x00000877      a3             inc dptr
+            0x00001e5a      120866         lcall 0x0866
+            0x00001e5d      7810           mov r0, #0x10
+            0x00001e5f      120820         lcall 0x0820
+            0x00001e62      e4             clr a
+            0x00001e63      ad07           mov r5, 0x07
+            0x00001e65      22             ret
+            0x0000080f      eb             mov a, r3
+            0x00000810      9f             subb a, r7
+            0x00000811      f5f0           mov 0xf0, a
+            0x00000813      ea             mov a, r2
+            0x00000814      9e             subb a, r6
+            0x00000815      42f0           orl 0xf0, a
+            0x00000817      e9             mov a, r1
+            0x00000818      9d             subb a, r5
+            0x00000819      42f0           orl 0xf0, a
+            0x0000081b      e8             mov a, r0
+            0x0000081c      9c             subb a, r4
+            0x0000081d      45f0           orl a, 0xf0
+            0x0000081f      22             ret
+            0x00000820      e8             mov a, r0
+        ┌─< 0x00000821      600f           jz 0x0832
+        │   0x00000823      ec             mov a, r4
+        │   0x00000824      c3             clr c
+        │   0x00000825      13             rrc a
+        │   0x00000826      fc             mov r4, a
+        │   0x00000827      ed             mov a, r5
+        │   0x00000828      13             rrc a
+        │   0x00000829      fd             mov r5, a
+        │   0x0000082a      ee             mov a, r6
+        │   0x0000082b      13             rrc a
+        ╎   0x00006345      90c54e         mov dptr, #0xc54e
+        ╎   0x00006348      1208e7         lcall 0x08e7
+        ╎   0x0000634b      7d01           mov r5, #0x01
+        ╎   0x0000634d      7f19           mov r7, #0x19
+        ╎   0x0000634f      7ef8           mov r6, #0xf8
+        ╎   0x00006351      127018         lcall 0x7018
+        ╎   0x00006354      90c54e         mov dptr, #0xc54e
+        ╎   0x00006357      1208c7         lcall 0x08c7
+        ╎   0x0000635a      7d00           mov r5, #0x00
+        ╎   0x0000635c      7c01           mov r4, #0x01
+        ╎   0x0000635e      7f00           mov r7, #0x00
+        ╎   0x00006360      7efb           mov r6, #0xfb
+        ╎   0x00006362      125038         lcall 0x5038
+        ╎   0x00006365      7d01           mov r5, #0x01
+        ╎   0x00006367      7f19           mov r7, #0x19
+        ╎   0x00006369      7ef8           mov r6, #0xf8
+        └─< 0x0000636b      02000e         ljmp 0x000e
+            0x00005038      90c5ee         mov dptr, #0xc5ee
+            0x0000503b      ee             mov a, r6
+            0x0000503c      f0             movx @dptr, a
+            0x0000503d      a3             inc dptr
+            0x0000503e      ef             mov a, r7
+            0x0000503f      f0             movx @dptr, a
+            0x00005040      a3             inc dptr
+            0x00005041      ec             mov a, r4
+            0x00005042      f0             movx @dptr, a
+            0x00005043      a3             inc dptr
+            0x00005044      ed             mov a, r5
+            0x00005045      f0             movx @dptr, a
+            0x00005046      a3             inc dptr
+            0x00005047      1208e7         lcall 0x08e7
+            0x0000504a      e4             clr a
+            0x0000504b      90c5f5         mov dptr, #0xc5f5
+            0x0000504e      f0             movx @dptr, a
+            0x0000504f      a3             inc dptr
+            0x00005050      f0             movx @dptr, a
+            0x00005051      90c5f0         mov dptr, #0xc5f0
+            0x00005054      e0             movx a, @dptr
+            0x00005055      fe             mov r6, a
+            0x00005056      a3             inc dptr
+            0x00005057      e0             movx a, @dptr
+            0x00005058      90c5f5         mov dptr, #0xc5f5
+            0x0000505b      12369c         lcall 0x369c
+        ┌─< 0x0000505e      502e           jnc 0x508e
+        │   0x00005060      90c5ef         mov dptr, #0xc5ef
+        │   0x00005063      e0             movx a, @dptr
+        │   0x00005064      2d             add a, r5
+        │   0x00005065      ff             mov r7, a
+        │   0x00005066      90c5ee         mov dptr, #0xc5ee
+        │   0x00005069      e0             movx a, @dptr
+        │   0x0000506a      3c             addc a, r4
+        │   0x0000506b      fe             mov r6, a
+        │   0x0000506c      90c5f2         mov dptr, #0xc5f2
+        │   0x0000506f      1208c7         lcall 0x08c7
+        │   0x00005072      90c5f5         mov dptr, #0xc5f5
+        │   0x00005075      a3             inc dptr
+        │   0x00005076      e0             movx a, @dptr
+        │   0x00005077      f582           mov 0x82, a
+        │   0x00005079      8c83           mov 0x83, r4
+        │   0x0000507b      120492         lcall 0x0492
+        │   0x0000507e      fd             mov r5, a
+        │   0x0000507f      127011         lcall 0x7011
+        │   0x00005082      90c5f5         mov dptr, #0xc5f5
+        │   0x00005085      e4             clr a
+        │   0x00005086      75f001         mov 0xf0, #0x01
+        ┌─< 0x00000492      bb010c         cjne r3, #0x01, 0x04a1
+        │   0x00000495      e582           mov a, 0x82
+        │   0x00000497      29             add a, r1
+        │   0x00000498      f582           mov 0x82, a
+        │   0x0000049a      e583           mov a, 0x83
+        │   0x0000049c      3a             addc a, r2
+        │   0x0000049d      f583           mov 0x83, a
+        │   0x0000049f      e0             movx a, @dptr
+        │   0x000004a0      22             ret
+       ┌└─> 0x000004a1      5006           jnc 0x04a9
+       │    0x000004a3      e9             mov a, r1
+       │    0x000004a4      2582           add a, 0x82
+       │    0x000004a6      f8             mov r0, a
+       │    0x000004a7      e6             mov a, @r0
+       │    0x000004a8      22             ret
+       └┌─< 0x000004a9      bbfe06         cjne r3, #0xfe, 0x04b2
+        │   0x000004ac      e9             mov a, r1
+        │   0x000004ad      2582           add a, 0x82
+        │   0x000004af      f8             mov r0, a
+        │   0x000004b0      e2             movx a, @r0
+        │   0x000004b1      22             ret
+        └─> 0x000004b2      e582           mov a, 0x82
+            0x000004b4      29             add a, r1
+            0x000004b5      f582           mov 0x82, a
+            0x000004b7      e583           mov a, 0x83
+            0x000004b9      3a             addc a, r2
+            0x000004ba      f583           mov 0x83, a
+            0x000004bc      e4             clr a
+            0x000004bd      93             movc a, @a+dptr
+            0x000008c7      e0             movx a, @dptr
+            0x000008c8      fb             mov r3, a
+            0x000008c9      a3             inc dptr
+            0x000008ca      e0             movx a, @dptr
+            0x000008cb      fa             mov r2, a
+            0x000008e7      eb             mov a, r3
+            0x000008e8      f0             movx @dptr, a
+            0x000008e9      a3             inc dptr
+            0x000008ea      ea             mov a, r2
+            0x000008eb      f0             movx @dptr, a
+            0x000008ec      a3             inc dptr
+            0x000067d2      90c56c         mov dptr, #0xc56c
+            0x000067d5      12088a         lcall 0x088a
+            0x000067dc      7f80           mov r7, #0x80
+            0x000067de      7ebb           mov r6, #0xbb
+            0x000067e0      7d00           mov r5, #0x00
+            0x000067e2      7c00           mov r4, #0x00
+            0x000067e4      123e78         lcall 0x3e78
+            0x00004cc7      90c56c         mov dptr, #0xc56c
+            0x00004cca      12088a         lcall 0x088a
+            0x00004cd1      90c564         mov dptr, #0xc564
+            0x00004cd4      120866         lcall 0x0866
+            0x00004cd7      123e78         lcall 0x3e78
+            0x000056ff      90c56c         mov dptr, #0xc56c
+            0x00005702      12088a         lcall 0x088a
+            0x00005709      90c54e         mov dptr, #0xc54e
+            0x0000570c      120866         lcall 0x0866
+            0x0000570f      123e78         lcall 0x3e78

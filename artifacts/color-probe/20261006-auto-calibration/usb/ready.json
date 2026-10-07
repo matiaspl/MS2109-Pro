@@ -1,0 +1,1 @@
+{"original":{"brightness_ui":128,"brightness_signed":0,"contrast":128,"saturation":128,"hue":0},"brightness_ui_range":[0,255],"brightness_signed_range":[-128,127],"contrast_range":[0,255],"saturation_range":[0,255],"step":1,"frames_per_transport":3,"session_timeout_seconds":900,"heartbeat_timeout_seconds":45}

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1100" height="800" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1100 800" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1100" height="800"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-800)" style="clip-path: url(#clip)">
+		<g transform="">
+			<text x="30" y="765" style="font-family: Times-Roman; font-size: 20px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,1530) scale(1,-1)">MS2109: every 0–255 level on gray and RGB primary ramps</text>
+			<g transform="">
+				<g transform="">
+					<g transform="">
+						<path d="M 65,420 L 505,420 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 65,420 L 65,415 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 285,420 L 285,415 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 505,420 L 505,415 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,65,415)">
+							<text x="-2.5" y="-10.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">0</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,285,415)">
+							<text x="-5.0" y="-10.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">16</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,505,415)">
+							<text x="-5.0" y="-10.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">32</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<g transform="">
+						<path d="M 65,420 L 65,640 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 65,457.560976 L 60,457.560976 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 65,511.219512 L 60,511.219512 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 65,564.878049 L 60,564.878049 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 65,618.536585 L 60,618.536585 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,60,457.560976)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">20</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,60,511.219512)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">30</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,60,564.878049)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">40</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,60,618.536585)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">50</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<polyline points="65 511.2195, 78.75 511.2195, 92.5 516.5854, 106.25 516.5854, 120 521.9512, 133.75 527.3171, 147.5 532.6829, 161.25 538.0488, 175 538.0488, 188.75 543.4146, 202.5 548.7805, 216.25 548.7805, 230 554.1463, 243.75 559.5122, 257.5 564.878, 271.25 564.878, 285 570.2439, 298.75 575.6098, 312.5 580.9756, 326.25 580.9756, 340 586.3415, 353.75 591.7073, 367.5 591.7073, 381.25 597.0732, 395 602.439, 408.75 607.8049, 422.5 613.1707, 436.25 613.1707, 450 618.5366, 463.75 618.5366, 477.5 623.9024, 491.25 629.2683, 505 634.6341" style="stroke: rgb(12%,36%,58%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="65 436.0976, 78.75 436.0976, 92.5 441.4634, 106.25 446.8293, 120 452.1951, 133.75 457.561, 147.5 462.9268, 161.25 468.2927, 175 468.2927, 188.75 473.6585, 202.5 479.0244, 216.25 484.3902, 230 489.7561, 243.75 495.122, 257.5 500.4878, 271.25 500.4878, 285 505.8537, 298.75 511.2195, 312.5 516.5854, 326.25 521.9512, 340 527.3171, 353.75 532.6829, 367.5 532.6829, 381.25 538.0488, 395 543.4146, 408.75 548.7805, 422.5 554.1463, 436.25 559.5122, 450 564.878, 463.75 564.878, 477.5 570.2439, 491.25 575.6098, 505 580.9756" style="stroke: rgb(81%,44%,11%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="65 436.0976, 78.75 436.0976, 92.5 441.4634, 106.25 446.8293, 120 452.1951, 133.75 457.561, 147.5 462.9268, 161.25 468.2927, 175 468.2927, 188.75 473.6585, 202.5 479.0244, 216.25 484.3902, 230 489.7561, 243.75 495.122, 257.5 500.4878, 271.25 500.4878, 285 505.8537, 298.75 511.2195, 312.5 516.5854, 326.25 521.9512, 340 527.3171, 353.75 532.6829, 367.5 532.6829, 381.25 538.0488, 395 543.4146, 408.75 548.7805, 422.5 554.1463, 436.25 559.5122, 450 564.878, 463.75 564.878, 477.5 570.2439, 491.25 575.6098, 505 580.9756" style="stroke: rgb(25%,59%,40%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="65 425.3659, 78.75 425.3659, 92.5 430.7317, 106.25 436.0976, 120 441.4634, 133.75 446.8293, 147.5 452.1951, 161.25 457.561, 175 462.9268, 188.75 462.9268, 202.5 468.2927, 216.25 473.6585, 230 479.0244, 243.75 484.3902, 257.5 489.7561, 271.25 495.122, 285 495.122, 298.75 500.4878, 312.5 505.8537, 326.25 511.2195, 340 516.5854, 353.75 521.9512, 367.5 527.3171, 381.25 527.3171, 395 532.6829, 408.75 538.0488, 422.5 543.4146, 436.25 548.7805, 450 554.1463, 463.75 559.5122, 477.5 559.5122, 491.25 564.878, 505 570.2439" style="stroke: rgb(60%,25%,54%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="65 425.3659, 78.75 425.3659, 92.5 430.7317, 106.25 436.0976, 120 441.4634, 133.75 446.8293, 147.5 452.1951, 161.25 457.561, 175 457.561, 188.75 462.9268, 202.5 468.2927, 216.25 473.6585, 230 479.0244, 243.75 484.3902, 257.5 489.7561, 271.25 495.122, 285 495.122, 298.75 500.4878, 312.5 505.8537, 326.25 511.2195, 340 516.5854, 353.75 521.9512, 367.5 527.3171, 381.25 527.3171, 395 532.6829, 408.75 538.0488, 422.5 543.4146, 436.25 548.7805, 450 554.1463, 463.75 559.5122, 477.5 559.5122, 491.25 564.878, 505 570.2439" style="stroke: rgb(62%,15%,15%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="65 436.0976, 505 583.5638" style="stroke: rgb(66%,66%,66%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd; stroke-dasharray: 4, 4;"/>
+				</g>
+			</g>
+			<text x="65" y="660" style="font-family: Times-Roman; font-size: 15px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,1320) scale(1,-1)">Neutral gray: measured Y codes</text>
+			<text x="195" y="385" style="font-family: Times-Roman; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,770) scale(1,-1)">Source input code</text>
+			<g transform="">
+				<g transform="">
+					<g transform="">
+						<path d="M 600,420 L 1040,420 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 600,420 L 600,415 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 820,420 L 820,415 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 1040,420 L 1040,415 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,600,415)">
+							<text x="-2.5" y="-10.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">0</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,820,415)">
+							<text x="-5.0" y="-10.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">16</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,1040,415)">
+							<text x="-5.0" y="-10.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">32</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<g transform="">
+						<path d="M 600,420 L 600,640 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 600,439.130435 L 595,439.130435 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 600,486.956522 L 595,486.956522 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 600,534.782609 L 595,534.782609 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 600,582.608696 L 595,582.608696 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 600,630.434783 L 595,630.434783 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,595,439.130435)">
+							<text x="-5.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">0</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,595,486.956522)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">10</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,595,534.782609)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">20</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,595,582.608696)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">30</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,595,630.434783)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">40</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<polyline points="600 517.0935, 613.75 517.0935, 627.5 517.0935, 641.25 517.0935, 655 517.0935, 668.75 525.6675, 682.5 531.2363, 696.25 539.8103, 710 539.8103, 723.75 548.3842, 737.5 548.3842, 751.25 548.3842, 765 556.9582, 778.75 556.9582, 792.5 556.9582, 806.25 556.9582, 820 565.5322, 833.75 571.101, 847.5 571.101, 861.25 579.675, 875 579.675, 888.75 588.2489, 902.5 593.8177, 916.25 602.3917, 930 602.3917, 943.75 610.9657, 957.5 610.9657, 971.25 610.9657, 985 625.1085, 998.75 625.1085, 1012.5 633.6824, 1026.25 633.6824, 1040 633.6824" style="stroke: rgb(12%,36%,58%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="600 439.1304, 613.75 439.1304, 627.5 439.1304, 641.25 439.1304, 655 439.1304, 668.75 447.7044, 682.5 453.2732, 696.25 461.8472, 710 461.8472, 723.75 470.4212, 737.5 470.4212, 751.25 475.99, 765 484.5639, 778.75 484.5639, 792.5 493.1379, 806.25 493.1379, 820 501.7119, 833.75 507.2807, 847.5 507.2807, 861.25 515.8547, 875 515.8547, 888.75 524.4286, 902.5 529.9974, 916.25 538.5714, 930 538.5714, 943.75 547.1454, 957.5 547.1454, 971.25 547.1454, 985 561.2882, 998.75 561.2882, 1012.5 569.8621, 1026.25 569.8621, 1040 578.4361" style="stroke: rgb(81%,44%,11%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="600 439.1304, 613.75 439.1304, 627.5 439.1304, 641.25 439.1304, 655 439.1304, 668.75 447.7044, 682.5 453.2732, 696.25 461.8472, 710 461.8472, 723.75 466.1342, 737.5 470.4212, 751.25 475.99, 765 484.5639, 778.75 484.5639, 792.5 493.1379, 806.25 493.1379, 820 501.7119, 833.75 507.2807, 847.5 507.2807, 861.25 515.8547, 875 515.8547, 888.75 524.4286, 902.5 529.9974, 916.25 538.5714, 930 538.5714, 943.75 542.8584, 957.5 547.1454, 971.25 547.1454, 985 561.2882, 998.75 561.2882, 1012.5 569.8621, 1026.25 569.8621, 1040 578.4361" style="stroke: rgb(25%,59%,40%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="600 427.9929, 613.75 427.9929, 627.5 427.9929, 641.25 427.9929, 655 427.9929, 668.75 442.1356, 682.5 442.1356, 696.25 450.7096, 710 450.7096, 723.75 459.2836, 737.5 464.8524, 751.25 464.8524, 765 473.4264, 778.75 473.4264, 792.5 482.0003, 806.25 482.0003, 820 496.1431, 833.75 496.1431, 847.5 496.1431, 861.25 504.7171, 875 504.7171, 888.75 518.8598, 902.5 518.8598, 916.25 527.4338, 930 527.4338, 943.75 536.0078, 957.5 536.0078, 971.25 541.5766, 985 550.1506, 998.75 550.1506, 1012.5 558.7246, 1026.25 558.7246, 1040 572.8673" style="stroke: rgb(60%,25%,54%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="600 427.9929, 613.75 427.9929, 627.5 427.9929, 641.25 427.9929, 655 427.9929, 668.75 442.1356, 682.5 442.1356, 696.25 450.7096, 710 450.7096, 723.75 454.9966, 737.5 459.2836, 751.25 464.8524, 765 473.4264, 778.75 473.4264, 792.5 482.0003, 806.25 482.0003, 820 496.1431, 833.75 496.1431, 847.5 496.1431, 861.25 504.7171, 875 504.7171, 888.75 513.2911, 902.5 518.8598, 916.25 527.4338, 930 527.4338, 943.75 531.7208, 957.5 536.0078, 971.25 541.5766, 985 550.1506, 998.75 550.1506, 1012.5 558.7246, 1026.25 558.7246, 1040 567.2985" style="stroke: rgb(62%,15%,15%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="600 439.1304, 1040 592.1739" style="stroke: rgb(66%,66%,66%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd; stroke-dasharray: 4, 4;"/>
+				</g>
+			</g>
+			<text x="600" y="660" style="font-family: Times-Roman; font-size: 15px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,1320) scale(1,-1)">Red: RGB inverse with 709 limited</text>
+			<text x="730" y="385" style="font-family: Times-Roman; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,770) scale(1,-1)">Source input code</text>
+			<g transform="">
+				<g transform="">
+					<g transform="">
+						<path d="M 65,125 L 505,125 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 65,125 L 65,120 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 285,125 L 285,120 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 505,125 L 505,120 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,65,120)">
+							<text x="-2.5" y="-10.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">0</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,285,120)">
+							<text x="-5.0" y="-10.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">16</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,505,120)">
+							<text x="-5.0" y="-10.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">32</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<g transform="">
+						<path d="M 65,125 L 65,345 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 65,143.333333 L 60,143.333333 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 65,189.166667 L 60,189.166667 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 65,235 L 60,235 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 65,280.833333 L 60,280.833333 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 65,326.666667 L 60,326.666667 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,60,143.333333)">
+							<text x="-5.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">0</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,60,189.166667)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">10</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,60,235)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">20</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,60,280.833333)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">30</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,60,326.666667)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">40</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<polyline points="65 218.0479, 78.75 218.0479, 92.5 221.4678, 106.25 226.8046, 120 230.2245, 133.75 235.5612, 147.5 238.0037, 161.25 244.3179, 175 244.3179, 188.75 249.6546, 202.5 254.9914, 216.25 257.4339, 230 262.7707, 243.75 269.0848, 257.5 271.5273, 271.25 271.5273, 285 274.9472, 298.75 280.284, 312.5 285.6207, 326.25 289.0406, 340 294.3774, 353.75 296.8199, 367.5 303.134, 381.25 308.4708, 395 310.9133, 408.75 317.2274, 422.5 319.6699, 436.25 319.6699, 450 325.9841, 463.75 328.4266, 477.5 333.7633, 491.25 340.0775, 505 340.0775" style="stroke: rgb(12%,36%,58%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="65 143.3333, 78.75 143.3333, 92.5 146.7532, 106.25 152.09, 120 160.8466, 133.75 166.1834, 147.5 168.6259, 161.25 174.94, 175 174.94, 188.75 182.7193, 202.5 189.0334, 216.25 191.4759, 230 196.8127, 243.75 203.1269, 257.5 205.5694, 271.25 210.9061, 285 214.326, 298.75 219.6628, 312.5 224.9995, 326.25 228.4194, 340 233.7562, 353.75 236.1987, 367.5 242.5128, 381.25 247.8496, 395 250.2921, 408.75 256.6062, 422.5 264.3855, 436.25 264.3855, 450 270.6996, 463.75 273.1421, 477.5 278.4789, 491.25 287.2355, 505 287.2355" style="stroke: rgb(81%,44%,11%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="65 143.3333, 78.75 143.3333, 92.5 146.7532, 106.25 152.09, 120 160.8466, 133.75 166.1834, 147.5 168.6259, 161.25 174.94, 175 176.1613, 188.75 182.7193, 202.5 189.0334, 216.25 191.4759, 230 196.8127, 243.75 204.3481, 257.5 205.5694, 271.25 210.9061, 285 214.326, 298.75 219.6628, 312.5 226.2208, 326.25 228.4194, 340 233.7562, 353.75 236.1987, 367.5 242.5128, 381.25 249.0708, 395 250.2921, 408.75 256.6062, 422.5 264.3855, 436.25 264.8742, 450 271.9209, 463.75 273.1421, 477.5 278.9676, 491.25 287.2355, 505 287.2355" style="stroke: rgb(25%,59%,40%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="65 132.6598, 78.75 132.6598, 92.5 136.0797, 106.25 141.4165, 120 150.1731, 133.75 155.5099, 147.5 157.9524, 161.25 164.2665, 175 169.6033, 188.75 172.0458, 202.5 178.3599, 216.25 180.8024, 230 186.1392, 243.75 192.4533, 257.5 194.8958, 271.25 200.2326, 285 208.9892, 298.75 208.9892, 312.5 214.326, 326.25 217.7459, 340 223.0826, 353.75 230.8619, 367.5 231.8393, 381.25 237.1761, 395 239.6186, 408.75 245.9327, 422.5 253.712, 436.25 253.712, 450 260.0261, 463.75 267.8054, 477.5 267.8054, 491.25 276.562, 505 276.562" style="stroke: rgb(60%,25%,54%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="65 132.6598, 78.75 132.6598, 92.5 136.0797, 106.25 141.4165, 120 150.1731, 133.75 155.5099, 147.5 157.9524, 161.25 164.2665, 175 170.8245, 188.75 172.0458, 202.5 178.3599, 216.25 180.8024, 230 186.1392, 243.75 193.6746, 257.5 194.8958, 271.25 200.2326, 285 203.6525, 298.75 208.9892, 312.5 215.5473, 326.25 217.7459, 340 223.0826, 353.75 230.8619, 367.5 231.8393, 381.25 238.3973, 395 239.6186, 408.75 245.9327, 422.5 253.712, 436.25 254.2007, 450 261.2474, 463.75 262.4686, 477.5 268.2941, 491.25 276.562, 505 276.562" style="stroke: rgb(62%,15%,15%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="65 143.3333, 505 290" style="stroke: rgb(66%,66%,66%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd; stroke-dasharray: 4, 4;"/>
+				</g>
+			</g>
+			<text x="65" y="365" style="font-family: Times-Roman; font-size: 15px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,730) scale(1,-1)">Green: RGB inverse with 709 limited</text>
+			<text x="195" y="90" style="font-family: Times-Roman; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,180) scale(1,-1)">Source input code</text>
+			<g transform="">
+				<g transform="">
+					<g transform="">
+						<path d="M 600,125 L 1040,125 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 600,125 L 600,120 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 820,125 L 820,120 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 1040,125 L 1040,120 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,600,120)">
+							<text x="-2.5" y="-10.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">0</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,820,120)">
+							<text x="-5.0" y="-10.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">16</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,1040,120)">
+							<text x="-5.0" y="-10.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-20) scale(1,-1)">32</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<g transform="">
+						<path d="M 600,125 L 600,345 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 600,144.130435 L 595,144.130435 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 600,191.956522 L 595,191.956522 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 600,239.782609 L 595,239.782609 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 600,287.608696 L 595,287.608696 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 600,335.434783 L 595,335.434783 Z" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,595,144.130435)">
+							<text x="-5.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">0</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,595,191.956522)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">10</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,595,239.782609)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">20</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,595,287.608696)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">30</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,595,335.434783)">
+							<text x="-10.0" y="-4.0" style="font-family: Times-Roman; font-size: 10px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">40</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<polyline points="600 222.0935, 613.75 222.0935, 627.5 222.0935, 641.25 222.0935, 655 222.0935, 668.75 232.1963, 682.5 232.1963, 696.25 242.2991, 710 242.2991, 723.75 252.4019, 737.5 252.4019, 751.25 252.4019, 765 262.5047, 778.75 262.5047, 792.5 262.5047, 806.25 262.5047, 820 278.1763, 833.75 278.1763, 847.5 278.1763, 861.25 288.279, 875 288.279, 888.75 298.3818, 902.5 298.3818, 916.25 308.4846, 930 308.4846, 943.75 318.5874, 957.5 318.5874, 971.25 318.5874, 985 328.6902, 998.75 328.6902, 1012.5 338.793, 1026.25 338.793, 1040 338.793" style="stroke: rgb(12%,36%,58%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="600 144.1304, 613.75 144.1304, 627.5 144.1304, 641.25 144.1304, 655 144.1304, 668.75 154.2332, 682.5 154.2332, 696.25 164.336, 710 164.336, 723.75 174.4388, 737.5 174.4388, 751.25 174.4388, 765 184.5416, 778.75 184.5416, 792.5 194.6444, 806.25 194.6444, 820 210.316, 833.75 210.316, 847.5 210.316, 861.25 220.4188, 875 220.4188, 888.75 230.5216, 902.5 230.5216, 916.25 240.6243, 930 240.6243, 943.75 250.7271, 957.5 250.7271, 971.25 250.7271, 985 260.8299, 998.75 260.8299, 1012.5 270.9327, 1026.25 270.9327, 1040 286.6043" style="stroke: rgb(81%,44%,11%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="600 144.1304, 613.75 144.1304, 627.5 144.1304, 641.25 144.1304, 655 144.1304, 668.75 154.2332, 682.5 154.2332, 696.25 164.336, 710 164.336, 723.75 169.3874, 737.5 174.4388, 751.25 174.4388, 765 184.5416, 778.75 184.5416, 792.5 194.6444, 806.25 194.6444, 820 210.316, 833.75 210.316, 847.5 210.316, 861.25 220.4188, 875 220.4188, 888.75 230.5216, 902.5 230.5216, 916.25 240.6243, 930 240.6243, 943.75 245.6757, 957.5 250.7271, 971.25 250.7271, 985 260.8299, 998.75 260.8299, 1012.5 270.9327, 1026.25 270.9327, 1040 286.6043" style="stroke: rgb(25%,59%,40%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="600 132.9929, 613.75 132.9929, 627.5 132.9929, 641.25 132.9929, 655 132.9929, 668.75 143.0956, 682.5 143.0956, 696.25 153.1984, 710 153.1984, 723.75 163.3012, 737.5 163.3012, 751.25 163.3012, 765 173.404, 778.75 173.404, 792.5 189.0756, 806.25 189.0756, 820 199.1784, 833.75 199.1784, 847.5 199.1784, 861.25 209.2812, 875 209.2812, 888.75 219.384, 902.5 219.384, 916.25 229.4868, 930 229.4868, 943.75 239.5896, 957.5 239.5896, 971.25 239.5896, 985 249.6923, 998.75 249.6923, 1012.5 265.3639, 1026.25 265.3639, 1040 275.4667" style="stroke: rgb(60%,25%,54%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="600 132.9929, 613.75 132.9929, 627.5 132.9929, 641.25 132.9929, 655 132.9929, 668.75 143.0956, 682.5 143.0956, 696.25 153.1984, 710 153.1984, 723.75 158.2498, 737.5 163.3012, 751.25 163.3012, 765 173.404, 778.75 173.404, 792.5 183.5068, 806.25 189.0756, 820 199.1784, 833.75 199.1784, 847.5 199.1784, 861.25 209.2812, 875 209.2812, 888.75 219.384, 902.5 219.384, 916.25 229.4868, 930 229.4868, 943.75 234.5382, 957.5 239.5896, 971.25 239.5896, 985 249.6923, 998.75 249.6923, 1012.5 259.7951, 1026.25 265.3639, 1040 275.4667" style="stroke: rgb(62%,15%,15%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd;"/>
+					<polyline points="600 144.1304, 1040 297.1739" style="stroke: rgb(66%,66%,66%); stroke-linecap: round; stroke-width: 1.5; fill: None; fill-rule: evenodd; stroke-dasharray: 4, 4;"/>
+				</g>
+			</g>
+			<text x="600" y="365" style="font-family: Times-Roman; font-size: 15px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,730) scale(1,-1)">Blue: RGB inverse with 709 limited</text>
+			<text x="730" y="90" style="font-family: Times-Roman; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,180) scale(1,-1)">Source input code</text>
+			<text x="30" y="25" style="font-family: Times-Roman; font-size: 12px;fill: rgb(12%,36%,58%); stroke:none;" transform="translate(0,50) scale(1,-1)">avf-current-decoded</text>
+			<text x="390" y="25" style="font-family: Times-Roman; font-size: 12px;fill: rgb(81%,44%,11%); stroke:none;" transform="translate(0,50) scale(1,-1)">usb-current-mjpeg</text>
+			<text x="750" y="25" style="font-family: Times-Roman; font-size: 12px;fill: rgb(25%,59%,40%); stroke:none;" transform="translate(0,50) scale(1,-1)">usb-current-yuy2</text>
+			<text x="30" y="45" style="font-family: Times-Roman; font-size: 12px;fill: rgb(60%,25%,54%); stroke:none;" transform="translate(0,90) scale(1,-1)">usb-ui127-mjpeg</text>
+			<text x="390" y="45" style="font-family: Times-Roman; font-size: 12px;fill: rgb(62%,15%,15%); stroke:none;" transform="translate(0,90) scale(1,-1)">usb-ui127-yuy2</text>
+			<text x="30" y="690" style="font-family: Times-Roman; font-size: 12px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,1380) scale(1,-1)">RGB plots show the explicit inverse before clipping; gray shows preserved Y values.</text>
+		</g>
+	</g>
+</svg>

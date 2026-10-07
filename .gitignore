@@ -1,0 +1,13 @@
+upstream/
+__pycache__/
+tools/ms-tools
+tools/capture_audio_usb
+# Host metadata and large raw capture data (analysis summaries remain tracked)
+.DS_Store
+*.yuy2
+*.yuvs
+*.BGRA
+*.2vuy
+*.rgba
+*.ycbcr
+*.mkv

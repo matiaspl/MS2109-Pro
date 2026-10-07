@@ -1,0 +1,101 @@
+{
+  "status": "offline prototype; not hardware-qualified",
+  "eeprom_limit_bytes": 2048,
+  "code_limit_bytes": 1996,
+  "required_code_bytes": 2439,
+  "deficit_bytes": 443,
+  "required_image_bytes": 2491,
+  "main_routines_bytes": 719,
+  "edid_delta_bytes": 0,
+  "edid_source": "rom",
+  "edid_decoder_bytes": 0,
+  "repair_bytes": 44,
+  "edid_table_unused_bytes": 22,
+  "overlay_sha256": "dbaeef003752048f70877afd397ca2c3e750d26ec7855107832746e72d98012c",
+  "rom_sha256": "b383ef31fca43ebc58a22be8e342d9a1e33ec1cc15afce02921910b0ca358bc8",
+  "original_sha256": "37103dccfc6c5e2062b6d22a0a619729449427270e52ae4332fde0da0f49dfe1",
+  "rollback": "artifacts/ms2109-calibrated-stereo-channel-order.bin",
+  "memory": {
+    "overlay": [
+      "0xcc00",
+      "0xd586"
+    ],
+    "selected": "0xce3b",
+    "descriptor_buffer": [
+      "0xd800",
+      "0xdcba"
+    ],
+    "edid_buffer": null,
+    "ep0_staging_rom_owned": [
+      "0xc020",
+      "0xc021"
+    ]
+  },
+  "symbols": {
+    "common": "0xcd52",
+    "common_stage2": "0xcd9b",
+    "common_apply": "0xcdb8",
+    "common_done": "0xcdbe",
+    "matrix": "0xcdcc",
+    "matrix_record": "0xcdd8",
+    "matrix_done": "0xcdf8",
+    "repair": "0xcdf9",
+    "repair_fe85": "0xce14",
+    "repair_done": "0xce1a",
+    "video": "0xce25",
+    "factory_video": "0xce25",
+    "query_values": "0xce34",
+    "selected": "0xce3b",
+    "cc10": "0xd2b8",
+    "video_entry": "0xd2d7",
+    "usb": "0xd2e1",
+    "maybe_other_speed": "0xd31f",
+    "classify_control": "0xd32a",
+    "wait_out": "0xd377",
+    "query": "0xd3a5",
+    "query_length": "0xd3cf",
+    "query_store": "0xd3e9",
+    "reject": "0xd3fb",
+    "complete": "0xd3fd",
+    "delegate": "0xd402",
+    "usb_return": "0xd42a",
+    "descriptor": "0xd44d",
+    "other_speed": "0xd464",
+    "descriptor_source": "0xd467",
+    "descriptor_fs_length": "0xd4a0",
+    "descriptor_copy": "0xd4b1",
+    "descriptor_bounded": "0xd532",
+    "descriptor_remaining": "0xd548",
+    "descriptor_packet": "0xd557"
+  },
+  "limitations": [
+    "No real USB FIFO timing or physical-device qualification",
+    "Descriptor and EDID scratch allocation is a static proposal, not a hardware lease",
+    "An oversized raw overlay must never be passed to an EEPROM programmer"
+  ],
+  "branch_audit": {
+    "checked_branches": 147,
+    "instruction_count": 490,
+    "status": "all generated branch/call targets are instruction boundaries or pinned ROM entries"
+  },
+  "test_command": "python3 -m unittest discover -s tests -v",
+  "test_exit_status": 0,
+  "r2_version": "radare2 6.2.2 +0 abi:142 @ darwin-arm_64",
+  "python_version": "3.14.7",
+  "rollback_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "custom_edid_sha256": "56732f27ad87a56fb762666b10c4eeb09ab60108c8f44ce19a4fc71ef05f6517",
+  "original_checksum_validation": {
+    "status": "passed",
+    "code_bytes": 1716
+  },
+  "raw_overlay_sum16": "0x90e",
+  "edid_reference_audit": {
+    "pinned_factory_caller": "D118: FF:77:38 -> CC10",
+    "whole_saved_rom_direct_cd52_matches": 0,
+    "whole_eeprom_direct_cd52_matches": 0,
+    "whole_eeprom_split_pointer_matches": 1,
+    "limitation": "Literal scans and the pinned caller are not exhaustive computed-reference proof; live reuse remains gated"
+  },
+  "packaging_gate": "Sharpness profile needs 2439 code bytes; 2 KiB EEPROM permits 1996: deficit 443 bytes",
+  "eeprom_image_emitted": false
+}

@@ -1,0 +1,77 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "unique_input_rgb_triplets": 16777216,
+  "page_count": 9,
+  "rgb_index_permutation": {
+    "multiplier": 6017513,
+    "offset": 3646657,
+    "modulus": 16777216
+  },
+  "ordering": "pixel n encodes (n*multiplier+offset) mod 2^24; R is low byte",
+  "pages": [
+    {
+      "page": 0,
+      "file": "page-00.png",
+      "first_sequence": 0,
+      "valid_pixels": 2073600,
+      "sha256": "56438ea4a8a6ae683bca37046cd80504e1f1717534877ec155b36639911b1782"
+    },
+    {
+      "page": 1,
+      "file": "page-01.png",
+      "first_sequence": 2073600,
+      "valid_pixels": 2073600,
+      "sha256": "66ac0dc10b0586cc1fabedd73026ec14826a375bdb593c965ba719c27518bba9"
+    },
+    {
+      "page": 2,
+      "file": "page-02.png",
+      "first_sequence": 4147200,
+      "valid_pixels": 2073600,
+      "sha256": "4df0c340463d9a98cfbdfdfe7ee432204de95e2b2b9f2957c218f20124d23a05"
+    },
+    {
+      "page": 3,
+      "file": "page-03.png",
+      "first_sequence": 6220800,
+      "valid_pixels": 2073600,
+      "sha256": "a83f1961d2e6c734950a96936d9f9cef641d45d8cda1a5d37252b59689d83592"
+    },
+    {
+      "page": 4,
+      "file": "page-04.png",
+      "first_sequence": 8294400,
+      "valid_pixels": 2073600,
+      "sha256": "9aad2c4e1b31d82d697ddca441b99e789629e160627f5da0ea5a8a59edf12c32"
+    },
+    {
+      "page": 5,
+      "file": "page-05.png",
+      "first_sequence": 10368000,
+      "valid_pixels": 2073600,
+      "sha256": "ec6eb606c5787b6866eddd41775de257fd14fd888736d18bd7407ad3fddf0cee"
+    },
+    {
+      "page": 6,
+      "file": "page-06.png",
+      "first_sequence": 12441600,
+      "valid_pixels": 2073600,
+      "sha256": "15326020bf79d51784c8c0c1d398c85cb66dbab7fee61d4d421d8f3bc5cee04d"
+    },
+    {
+      "page": 7,
+      "file": "page-07.png",
+      "first_sequence": 14515200,
+      "valid_pixels": 2073600,
+      "sha256": "ca7127fe31be8a1eee8010f8d2dcb0a78c31c390a7ebc924deed4c620a121c72"
+    },
+    {
+      "page": 8,
+      "file": "page-08.png",
+      "first_sequence": 16588800,
+      "valid_pixels": 188416,
+      "sha256": "3587da218e9ed1f6c90b39825e49f882d27b1dad6d37e7efda224ecf20a0f4ba"
+    }
+  ]
+}

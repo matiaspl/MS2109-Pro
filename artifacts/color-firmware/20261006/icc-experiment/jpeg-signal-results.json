@@ -1,0 +1,39 @@
+{
+  "source_sha256": "d9576c22fb91f362c64abb28ab784b91e42949a76b4722c18bac3bacba2758aa",
+  "tagged_sha256": "5d707d8ad8b4295c72b432ddf166c0d1f96f8c8a80747ee8e1c4d06b602d3a04",
+  "profile_sha256": "3d4b3e977a514255a2524d8e11e34140f06bce731c8242482802d34b59ad76d8",
+  "source_scan_offset": 591,
+  "tagged_scan_offset": 30649,
+  "jpeg_bytes_preserved_after_removing_app2": true,
+  "icc_profile_bytes": 30040,
+  "icc_tag_signatures": [
+    "A2B0",
+    "cicp",
+    "cprt",
+    "desc",
+    "wtpt"
+  ],
+  "cicp": {
+    "primaries": 1,
+    "transfer": 1,
+    "matrix": 1,
+    "full_range": true
+  },
+  "decoder_results": {
+    "Apple ImageIO": {
+      "rgb_rms_change": 0.0,
+      "maximum_absolute_change": 0,
+      "changed_components": 0
+    },
+    "FFmpeg": {
+      "rgb_rms_change": 0.0,
+      "maximum_absolute_change": 0,
+      "changed_components": 0
+    },
+    "libjpeg-turbo raw YCbCr": {
+      "identical_sample_bytes": true,
+      "maximum_absolute_change": 0
+    }
+  },
+  "qualification": "file-decoder experiment only; no live AVFoundation qualification"
+}

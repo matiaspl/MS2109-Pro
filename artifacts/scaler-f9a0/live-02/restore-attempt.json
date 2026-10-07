@@ -1,0 +1,22 @@
+[
+  {
+    "wait_seconds": 0,
+    "before": 1,
+    "after_write_zero": 1
+  },
+  {
+    "wait_seconds": 0.1,
+    "before": 1,
+    "after_write_zero": 1
+  },
+  {
+    "wait_seconds": 0.5,
+    "before": 1,
+    "after_write_zero": 1
+  },
+  {
+    "wait_seconds": 1.0,
+    "before": 1,
+    "after_write_zero": 1
+  }
+]

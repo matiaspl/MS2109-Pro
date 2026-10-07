@@ -1,0 +1,83 @@
+{
+  "test": "F9A0 bit 0 with synthetic grid chart; RAM only",
+  "stages": [
+    {
+      "state": "00",
+      "capture": {
+        "movie": "artifacts/scaler-f9a0/grid-01/f9a0-00-1080.mkv",
+        "frame": "artifacts/scaler-f9a0/grid-01/f9a0-00-1080.png",
+        "bytes": 51757
+      }
+    },
+    {
+      "state": "01",
+      "capture": {
+        "movie": "artifacts/scaler-f9a0/grid-01/f9a0-01-1080.mkv",
+        "frame": "artifacts/scaler-f9a0/grid-01/f9a0-01-1080.png",
+        "bytes": 51757
+      }
+    }
+  ],
+  "before": {
+    "f9a0": 0,
+    "f92c": 32,
+    "feba": 0,
+    "eeprom_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82"
+  },
+  "f9a0_after_set": 1,
+  "f9a0_post_capture": 1,
+  "f9a0_after_restore_attempt": 1,
+  "eeprom_after_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "eeprom_unchanged": true,
+  "f92c_after": 32,
+  "feba_after": 0,
+  "image_comparison": {
+    "1920x1080": {
+      "same_rgb_frame_sha256": true,
+      "changed_pixels": 0,
+      "mae_rgb": 0.0,
+      "max_abs_difference": 0
+    },
+    "1280x720": {
+      "same_structure": true,
+      "changed_pixels": 134,
+      "changed_pixel_bbox_xyxy": [
+        44,
+        37,
+        61,
+        48
+      ],
+      "localized_to": "mouse pointer only",
+      "edge_and_grid_roi_statistics_equal": true
+    }
+  },
+  "interpretation": "No visible scaler/ringing effect attributable to F9A0 bit 0 in the tested output modes; 720p differences were limited to the cursor. This does not rule out a state-dependent effect in another input/timing/path.",
+  "edge_profile_1080_luma": {
+    "metric": "peak beyond dark/light plateaus in a +/-8 px edge window; rgb24 weighted luma from lossless YUY2 capture",
+    "edges": {
+      "A": {
+        "rows": 829,
+        "dark_median": 0,
+        "light_median": 252,
+        "peak_undershoot": 0,
+        "peak_overshoot": 3
+      },
+      "B": {
+        "rows": 75,
+        "dark_median": 0,
+        "light_median": 252,
+        "peak_undershoot": 0,
+        "peak_overshoot": 3
+      },
+      "C": {
+        "rows": 76,
+        "dark_median": 0,
+        "light_median": 252,
+        "peak_undershoot": 0,
+        "peak_overshoot": 3
+      }
+    },
+    "comparison": "unchanged between F9A0 00 and 01; full-path measurement, not attributed to the register"
+  },
+  "post_power_cycle": "not verified: macOS did not enumerate a 534d:2109 HID device or any AVFoundation video/audio device after USB reconnect"
+}

@@ -1,0 +1,2039 @@
+{
+  "patch_manifest": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/color-probe/20261006-neutral-yuy2/pattern.json",
+  "transport_requested": "yuv",
+  "patch_reference": [
+    {
+      "expected_display_rgb": [
+        0,
+        0,
+        0
+      ],
+      "name": "gray-0",
+      "rgb": [
+        0,
+        0,
+        0
+      ],
+      "rect": [
+        0,
+        0,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        1.2383900047279894,
+        1.238390242215246,
+        1.2383901234716177
+      ],
+      "name": "gray-1",
+      "rgb": [
+        1,
+        1,
+        1
+      ],
+      "rect": [
+        160,
+        0,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        2.476780009455979,
+        2.476780484430492,
+        2.4767802469432354
+      ],
+      "name": "gray-2",
+      "rgb": [
+        2,
+        2,
+        2
+      ],
+      "rect": [
+        320,
+        0,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        4.953560018911958,
+        4.953560968860984,
+        4.953560493886471
+      ],
+      "name": "gray-4",
+      "rgb": [
+        4,
+        4,
+        4
+      ],
+      "rect": [
+        480,
+        0,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        9.907120037823915,
+        9.907121937721968,
+        9.907120987772942
+      ],
+      "name": "gray-8",
+      "rgb": [
+        8,
+        8,
+        8
+      ],
+      "rect": [
+        640,
+        0,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        14.623382315039635,
+        14.623382315039635,
+        14.623382315039635
+      ],
+      "name": "gray-12",
+      "rgb": [
+        12,
+        12,
+        12
+      ],
+      "rect": [
+        800,
+        0,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        17.41969406604767,
+        17.41969406604767,
+        17.41969406604767
+      ],
+      "name": "gray-16",
+      "rgb": [
+        16,
+        16,
+        16
+      ],
+      "rect": [
+        960,
+        0,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        20.300885662436485,
+        20.300885662436485,
+        20.300885662436485
+      ],
+      "name": "gray-20",
+      "rgb": [
+        20,
+        20,
+        20
+      ],
+      "rect": [
+        1120,
+        0,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        23.259068727493286,
+        23.259068727493286,
+        23.259068727493286
+      ],
+      "name": "gray-24",
+      "rgb": [
+        24,
+        24,
+        24
+      ],
+      "rect": [
+        1280,
+        0,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        26.287859603762627,
+        26.287859603762627,
+        26.287859603762627
+      ],
+      "name": "gray-28",
+      "rgb": [
+        28,
+        28,
+        28
+      ],
+      "rect": [
+        1440,
+        0,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        29.381972774863243,
+        29.381972774863243,
+        29.381972774863243
+      ],
+      "name": "gray-32",
+      "rgb": [
+        32,
+        32,
+        32
+      ],
+      "rect": [
+        1600,
+        0,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        35.74894152581692,
+        35.74894152581692,
+        35.74894152581692
+      ],
+      "name": "gray-40",
+      "rgb": [
+        40,
+        40,
+        40
+      ],
+      "rect": [
+        1760,
+        0,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        42.3312409222126,
+        42.3312409222126,
+        42.3312409222126
+      ],
+      "name": "gray-48",
+      "rgb": [
+        48,
+        48,
+        48
+      ],
+      "rect": [
+        0,
+        135,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        49.1068397462368,
+        49.1068397462368,
+        49.1068397462368
+      ],
+      "name": "gray-56",
+      "rgb": [
+        56,
+        56,
+        56
+      ],
+      "rect": [
+        160,
+        135,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        56.0583121329546,
+        56.0583121329546,
+        56.0583121329546
+      ],
+      "name": "gray-64",
+      "rgb": [
+        64,
+        64,
+        64
+      ],
+      "rect": [
+        320,
+        135,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        70.43441131711006,
+        70.43441891670227,
+        70.43441131711006
+      ],
+      "name": "gray-80",
+      "rgb": [
+        80,
+        80,
+        80
+      ],
+      "rect": [
+        480,
+        135,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        85.37119701504707,
+        85.37119701504707,
+        85.37119701504707
+      ],
+      "name": "gray-96",
+      "rgb": [
+        96,
+        96,
+        96
+      ],
+      "rect": [
+        640,
+        135,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        100.8038181066513,
+        100.8038181066513,
+        100.8038181066513
+      ],
+      "name": "gray-112",
+      "rgb": [
+        112,
+        112,
+        112
+      ],
+      "rect": [
+        800,
+        135,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        116.6824820637703,
+        116.6824820637703,
+        116.6824820637703
+      ],
+      "name": "gray-128",
+      "rgb": [
+        128,
+        128,
+        128
+      ],
+      "rect": [
+        960,
+        135,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        132.96742022037506,
+        132.96742022037506,
+        132.96742022037506
+      ],
+      "name": "gray-144",
+      "rgb": [
+        144,
+        144,
+        144
+      ],
+      "rect": [
+        1120,
+        135,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        149.6263039112091,
+        149.6263039112091,
+        149.6263039112091
+      ],
+      "name": "gray-160",
+      "rgb": [
+        160,
+        160,
+        160
+      ],
+      "rect": [
+        1280,
+        135,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        166.63204818964005,
+        166.63206338882446,
+        166.63204818964005
+      ],
+      "name": "gray-176",
+      "rgb": [
+        176,
+        176,
+        176
+      ],
+      "rect": [
+        1440,
+        135,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        183.96174788475037,
+        183.96174788475037,
+        183.96174788475037
+      ],
+      "name": "gray-192",
+      "rgb": [
+        192,
+        192,
+        192
+      ],
+      "rect": [
+        1600,
+        135,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        201.59559845924377,
+        201.59559845924377,
+        201.59559845924377
+      ],
+      "name": "gray-208",
+      "rgb": [
+        208,
+        208,
+        208
+      ],
+      "rect": [
+        1760,
+        135,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        219.5164704322815,
+        219.5164856314659,
+        219.5164704322815
+      ],
+      "name": "gray-224",
+      "rgb": [
+        224,
+        224,
+        224
+      ],
+      "rect": [
+        0,
+        270,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        228.57974410057068,
+        228.5797592997551,
+        228.5797592997551
+      ],
+      "name": "gray-232",
+      "rgb": [
+        232,
+        232,
+        232
+      ],
+      "rect": [
+        160,
+        270,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        231.99563920497894,
+        231.99563920497894,
+        231.99563920497894
+      ],
+      "name": "gray-235",
+      "rgb": [
+        235,
+        235,
+        235
+      ],
+      "rect": [
+        320,
+        270,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        237.7092558145523,
+        237.7092558145523,
+        237.7092558145523
+      ],
+      "name": "gray-240",
+      "rgb": [
+        240,
+        240,
+        240
+      ],
+      "rect": [
+        480,
+        270,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        246.90336406230927,
+        246.90337926149368,
+        246.90336406230927
+      ],
+      "name": "gray-248",
+      "rgb": [
+        248,
+        248,
+        248
+      ],
+      "rect": [
+        640,
+        270,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        251.52415931224823,
+        251.52415931224823,
+        251.52415931224823
+      ],
+      "name": "gray-252",
+      "rgb": [
+        252,
+        252,
+        252
+      ],
+      "rect": [
+        800,
+        270,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        253.84042382240295,
+        253.84042382240295,
+        253.84042382240295
+      ],
+      "name": "gray-254",
+      "rgb": [
+        254,
+        254,
+        254
+      ],
+      "rect": [
+        960,
+        270,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        255,
+        255,
+        255
+      ],
+      "name": "gray-255",
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "rect": [
+        1120,
+        270,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        249.35578286647797,
+        0,
+        26.439623460173607
+      ],
+      "name": "red-255",
+      "rgb": [
+        255,
+        0,
+        0
+      ],
+      "rect": [
+        1280,
+        270,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        38.37117701768875,
+        255,
+        36.92847803235054
+      ],
+      "name": "green-255",
+      "rgb": [
+        0,
+        255,
+        0
+      ],
+      "rect": [
+        1440,
+        270,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        33.39385449886322,
+        0,
+        250.4939889907837
+      ],
+      "name": "blue-255",
+      "rgb": [
+        0,
+        0,
+        255
+      ],
+      "rect": [
+        1600,
+        270,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        51.214503049850464,
+        255,
+        253.46843898296356
+      ],
+      "name": "cyan-255",
+      "rgb": [
+        0,
+        255,
+        255
+      ],
+      "rect": [
+        1760,
+        270,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        251.81072473526,
+        0,
+        252.042937874794
+      ],
+      "name": "magenta-255",
+      "rgb": [
+        255,
+        0,
+        255
+      ],
+      "rect": [
+        0,
+        405,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        252.5748485326767,
+        255,
+        45.7082375138998
+      ],
+      "name": "yellow-255",
+      "rgb": [
+        255,
+        255,
+        0
+      ],
+      "rect": [
+        160,
+        405,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        179.88988637924194,
+        0,
+        19.074035994708538
+      ],
+      "name": "red-192",
+      "rgb": [
+        192,
+        0,
+        0
+      ],
+      "rect": [
+        320,
+        405,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        27.68168181180954,
+        189.05690968036652,
+        26.64088536053896
+      ],
+      "name": "green-192",
+      "rgb": [
+        0,
+        192,
+        0
+      ],
+      "rect": [
+        480,
+        405,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        24.090946689248085,
+        0,
+        180.7110071182251
+      ],
+      "name": "blue-192",
+      "rgb": [
+        0,
+        0,
+        192
+      ],
+      "rect": [
+        640,
+        405,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        36.947089433670044,
+        185.0504046678543,
+        182.85682797431946
+      ],
+      "name": "cyan-192",
+      "rgb": [
+        0,
+        192,
+        192
+      ],
+      "rect": [
+        800,
+        405,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        181.66094094514847,
+        0,
+        181.8284511566162
+      ],
+      "name": "magenta-192",
+      "rgb": [
+        192,
+        0,
+        192
+      ],
+      "rect": [
+        960,
+        405,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        182.2121849656105,
+        187.9905652999878,
+        32.974771186709404
+      ],
+      "name": "yellow-192",
+      "rgb": [
+        192,
+        192,
+        0
+      ],
+      "rect": [
+        1120,
+        405,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        114.0998062491417,
+        0,
+        10.343132391571999
+      ],
+      "name": "red-128",
+      "rgb": [
+        128,
+        0,
+        0
+      ],
+      "rect": [
+        1280,
+        405,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        17.557818554341793,
+        119.9142238497734,
+        16.897670477628708
+      ],
+      "name": "green-128",
+      "rgb": [
+        0,
+        128,
+        0
+      ],
+      "rect": [
+        1440,
+        405,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        15.280300565063953,
+        0,
+        114.62062150239944
+      ],
+      "name": "blue-128",
+      "rgb": [
+        0,
+        0,
+        128
+      ],
+      "rect": [
+        1600,
+        405,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        23.434645906090736,
+        117.37298861145973,
+        115.98166286945343
+      ],
+      "name": "cyan-128",
+      "rgb": [
+        0,
+        128,
+        128
+      ],
+      "rect": [
+        1760,
+        405,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        115.22313237190247,
+        0,
+        115.32938987016678
+      ],
+      "name": "magenta-128",
+      "rgb": [
+        128,
+        0,
+        128
+      ],
+      "rect": [
+        0,
+        540,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        115.57278200984001,
+        119.23786014318466,
+        20.915098004043102
+      ],
+      "name": "yellow-128",
+      "rgb": [
+        128,
+        128,
+        0
+      ],
+      "rect": [
+        160,
+        540,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        54.817515313625336,
+        0,
+        2.456617816351354
+      ],
+      "name": "red-64",
+      "rgb": [
+        64,
+        0,
+        0
+      ],
+      "rect": [
+        320,
+        540,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        5.099512562155724,
+        57.610958218574524,
+        4.730318197980523
+      ],
+      "name": "green-64",
+      "rgb": [
+        0,
+        64,
+        0
+      ],
+      "rect": [
+        480,
+        540,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        3.8833350967615843,
+        0,
+        55.06773188710213
+      ],
+      "name": "blue-64",
+      "rgb": [
+        0,
+        0,
+        64
+      ],
+      "rect": [
+        640,
+        540,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        8.982848133891821,
+        56.39006473124027,
+        55.72161220014095
+      ],
+      "name": "cyan-64",
+      "rgb": [
+        0,
+        64,
+        64
+      ],
+      "rect": [
+        800,
+        540,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        55.35719275474548,
+        0,
+        55.40824681520462
+      ],
+      "name": "magenta-64",
+      "rgb": [
+        64,
+        0,
+        64
+      ],
+      "rect": [
+        960,
+        540,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        55.525181740522385,
+        57.286018654704094,
+        7.186936251819134
+      ],
+      "name": "yellow-64",
+      "rgb": [
+        64,
+        64,
+        0
+      ],
+      "rect": [
+        1120,
+        540,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        184.09990847110748,
+        139.36276584863663,
+        120.1959179341793
+      ],
+      "name": "skin-light",
+      "rgb": [
+        194,
+        150,
+        130
+      ],
+      "rect": [
+        1280,
+        540,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        102.43440181016922,
+        72.33343541622162,
+        60.60476057231426
+      ],
+      "name": "skin-dark",
+      "rgb": [
+        115,
+        82,
+        68
+      ],
+      "rect": [
+        1440,
+        540,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        210.7650688290596,
+        88.56292694807053,
+        35.27790740132332
+      ],
+      "name": "orange",
+      "rgb": [
+        220,
+        100,
+        25
+      ],
+      "rect": [
+        1600,
+        540,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        90.63760042190552,
+        39.94837358593941,
+        168.40301156044006
+      ],
+      "name": "violet",
+      "rgb": [
+        100,
+        60,
+        180
+      ],
+      "rect": [
+        1760,
+        540,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        42.78976611793041,
+        130.36376953125,
+        108.60935926437378
+      ],
+      "name": "teal",
+      "rgb": [
+        40,
+        140,
+        120
+      ],
+      "rect": [
+        0,
+        675,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        76.83258399367332,
+        125.18394827842712,
+        201.3431704044342
+      ],
+      "name": "sky",
+      "rgb": [
+        80,
+        140,
+        210
+      ],
+      "rect": [
+        160,
+        675,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        116.02207750082016,
+        131.53498828411102,
+        45.33186011016369
+      ],
+      "name": "olive",
+      "rgb": [
+        128,
+        140,
+        45
+      ],
+      "rect": [
+        320,
+        675,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        97.18883648514748,
+        57.1391299366951,
+        34.02281194925308
+      ],
+      "name": "brown",
+      "rgb": [
+        110,
+        65,
+        35
+      ],
+      "rect": [
+        480,
+        675,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        114.93817046284676,
+        153.2221421599388,
+        124.34518128633499
+      ],
+      "name": "mixed-64",
+      "rgb": [
+        125,
+        162,
+        135
+      ],
+      "rect": [
+        640,
+        675,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        95.66921442747116,
+        193.1678330898285,
+        42.33023397624493
+      ],
+      "name": "mixed-65",
+      "rgb": [
+        104,
+        196,
+        34
+      ],
+      "rect": [
+        800,
+        675,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        217.09700345993042,
+        90.45122802257538,
+        134.56959664821625
+      ],
+      "name": "mixed-66",
+      "rgb": [
+        225,
+        106,
+        145
+      ],
+      "rect": [
+        960,
+        675,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        46.400336176157,
+        63.29390287399292,
+        82.73093149065971
+      ],
+      "name": "mixed-67",
+      "rgb": [
+        51,
+        73,
+        94
+      ],
+      "rect": [
+        1120,
+        675,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        210.4445180296898,
+        114.63650465011597,
+        104.09843891859055
+      ],
+      "name": "mixed-68",
+      "rgb": [
+        219,
+        127,
+        113
+      ],
+      "rect": [
+        1280,
+        675,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        68.01222369074821,
+        164.23685431480408,
+        101.25974044203758
+      ],
+      "name": "mixed-69",
+      "rgb": [
+        72,
+        171,
+        111
+      ],
+      "rect": [
+        1440,
+        675,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        211.72673642635345,
+        67.07555875182152,
+        47.233388274908066
+      ],
+      "name": "mixed-70",
+      "rgb": [
+        221,
+        79,
+        46
+      ],
+      "rect": [
+        1600,
+        675,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        169.4543543457985,
+        154.47087675333023,
+        102.41339653730392
+      ],
+      "name": "mixed-71",
+      "rgb": [
+        180,
+        163,
+        111
+      ],
+      "rect": [
+        1760,
+        675,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        59.26730453968048,
+        142.14553892612457,
+        160.0099003314972
+      ],
+      "name": "mixed-72",
+      "rgb": [
+        59,
+        153,
+        171
+      ],
+      "rect": [
+        0,
+        810,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        77.5191767513752,
+        17.394636310636997,
+        193.9694532752037
+      ],
+      "name": "mixed-73",
+      "rgb": [
+        84,
+        49,
+        204
+      ],
+      "rect": [
+        160,
+        810,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        84.37674477696419,
+        22.211027964949608,
+        81.72862127423286
+      ],
+      "name": "mixed-74",
+      "rgb": [
+        96,
+        31,
+        93
+      ],
+      "rect": [
+        320,
+        810,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        146.14857852458954,
+        94.91812393069267,
+        42.38031528890133
+      ],
+      "name": "mixed-75",
+      "rgb": [
+        159,
+        105,
+        42
+      ],
+      "rect": [
+        480,
+        810,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        42.252007573843,
+        33.86301912367344,
+        135.92664062976837
+      ],
+      "name": "mixed-76",
+      "rgb": [
+        43,
+        49,
+        149
+      ],
+      "rect": [
+        640,
+        810,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        40.23844622075558,
+        171.03084415197372,
+        136.10421270132065
+      ],
+      "name": "mixed-77",
+      "rgb": [
+        27,
+        178,
+        147
+      ],
+      "rect": [
+        800,
+        810,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        178.18876326084137,
+        167.46616423130035,
+        110.42270556092262
+      ],
+      "name": "mixed-78",
+      "rgb": [
+        188,
+        175,
+        119
+      ],
+      "rect": [
+        960,
+        810,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        156.42116010189056,
+        42.99216225743294,
+        97.9726280272007
+      ],
+      "name": "mixed-79",
+      "rgb": [
+        169,
+        56,
+        109
+      ],
+      "rect": [
+        1120,
+        810,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        97.86207675933838,
+        111.6217540204525,
+        155.58634489774704
+      ],
+      "name": "mixed-80",
+      "rgb": [
+        107,
+        125,
+        167
+      ],
+      "rect": [
+        1280,
+        810,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        218.6520928144455,
+        93.84637624025345,
+        62.4324207007885
+      ],
+      "name": "mixed-81",
+      "rgb": [
+        227,
+        106,
+        65
+      ],
+      "rect": [
+        1440,
+        810,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        62.719130516052246,
+        116.47029384970665,
+        79.56612691283226
+      ],
+      "name": "mixed-82",
+      "rgb": [
+        69,
+        126,
+        89
+      ],
+      "rect": [
+        1600,
+        810,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        187.51414686441422,
+        145.56058287620544,
+        129.14450615644455
+      ],
+      "name": "mixed-83",
+      "rgb": [
+        197,
+        156,
+        139
+      ],
+      "rect": [
+        1760,
+        810,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        70.48238754272461,
+        156.91004186868668,
+        216.00912183523178
+      ],
+      "name": "mixed-84",
+      "rgb": [
+        69,
+        169,
+        223
+      ],
+      "rect": [
+        0,
+        945,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        158.59373152256012,
+        217.4378451704979,
+        199.31328892707825
+      ],
+      "name": "mixed-85",
+      "rgb": [
+        166,
+        221,
+        206
+      ],
+      "rect": [
+        160,
+        945,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        99.34041023254395,
+        19.11930486559868,
+        82.84028202295303
+      ],
+      "name": "mixed-86",
+      "rgb": [
+        112,
+        29,
+        94
+      ],
+      "rect": [
+        320,
+        945,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        30.023374557495117,
+        0,
+        134.76253509521484
+      ],
+      "name": "mixed-87",
+      "rgb": [
+        25,
+        27,
+        148
+      ],
+      "rect": [
+        480,
+        945,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        88.22748094797134,
+        93.95325690507889,
+        150.0934660434723
+      ],
+      "name": "mixed-88",
+      "rgb": [
+        97,
+        108,
+        162
+      ],
+      "rect": [
+        640,
+        945,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        184.75625485181808,
+        152.5849163532257,
+        148.15474927425385
+      ],
+      "name": "mixed-89",
+      "rgb": [
+        194,
+        163,
+        158
+      ],
+      "rect": [
+        800,
+        945,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        140.43160289525986,
+        90.46844109892845,
+        89.11110073328018
+      ],
+      "name": "mixed-90",
+      "rgb": [
+        153,
+        102,
+        99
+      ],
+      "rect": [
+        960,
+        945,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        173.8299259543419,
+        0,
+        205.5753529071808
+      ],
+      "name": "mixed-91",
+      "rgb": [
+        184,
+        38,
+        214
+      ],
+      "rect": [
+        1120,
+        945,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        96.57241076231003,
+        151.52250856161118,
+        208.37862968444824
+      ],
+      "name": "mixed-92",
+      "rgb": [
+        102,
+        164,
+        216
+      ],
+      "rect": [
+        1280,
+        945,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        42.85058185458183,
+        0,
+        206.92838430404663
+      ],
+      "name": "mixed-93",
+      "rgb": [
+        36,
+        45,
+        216
+      ],
+      "rect": [
+        1440,
+        945,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        64.09679979085922,
+        175.4448089003563,
+        37.136646062135696
+      ],
+      "name": "mixed-94",
+      "rgb": [
+        68,
+        180,
+        29
+      ],
+      "rect": [
+        1600,
+        945,
+        160,
+        135
+      ]
+    },
+    {
+      "expected_display_rgb": [
+        82.49211430549622,
+        123.76273334026337,
+        107.78217405080795
+      ],
+      "name": "mixed-95",
+      "rgb": [
+        91,
+        134,
+        119
+      ],
+      "rect": [
+        1760,
+        945,
+        160,
+        135
+      ]
+    }
+  ],
+  "source_screenshot_error": "Screen Recording permission is absent; source-render.png is the AppKit render, not a compositor/HDMI measurement",
+  "utc_started": "2026-10-05 22:11:36 +0000",
+  "capture_device_id": "0x2130000534d2109",
+  "fps": 5,
+  "screens": [
+    {
+      "height": 982,
+      "display_id": 1,
+      "frame": "{{0, 0}, {1512, 982}}",
+      "width": 1512,
+      "profile_bytes": 4064,
+      "main": 1,
+      "profile": "Color LCD",
+      "name": "Built-in Retina Display",
+      "scale": 2
+    },
+    {
+      "height": 1080,
+      "display_id": 2,
+      "frame": "{{-1920, 0}, {1920, 1080}}",
+      "width": 1920,
+      "profile_bytes": 524,
+      "main": 0,
+      "profile": "HDMI TO USB",
+      "name": "HDMI TO USB",
+      "scale": 1
+    }
+  ],
+  "window_frame": "{{-1920, 0}, {1920, 1080}}",
+  "session_preset": "AVCaptureSessionPresetHigh",
+  "render_space": "srgb",
+  "render_image_space": "HDMI TO USB",
+  "frames": [
+    {
+      "height": 1080,
+      "stride_saved": 3840,
+      "file": "frame-000.yuvs",
+      "width": 1920,
+      "pts_seconds": 331646.83866666665,
+      "attachments": {
+        "CVImageBufferYCbCrMatrix": "ITU_R_709_2",
+        "CVImageBufferTransferFunction": "SMPTE_240M_1995",
+        "CVFieldCount": "1",
+        "CGColorSpace": "<CGColorSpace 0xbf2837600> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; QuickTime 'nclc' Video (1,7,1))",
+        "CVImageBufferColorPrimaries": "ITU_R_709_2",
+        "HorizontalDisparityAdjustment": "0"
+      },
+      "pixel_format": "yuvs"
+    },
+    {
+      "height": 1080,
+      "stride_saved": 3840,
+      "file": "frame-001.yuvs",
+      "width": 1920,
+      "pts_seconds": 331647.03866666666,
+      "attachments": {
+        "CVImageBufferYCbCrMatrix": "ITU_R_709_2",
+        "CVImageBufferTransferFunction": "SMPTE_240M_1995",
+        "CVFieldCount": "1",
+        "CGColorSpace": "<CGColorSpace 0xbf2837600> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; QuickTime 'nclc' Video (1,7,1))",
+        "CVImageBufferColorPrimaries": "ITU_R_709_2",
+        "HorizontalDisparityAdjustment": "0"
+      },
+      "pixel_format": "yuvs"
+    },
+    {
+      "height": 1080,
+      "stride_saved": 3840,
+      "file": "frame-002.yuvs",
+      "width": 1920,
+      "pts_seconds": 331647.2386666667,
+      "attachments": {
+        "CVImageBufferYCbCrMatrix": "ITU_R_709_2",
+        "CVImageBufferTransferFunction": "SMPTE_240M_1995",
+        "CVFieldCount": "1",
+        "CGColorSpace": "<CGColorSpace 0xbf2837600> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; QuickTime 'nclc' Video (1,7,1))",
+        "CVImageBufferColorPrimaries": "ITU_R_709_2",
+        "HorizontalDisparityAdjustment": "0"
+      },
+      "pixel_format": "yuvs"
+    },
+    {
+      "height": 1080,
+      "stride_saved": 3840,
+      "file": "frame-003.yuvs",
+      "width": 1920,
+      "pts_seconds": 331647.4386666667,
+      "attachments": {
+        "CVImageBufferYCbCrMatrix": "ITU_R_709_2",
+        "CVImageBufferTransferFunction": "SMPTE_240M_1995",
+        "CVFieldCount": "1",
+        "CGColorSpace": "<CGColorSpace 0xbf2837600> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; QuickTime 'nclc' Video (1,7,1))",
+        "CVImageBufferColorPrimaries": "ITU_R_709_2",
+        "HorizontalDisparityAdjustment": "0"
+      },
+      "pixel_format": "yuvs"
+    },
+    {
+      "height": 1080,
+      "stride_saved": 3840,
+      "file": "frame-004.yuvs",
+      "width": 1920,
+      "pts_seconds": 331647.6386666667,
+      "attachments": {
+        "CVImageBufferYCbCrMatrix": "ITU_R_709_2",
+        "CVImageBufferTransferFunction": "SMPTE_240M_1995",
+        "CVFieldCount": "1",
+        "CGColorSpace": "<CGColorSpace 0xbf2837600> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; QuickTime 'nclc' Video (1,7,1))",
+        "CVImageBufferColorPrimaries": "ITU_R_709_2",
+        "HorizontalDisparityAdjustment": "0"
+      },
+      "pixel_format": "yuvs"
+    },
+    {
+      "height": 1080,
+      "stride_saved": 3840,
+      "file": "frame-005.yuvs",
+      "width": 1920,
+      "pts_seconds": 331647.83766666666,
+      "attachments": {
+        "CVImageBufferYCbCrMatrix": "ITU_R_709_2",
+        "CVImageBufferTransferFunction": "SMPTE_240M_1995",
+        "CVFieldCount": "1",
+        "CGColorSpace": "<CGColorSpace 0xbf2837600> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; QuickTime 'nclc' Video (1,7,1))",
+        "CVImageBufferColorPrimaries": "ITU_R_709_2",
+        "HorizontalDisparityAdjustment": "0"
+      },
+      "pixel_format": "yuvs"
+    },
+    {
+      "height": 1080,
+      "stride_saved": 3840,
+      "file": "frame-006.yuvs",
+      "width": 1920,
+      "pts_seconds": 331648.03766666667,
+      "attachments": {
+        "CVImageBufferYCbCrMatrix": "ITU_R_709_2",
+        "CVImageBufferTransferFunction": "SMPTE_240M_1995",
+        "CVFieldCount": "1",
+        "CGColorSpace": "<CGColorSpace 0xbf2837600> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; QuickTime 'nclc' Video (1,7,1))",
+        "CVImageBufferColorPrimaries": "ITU_R_709_2",
+        "HorizontalDisparityAdjustment": "0"
+      },
+      "pixel_format": "yuvs"
+    },
+    {
+      "height": 1080,
+      "stride_saved": 3840,
+      "file": "frame-007.yuvs",
+      "width": 1920,
+      "pts_seconds": 331648.2376666667,
+      "attachments": {
+        "CVImageBufferYCbCrMatrix": "ITU_R_709_2",
+        "CVImageBufferTransferFunction": "SMPTE_240M_1995",
+        "CVFieldCount": "1",
+        "CGColorSpace": "<CGColorSpace 0xbf2837600> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; QuickTime 'nclc' Video (1,7,1))",
+        "CVImageBufferColorPrimaries": "ITU_R_709_2",
+        "HorizontalDisparityAdjustment": "0"
+      },
+      "pixel_format": "yuvs"
+    }
+  ],
+  "window_screen": "HDMI TO USB",
+  "capture_device": "usb video",
+  "actual_active_subtype": "yuvs",
+  "available_output_pixel_formats": [
+    "2vuy",
+    "yuvs",
+    "420v",
+    "420f",
+    "0x00000020",
+    "BGRA"
+  ],
+  "active_subtype": "yuvs",
+  "actual_frame_duration": 0.2,
+  "source_screenshot_available": false,
+  "actual_active_size": [
+    1920,
+    1080
+  ],
+  "macos_color_state": {
+    "status_type_encoding": "B24@0:8^{?=BBBi{?={?=ii}{?=ii}}QB}16",
+    "night_shift_strength": 0.5,
+    "night_shift_status_hex": "01000100000000001600000000000000070000000000000000000000000000000100000000000000",
+    "api": "CoreBrightness private API; interpretation guarded by runtime type encoding",
+    "night_shift_status_read_ok": true,
+    "true_tone_enabled": false,
+    "previous_incorrect_night_shift_active": 1,
+    "night_shift_auto_enabled": true,
+    "night_shift_enabled": false,
+    "night_shift_sun_schedule_allowed": true,
+    "night_shift_configured_cct_kelvin": 4100,
+    "status_field_validation": "AutoBlueReductionEnabled byte 0; BlueReductionEnabled byte 1; validated against parseStatusDictionary on 2026-10-06"
+  },
+  "macos_color_state_end": {
+    "status_type_encoding": "B24@0:8^{?=BBBi{?={?=ii}{?=ii}}QB}16",
+    "night_shift_strength": 0.5,
+    "night_shift_status_hex": "01000100000000001600000000000000070000000000000000000000000000000100000000000000",
+    "api": "CoreBrightness private API; interpretation guarded by runtime type encoding",
+    "night_shift_status_read_ok": true,
+    "true_tone_enabled": false,
+    "previous_incorrect_night_shift_active": 1,
+    "night_shift_auto_enabled": true,
+    "night_shift_enabled": false,
+    "night_shift_sun_schedule_allowed": true,
+    "night_shift_configured_cct_kelvin": 4100,
+    "status_field_validation": "AutoBlueReductionEnabled byte 0; BlueReductionEnabled byte 1; validated against parseStatusDictionary on 2026-10-06"
+  },
+  "status_correction_note": "The earlier night_shift_active field mislabeled AutoBlueReductionEnabled. BlueReductionEnabled is the second status byte. Original acquisition metadata is preserved separately."
+}

@@ -1,0 +1,653 @@
+{
+  "macos_color_state": {
+    "status_type_encoding": "B24@0:8^{?=BBBi{?={?=ii}{?=ii}}QB}16",
+    "night_shift_strength": 0.5,
+    "night_shift_status_hex": "01000100000000001600000000000000070000000000000000000000000000000100000000000000",
+    "api": "CoreBrightness private API; interpretation guarded by runtime type encoding",
+    "night_shift_status_read_ok": true,
+    "true_tone_enabled": false,
+    "previous_incorrect_night_shift_active": 1,
+    "night_shift_configured_cct_kelvin": 4100,
+    "status_field_validation": "Dictionary field mapping only; visual effect activity not verified.",
+    "night_shift_api_reported_enabled": false,
+    "night_shift_api_auto_enabled": true,
+    "night_shift_api_sun_schedule_allowed": true,
+    "night_shift_effect_state_verified": false,
+    "night_shift_api_limitation": "BlueReductionEnabled=0 was observed during the user-confirmed enabled baseline. The dictionary mapping does not establish visual effect activity.",
+    "user_reported_color_state": {
+      "true_tone_enabled": false,
+      "night_shift_enabled": false
+    },
+    "user_reported_timeline": "After disable event"
+  },
+  "screens": [
+    {
+      "height": 982,
+      "display_id": 1,
+      "frame": "{{0, 0}, {1512, 982}}",
+      "width": 1512,
+      "profile_bytes": 4064,
+      "main": 1,
+      "profile": "Color LCD",
+      "name": "Built-in Retina Display",
+      "scale": 2
+    },
+    {
+      "height": 1080,
+      "display_id": 2,
+      "frame": "{{-1920, 0}, {1920, 1080}}",
+      "width": 1920,
+      "profile_bytes": 524,
+      "main": 0,
+      "profile": "HDMI TO USB",
+      "name": "HDMI TO USB",
+      "scale": 1
+    }
+  ],
+  "devices": [
+    {
+      "name": "usb video",
+      "id": "0x2130000534d2109",
+      "formats": [
+        {
+          "rates": [
+            {
+              "min": 30.00003000003,
+              "max": 30.00003000003
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            },
+            {
+              "min": 5,
+              "max": 5
+            }
+          ],
+          "width": 640,
+          "height": 480,
+          "subtype": "yuvs"
+        },
+        {
+          "rates": [
+            {
+              "min": 60.000240000960005,
+              "max": 60.000240000960005
+            },
+            {
+              "min": 50,
+              "max": 50
+            },
+            {
+              "min": 30.00003000003,
+              "max": 30.00003000003
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "width": 640,
+          "height": 480,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 30.00003000003,
+              "max": 30.00003000003
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            },
+            {
+              "min": 5,
+              "max": 5
+            }
+          ],
+          "width": 720,
+          "height": 480,
+          "subtype": "yuvs"
+        },
+        {
+          "rates": [
+            {
+              "min": 60.000240000960005,
+              "max": 60.000240000960005
+            },
+            {
+              "min": 50,
+              "max": 50
+            },
+            {
+              "min": 30.00003000003,
+              "max": 30.00003000003
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "width": 720,
+          "height": 480,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 60.000240000960005,
+              "max": 60.000240000960005
+            },
+            {
+              "min": 50,
+              "max": 50
+            },
+            {
+              "min": 30.00003000003,
+              "max": 30.00003000003
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "width": 720,
+          "height": 576,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 25,
+              "max": 25
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            },
+            {
+              "min": 5,
+              "max": 5
+            }
+          ],
+          "width": 720,
+          "height": 576,
+          "subtype": "yuvs"
+        },
+        {
+          "rates": [
+            {
+              "min": 60.000240000960005,
+              "max": 60.000240000960005
+            },
+            {
+              "min": 50,
+              "max": 50
+            },
+            {
+              "min": 30.00003000003,
+              "max": 30.00003000003
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "width": 800,
+          "height": 600,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            },
+            {
+              "min": 5,
+              "max": 5
+            }
+          ],
+          "width": 800,
+          "height": 600,
+          "subtype": "yuvs"
+        },
+        {
+          "rates": [
+            {
+              "min": 60.000240000960005,
+              "max": 60.000240000960005
+            },
+            {
+              "min": 50,
+              "max": 50
+            },
+            {
+              "min": 30.00003000003,
+              "max": 30.00003000003
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "width": 1024,
+          "height": 768,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "width": 1024,
+          "height": 768,
+          "subtype": "yuvs"
+        },
+        {
+          "rates": [
+            {
+              "min": 60.000240000960005,
+              "max": 60.000240000960005
+            },
+            {
+              "min": 50,
+              "max": 50
+            },
+            {
+              "min": 30.00003000003,
+              "max": 30.00003000003
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "width": 1280,
+          "height": 720,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "width": 1280,
+          "height": 720,
+          "subtype": "yuvs"
+        },
+        {
+          "rates": [
+            {
+              "min": 60.000240000960005,
+              "max": 60.000240000960005
+            },
+            {
+              "min": 30.00003000003,
+              "max": 30.00003000003
+            },
+            {
+              "min": 25,
+              "max": 25
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "width": 1280,
+          "height": 960,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 8,
+              "max": 8
+            }
+          ],
+          "width": 1280,
+          "height": 960,
+          "subtype": "yuvs"
+        },
+        {
+          "rates": [
+            {
+              "min": 60.000240000960005,
+              "max": 60.000240000960005
+            },
+            {
+              "min": 30.00003000003,
+              "max": 30.00003000003
+            },
+            {
+              "min": 25,
+              "max": 25
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "width": 1280,
+          "height": 1024,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 8,
+              "max": 8
+            }
+          ],
+          "width": 1280,
+          "height": 1024,
+          "subtype": "yuvs"
+        },
+        {
+          "rates": [
+            {
+              "min": 60.000240000960005,
+              "max": 60.000240000960005
+            },
+            {
+              "min": 30.00003000003,
+              "max": 30.00003000003
+            },
+            {
+              "min": 25,
+              "max": 25
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "width": 1360,
+          "height": 768,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 8,
+              "max": 8
+            }
+          ],
+          "width": 1360,
+          "height": 768,
+          "subtype": "yuvs"
+        },
+        {
+          "rates": [
+            {
+              "min": 60.000240000960005,
+              "max": 60.000240000960005
+            },
+            {
+              "min": 30.00003000003,
+              "max": 30.00003000003
+            },
+            {
+              "min": 25,
+              "max": 25
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "width": 1600,
+          "height": 1200,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 5,
+              "max": 5
+            }
+          ],
+          "width": 1600,
+          "height": 1200,
+          "subtype": "yuvs"
+        },
+        {
+          "rates": [
+            {
+              "min": 60.000240000960005,
+              "max": 60.000240000960005
+            },
+            {
+              "min": 30.00003000003,
+              "max": 30.00003000003
+            },
+            {
+              "min": 25,
+              "max": 25
+            },
+            {
+              "min": 20,
+              "max": 20
+            },
+            {
+              "min": 10,
+              "max": 10
+            }
+          ],
+          "width": 1920,
+          "height": 1080,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 5,
+              "max": 5
+            }
+          ],
+          "width": 1920,
+          "height": 1080,
+          "subtype": "yuvs"
+        }
+      ]
+    },
+    {
+      "name": "NDI Virtual Camera",
+      "id": "99E4C2E3-413E-4D9E-B5C7-B8917DEF3D77",
+      "formats": [
+        {
+          "rates": [
+            {
+              "min": 60,
+              "max": 60
+            }
+          ],
+          "width": 1920,
+          "height": 1080,
+          "subtype": "BGRA"
+        }
+      ]
+    },
+    {
+      "name": "Kamera HD FaceTime",
+      "id": "47B4B64B-7067-4B9C-AD2B-AE273A71F4B5",
+      "formats": [
+        {
+          "rates": [
+            {
+              "min": 15,
+              "max": 30
+            }
+          ],
+          "width": 1920,
+          "height": 1080,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 15,
+              "max": 30
+            }
+          ],
+          "width": 1280,
+          "height": 720,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 15,
+              "max": 30
+            }
+          ],
+          "width": 1080,
+          "height": 1920,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 15,
+              "max": 30
+            }
+          ],
+          "width": 1760,
+          "height": 1328,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 15,
+              "max": 30
+            }
+          ],
+          "width": 640,
+          "height": 480,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 15,
+              "max": 30
+            }
+          ],
+          "width": 1328,
+          "height": 1760,
+          "subtype": "420v"
+        },
+        {
+          "rates": [
+            {
+              "min": 15,
+              "max": 30
+            }
+          ],
+          "width": 1552,
+          "height": 1552,
+          "subtype": "420v"
+        }
+      ]
+    },
+    {
+      "name": "OBS Virtual Camera",
+      "id": "7626645E-4425-469E-9D8B-97E0FA59AC75",
+      "formats": [
+        {
+          "rates": [
+            {
+              "min": 60,
+              "max": 60
+            }
+          ],
+          "width": 1920,
+          "height": 1080,
+          "subtype": "BGRA"
+        }
+      ]
+    },
+    {
+      "name": "OBSBOT Virtual Camera",
+      "id": "DFCE4674-D8B4-E9C2-D625-339240874FB3",
+      "formats": [
+        {
+          "rates": [
+            {
+              "min": 60,
+              "max": 60
+            }
+          ],
+          "width": 1920,
+          "height": 1080,
+          "subtype": "BGRA"
+        }
+      ]
+    }
+  ],
+  "camera_authorization": 3,
+  "screen_capture_allowed": false
+}

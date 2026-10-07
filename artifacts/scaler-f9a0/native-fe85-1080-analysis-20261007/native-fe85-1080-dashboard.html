@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MS2109 FE85 native 1080p sweep</title>
+<style>
+body{margin:0;padding:24px clamp(16px,4vw,56px);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17202a;background:#fff}
+main{max-width:1200px;margin:0 auto}h1{margin:0 0 8px;font-size:clamp(24px,3vw,34px)}h2{margin:28px 0 8px;font-size:21px}p{max-width:1000px}.note{border-left:4px solid #2364aa;padding:10px 14px;background:#f3f6fa}.plots{display:grid;grid-template-columns:1fr;gap:22px}figure{margin:0}figcaption{margin:0 0 6px;color:#3f4b5b}svg{display:block;width:100%;height:auto}table{border-collapse:collapse;margin:10px 0 22px}th,td{padding:7px 12px;border-bottom:1px solid #d8dee8;text-align:left;font-variant-numeric:tabular-nums}code{font-family:ui-monospace,SFMono-Regular,monospace}@media(min-width:1000px){.plots{grid-template-columns:1fr 1fr}}
+</style></head><body><main>
+<h1>FE85 at native 1080p → 1080p, with FE84=0x40</h1>
+<p class="note"><strong>Best reference candidate: FE85=0x00.</strong> It preserves the chart phase in the 2px bars and 1px grid. The measured direct-code full-frame MAE is 0.331 Y codes; the limited-range model gives 9.928. The 0x20 full-frame score is lower by only about 0.016 code, while its detail ROIs are slightly less exact, so this does not establish a unique optimum.</p>
+<p>Across 0x00–0x20, FE85 bit 1 set produced a repeatable one-pixel phase change in both high-frequency ROIs. The ROM clears that bit during video setup. The two level models remain separate: this fresh run fits direct AppKit codes, while the earlier saved FE84=0x40 run fit full-to-limited Y.</p>
+<p>Markers: ○ FE85 bit 1 clear; △ FE85 bit 1 set. Each plot uses the same categorical candidate order: every byte 0x00–0x20, followed by 0x40, 0x80 and 0xFF.</p>
+<div class="plots"><figure><figcaption>Direct code fit. A low value indicates a closer full-frame match under the direct-code interpretation.</figcaption><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 390" role="img" aria-labelledby="title desc">
+<title id="title">Direct AppKit code reference</title>
+<desc id="desc">Mean absolute error outside the top-right overlay against the AppKit source render interpreted directly as captured Y.</desc>
+<rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
+<text x="90" y="28" fill="#17202a" font-family="sans-serif" font-size="20" font-weight="600">Direct AppKit code reference</text>
+<line x1="90" y1="304.00" x2="1012" y2="304.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="309.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">0</text>
+<line x1="90" y1="242.00" x2="1012" y2="242.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="247.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">2.5</text>
+<line x1="90" y1="180.00" x2="1012" y2="180.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="185.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">5</text>
+<line x1="90" y1="118.00" x2="1012" y2="118.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="123.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">7.5</text>
+<line x1="90" y1="56.00" x2="1012" y2="56.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="61.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">10</text>
+<line x1="90.00" y1="56" x2="90.00" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="90.00" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">00</text>
+<line x1="195.37" y1="56" x2="195.37" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="195.37" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">04</text>
+<line x1="300.74" y1="56" x2="300.74" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="300.74" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">08</text>
+<line x1="406.11" y1="56" x2="406.11" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="406.11" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">0c</text>
+<line x1="511.49" y1="56" x2="511.49" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="511.49" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">10</text>
+<line x1="616.86" y1="56" x2="616.86" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="616.86" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">14</text>
+<line x1="722.23" y1="56" x2="722.23" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="722.23" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">18</text>
+<line x1="827.60" y1="56" x2="827.60" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="827.60" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">1c</text>
+<line x1="932.97" y1="56" x2="932.97" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="932.97" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">20</text>
+<line x1="959.31" y1="56" x2="959.31" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="959.31" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">40</text>
+<line x1="985.66" y1="56" x2="985.66" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="985.66" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">80</text>
+<line x1="1012.00" y1="56" x2="1012.00" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="1012.00" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">ff</text>
+<rect x="90" y="56" width="922" height="248" fill="none" stroke="#677381" stroke-width="1"/>
+<text x="551.00" y="374" text-anchor="middle" fill="#263238" font-family="sans-serif" font-size="14">FE85 byte (categorical test order)</text>
+<text x="20" y="180.00" transform="rotate(-90 20 180.00)" text-anchor="middle" fill="#263238" font-family="sans-serif" font-size="14">full-frame MAE (Y codes)</text>
+<polyline points="90.00,295.79 116.34,295.79 142.69,91.66 169.03,91.66 195.37,295.79 221.71,295.79 248.06,91.66 274.40,91.66 300.74,295.79 327.09,295.80 353.43,91.65 379.77,91.66 406.11,295.79 432.46,295.80 458.80,91.66 485.14,91.66 511.49,295.38 537.83,295.37 564.17,91.55 590.51,91.55 616.86,295.37 643.20,295.37 669.54,91.55 695.89,91.55 722.23,295.38 748.57,295.38 774.91,91.55 801.26,91.55 827.60,295.37 853.94,295.37 880.29,91.55 906.63,91.55 932.97,296.20 959.31,294.77 985.66,291.31 1012.00,86.28" fill="none" stroke="#2364aa" stroke-width="2.2"/>
+<circle cx="90.00" cy="295.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x00; FE85 bit 1=0; full-frame MAE (Y codes)=0.331019</title></circle>
+<circle cx="116.34" cy="295.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x01; FE85 bit 1=0; full-frame MAE (Y codes)=0.331047</title></circle>
+<path d="M 142.69 86.66 L 147.69 95.66 L 137.69 95.66 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x02; FE85 bit 1=1; full-frame MAE (Y codes)=8.56228</title></path>
+<path d="M 169.03 86.66 L 174.03 95.66 L 164.03 95.66 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x03; FE85 bit 1=1; full-frame MAE (Y codes)=8.56226</title></path>
+<circle cx="195.37" cy="295.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x04; FE85 bit 1=0; full-frame MAE (Y codes)=0.331019</title></circle>
+<circle cx="221.71" cy="295.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x05; FE85 bit 1=0; full-frame MAE (Y codes)=0.331019</title></circle>
+<path d="M 248.06 86.66 L 253.06 95.66 L 243.06 95.66 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x06; FE85 bit 1=1; full-frame MAE (Y codes)=8.56228</title></path>
+<path d="M 274.40 86.66 L 279.40 95.66 L 269.40 95.66 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x07; FE85 bit 1=1; full-frame MAE (Y codes)=8.56227</title></path>
+<circle cx="300.74" cy="295.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x08; FE85 bit 1=0; full-frame MAE (Y codes)=0.331047</title></circle>
+<circle cx="327.09" cy="295.80" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x09; FE85 bit 1=0; full-frame MAE (Y codes)=0.330833</title></circle>
+<path d="M 353.43 86.65 L 358.43 95.65 L 348.43 95.65 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0a; FE85 bit 1=1; full-frame MAE (Y codes)=8.56231</title></path>
+<path d="M 379.77 86.66 L 384.77 95.66 L 374.77 95.66 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0b; FE85 bit 1=1; full-frame MAE (Y codes)=8.56228</title></path>
+<circle cx="406.11" cy="295.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x0c; FE85 bit 1=0; full-frame MAE (Y codes)=0.331047</title></circle>
+<circle cx="432.46" cy="295.80" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x0d; FE85 bit 1=0; full-frame MAE (Y codes)=0.330793</title></circle>
+<path d="M 458.80 86.66 L 463.80 95.66 L 453.80 95.66 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0e; FE85 bit 1=1; full-frame MAE (Y codes)=8.56227</title></path>
+<path d="M 485.14 86.66 L 490.14 95.66 L 480.14 95.66 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0f; FE85 bit 1=1; full-frame MAE (Y codes)=8.56226</title></path>
+<circle cx="511.49" cy="295.38" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x10; FE85 bit 1=0; full-frame MAE (Y codes)=0.347606</title></circle>
+<circle cx="537.83" cy="295.37" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x11; FE85 bit 1=0; full-frame MAE (Y codes)=0.347804</title></circle>
+<path d="M 564.17 86.55 L 569.17 95.55 L 559.17 95.55 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x12; FE85 bit 1=1; full-frame MAE (Y codes)=8.56649</title></path>
+<path d="M 590.51 86.55 L 595.51 95.55 L 585.51 95.55 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x13; FE85 bit 1=1; full-frame MAE (Y codes)=8.56647</title></path>
+<circle cx="616.86" cy="295.37" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x14; FE85 bit 1=0; full-frame MAE (Y codes)=0.347804</title></circle>
+<circle cx="643.20" cy="295.37" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x15; FE85 bit 1=0; full-frame MAE (Y codes)=0.347804</title></circle>
+<path d="M 669.54 86.55 L 674.54 95.55 L 664.54 95.55 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x16; FE85 bit 1=1; full-frame MAE (Y codes)=8.56649</title></path>
+<path d="M 695.89 86.55 L 700.89 95.55 L 690.89 95.55 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x17; FE85 bit 1=1; full-frame MAE (Y codes)=8.56651</title></path>
+<circle cx="722.23" cy="295.38" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x18; FE85 bit 1=0; full-frame MAE (Y codes)=0.347606</title></circle>
+<circle cx="748.57" cy="295.38" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x19; FE85 bit 1=0; full-frame MAE (Y codes)=0.347589</title></circle>
+<path d="M 774.91 86.55 L 779.91 95.55 L 769.91 95.55 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1a; FE85 bit 1=1; full-frame MAE (Y codes)=8.56647</title></path>
+<path d="M 801.26 86.55 L 806.26 95.55 L 796.26 95.55 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1b; FE85 bit 1=1; full-frame MAE (Y codes)=8.56647</title></path>
+<circle cx="827.60" cy="295.37" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x1c; FE85 bit 1=0; full-frame MAE (Y codes)=0.347804</title></circle>
+<circle cx="853.94" cy="295.37" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x1d; FE85 bit 1=0; full-frame MAE (Y codes)=0.347837</title></circle>
+<path d="M 880.29 86.55 L 885.29 95.55 L 875.29 95.55 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1e; FE85 bit 1=1; full-frame MAE (Y codes)=8.56649</title></path>
+<path d="M 906.63 86.55 L 911.63 95.55 L 901.63 95.55 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1f; FE85 bit 1=1; full-frame MAE (Y codes)=8.56647</title></path>
+<circle cx="932.97" cy="296.20" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x20; FE85 bit 1=0; full-frame MAE (Y codes)=0.314588</title></circle>
+<circle cx="959.31" cy="294.77" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x40; FE85 bit 1=0; full-frame MAE (Y codes)=0.37204</title></circle>
+<circle cx="985.66" cy="291.31" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x80; FE85 bit 1=0; full-frame MAE (Y codes)=0.511698</title></circle>
+<path d="M 1012.00 81.28 L 1017.00 90.28 L 1007.00 90.28 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0xff; FE85 bit 1=1; full-frame MAE (Y codes)=8.77904</title></path>
+<text x="802" y="73" fill="#2364aa" font-family="sans-serif" font-size="12">○ bit 1 clear</text>
+<text x="907" y="73" fill="#b23a48" font-family="sans-serif" font-size="12">△ set</text>
+</svg>
+</figure><figure><figcaption>Limited-range fit. Kept separate because this model is not equivalent to direct code matching.</figcaption><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 390" role="img" aria-labelledby="title desc">
+<title id="title">Full-to-limited Y reference</title>
+<desc id="desc">Mean absolute error outside the top-right overlay against Y = 16 + floor(219 × RGB / 255).</desc>
+<rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
+<text x="90" y="28" fill="#17202a" font-family="sans-serif" font-size="20" font-weight="600">Full-to-limited Y reference</text>
+<line x1="90" y1="304.00" x2="1012" y2="304.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="309.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">0</text>
+<line x1="90" y1="242.00" x2="1012" y2="242.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="247.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">5</text>
+<line x1="90" y1="180.00" x2="1012" y2="180.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="185.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">10</text>
+<line x1="90" y1="118.00" x2="1012" y2="118.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="123.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">15</text>
+<line x1="90" y1="56.00" x2="1012" y2="56.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="61.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">20</text>
+<line x1="90.00" y1="56" x2="90.00" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="90.00" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">00</text>
+<line x1="195.37" y1="56" x2="195.37" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="195.37" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">04</text>
+<line x1="300.74" y1="56" x2="300.74" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="300.74" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">08</text>
+<line x1="406.11" y1="56" x2="406.11" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="406.11" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">0c</text>
+<line x1="511.49" y1="56" x2="511.49" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="511.49" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">10</text>
+<line x1="616.86" y1="56" x2="616.86" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="616.86" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">14</text>
+<line x1="722.23" y1="56" x2="722.23" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="722.23" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">18</text>
+<line x1="827.60" y1="56" x2="827.60" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="827.60" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">1c</text>
+<line x1="932.97" y1="56" x2="932.97" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="932.97" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">20</text>
+<line x1="959.31" y1="56" x2="959.31" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="959.31" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">40</text>
+<line x1="985.66" y1="56" x2="985.66" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="985.66" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">80</text>
+<line x1="1012.00" y1="56" x2="1012.00" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="1012.00" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">ff</text>
+<rect x="90" y="56" width="922" height="248" fill="none" stroke="#677381" stroke-width="1"/>
+<text x="551.00" y="374" text-anchor="middle" fill="#263238" font-family="sans-serif" font-size="14">FE85 byte (categorical test order)</text>
+<text x="20" y="180.00" transform="rotate(-90 20 180.00)" text-anchor="middle" fill="#263238" font-family="sans-serif" font-size="14">full-frame MAE (Y codes)</text>
+<polyline points="90.00,180.90 116.34,180.90 142.69,94.00 169.03,94.00 195.37,180.90 221.71,180.90 248.06,94.00 274.40,94.00 300.74,180.90 327.09,180.90 353.43,94.00 379.77,94.00 406.11,180.90 432.46,180.90 458.80,94.00 485.14,94.00 511.49,181.79 537.83,181.79 564.17,94.42 590.51,94.41 616.86,181.79 643.20,181.79 669.54,94.42 695.89,94.41 722.23,181.79 748.57,181.79 774.91,94.41 801.26,94.41 827.60,181.79 853.94,181.79 880.29,94.42 906.63,94.41 932.97,182.21 959.31,182.31 985.66,183.39 1012.00,95.11" fill="none" stroke="#2364aa" stroke-width="2.2"/>
+<circle cx="90.00" cy="180.90" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x00; FE85 bit 1=0; full-frame MAE (Y codes)=9.92764</title></circle>
+<circle cx="116.34" cy="180.90" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x01; FE85 bit 1=0; full-frame MAE (Y codes)=9.92761</title></circle>
+<path d="M 142.69 89.00 L 147.69 98.00 L 137.69 98.00 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x02; FE85 bit 1=1; full-frame MAE (Y codes)=16.9352</title></path>
+<path d="M 169.03 89.00 L 174.03 98.00 L 164.03 98.00 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x03; FE85 bit 1=1; full-frame MAE (Y codes)=16.9352</title></path>
+<circle cx="195.37" cy="180.90" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x04; FE85 bit 1=0; full-frame MAE (Y codes)=9.92764</title></circle>
+<circle cx="221.71" cy="180.90" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x05; FE85 bit 1=0; full-frame MAE (Y codes)=9.92764</title></circle>
+<path d="M 248.06 89.00 L 253.06 98.00 L 243.06 98.00 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x06; FE85 bit 1=1; full-frame MAE (Y codes)=16.9352</title></path>
+<path d="M 274.40 89.00 L 279.40 98.00 L 269.40 98.00 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x07; FE85 bit 1=1; full-frame MAE (Y codes)=16.9352</title></path>
+<circle cx="300.74" cy="180.90" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x08; FE85 bit 1=0; full-frame MAE (Y codes)=9.92761</title></circle>
+<circle cx="327.09" cy="180.90" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x09; FE85 bit 1=0; full-frame MAE (Y codes)=9.92742</title></circle>
+<path d="M 353.43 89.00 L 358.43 98.00 L 348.43 98.00 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0a; FE85 bit 1=1; full-frame MAE (Y codes)=16.9352</title></path>
+<path d="M 379.77 89.00 L 384.77 98.00 L 374.77 98.00 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0b; FE85 bit 1=1; full-frame MAE (Y codes)=16.9352</title></path>
+<circle cx="406.11" cy="180.90" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x0c; FE85 bit 1=0; full-frame MAE (Y codes)=9.92761</title></circle>
+<circle cx="432.46" cy="180.90" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x0d; FE85 bit 1=0; full-frame MAE (Y codes)=9.92737</title></circle>
+<path d="M 458.80 89.00 L 463.80 98.00 L 453.80 98.00 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0e; FE85 bit 1=1; full-frame MAE (Y codes)=16.9352</title></path>
+<path d="M 485.14 89.00 L 490.14 98.00 L 480.14 98.00 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0f; FE85 bit 1=1; full-frame MAE (Y codes)=16.9352</title></path>
+<circle cx="511.49" cy="181.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x10; FE85 bit 1=0; full-frame MAE (Y codes)=9.85538</title></circle>
+<circle cx="537.83" cy="181.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x11; FE85 bit 1=0; full-frame MAE (Y codes)=9.85558</title></circle>
+<path d="M 564.17 89.42 L 569.17 98.42 L 559.17 98.42 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x12; FE85 bit 1=1; full-frame MAE (Y codes)=16.902</title></path>
+<path d="M 590.51 89.41 L 595.51 98.41 L 585.51 98.41 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x13; FE85 bit 1=1; full-frame MAE (Y codes)=16.902</title></path>
+<circle cx="616.86" cy="181.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x14; FE85 bit 1=0; full-frame MAE (Y codes)=9.85558</title></circle>
+<circle cx="643.20" cy="181.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x15; FE85 bit 1=0; full-frame MAE (Y codes)=9.85558</title></circle>
+<path d="M 669.54 89.42 L 674.54 98.42 L 664.54 98.42 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x16; FE85 bit 1=1; full-frame MAE (Y codes)=16.902</title></path>
+<path d="M 695.89 89.41 L 700.89 98.41 L 690.89 98.41 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x17; FE85 bit 1=1; full-frame MAE (Y codes)=16.9021</title></path>
+<circle cx="722.23" cy="181.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x18; FE85 bit 1=0; full-frame MAE (Y codes)=9.85538</title></circle>
+<circle cx="748.57" cy="181.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x19; FE85 bit 1=0; full-frame MAE (Y codes)=9.85532</title></circle>
+<path d="M 774.91 89.41 L 779.91 98.41 L 769.91 98.41 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1a; FE85 bit 1=1; full-frame MAE (Y codes)=16.902</title></path>
+<path d="M 801.26 89.41 L 806.26 98.41 L 796.26 98.41 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1b; FE85 bit 1=1; full-frame MAE (Y codes)=16.902</title></path>
+<circle cx="827.60" cy="181.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x1c; FE85 bit 1=0; full-frame MAE (Y codes)=9.85558</title></circle>
+<circle cx="853.94" cy="181.79" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x1d; FE85 bit 1=0; full-frame MAE (Y codes)=9.85555</title></circle>
+<path d="M 880.29 89.42 L 885.29 98.42 L 875.29 98.42 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1e; FE85 bit 1=1; full-frame MAE (Y codes)=16.902</title></path>
+<path d="M 906.63 89.41 L 911.63 98.41 L 901.63 98.41 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1f; FE85 bit 1=1; full-frame MAE (Y codes)=16.902</title></path>
+<circle cx="932.97" cy="182.21" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x20; FE85 bit 1=0; full-frame MAE (Y codes)=9.82164</title></circle>
+<circle cx="959.31" cy="182.31" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x40; FE85 bit 1=0; full-frame MAE (Y codes)=9.81363</title></circle>
+<circle cx="985.66" cy="183.39" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x80; FE85 bit 1=0; full-frame MAE (Y codes)=9.72656</title></circle>
+<path d="M 1012.00 90.11 L 1017.00 99.11 L 1007.00 99.11 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0xff; FE85 bit 1=1; full-frame MAE (Y codes)=16.8462</title></path>
+<text x="802" y="73" fill="#2364aa" font-family="sans-serif" font-size="12">○ bit 1 clear</text>
+<text x="907" y="73" fill="#b23a48" font-family="sans-serif" font-size="12">△ set</text>
+</svg>
+</figure><figure><figcaption>A one-pixel phase reversal creates a large error in alternating 2px bars.</figcaption><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 390" role="img" aria-labelledby="title desc">
+<title id="title">B1 vertical bars, 2 px pitch</title>
+<desc id="desc">Pixelwise error in the 2-pixel vertical-bar ROI against direct AppKit codes. A one-pixel phase shift flips alternating bars.</desc>
+<rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
+<text x="90" y="28" fill="#17202a" font-family="sans-serif" font-size="20" font-weight="600">B1 vertical bars, 2 px pitch</text>
+<line x1="90" y1="304.00" x2="1012" y2="304.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="309.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">0</text>
+<line x1="90" y1="242.00" x2="1012" y2="242.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="247.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">30</text>
+<line x1="90" y1="180.00" x2="1012" y2="180.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="185.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">60</text>
+<line x1="90" y1="118.00" x2="1012" y2="118.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="123.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">90</text>
+<line x1="90" y1="56.00" x2="1012" y2="56.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="61.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">120</text>
+<line x1="90.00" y1="56" x2="90.00" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="90.00" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">00</text>
+<line x1="195.37" y1="56" x2="195.37" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="195.37" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">04</text>
+<line x1="300.74" y1="56" x2="300.74" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="300.74" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">08</text>
+<line x1="406.11" y1="56" x2="406.11" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="406.11" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">0c</text>
+<line x1="511.49" y1="56" x2="511.49" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="511.49" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">10</text>
+<line x1="616.86" y1="56" x2="616.86" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="616.86" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">14</text>
+<line x1="722.23" y1="56" x2="722.23" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="722.23" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">18</text>
+<line x1="827.60" y1="56" x2="827.60" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="827.60" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">1c</text>
+<line x1="932.97" y1="56" x2="932.97" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="932.97" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">20</text>
+<line x1="959.31" y1="56" x2="959.31" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="959.31" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">40</text>
+<line x1="985.66" y1="56" x2="985.66" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="985.66" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">80</text>
+<line x1="1012.00" y1="56" x2="1012.00" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="1012.00" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">ff</text>
+<rect x="90" y="56" width="922" height="248" fill="none" stroke="#677381" stroke-width="1"/>
+<text x="551.00" y="374" text-anchor="middle" fill="#263238" font-family="sans-serif" font-size="14">FE85 byte (categorical test order)</text>
+<text x="20" y="180.00" transform="rotate(-90 20 180.00)" text-anchor="middle" fill="#263238" font-family="sans-serif" font-size="14">ROI MAE (Y codes)</text>
+<polyline points="90.00,304.00 116.34,304.00 142.69,89.52 169.03,89.52 195.37,304.00 221.71,304.00 248.06,89.52 274.40,89.52 300.74,304.00 327.09,304.00 353.43,89.52 379.77,89.52 406.11,304.00 432.46,304.00 458.80,89.52 485.14,89.52 511.49,303.07 537.83,303.07 564.17,89.52 590.51,89.52 616.86,303.07 643.20,303.07 669.54,89.52 695.89,89.52 722.23,303.07 748.57,303.07 774.91,89.52 801.26,89.52 827.60,303.07 853.94,303.07 880.29,89.52 906.63,89.52 932.97,303.07 959.31,302.13 985.66,299.34 1012.00,89.52" fill="none" stroke="#2364aa" stroke-width="2.2"/>
+<circle cx="90.00" cy="304.00" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x00; FE85 bit 1=0; ROI MAE (Y codes)=0</title></circle>
+<circle cx="116.34" cy="304.00" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x01; FE85 bit 1=0; ROI MAE (Y codes)=0</title></circle>
+<path d="M 142.69 84.52 L 147.69 93.52 L 137.69 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x02; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<path d="M 169.03 84.52 L 174.03 93.52 L 164.03 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x03; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<circle cx="195.37" cy="304.00" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x04; FE85 bit 1=0; ROI MAE (Y codes)=0</title></circle>
+<circle cx="221.71" cy="304.00" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x05; FE85 bit 1=0; ROI MAE (Y codes)=0</title></circle>
+<path d="M 248.06 84.52 L 253.06 93.52 L 243.06 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x06; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<path d="M 274.40 84.52 L 279.40 93.52 L 269.40 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x07; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<circle cx="300.74" cy="304.00" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x08; FE85 bit 1=0; ROI MAE (Y codes)=0</title></circle>
+<circle cx="327.09" cy="304.00" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x09; FE85 bit 1=0; ROI MAE (Y codes)=0</title></circle>
+<path d="M 353.43 84.52 L 358.43 93.52 L 348.43 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0a; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<path d="M 379.77 84.52 L 384.77 93.52 L 374.77 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0b; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<circle cx="406.11" cy="304.00" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x0c; FE85 bit 1=0; ROI MAE (Y codes)=0</title></circle>
+<circle cx="432.46" cy="304.00" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x0d; FE85 bit 1=0; ROI MAE (Y codes)=0</title></circle>
+<path d="M 458.80 84.52 L 463.80 93.52 L 453.80 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0e; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<path d="M 485.14 84.52 L 490.14 93.52 L 480.14 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0f; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<circle cx="511.49" cy="303.07" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x10; FE85 bit 1=0; ROI MAE (Y codes)=0.45122</title></circle>
+<circle cx="537.83" cy="303.07" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x11; FE85 bit 1=0; ROI MAE (Y codes)=0.45122</title></circle>
+<path d="M 564.17 84.52 L 569.17 93.52 L 559.17 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x12; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<path d="M 590.51 84.52 L 595.51 93.52 L 585.51 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x13; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<circle cx="616.86" cy="303.07" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x14; FE85 bit 1=0; ROI MAE (Y codes)=0.45122</title></circle>
+<circle cx="643.20" cy="303.07" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x15; FE85 bit 1=0; ROI MAE (Y codes)=0.45122</title></circle>
+<path d="M 669.54 84.52 L 674.54 93.52 L 664.54 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x16; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<path d="M 695.89 84.52 L 700.89 93.52 L 690.89 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x17; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<circle cx="722.23" cy="303.07" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x18; FE85 bit 1=0; ROI MAE (Y codes)=0.45122</title></circle>
+<circle cx="748.57" cy="303.07" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x19; FE85 bit 1=0; ROI MAE (Y codes)=0.45122</title></circle>
+<path d="M 774.91 84.52 L 779.91 93.52 L 769.91 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1a; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<path d="M 801.26 84.52 L 806.26 93.52 L 796.26 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1b; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<circle cx="827.60" cy="303.07" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x1c; FE85 bit 1=0; ROI MAE (Y codes)=0.45122</title></circle>
+<circle cx="853.94" cy="303.07" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x1d; FE85 bit 1=0; ROI MAE (Y codes)=0.45122</title></circle>
+<path d="M 880.29 84.52 L 885.29 93.52 L 875.29 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1e; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<path d="M 906.63 84.52 L 911.63 93.52 L 901.63 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1f; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<circle cx="932.97" cy="303.07" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x20; FE85 bit 1=0; ROI MAE (Y codes)=0.45122</title></circle>
+<circle cx="959.31" cy="302.13" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x40; FE85 bit 1=0; ROI MAE (Y codes)=0.902439</title></circle>
+<circle cx="985.66" cy="299.34" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x80; FE85 bit 1=0; ROI MAE (Y codes)=2.2561</title></circle>
+<path d="M 1012.00 84.52 L 1017.00 93.52 L 1007.00 93.52 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0xff; FE85 bit 1=1; ROI MAE (Y codes)=103.78</title></path>
+<text x="802" y="73" fill="#2364aa" font-family="sans-serif" font-size="12">○ bit 1 clear</text>
+<text x="907" y="73" fill="#b23a48" font-family="sans-serif" font-size="12">△ set</text>
+</svg>
+</figure><figure><figcaption>A one-pixel shift changes the phase of this 1px checkerboard.</figcaption><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 390" role="img" aria-labelledby="title desc">
+<title id="title">C1 one-pixel grid</title>
+<desc id="desc">Pixelwise error in the one-pixel grid ROI against direct AppKit codes. A one-pixel phase shift changes the checkerboard phase.</desc>
+<rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
+<text x="90" y="28" fill="#17202a" font-family="sans-serif" font-size="20" font-weight="600">C1 one-pixel grid</text>
+<line x1="90" y1="304.00" x2="1012" y2="304.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="309.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">0</text>
+<line x1="90" y1="242.00" x2="1012" y2="242.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="247.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">60</text>
+<line x1="90" y1="180.00" x2="1012" y2="180.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="185.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">120</text>
+<line x1="90" y1="118.00" x2="1012" y2="118.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="123.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">180</text>
+<line x1="90" y1="56.00" x2="1012" y2="56.00" stroke="#d8dee8" stroke-width="1"/>
+<text x="78" y="61.00" text-anchor="end" fill="#3f4b5b" font-family="sans-serif" font-size="13">240</text>
+<line x1="90.00" y1="56" x2="90.00" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="90.00" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">00</text>
+<line x1="195.37" y1="56" x2="195.37" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="195.37" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">04</text>
+<line x1="300.74" y1="56" x2="300.74" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="300.74" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">08</text>
+<line x1="406.11" y1="56" x2="406.11" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="406.11" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">0c</text>
+<line x1="511.49" y1="56" x2="511.49" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="511.49" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">10</text>
+<line x1="616.86" y1="56" x2="616.86" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="616.86" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">14</text>
+<line x1="722.23" y1="56" x2="722.23" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="722.23" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">18</text>
+<line x1="827.60" y1="56" x2="827.60" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="827.60" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">1c</text>
+<line x1="932.97" y1="56" x2="932.97" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="932.97" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">20</text>
+<line x1="959.31" y1="56" x2="959.31" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="959.31" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">40</text>
+<line x1="985.66" y1="56" x2="985.66" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="985.66" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">80</text>
+<line x1="1012.00" y1="56" x2="1012.00" y2="304" stroke="#edf0f3" stroke-width="1"/>
+<text x="1012.00" y="327" text-anchor="middle" fill="#3f4b5b" font-family="monospace" font-size="12">ff</text>
+<rect x="90" y="56" width="922" height="248" fill="none" stroke="#677381" stroke-width="1"/>
+<text x="551.00" y="374" text-anchor="middle" fill="#263238" font-family="sans-serif" font-size="14">FE85 byte (categorical test order)</text>
+<text x="20" y="180.00" transform="rotate(-90 20 180.00)" text-anchor="middle" fill="#263238" font-family="sans-serif" font-size="14">ROI MAE (Y codes)</text>
+<polyline points="90.00,303.48 116.34,303.48 142.69,81.32 169.03,81.32 195.37,303.48 221.71,303.48 248.06,81.32 274.40,81.32 300.74,303.48 327.09,303.48 353.43,81.32 379.77,81.32 406.11,303.48 432.46,303.48 458.80,81.32 485.14,81.32 511.49,303.48 537.83,303.48 564.17,81.32 590.51,81.32 616.86,303.48 643.20,303.48 669.54,81.32 695.89,81.32 722.23,303.48 748.57,303.48 774.91,81.32 801.26,81.32 827.60,303.48 853.94,303.48 880.29,81.32 906.63,81.32 932.97,303.48 959.31,302.97 985.66,301.42 1012.00,81.32" fill="none" stroke="#2364aa" stroke-width="2.2"/>
+<circle cx="90.00" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x00; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<circle cx="116.34" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x01; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<path d="M 142.69 76.32 L 147.69 85.32 L 137.69 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x02; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<path d="M 169.03 76.32 L 174.03 85.32 L 164.03 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x03; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<circle cx="195.37" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x04; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<circle cx="221.71" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x05; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<path d="M 248.06 76.32 L 253.06 85.32 L 243.06 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x06; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<path d="M 274.40 76.32 L 279.40 85.32 L 269.40 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x07; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<circle cx="300.74" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x08; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<circle cx="327.09" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x09; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<path d="M 353.43 76.32 L 358.43 85.32 L 348.43 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0a; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<path d="M 379.77 76.32 L 384.77 85.32 L 374.77 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0b; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<circle cx="406.11" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x0c; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<circle cx="432.46" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x0d; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<path d="M 458.80 76.32 L 463.80 85.32 L 453.80 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0e; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<path d="M 485.14 76.32 L 490.14 85.32 L 480.14 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x0f; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<circle cx="511.49" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x10; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<circle cx="537.83" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x11; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<path d="M 564.17 76.32 L 569.17 85.32 L 559.17 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x12; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<path d="M 590.51 76.32 L 595.51 85.32 L 585.51 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x13; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<circle cx="616.86" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x14; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<circle cx="643.20" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x15; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<path d="M 669.54 76.32 L 674.54 85.32 L 664.54 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x16; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<path d="M 695.89 76.32 L 700.89 85.32 L 690.89 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x17; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<circle cx="722.23" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x18; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<circle cx="748.57" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x19; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<path d="M 774.91 76.32 L 779.91 85.32 L 769.91 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1a; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<path d="M 801.26 76.32 L 806.26 85.32 L 796.26 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1b; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<circle cx="827.60" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x1c; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<circle cx="853.94" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x1d; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<path d="M 880.29 76.32 L 885.29 85.32 L 875.29 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1e; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<path d="M 906.63 76.32 L 911.63 85.32 L 901.63 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0x1f; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<circle cx="932.97" cy="303.48" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x20; FE85 bit 1=0; ROI MAE (Y codes)=0.5</title></circle>
+<circle cx="959.31" cy="302.97" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x40; FE85 bit 1=0; ROI MAE (Y codes)=1</title></circle>
+<circle cx="985.66" cy="301.42" r="4.4" fill="#2364aa" stroke="#fff" stroke-width="1"><title>FE85=0x80; FE85 bit 1=0; ROI MAE (Y codes)=2.5</title></circle>
+<path d="M 1012.00 76.32 L 1017.00 85.32 L 1007.00 85.32 Z" fill="#b23a48" stroke="#fff" stroke-width="1"><title>FE85=0xff; FE85 bit 1=1; ROI MAE (Y codes)=215.5</title></path>
+<text x="802" y="73" fill="#2364aa" font-family="sans-serif" font-size="12">○ bit 1 clear</text>
+<text x="907" y="73" fill="#b23a48" font-family="sans-serif" font-size="12">△ set</text>
+</svg>
+</figure></div>
+<h2>Flat-field levels at FE85=0x00</h2><table><thead><tr><th>Direct source-render Y</th><th>Full→limited model Y</th><th>Captured mean Y</th><th>Captured σ</th></tr></thead><tbody><tr><td>117</td><td>116</td><td>117.000</td><td>0.000</td></tr><tr><td>17</td><td>30</td><td>16.000</td><td>0.000</td></tr><tr><td>232</td><td>215</td><td>232.000</td><td>0.000</td></tr></tbody></table>
+<p>All writes were RAM-only. FE84/FE85, procamp controls and UVC shadows were restored; EEPROM SHA-256 remained 83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82.</p>
+</main></body></html>

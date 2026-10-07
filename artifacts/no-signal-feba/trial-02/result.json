@@ -1,0 +1,74 @@
+{
+  "scope": "FEBA lower bits, temporary writes only; AVFoundation YUY2",
+  "stages": [
+    {
+      "value": 0,
+      "readback_before_capture": 0,
+      "capture_returncode": 0,
+      "readback_after_capture": 0,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 3,
+      "readback_before_capture": 3,
+      "capture_returncode": 0,
+      "readback_after_capture": 3,
+      "last_frame_sha256": "cbda0b45e49aeddb1047575bde90466e6c57155e1373174145232b3a946c4879"
+    },
+    {
+      "value": 5,
+      "readback_before_capture": 5,
+      "capture_returncode": 0,
+      "readback_after_capture": 5,
+      "last_frame_sha256": "03a35b348b2bd35ba640f51ac035737a17c63791f2d683e86e7eebd0a5901e2d"
+    },
+    {
+      "value": 6,
+      "readback_before_capture": 6,
+      "capture_returncode": 0,
+      "readback_after_capture": 6,
+      "last_frame_sha256": "6dc75d45ea8e0efc27989eefa37363e7ff41b6d04b6cd3f3bc0b6f519e2795be"
+    },
+    {
+      "value": 9,
+      "readback_before_capture": 9,
+      "capture_returncode": 0,
+      "readback_after_capture": 9,
+      "last_frame_sha256": "46a35c66a66f7f707b6a3d5e60c8c113c3b95401713c4a3a132860baa3a1724e"
+    },
+    {
+      "value": 10,
+      "readback_before_capture": 10,
+      "capture_returncode": 0,
+      "readback_after_capture": 10,
+      "last_frame_sha256": "70d410a4f270f40da7466104d4e2ebfd272a58ba81d36d2de4ee7895d17203b5"
+    },
+    {
+      "value": 12,
+      "readback_before_capture": 12,
+      "capture_returncode": 0,
+      "readback_after_capture": 12,
+      "last_frame_sha256": "211ed8b7b2df9b762058457b36571a6ccb02bef13e525206746f6f2bed225d07"
+    },
+    {
+      "value": 24,
+      "readback_before_capture": 24,
+      "capture_returncode": 0,
+      "readback_after_capture": 24,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 31,
+      "readback_before_capture": 31,
+      "capture_returncode": 0,
+      "readback_after_capture": 31,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    }
+  ],
+  "eeprom_before_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "feba_original": 0,
+  "feba_restored": 0,
+  "eeprom_after_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "eeprom_unchanged": true,
+  "feba_restored_finally": 0
+}

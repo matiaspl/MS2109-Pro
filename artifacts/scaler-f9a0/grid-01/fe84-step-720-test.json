@@ -1,0 +1,30 @@
+{
+  "test": "FE84 low-byte +1 RAM-only probe; 1280x720 YUY2 chart",
+  "stages": [
+    {
+      "state": "FE84=7A, FE85=00",
+      "capture": {
+        "movie": "artifacts/scaler-f9a0/grid-01/fe84-7a-720.mkv",
+        "frame": "artifacts/scaler-f9a0/grid-01/fe84-7a-720.png",
+        "frame_bytes": 71363
+      }
+    },
+    {
+      "state": "FE84=7B, FE85=00",
+      "capture": {
+        "movie": "artifacts/scaler-f9a0/grid-01/fe84-7b-720.mkv",
+        "frame": "artifacts/scaler-f9a0/grid-01/fe84-7b-720.png",
+        "frame_bytes": 71350
+      }
+    }
+  ],
+  "eeprom_before_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "fe84_original": 122,
+  "fe85_original": 0,
+  "fe84_after_write": 123,
+  "fe84_after_capture": 123,
+  "fe84_restore_readback": 122,
+  "fe85_after": 0,
+  "eeprom_after_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "eeprom_unchanged": true
+}

@@ -1,0 +1,369 @@
+{
+  "chart_ready": {
+    "full_frame_image_size": [
+      1920,
+      1080
+    ],
+    "chart_kind": "full-frame-raster",
+    "screens": [
+      {
+        "height": 982,
+        "display_id": 1,
+        "frame": "{{0, 0}, {1512, 982}}",
+        "width": 1512,
+        "profile_bytes": 4064,
+        "main": 1,
+        "profile": "Color LCD",
+        "name": "Built-in Retina Display",
+        "scale": 2
+      },
+      {
+        "height": 1080,
+        "display_id": 2,
+        "frame": "{{-1920, 0}, {1920, 1080}}",
+        "width": 1920,
+        "profile_bytes": 524,
+        "main": 0,
+        "profile": "HDMI TO USB",
+        "name": "HDMI TO USB",
+        "scale": 1
+      }
+    ],
+    "display_profile_generation": 0,
+    "render_space": "native",
+    "display_generation": 0,
+    "patch_reference": [],
+    "window_screen": "HDMI TO USB",
+    "window_frame": "{{-1920, 0}, {1920, 1080}}",
+    "patch_manifest": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/test-chart-1920x1080.json",
+    "render_image_space": "HDMI TO USB",
+    "target_display_available": true,
+    "display_profile_matches": true,
+    "display_reconfiguration_events": [],
+    "utc_started": "2026-10-06 22:12:21 +0000",
+    "source_screenshot_available": false
+  },
+  "before": {
+    "capture": "artifacts/scaler-f9a0/native-luma-identity-20261007/current-profile.yuy2",
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "frame_count": 8,
+    "frames_identical": false,
+    "chart_to_Y_exact_fraction": 0.261511,
+    "flat_fields": {
+      "gray_128": {
+        "expected_codes": [
+          16
+        ],
+        "captured_Y_values": [
+          16
+        ],
+        "captured_Y_mean": 16.0,
+        "changed_sample_count": 0
+      },
+      "gray_235": {
+        "expected_codes": [
+          16
+        ],
+        "captured_Y_values": [
+          16
+        ],
+        "captured_Y_mean": 16.0,
+        "changed_sample_count": 0
+      }
+    },
+    "frequency_patches": [
+      {
+        "period_px": 32,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          234.629,
+          113.625
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.347458,
+        "exact_sample_fraction": 0.0
+      },
+      {
+        "period_px": 16,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          237.667,
+          109.938
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.367452,
+        "exact_sample_fraction": 0.0
+      },
+      {
+        "period_px": 8,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          243.848,
+          103.5
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.404057,
+        "exact_sample_fraction": 0.0
+      },
+      {
+        "period_px": 4,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          255.0,
+          90.0
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.478261,
+        "exact_sample_fraction": 0.0
+      },
+      {
+        "period_px": 2,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          255.0,
+          64.0
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.598746,
+        "exact_sample_fraction": 0.0
+      }
+    ]
+  },
+  "neutral": {
+    "capture": "artifacts/scaler-f9a0/native-luma-identity-20261007/neutral-128-128.yuy2",
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "frame_count": 8,
+    "frames_identical": false,
+    "chart_to_Y_exact_fraction": 0.000225,
+    "flat_fields": {
+      "gray_128": {
+        "expected_codes": [
+          16
+        ],
+        "captured_Y_values": [
+          30
+        ],
+        "captured_Y_mean": 30.0,
+        "changed_sample_count": 8192
+      },
+      "gray_235": {
+        "expected_codes": [
+          16
+        ],
+        "captured_Y_values": [
+          30
+        ],
+        "captured_Y_mean": 30.0,
+        "changed_sample_count": 8192
+      }
+    },
+    "frequency_patches": [
+      {
+        "period_px": 32,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          217.514,
+          113.125
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.31572,
+        "exact_sample_fraction": 0.0
+      },
+      {
+        "period_px": 16,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          220.42,
+          109.985
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.334243,
+        "exact_sample_fraction": 0.0
+      },
+      {
+        "period_px": 8,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          226.333,
+          104.5
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.368262,
+        "exact_sample_fraction": 0.0
+      },
+      {
+        "period_px": 4,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          237.0,
+          93.0
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.436364,
+        "exact_sample_fraction": 0.0
+      },
+      {
+        "period_px": 2,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          255.0,
+          71.0
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.564417,
+        "exact_sample_fraction": 0.0
+      }
+    ]
+  },
+  "restored": {
+    "capture": "artifacts/scaler-f9a0/native-luma-identity-20261007/restored-profile.yuy2",
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "frame_count": 8,
+    "frames_identical": false,
+    "chart_to_Y_exact_fraction": 0.261511,
+    "flat_fields": {
+      "gray_128": {
+        "expected_codes": [
+          16
+        ],
+        "captured_Y_values": [
+          16
+        ],
+        "captured_Y_mean": 16.0,
+        "changed_sample_count": 0
+      },
+      "gray_235": {
+        "expected_codes": [
+          16
+        ],
+        "captured_Y_values": [
+          16
+        ],
+        "captured_Y_mean": 16.0,
+        "changed_sample_count": 0
+      }
+    },
+    "frequency_patches": [
+      {
+        "period_px": 32,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          234.629,
+          113.625
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.347458,
+        "exact_sample_fraction": 0.0
+      },
+      {
+        "period_px": 16,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          237.667,
+          109.938
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.367452,
+        "exact_sample_fraction": 0.0
+      },
+      {
+        "period_px": 8,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          243.848,
+          103.5
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.404057,
+        "exact_sample_fraction": 0.0
+      },
+      {
+        "period_px": 4,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          255.0,
+          90.0
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.478261,
+        "exact_sample_fraction": 0.0
+      },
+      {
+        "period_px": 2,
+        "source_luma_bright_dark": [
+          235.0,
+          128.0
+        ],
+        "captured_Y_bright_dark": [
+          255.0,
+          64.0
+        ],
+        "source_michelson": 0.294766,
+        "captured_michelson": 0.598746,
+        "exact_sample_fraction": 0.0
+      }
+    ]
+  },
+  "eeprom_before": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "eeprom_after": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "initial_ram_controls": "ee959300",
+  "initial_uvc_shadows": "eeff950000009300",
+  "neutral_ram_controls": "00809300",
+  "neutral_uvc_shadows": "0000800000009300",
+  "restored_ram_controls": "ee959300",
+  "restored_uvc_shadows": "eeff950000009300",
+  "test": "native 1080 Y-plane comparison, current procamp vs temporary 0/128",
+  "firmware_written": false,
+  "eeprom_unchanged": true
+}

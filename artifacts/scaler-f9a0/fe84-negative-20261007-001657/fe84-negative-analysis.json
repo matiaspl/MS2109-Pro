@@ -1,0 +1,481 @@
+{
+  "capture_dir": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/fe84-negative-20261007-001657",
+  "capture_size": [
+    1280,
+    720
+  ],
+  "baseline_image_sha256": "8a078a35d51ccacb25b92c39a6be85ee8ba5488c38ba1e1e1cca2efaf7f86910",
+  "uniform_plane_validation": {
+    "baseline_a": {
+      "frame_count": 20,
+      "regions": {
+        "gray": {
+          "size_px": [
+            1240,
+            7
+          ],
+          "rgb": [
+            118,
+            118,
+            118
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        },
+        "black": {
+          "size_px": [
+            170,
+            440
+          ],
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        },
+        "white": {
+          "size_px": [
+            130,
+            440
+          ],
+          "rgb": [
+            252,
+            252,
+            252
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        }
+      }
+    },
+    "baseline_b": {
+      "frame_count": 20,
+      "regions": {
+        "gray": {
+          "size_px": [
+            1240,
+            7
+          ],
+          "rgb": [
+            118,
+            118,
+            118
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        },
+        "black": {
+          "size_px": [
+            170,
+            440
+          ],
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        },
+        "white": {
+          "size_px": [
+            130,
+            440
+          ],
+          "rgb": [
+            252,
+            252,
+            252
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        }
+      }
+    },
+    "FE84=74, early": {
+      "frame_count": 20,
+      "regions": {
+        "gray": {
+          "size_px": [
+            1240,
+            7
+          ],
+          "rgb": [
+            118,
+            118,
+            118
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        },
+        "black": {
+          "size_px": [
+            170,
+            440
+          ],
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        },
+        "white": {
+          "size_px": [
+            130,
+            440
+          ],
+          "rgb": [
+            252,
+            252,
+            252
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        }
+      }
+    },
+    "FE84=74, settled": {
+      "frame_count": 20,
+      "regions": {
+        "gray": {
+          "size_px": [
+            1240,
+            7
+          ],
+          "rgb": [
+            118,
+            118,
+            118
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        },
+        "black": {
+          "size_px": [
+            170,
+            440
+          ],
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        },
+        "white": {
+          "size_px": [
+            130,
+            440
+          ],
+          "rgb": [
+            252,
+            252,
+            252
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        }
+      }
+    },
+    "FE84 restored to 7A": {
+      "frame_count": 20,
+      "regions": {
+        "gray": {
+          "size_px": [
+            1240,
+            7
+          ],
+          "rgb": [
+            118,
+            118,
+            118
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        },
+        "black": {
+          "size_px": [
+            170,
+            440
+          ],
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        },
+        "white": {
+          "size_px": [
+            130,
+            440
+          ],
+          "rgb": [
+            252,
+            252,
+            252
+          ],
+          "nonmatching_pixel_samples": 0,
+          "max_abs_rgb_delta": 0
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "FE84=74, early": {
+      "changed_pixels": 60538,
+      "mean_abs_rgb_delta": 0.181535,
+      "max_abs_rgb_delta": 9,
+      "stripes": [
+        {
+          "source_period_px": 32,
+          "baseline_7a": {
+            "white_line_mean": 244.844,
+            "gray_gap_mean": 122.0,
+            "michelson_contrast": 0.334868
+          },
+          "tested": {
+            "white_line_mean": 244.867,
+            "gray_gap_mean": 122.279,
+            "michelson_contrast": 0.333894
+          },
+          "delta_michelson": -0.000974
+        },
+        {
+          "source_period_px": 16,
+          "baseline_7a": {
+            "white_line_mean": 234.674,
+            "gray_gap_mean": 129.07,
+            "michelson_contrast": 0.290326
+          },
+          "tested": {
+            "white_line_mean": 234.957,
+            "gray_gap_mean": 129.767,
+            "michelson_contrast": 0.288407
+          },
+          "delta_michelson": -0.001919
+        },
+        {
+          "source_period_px": 8,
+          "baseline_7a": {
+            "white_line_mean": 220.75,
+            "gray_gap_mean": 132.4,
+            "michelson_contrast": 0.250177
+          },
+          "tested": {
+            "white_line_mean": 220.864,
+            "gray_gap_mean": 133.689,
+            "michelson_contrast": 0.245873
+          },
+          "delta_michelson": -0.004304
+        },
+        {
+          "source_period_px": 4,
+          "baseline_7a": {
+            "white_line_mean": 190.341,
+            "gray_gap_mean": 151.136,
+            "michelson_contrast": 0.114809
+          },
+          "tested": {
+            "white_line_mean": 191.455,
+            "gray_gap_mean": 153.455,
+            "michelson_contrast": 0.110174
+          },
+          "delta_michelson": -0.004635
+        },
+        {
+          "source_period_px": 2,
+          "baseline_7a": {
+            "white_line_mean": 184.867,
+            "gray_gap_mean": 185.0,
+            "michelson_contrast": -0.00036
+          },
+          "tested": {
+            "white_line_mean": 184.889,
+            "gray_gap_mean": 185.0,
+            "michelson_contrast": -0.0003
+          },
+          "delta_michelson": 6e-05
+        }
+      ],
+      "edge_a_crossing_shift_px": {
+        "mean": 0.0,
+        "p95_absolute": 0.0
+      }
+    },
+    "FE84=74, settled": {
+      "changed_pixels": 60685,
+      "mean_abs_rgb_delta": 0.182272,
+      "max_abs_rgb_delta": 9,
+      "stripes": [
+        {
+          "source_period_px": 32,
+          "baseline_7a": {
+            "white_line_mean": 244.844,
+            "gray_gap_mean": 122.0,
+            "michelson_contrast": 0.334868
+          },
+          "tested": {
+            "white_line_mean": 244.867,
+            "gray_gap_mean": 122.279,
+            "michelson_contrast": 0.333894
+          },
+          "delta_michelson": -0.000974
+        },
+        {
+          "source_period_px": 16,
+          "baseline_7a": {
+            "white_line_mean": 234.674,
+            "gray_gap_mean": 129.07,
+            "michelson_contrast": 0.290326
+          },
+          "tested": {
+            "white_line_mean": 234.957,
+            "gray_gap_mean": 129.767,
+            "michelson_contrast": 0.288407
+          },
+          "delta_michelson": -0.001919
+        },
+        {
+          "source_period_px": 8,
+          "baseline_7a": {
+            "white_line_mean": 220.75,
+            "gray_gap_mean": 132.4,
+            "michelson_contrast": 0.250177
+          },
+          "tested": {
+            "white_line_mean": 220.864,
+            "gray_gap_mean": 133.689,
+            "michelson_contrast": 0.245873
+          },
+          "delta_michelson": -0.004304
+        },
+        {
+          "source_period_px": 4,
+          "baseline_7a": {
+            "white_line_mean": 190.341,
+            "gray_gap_mean": 151.136,
+            "michelson_contrast": 0.114809
+          },
+          "tested": {
+            "white_line_mean": 191.455,
+            "gray_gap_mean": 153.455,
+            "michelson_contrast": 0.110174
+          },
+          "delta_michelson": -0.004635
+        },
+        {
+          "source_period_px": 2,
+          "baseline_7a": {
+            "white_line_mean": 184.867,
+            "gray_gap_mean": 185.0,
+            "michelson_contrast": -0.00036
+          },
+          "tested": {
+            "white_line_mean": 184.889,
+            "gray_gap_mean": 185.0,
+            "michelson_contrast": -0.0003
+          },
+          "delta_michelson": 6e-05
+        }
+      ],
+      "edge_a_crossing_shift_px": {
+        "mean": 0.0,
+        "p95_absolute": 0.0
+      }
+    },
+    "FE84 restored to 7A": {
+      "changed_pixels": 279,
+      "mean_abs_rgb_delta": 0.000536,
+      "max_abs_rgb_delta": 3,
+      "stripes": [
+        {
+          "source_period_px": 32,
+          "baseline_7a": {
+            "white_line_mean": 244.844,
+            "gray_gap_mean": 122.0,
+            "michelson_contrast": 0.334868
+          },
+          "tested": {
+            "white_line_mean": 244.844,
+            "gray_gap_mean": 122.0,
+            "michelson_contrast": 0.334868
+          },
+          "delta_michelson": 0.0
+        },
+        {
+          "source_period_px": 16,
+          "baseline_7a": {
+            "white_line_mean": 234.674,
+            "gray_gap_mean": 129.07,
+            "michelson_contrast": 0.290326
+          },
+          "tested": {
+            "white_line_mean": 234.674,
+            "gray_gap_mean": 129.07,
+            "michelson_contrast": 0.290326
+          },
+          "delta_michelson": 0.0
+        },
+        {
+          "source_period_px": 8,
+          "baseline_7a": {
+            "white_line_mean": 220.75,
+            "gray_gap_mean": 132.4,
+            "michelson_contrast": 0.250177
+          },
+          "tested": {
+            "white_line_mean": 220.75,
+            "gray_gap_mean": 132.4,
+            "michelson_contrast": 0.250177
+          },
+          "delta_michelson": 0.0
+        },
+        {
+          "source_period_px": 4,
+          "baseline_7a": {
+            "white_line_mean": 190.341,
+            "gray_gap_mean": 151.136,
+            "michelson_contrast": 0.114809
+          },
+          "tested": {
+            "white_line_mean": 190.341,
+            "gray_gap_mean": 151.136,
+            "michelson_contrast": 0.114809
+          },
+          "delta_michelson": 0.0
+        },
+        {
+          "source_period_px": 2,
+          "baseline_7a": {
+            "white_line_mean": 184.867,
+            "gray_gap_mean": 185.0,
+            "michelson_contrast": -0.00036
+          },
+          "tested": {
+            "white_line_mean": 184.867,
+            "gray_gap_mean": 185.0,
+            "michelson_contrast": -0.00036
+          },
+          "delta_michelson": 0.0
+        }
+      ],
+      "edge_a_crossing_shift_px": {
+        "mean": 0.0,
+        "p95_absolute": 0.0
+      }
+    }
+  },
+  "interpretation_limit": "This records end-to-end 720p response to a temporary FE84 value. A settling-dependent image change is consistent with calibration or adaptation, but does not alone identify the internal mechanism.",
+  "early_to_settled": {
+    "changed_pixels": 1380,
+    "mean_abs_rgb_delta": 0.002571,
+    "max_abs_rgb_delta": 5
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "run_id": "attempt2",
+  "scope": "temporary RAM hook only; no EEPROM writes",
+  "hypothesis": "poll IRAM 0x3A on every common-hook call and flush endpoint 2 once when alt 1 is selected",
+  "monitor_before_mailbox_idle_path": true,
+  "hook_sha256": "8fe6492a562e843fbaceeeb06c5d2ab45e4d754d4d620a585e1ba3d78fd0b7b8",
+  "hook_bytes": 199,
+  "default_hdmi_output": {
+    "_name": "HDMI TO USB",
+    "_properties": "coreaudio_default_audio_system_device",
+    "coreaudio_default_audio_output_device": "spaudio_yes",
+    "coreaudio_default_audio_system_device": "spaudio_yes",
+    "coreaudio_device_manufacturer": "HJW",
+    "coreaudio_device_output": 2,
+    "coreaudio_device_srate": 48000,
+    "coreaudio_device_transport": "coreaudio_device_type_hdmi",
+    "coreaudio_output_source": "spaudio_default"
+  },
+  "device_state_before": {
+    "fe60": 1,
+    "audio_channels": 2,
+    "audio_sample_rate_descriptor": "80bb00"
+  },
+  "device_state_after": {
+    "fe60": 1,
+    "audio_channels": 2,
+    "audio_sample_rate_descriptor": "80bb00"
+  },
+  "baseline": {
+    "wav": "artifacts/audio-stream-start-reset-attempt2-baseline.wav",
+    "sha256": "a5551fb9d9ad6d9aa83483d9ee8d63a321e87b9a55455ada644c4813779074b6",
+    "best_lag_samples": -1
+  },
+  "candidate": {
+    "wav": "artifacts/audio-stream-start-reset-attempt2-candidate.wav",
+    "sha256": "ef9ca46d9c104694395e9378835cf24def5d38515e343e3463feeeb271170141",
+    "best_lag_samples": -1,
+    "reset_trigger_count": 1,
+    "channel_order_ok": true
+  },
+  "ram_hook_restored": true,
+  "verified": false
+}

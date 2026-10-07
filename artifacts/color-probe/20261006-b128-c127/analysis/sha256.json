@@ -1,0 +1,15 @@
+{
+  "artifacts/color-probe/20261006-b128-c127/analysis/analysis.json": "6bec70fbb08de35ec343c50520a768be2b92053e37430e586ba046b021fe0e1c",
+  "artifacts/color-probe/20261006-b128-c127/analysis/compare-mjpeg.csv": "12af90d7634ae17d2dadd6400d5c07fd0591153e7095dee9ba507667de04789f",
+  "artifacts/color-probe/20261006-b128-c127/analysis/compare-yuy2.csv": "24abf77681a7951ff6f689228872233cf8b6d96ea1594f25f57615b1bd757f7a",
+  "artifacts/color-probe/20261006-b128-c127/analysis/control-comparison.json": "be26cdaaa9c22f664a5a9d5798eeb376e8879f6cdb0e53386cd945e01d881494",
+  "artifacts/color-probe/20261006-b128-c127/analysis/histograms.json": "00e7c0f6a9798c0893886a27492015c3bb0fdb1fd86ca94086207a19e3bc9bd5",
+  "artifacts/color-probe/20261006-b128-c127/analysis/plot-data.json": "ff09d886c050786eddaf025a83c2e9eae2dfa0fc89b8327d820b6e5901a98b18",
+  "artifacts/color-probe/20261006-b128-c127/analysis/ramps.svg": "88cea692ef12f339267e81d9c0dd76d992b2c97cd6ca91658bcd6217efd324f9",
+  "artifacts/color-probe/20261006-b128-c127/analysis/report.md": "e6d2e732bae03429c756b57c9cba27dc8f0b7f33037cf81eea33231dcc5d6d31",
+  "artifacts/color-probe/20261006-b128-c127/analysis/shadow-steps.svg": "6c885b22e56f412c2bf889b056212ca4af5a455791a098f8738b06a471b097b7",
+  "artifacts/color-probe/20261006-b128-c127/analysis/usb-current-mjpeg.csv": "f57876fdde5171e4c43057353075c3ca45e974615475c611bf4c903f67921528",
+  "artifacts/color-probe/20261006-b128-c127/analysis/usb-current-yuy2.csv": "2096a901ffb63b580ba4f60faecd4fa61a332e9f3ae4d4daba24212720574fd6",
+  "artifacts/color-probe/20261006-b128-c127/analysis/usb-ui128c127-mjpeg.csv": "8946c7feafed5544475b43a3d84f1a45a158b63dc2a57bec90dfaaa39216676b",
+  "artifacts/color-probe/20261006-b128-c127/analysis/usb-ui128c127-yuy2.csv": "4ca7dded00ad1706e26ff27297318af0fdff5333e60ffdc22f17eae6a8e40145"
+}

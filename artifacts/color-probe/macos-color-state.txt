@@ -1,0 +1,68 @@
+Class CBBlueLightClient
+setSupported: v20@0:8B16
+setCCTRange: B24@0:8^{?=fff}16
+getBlueLightStatus: B24@0:8^{?=BBBi{?={?=ii}{?=ii}}QB}16
+getDefaultCCTRange: B24@0:8^{?=fff}16
+supported B16@0:8
+setActive: B20@0:8B16
+getWarningCCT: B24@0:8^f16
+setCCT:withPeriod:commit: B28@0:8f16f20B24
+getCCT: B24@0:8^f16
+setStrength:withPeriod:commit: B28@0:8f16f20B24
+getCCTRange: B24@0:8^{?=fff}16
+setStatusNotificationBlock: v24@0:8@?16
+initWithClientObj: @24@0:8@16
+setEnabled: B20@0:8B16
+parseStatusDictionary:intoStruct: B32@0:8@16^{?=BBBi{?={?=ii}{?=ii}}QB}24
+setStrength:commit: B24@0:8f16B20
+setEnabled:withOption: B24@0:8B16i20
+enableNotifications v16@0:8
+init @16@0:8
+suspendNotifications: v20@0:8B16
+setCCT:commit: B24@0:8f16B20
+getWarningStrength: B24@0:8^f16
+setMode: B20@0:8i16
+setSchedule: B24@0:8r^{?={?=ii}{?=ii}}16
+suspendNotifications:force: v24@0:8B16B20
+dealloc v16@0:8
+getStrength: B24@0:8^f16
+disableNotifications v16@0:8
+Blue light read success 1, status bytes 01000100000000001600000000000000070000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000
+Strength success 1 value 0.500000
+Class CBAdaptationClient
+setSupported: v20@0:8B16
+available B16@0:8
+registerNotificationCallbackBlock:withQueue: B32@0:8@?16@24
+getStrengths:nStrengths: B28@0:8^f16i24
+supported B16@0:8
+registerNotificationForType: B24@0:8Q16
+overrideStrengths:forModes:nModes: B36@0:8^f16^i24i32
+setWeakestAdaptationModeFromArray:withLength:andPeriod: B32@0:8^i16i24f28
+animateFromWeakestAdaptationModeInArray:withLength:toWeakestInArray:withLength:withProgress:andPeriod: B48@0:8^i16i24^i28i36f40f44
+initWithClientObj: @24@0:8@16
+setEnabled: B20@0:8B16
+setAdaptationMode:withPeriod: B24@0:8i16f20
+unregisterNotificationCallbackBlock v16@0:8
+unregisterNotificationForType: v24@0:8Q16
+init @16@0:8
+handleBrightnessSystemNotificationForKey:withValue: v32@0:8@16@24
+getAdaptationMode i16@0:8
+dealloc v16@0:8
+getEnabled B16@0:8
+Display LUT error 0 count 256
+LUT 0 0.000000 0.000000 0.000000
+LUT 16 0.062745 0.062745 0.062745
+LUT 32 0.125490 0.125490 0.125490
+LUT 48 0.188235 0.188235 0.188235
+LUT 64 0.250980 0.250980 0.250980
+LUT 80 0.313725 0.313725 0.313725
+LUT 96 0.376471 0.376471 0.376471
+LUT 112 0.439216 0.439216 0.439216
+LUT 128 0.501961 0.501961 0.501961
+LUT 144 0.564706 0.564706 0.564706
+LUT 160 0.627451 0.627451 0.627451
+LUT 176 0.690196 0.690196 0.690196
+LUT 192 0.752941 0.752941 0.752941
+LUT 208 0.815686 0.815686 0.815686
+LUT 224 0.878431 0.878431 0.878431
+LUT 240 0.941176 0.941176 0.941176

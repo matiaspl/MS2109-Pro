@@ -1,0 +1,167 @@
+{
+  "startup_check": "artifacts/color-firmware/20261006/device-after-reconnect.json",
+  "final_check": "artifacts/color-firmware/20261006/device-after-steady-check.json",
+  "enumerated_descriptors": "artifacts/color-firmware/20261006/enumerated-color-descriptors.json",
+  "steady_original_usb": {
+    "yuy2": {
+      "metrics": {
+        "score_loss": 4.272755386963597,
+        "gray_black_white": [
+          0.0,
+          255.0
+        ],
+        "gray_span": 255.0,
+        "gray_unique_patch_median_levels": 234,
+        "gray_unique_rounded_patch_median_codes": 220,
+        "gray_unique_pixel_distribution_signatures": 255,
+        "gray_collapsed_adjacent_steps": 22,
+        "gray_nonmonotonic_steps": 0,
+        "gray_false_clipped_input_levels": 0,
+        "gray_endpoint_plateau_extra_inputs": 1,
+        "gray_target_rmse": 0.6171380518166061,
+        "target_rmse_per_channel": [
+          0.5648374335446714,
+          1.0358323035477819,
+          1.0549475980545373
+        ],
+        "target_false_clipped_patch_components": [
+          1,
+          0,
+          0
+        ],
+        "measured_median_ranges": [
+          [
+            0.0,
+            255.0
+          ],
+          [
+            1.0,
+            254.0
+          ],
+          [
+            1.0,
+            254.0
+          ]
+        ],
+        "raw_sample_pixel_ranges": [
+          [
+            0,
+            255
+          ],
+          [
+            1,
+            254
+          ],
+          [
+            1,
+            254
+          ]
+        ]
+      },
+      "selected_previous_sample": 17,
+      "vs_previous_patch_medians_rmse": 0.0,
+      "vs_previous_max_difference": 0.0,
+      "explicit_709_full_rgb_rmse": 1.795905117781225,
+      "maximum_temporal_patch_span": 0.0
+    },
+    "mjpeg": {
+      "metrics": {
+        "score_loss": 4.169920834645719,
+        "gray_black_white": [
+          0.0,
+          255.0
+        ],
+        "gray_span": 255.0,
+        "gray_unique_patch_median_levels": 220,
+        "gray_unique_rounded_patch_median_codes": 220,
+        "gray_unique_pixel_distribution_signatures": 220,
+        "gray_collapsed_adjacent_steps": 36,
+        "gray_nonmonotonic_steps": 0,
+        "gray_false_clipped_input_levels": 0,
+        "gray_endpoint_plateau_extra_inputs": 1,
+        "gray_target_rmse": 0.5694020986965159,
+        "target_rmse_per_channel": [
+          0.5325893638630029,
+          1.024659060177071,
+          1.0432703119091296
+        ],
+        "target_false_clipped_patch_components": [
+          1,
+          0,
+          0
+        ],
+        "measured_median_ranges": [
+          [
+            0.0,
+            255.0
+          ],
+          [
+            1.0,
+            254.0
+          ],
+          [
+            1.0,
+            254.0
+          ]
+        ],
+        "raw_sample_pixel_ranges": [
+          [
+            0,
+            255
+          ],
+          [
+            1,
+            254
+          ],
+          [
+            0,
+            255
+          ]
+        ]
+      },
+      "selected_previous_sample": 17,
+      "vs_previous_patch_medians_rmse": 0.018633899812498248,
+      "vs_previous_max_difference": 0.5,
+      "explicit_709_full_rgb_rmse": 1.753862737357607,
+      "maximum_temporal_patch_span": 0.5,
+      "standard_jpeg_rgb_rmse": 8.733461552811946,
+      "standard_jpeg_vs_clipped_601_full_rgb_rmse": 0.22279964033468203
+    }
+  },
+  "steady_controls": {
+    "brightness_ui": 110,
+    "brightness_signed": -18,
+    "contrast": 149,
+    "saturation": 147,
+    "hue": 0
+  },
+  "steady_session": {
+    "exit_code": 0,
+    "completed_samples": 1,
+    "interrupted": false,
+    "controls_original": {
+      "brightness_ui": 110,
+      "brightness_signed": -18,
+      "contrast": 149,
+      "saturation": 147,
+      "hue": 0
+    },
+    "controls_restored": {
+      "brightness_ui": 110,
+      "brightness_signed": -18,
+      "contrast": 149,
+      "saturation": 147,
+      "hue": 0
+    },
+    "controls_restoration_ok": true,
+    "uvc_handle_closed": true
+  },
+  "steady_acquisition_note": "The single raw sample explicitly reapplied the same current B/C/S values, then restored them. Both transport captures and file analysis completed; the orchestrator exited 1 afterward because a progress print used rmse_per_channel instead of target_rmse_per_channel. Its finally block stopped the server, which recorded exit_code 0 and successful control/driver restoration. The second planned repaint sample was not executed.",
+  "initial_raw_96_patch_issue": {
+    "analysis": "artifacts/color-probe/20261006-calibrated-startup-usb-analysis/analysis.json",
+    "raw_yuy2_vs_native_patch_medians_rmse": 7.366874054396026,
+    "samples_unpaired": true,
+    "cause_isolated": false,
+    "note": "Keep the first raw capture as separate evidence; its interior values differ from normal AVFoundation despite identical saved source images/profiles and readback controls. Do not use it to attribute a transform to AVFoundation."
+  }
+}

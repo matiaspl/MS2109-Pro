@@ -1,0 +1,8 @@
+{
+  "status": "restored and verified",
+  "ranges": 12,
+  "ram_ranges_match": true,
+  "flags": "05",
+  "eeprom_unchanged": true,
+  "eeprom_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82"
+}

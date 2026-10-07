@@ -1,0 +1,235 @@
+{
+  "scope": "FEBA lower bits, temporary writes only; AVFoundation YUY2",
+  "stages": [
+    {
+      "value": 0,
+      "readback_before_capture": 0,
+      "capture_returncode": 0,
+      "readback_after_capture": 0,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 1,
+      "readback_before_capture": 1,
+      "capture_returncode": 0,
+      "readback_after_capture": 1,
+      "last_frame_sha256": "95721054511899a5a0e6a6e8b292050da34f9e4d1d063353b7db18bcc25b04ba"
+    },
+    {
+      "value": 2,
+      "readback_before_capture": 2,
+      "capture_returncode": 0,
+      "readback_after_capture": 2,
+      "last_frame_sha256": "36132067fa994e96c1108ca40e0396307cad274cda42505cb4f6043b67568c4e"
+    },
+    {
+      "value": 3,
+      "readback_before_capture": 3,
+      "capture_returncode": 0,
+      "readback_after_capture": 3,
+      "last_frame_sha256": "cbda0b45e49aeddb1047575bde90466e6c57155e1373174145232b3a946c4879"
+    },
+    {
+      "value": 4,
+      "readback_before_capture": 4,
+      "capture_returncode": 0,
+      "readback_after_capture": 4,
+      "last_frame_sha256": "c4880c4362eaf0f3530464ebfc18d224c66e0b07495f044a6fc0e2385be263d4"
+    },
+    {
+      "value": 5,
+      "readback_before_capture": 5,
+      "capture_returncode": 0,
+      "readback_after_capture": 5,
+      "last_frame_sha256": "03a35b348b2bd35ba640f51ac035737a17c63791f2d683e86e7eebd0a5901e2d"
+    },
+    {
+      "value": 6,
+      "readback_before_capture": 6,
+      "capture_returncode": 0,
+      "readback_after_capture": 6,
+      "last_frame_sha256": "6dc75d45ea8e0efc27989eefa37363e7ff41b6d04b6cd3f3bc0b6f519e2795be"
+    },
+    {
+      "value": 7,
+      "readback_before_capture": 7,
+      "capture_returncode": 0,
+      "readback_after_capture": 7,
+      "last_frame_sha256": "100ee146bcf40335d9c3dc712d264341e729b436806d43dc643dc3a17345aced"
+    },
+    {
+      "value": 8,
+      "readback_before_capture": 8,
+      "capture_returncode": 0,
+      "readback_after_capture": 8,
+      "last_frame_sha256": "191f6090bf5520e96e40d432ee8e17619a99edac82538ad1d5b42d457d6f1127"
+    },
+    {
+      "value": 9,
+      "readback_before_capture": 9,
+      "capture_returncode": 0,
+      "readback_after_capture": 9,
+      "last_frame_sha256": "46a35c66a66f7f707b6a3d5e60c8c113c3b95401713c4a3a132860baa3a1724e"
+    },
+    {
+      "value": 10,
+      "readback_before_capture": 10,
+      "capture_returncode": 0,
+      "readback_after_capture": 10,
+      "last_frame_sha256": "70d410a4f270f40da7466104d4e2ebfd272a58ba81d36d2de4ee7895d17203b5"
+    },
+    {
+      "value": 11,
+      "readback_before_capture": 11,
+      "capture_returncode": 0,
+      "readback_after_capture": 11,
+      "last_frame_sha256": "134a9097a0b5b450777c574f3f3d00568ef2452dab3086da19869c6662f673db"
+    },
+    {
+      "value": 12,
+      "readback_before_capture": 12,
+      "capture_returncode": 0,
+      "readback_after_capture": 12,
+      "last_frame_sha256": "211ed8b7b2df9b762058457b36571a6ccb02bef13e525206746f6f2bed225d07"
+    },
+    {
+      "value": 13,
+      "readback_before_capture": 13,
+      "capture_returncode": 0,
+      "readback_after_capture": 13,
+      "last_frame_sha256": "80d27c937b47e2c6b6aaa55b2542eb9c303c8a838a73645338c8506355898bc9"
+    },
+    {
+      "value": 14,
+      "readback_before_capture": 14,
+      "capture_returncode": 0,
+      "readback_after_capture": 14,
+      "last_frame_sha256": "f642e9ba8fd1c5cf4a948d062d488c83e813ce223dfc10ac70edc16d260acae9"
+    },
+    {
+      "value": 15,
+      "readback_before_capture": 15,
+      "capture_returncode": 0,
+      "readback_after_capture": 15,
+      "last_frame_sha256": "ba3ba3a9f7e998ddc81b88da1757ee98b8b89d929258dda0fff055c1986509d8"
+    },
+    {
+      "value": 16,
+      "readback_before_capture": 16,
+      "capture_returncode": 0,
+      "readback_after_capture": 16,
+      "last_frame_sha256": "46ed917e65c4b91c0cf1c91d42d9dde15230f5cb6e5d63cdcdfd36bca138aa76"
+    },
+    {
+      "value": 17,
+      "readback_before_capture": 17,
+      "capture_returncode": 0,
+      "readback_after_capture": 17,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 18,
+      "readback_before_capture": 18,
+      "capture_returncode": 0,
+      "readback_after_capture": 18,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 19,
+      "readback_before_capture": 19,
+      "capture_returncode": 0,
+      "readback_after_capture": 19,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 20,
+      "readback_before_capture": 20,
+      "capture_returncode": 0,
+      "readback_after_capture": 20,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 21,
+      "readback_before_capture": 21,
+      "capture_returncode": 0,
+      "readback_after_capture": 21,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 22,
+      "readback_before_capture": 22,
+      "capture_returncode": 0,
+      "readback_after_capture": 22,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 23,
+      "readback_before_capture": 23,
+      "capture_returncode": 0,
+      "readback_after_capture": 23,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 24,
+      "readback_before_capture": 24,
+      "capture_returncode": 0,
+      "readback_after_capture": 24,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 25,
+      "readback_before_capture": 25,
+      "capture_returncode": 0,
+      "readback_after_capture": 25,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 26,
+      "readback_before_capture": 26,
+      "capture_returncode": 0,
+      "readback_after_capture": 26,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 27,
+      "readback_before_capture": 27,
+      "capture_returncode": 0,
+      "readback_after_capture": 27,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 28,
+      "readback_before_capture": 28,
+      "capture_returncode": 0,
+      "readback_after_capture": 28,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 29,
+      "readback_before_capture": 29,
+      "capture_returncode": 0,
+      "readback_after_capture": 29,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 30,
+      "readback_before_capture": 30,
+      "capture_returncode": 0,
+      "readback_after_capture": 30,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    },
+    {
+      "value": 31,
+      "readback_before_capture": 31,
+      "capture_returncode": 0,
+      "readback_after_capture": 31,
+      "last_frame_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+    }
+  ],
+  "eeprom_before_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "feba_original": 0,
+  "feba_restored": 0,
+  "eeprom_after_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "eeprom_unchanged": true,
+  "feba_restored_finally": 0
+}

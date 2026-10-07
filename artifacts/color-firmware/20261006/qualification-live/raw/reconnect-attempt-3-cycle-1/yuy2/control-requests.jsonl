@@ -1,0 +1,2 @@
+{"phase":"GET_CUR","direction":"IN","bmRequestType":161,"bRequest":129,"wValue":512,"entity_id":"resolved-by-libuvc","selector":"BRIGHTNESS","api_status":0,"value":-18}
+{"phase":"GET_CUR","direction":"IN","bmRequestType":161,"bRequest":129,"wValue":768,"entity_id":"resolved-by-libuvc","selector":"CONTRAST","api_status":0,"value":149}

@@ -1,0 +1,767 @@
+[
+  {
+    "from": "0xcc00",
+    "to": "0xd2b8",
+    "type": "call"
+  },
+  {
+    "from": "0xcc10",
+    "to": "0xd35f",
+    "type": "jmp"
+  },
+  {
+    "from": "0xcdce",
+    "to": "0xce13",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xcdd1",
+    "to": "0xce13",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xcdd4",
+    "to": "0xce13",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xcde5",
+    "to": "0x5038",
+    "type": "call"
+  },
+  {
+    "from": "0xce09",
+    "to": "0xcdf7",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xce0b",
+    "to": "0xcdef",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xce1e",
+    "to": "0x6345",
+    "type": "call"
+  },
+  {
+    "from": "0xce38",
+    "to": "0xce3d",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xce3f",
+    "to": "0xce43",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd2c2",
+    "to": "0xd301",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd2ff",
+    "to": "0xd31e",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd301",
+    "to": "0xd324",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd31e",
+    "to": "0xd332",
+    "type": "call"
+  },
+  {
+    "from": "0xd321",
+    "to": "0xce22",
+    "type": "call"
+  },
+  {
+    "from": "0xd335",
+    "to": "0xd33e",
+    "type": "call"
+  },
+  {
+    "from": "0xd33b",
+    "to": "0xd33e",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd33f",
+    "to": "0xd35e",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd344",
+    "to": "0xd35e",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd349",
+    "to": "0xd35e",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd34e",
+    "to": "0xd35e",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd353",
+    "to": "0xd35e",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd358",
+    "to": "0xd35e",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd36d",
+    "to": "0xd37e",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd372",
+    "to": "0xd37e",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd37c",
+    "to": "0xd388",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd385",
+    "to": "0xcdce",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3ac",
+    "to": "0xd3d1",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd3b1",
+    "to": "0xd3b6",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd3b4",
+    "to": "0xd3b9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3b6",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3bb",
+    "to": "0xd3c0",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd3be",
+    "to": "0xd3c3",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3c0",
+    "to": "0xd3c6",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3c3",
+    "to": "0xd4fc",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3c6",
+    "to": "0xd3cb",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd3c9",
+    "to": "0xd3ce",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3cb",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3ce",
+    "to": "0xd4fc",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3d3",
+    "to": "0xd3d8",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd3d6",
+    "to": "0xd3db",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3d8",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3dd",
+    "to": "0xd3e2",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd3e0",
+    "to": "0xd3e5",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3e2",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3e7",
+    "to": "0xd3ec",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd3ea",
+    "to": "0xd3ef",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3ec",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3f1",
+    "to": "0xd3f5",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd3f3",
+    "to": "0xd3f8",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3f5",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd3fc",
+    "to": "0xd400",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd3fe",
+    "to": "0xd403",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd400",
+    "to": "0xd4a2",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd405",
+    "to": "0xd44c",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd40a",
+    "to": "0xd40f",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd40d",
+    "to": "0xd412",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd40f",
+    "to": "0xd4a2",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd414",
+    "to": "0xd419",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd417",
+    "to": "0xd41c",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd419",
+    "to": "0xd4a2",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd41e",
+    "to": "0xd41e",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd421",
+    "to": "0x4b69",
+    "type": "call"
+  },
+  {
+    "from": "0xd426",
+    "to": "0x62ca",
+    "type": "call"
+  },
+  {
+    "from": "0xd42d",
+    "to": "0xd431",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd42f",
+    "to": "0xd434",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd431",
+    "to": "0xd4a2",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd438",
+    "to": "0xd43d",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd43b",
+    "to": "0xd440",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd43d",
+    "to": "0xd4a2",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd444",
+    "to": "0xce22",
+    "type": "call"
+  },
+  {
+    "from": "0xd449",
+    "to": "0xd4a4",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd44e",
+    "to": "0xd453",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd451",
+    "to": "0xd456",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd453",
+    "to": "0xd4a2",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd45b",
+    "to": "0xd45f",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd45d",
+    "to": "0xd462",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd45f",
+    "to": "0xd4a2",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd466",
+    "to": "0xd46a",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd468",
+    "to": "0xd46d",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd46a",
+    "to": "0xd4a2",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd471",
+    "to": "0xd476",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd479",
+    "to": "0xd47d",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd47b",
+    "to": "0xd480",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd47d",
+    "to": "0xd4a2",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd488",
+    "to": "0xd490",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd49a",
+    "to": "0x4b69",
+    "type": "call"
+  },
+  {
+    "from": "0xd49d",
+    "to": "0x49c2",
+    "type": "call"
+  },
+  {
+    "from": "0xd4a0",
+    "to": "0xd4a4",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd4a4",
+    "to": "0x2b8e",
+    "type": "call"
+  },
+  {
+    "from": "0xd4a7",
+    "to": "0xd4d1",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd4cb",
+    "to": "0x2ad0",
+    "type": "call"
+  },
+  {
+    "from": "0xd4ce",
+    "to": "0xce22",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd502",
+    "to": "0xd506",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd504",
+    "to": "0xd509",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd506",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd50b",
+    "to": "0xd513",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd50e",
+    "to": "0x4b10",
+    "type": "call"
+  },
+  {
+    "from": "0xd511",
+    "to": "0xd516",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd513",
+    "to": "0x4b37",
+    "type": "call"
+  },
+  {
+    "from": "0xd519",
+    "to": "0x492",
+    "type": "call"
+  },
+  {
+    "from": "0xd51c",
+    "to": "0xd521",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd51f",
+    "to": "0xd524",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd521",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd527",
+    "to": "0x492",
+    "type": "call"
+  },
+  {
+    "from": "0xd52c",
+    "to": "0xd530",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd52e",
+    "to": "0xd533",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd530",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd536",
+    "to": "0x492",
+    "type": "call"
+  },
+  {
+    "from": "0xd53d",
+    "to": "0x492",
+    "type": "call"
+  },
+  {
+    "from": "0xd541",
+    "to": "0xd54f",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd545",
+    "to": "0xd54a",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd548",
+    "to": "0xd54d",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd54a",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd54d",
+    "to": "0xd560",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd54f",
+    "to": "0xd554",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd552",
+    "to": "0xd557",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd554",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd558",
+    "to": "0xd55d",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd55b",
+    "to": "0xd560",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd55d",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd564",
+    "to": "0x5038",
+    "type": "call"
+  },
+  {
+    "from": "0xd56b",
+    "to": "0xd570",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd56e",
+    "to": "0xd573",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd570",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd575",
+    "to": "0xd57a",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd578",
+    "to": "0xd57d",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd57a",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd57f",
+    "to": "0xd584",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd582",
+    "to": "0xd587",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd584",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd589",
+    "to": "0xd58e",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd58c",
+    "to": "0xd591",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd58e",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd593",
+    "to": "0xd598",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd596",
+    "to": "0xd59b",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd598",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd59d",
+    "to": "0xd5a2",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd5a0",
+    "to": "0xd5a5",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd5a2",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd5a7",
+    "to": "0xd5ac",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd5aa",
+    "to": "0xd5af",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd5ac",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd5b1",
+    "to": "0xd5b6",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd5b4",
+    "to": "0xd5b9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd5b6",
+    "to": "0xd4a9",
+    "type": "jmp"
+  },
+  {
+    "from": "0xd5db",
+    "to": "0xd5e1",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd5ef",
+    "to": "0xd5f7",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd5fb",
+    "to": "0xd606",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd602",
+    "to": "0xd606",
+    "type": "cjmp"
+  },
+  {
+    "from": "0xd611",
+    "to": "0x49c2",
+    "type": "call"
+  },
+  {
+    "from": "0xd633",
+    "to": "0xd4a4",
+    "type": "jmp"
+  }
+]
