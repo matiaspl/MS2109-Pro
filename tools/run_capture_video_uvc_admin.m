@@ -42,23 +42,57 @@ static BOOL waitForChartOnTargetDisplay(NSString *source,int seconds,NSDictionar
  return NO;
 }
 int main(int argc,const char **argv){@autoreleasepool{
- if(argc!=6){fprintf(stderr,"Usage: admin-wrapper CAPTURE_BINARY DISPLAY_BINARY MANIFEST NEW_OUTPUT_DIRECTORY mjpeg|yuy2|both|quantization|contrast127|calibrate|qualify|same-handle|reconnect-cycles\n");return 2;}
+ if(argc!=6 && argc!=8){fprintf(stderr,"Usage: admin-wrapper CAPTURE_BINARY DISPLAY_BINARY MANIFEST OUTPUT_DIRECTORY mjpeg|yuy2|both|quantization|contrast127|calibrate|qualify|same-handle|same-handle-live-register|same-handle-live-state|same-handle-live-state-external|procamp-interaction-batch|procamp-interaction-repeat|reconnect-cycles [TARGET MASK, FE8E FE8F, or PYTHON WORKER_SCRIPT]\n");return 2;}
  NSString *binary=@(argv[1]),*presenter=@(argv[2]),*manifest=@(argv[3]),*output=@(argv[4]),*mode=@(argv[5]);
- if(![@[@"mjpeg",@"yuy2",@"both",@"quantization",@"contrast127",@"calibrate",@"qualify",@"same-handle",@"reconnect-cycles"] containsObject:mode] || ![binary hasPrefix:@"/"] || ![presenter hasPrefix:@"/"] || ![output hasPrefix:@"/"] || [[NSFileManager defaultManager] fileExistsAtPath:output])return 2;
+ BOOL interactionBatch=[mode isEqual:@"procamp-interaction-batch"];
+ BOOL interactionRepeat=[mode isEqual:@"procamp-interaction-repeat"];
+ BOOL interactionWorker=interactionBatch||interactionRepeat;
+ if(![@[@"mjpeg",@"yuy2",@"both",@"quantization",@"contrast127",@"calibrate",@"qualify",@"same-handle",@"same-handle-live-register",@"same-handle-live-state",@"same-handle-live-state-external",@"procamp-interaction-batch",@"procamp-interaction-repeat",@"reconnect-cycles"] containsObject:mode] || ![binary hasPrefix:@"/"] || ![presenter hasPrefix:@"/"] || ![output hasPrefix:@"/"] || ([[NSFileManager defaultManager] fileExistsAtPath:output] && !interactionWorker))return 2;
  BOOL calibrate=[mode isEqual:@"calibrate"];
  BOOL qualify=[mode isEqual:@"qualify"];
- BOOL sameHandle=[mode isEqual:@"same-handle"];
+ BOOL liveRegisterProbe=[mode isEqual:@"same-handle-live-register"];
+ BOOL externalInput=[mode isEqual:@"same-handle-live-state-external"];
+ BOOL liveRegisterState=[mode isEqual:@"same-handle-live-state"] || externalInput;
+ BOOL sameHandle=[mode isEqual:@"same-handle"] || liveRegisterProbe || (liveRegisterState && !externalInput);
  BOOL reconnectCycles=[mode isEqual:@"reconnect-cycles"];
  BOOL quantization=[mode isEqual:@"quantization"];
  BOOL contrast127=[mode isEqual:@"contrast127"],multipleProfiles=quantization || contrast127;
+ if(((liveRegisterProbe || liveRegisterState) && argc!=8) ||
+    (interactionWorker && argc!=8) ||
+    (!(liveRegisterProbe || liveRegisterState || interactionWorker) && argc!=6))return 2;
  AuthorizationRef authorization=NULL;OSStatus status=AuthorizationCreate(NULL,kAuthorizationEmptyEnvironment,kAuthorizationFlagDefaults,&authorization);
  if(status!=errAuthorizationSuccess){fprintf(stderr,"AuthorizationCreate failed: %d\n",status);return 3;}
  AuthorizationItem item={kAuthorizationRightExecute,0,NULL,0};AuthorizationRights rights={1,&item};
- const char *prompt=calibrate ? "Calibrate the attached MS2109 (534d:2109) using original YUY2/MJPEG frames. Temporarily sweep brightness, contrast and saturation; restore original controls after each sample and UVC driver at completion. No firmware writes." : qualify ? "Capture original MS2109 YUY2/MJPEG USB payloads, then AVFoundation YUV and BGRA frames with control readbacks and display state. Restore controls and UVC driver after probes. No firmware writes." : sameHandle ? "Capture original MS2109 MJPEG then YUY2 frames on one persistent UVC handle. Read controls only; restore the UVC driver afterward. No picture-control or firmware writes." : reconnectCycles ? "Capture first post-reconnect MS2109 YUY2/MJPEG frames over three unplug/replug cycles. Read controls only; no picture-control or firmware writes. Restore the UVC driver after each capture." : contrast127 ? "Capture MS2109 RGB ramps at current controls and brightness UI 128 / contrast 127. Restore original controls and UVC driver afterward. No firmware writes." : quantization ? "Capture MS2109 RGB quantization ramps at current controls and brightness/contrast UI 127. Restore original controls and UVC driver afterward. No firmware writes." : "Capture original YUY2/MJPEG USB frames from the attached MS2109 (534d:2109). Temporary UVC driver access; no firmware or picture-control writes.";
+ const char *prompt=interactionBatch ? "Run the complete 20-condition MS2109 FE8E/procamp interaction sweep using RAM-only register writes and Mac-generated chart captures. One privileged worker performs all conditions, then restores UVC controls and RAM and verifies the EEPROM hash. No EEPROM writes." : interactionRepeat ? "Repeat only the MS2109 FE8E=10 contrast=160 condition. Bring the Mac-generated chart to the foreground, validate actual MJPEG/YUY2 patch pixels, then restore UVC controls and volatile RAM and verify EEPROM unchanged. No EEPROM writes." : externalInput ? "Capture paired MS2109 MJPEG/YUY2 frames of the connected external HDMI pattern at requested FE8E/FE8F byte values. Only volatile RAM is changed; FE8E/FE8F and UVC controls are restored and verified. No EEPROM writes. Restore the UVC driver afterward." : liveRegisterState ? "Capture paired MS2109 MJPEG/YUY2 color patches at requested FE8E/FE8F byte values. The privileged capture process writes and verifies only volatile RAM during streaming, restores the mode baseline after each format, and restores the pre-run bytes before exit. No EEPROM writes. Restore the UVC driver afterward." : liveRegisterProbe ? "Capture paired MS2109 MJPEG/YUY2 color patches. The privileged capture process applies and verifies the selected FE8E/FE8F bit in volatile RAM during streaming, then restores the pre-run bytes. No EEPROM writes. Restore the UVC driver afterward." : calibrate ? "Calibrate the attached MS2109 (534d:2109) using original YUY2/MJPEG frames. Temporarily sweep brightness, contrast and saturation; restore original controls after each sample and UVC driver at completion. No firmware writes." : qualify ? "Capture original MS2109 YUY2/MJPEG USB payloads, then AVFoundation YUV and BGRA frames with control readbacks and display state. Restore controls and UVC driver after probes. No firmware writes." : sameHandle ? "Capture original MS2109 MJPEG then YUY2 frames on one persistent UVC handle. Read controls only; restore the UVC driver afterward. No picture-control or firmware writes." : reconnectCycles ? "Capture first post-reconnect MS2109 YUY2/MJPEG frames over three unplug/replug cycles. Read controls only; no picture-control or firmware writes. Restore the UVC driver after each capture." : contrast127 ? "Capture MS2109 RGB ramps at current controls and brightness UI 128 / contrast 127. Restore original controls and UVC driver afterward. No firmware writes." : quantization ? "Capture MS2109 RGB quantization ramps at current controls and brightness/contrast UI 127. Restore original controls and UVC driver afterward. No firmware writes." : "Capture original YUY2/MJPEG USB frames from the attached MS2109 (534d:2109). Temporary UVC driver access; no picture-control or firmware writes.";
  AuthorizationItem environmentItem={kAuthorizationEnvironmentPrompt,strlen(prompt),(void*)prompt,0};AuthorizationEnvironment environment={1,&environmentItem};
  fprintf(stderr,"Waiting for macOS administrator authentication for MS2109 raw USB capture.\n");fflush(stderr);
  status=AuthorizationCopyRights(authorization,&rights,&environment,kAuthorizationFlagInteractionAllowed|kAuthorizationFlagExtendRights|kAuthorizationFlagPreAuthorize,NULL);
  if(status!=errAuthorizationSuccess){fprintf(stderr,"Authentication unavailable/cancelled: %d\n",status);AuthorizationFree(authorization,kAuthorizationFlagDestroyRights);return 3;}
+ if(externalInput){
+    NSFileManager *fm=[NSFileManager defaultManager];
+    [fm createDirectoryAtPath:output withIntermediateDirectories:YES attributes:@{NSFilePosixPermissions:@0700} error:nil];
+    BOOL success=runProbeList(presenter,[output stringByAppendingPathComponent:@"macos-state-before.json"]);
+    NSString *fe8e=@(argv[6]),*fe8f=@(argv[7]);
+    char *args[]={(char*)output.UTF8String,(char*)"--live-state",(char*)fe8e.UTF8String,(char*)fe8f.UTF8String,NULL};
+    FILE *pipe=NULL;
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if(success)status=AuthorizationExecuteWithPrivileges(authorization,binary.fileSystemRepresentation,kAuthorizationFlagDefaults,args,&pipe);else status=-1;
+    #pragma clang diagnostic pop
+    if(status==errAuthorizationSuccess && pipe){char buffer[2048];while(fgets(buffer,sizeof(buffer),pipe)){fputs(buffer,stdout);fflush(stdout);}fclose(pipe);}
+    for(NSString *format in @[@"mjpeg",@"yuy2"]){
+      NSString *path=[[output stringByAppendingPathComponent:format] stringByAppendingPathComponent:@"usb-capture.json"];
+      NSData *data=[NSData dataWithContentsOfFile:path];NSDictionary *meta=data?[NSJSONSerialization JSONObjectWithData:data options:0 error:nil]:nil;
+      if(status!=errAuthorizationSuccess || !meta || [meta[@"exit_code"] integerValue]!=0 || ![meta[@"controls_restoration_ok"] boolValue] || [meta[@"frames_captured"] integerValue]!=8)success=NO;
+    }
+    NSData *registerData=[NSData dataWithContentsOfFile:[output stringByAppendingPathComponent:@"live-register.jsonl"]];
+    NSString *registerText=registerData?[[NSString alloc] initWithData:registerData encoding:NSUTF8StringEncoding]:nil;
+    if(!registerText || ![registerText containsString:@"\"kind\":\"postflight\""] || ![registerText containsString:@"\"kind\":\"final-restore\""])success=NO;
+    if(!runProbeList(presenter,[output stringByAppendingPathComponent:@"macos-state-after.json"]))success=NO;
+    AuthorizationFree(authorization,kAuthorizationFlagDestroyRights);
+    if(!success)return 5;
+    fprintf(stderr,"External HDMI pattern capture completed; FE8E/FE8F RAM and UVC controls were restored, and EEPROM was not written.\n");return 0;
+ }
  if(qualify){
     NSFileManager *fm=[NSFileManager defaultManager];
     [fm createDirectoryAtPath:output withIntermediateDirectories:YES attributes:@{NSFilePosixPermissions:@0700} error:nil];
@@ -80,16 +114,56 @@ int main(int argc,const char **argv){@autoreleasepool{
  NSString *source=[output stringByAppendingString:@"-source"];
  NSString *runTag=output.lastPathComponent;
  if(sameHandle || reconnectCycles){NSString *root=[[[output stringByDeletingLastPathComponent] stringByDeletingLastPathComponent] stringByStandardizingPath];source=[root stringByAppendingPathComponent:sameHandle?@"same-handle-chart":[NSString stringWithFormat:@"reconnect-chart-%@",runTag]];}
- NSTask *chart=[NSTask new];chart.executableURL=[NSURL fileURLWithPath:presenter];chart.arguments=@[@"--manifest",manifest,@"--output",source,@"--transport",@"display",@"--render-space",@"native",@"--seconds",(calibrate||qualify||sameHandle||reconnectCycles)?@"1000":multipleProfiles?@"90":@"30"];
+ NSTask *chart=[NSTask new];chart.executableURL=[NSURL fileURLWithPath:presenter];chart.arguments=@[@"--manifest",manifest,@"--output",source,@"--transport",@"display",@"--render-space",@"native",@"--seconds",(calibrate||qualify||sameHandle||interactionWorker||reconnectCycles)?@"1000":multipleProfiles?@"90":@"30"];
  NSError *e=nil;if(![chart launchAndReturnError:&e]){fprintf(stderr,"Chart launch failed: %s\n",e.description.UTF8String);AuthorizationFree(authorization,kAuthorizationFlagDestroyRights);return 4;}
  NSString *ready=[source stringByAppendingPathComponent:@"display-ready.json"];
  for(int i=0;i<50 && ![[NSFileManager defaultManager] fileExistsAtPath:ready] && chart.isRunning;i++)usleep(100000);
  if(![[NSFileManager defaultManager] fileExistsAtPath:ready]){if(chart.isRunning)[chart terminate];AuthorizationFree(authorization,kAuthorizationFlagDestroyRights);return 4;}
+ if(interactionWorker){
+    NSFileManager *fm=[NSFileManager defaultManager];
+    [fm createDirectoryAtPath:output withIntermediateDirectories:YES attributes:@{NSFilePosixPermissions:@0700} error:nil];
+    NSDictionary *stableChartState=nil;
+    BOOL success=waitForChartOnTargetDisplay(source,45,&stableChartState) &&
+        runProbeList(presenter,[output stringByAppendingPathComponent:@"macos-state-before.json"]);
+    if(success){NSData *stateData=[NSJSONSerialization dataWithJSONObject:stableChartState options:NSJSONWritingPrettyPrinted error:nil];success=stateData && [stateData writeToFile:[output stringByAppendingPathComponent:@"chart-state-before-capture.json"] options:NSDataWritingAtomic error:nil];}
+    NSString *python=@(argv[6]),*worker=@(argv[7]);
+    char *workerMode=(char*)(interactionRepeat?"--worker-repeat":"--worker");
+    char *args[]={(char*)"-B",(char*)worker.fileSystemRepresentation,workerMode,(char*)"--output",(char*)output.fileSystemRepresentation,(char*)"--capture-bin",(char*)binary.fileSystemRepresentation,(char*)"--chart-source",(char*)source.fileSystemRepresentation,NULL};
+    FILE *pipe=NULL;
+    NSString *workerLogPath=[output stringByAppendingPathComponent:@"worker.log"];
+    [fm createFileAtPath:workerLogPath contents:[NSData data] attributes:@{NSFilePosixPermissions:@0600}];
+    NSFileHandle *workerLog=[NSFileHandle fileHandleForWritingAtPath:workerLogPath];
+    if(!workerLog)success=NO;
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if(success)status=AuthorizationExecuteWithPrivileges(authorization,python.fileSystemRepresentation,kAuthorizationFlagDefaults,args,&pipe);else status=-1;
+    #pragma clang diagnostic pop
+    if(status==errAuthorizationSuccess && pipe){char buffer[2048];while(fgets(buffer,sizeof(buffer),pipe)){fputs(buffer,stdout);fflush(stdout);if(workerLog)[workerLog writeData:[NSData dataWithBytes:buffer length:strlen(buffer)]];}fclose(pipe);}
+    [workerLog closeFile];
+    NSString *statePath=[output stringByAppendingPathComponent:@"run-state.json"];
+    NSDictionary *state=[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:statePath] options:0 error:nil];
+    NSDictionary *restoration=state[@"restoration"];
+    success=success && status==errAuthorizationSuccess &&
+        [state[@"status"] isEqual:@"worker_complete"] &&
+        [state[@"trial_count"] integerValue]==(interactionRepeat?1:20) &&
+        [restoration[@"status"] isEqual:@"restored"] &&
+        [restoration[@"eeprom_unchanged"] boolValue];
+    if(!runProbeList(presenter,[output stringByAppendingPathComponent:@"macos-state-after.json"]))success=NO;
+    for(NSString *name in @[@"display-ready.json",@"display-profile.icc",@"source-render.png"]){NSString *from=[source stringByAppendingPathComponent:name],*to=[output stringByAppendingPathComponent:name];if([fm fileExistsAtPath:from] && ![fm fileExistsAtPath:to]) [fm copyItemAtPath:from toPath:to error:nil];}
+    if(chart.isRunning)[chart terminate];[chart waitUntilExit];AuthorizationFree(authorization,kAuthorizationFlagDestroyRights);
+    if(!success){fprintf(stderr,interactionRepeat?"FE8E=10 contrast repeat failed chart-pixel validation or recovery. See run-state.json and worker.log.\n":"Batch sweep did not complete all 20 conditions with verified recovery. See run-state.json and worker.log.\n");return 5;}
+    fprintf(stderr,interactionRepeat?"FE8E=10 contrast condition captured with chart pixels validated; controls, RAM, and EEPROM state verified.\n":"All 20 FE8E/procamp conditions captured under one authorization; controls, RAM, and EEPROM state verified.\n");return 0;
+ }
  if(sameHandle){
     NSFileManager *fm=[NSFileManager defaultManager];
     [fm createDirectoryAtPath:output withIntermediateDirectories:YES attributes:@{NSFilePosixPermissions:@0700} error:nil];
     BOOL success=runProbeList(presenter,[output stringByAppendingPathComponent:@"macos-state-before.json"]);
-    char *args[]={(char*)output.UTF8String,NULL};FILE *pipe=NULL;
+    NSString *target=(liveRegisterProbe || liveRegisterState)?@(argv[6]):@"";
+    NSString *mask=(liveRegisterProbe || liveRegisterState)?@(argv[7]):@"";
+    char *args[6];
+    if(liveRegisterProbe || liveRegisterState){args[0]=(char*)output.UTF8String;args[1]=(char*)(liveRegisterState?"--live-state":"--live-hook");args[2]=(char*)target.UTF8String;args[3]=(char*)mask.UTF8String;args[4]=NULL;}
+    else {args[0]=(char*)output.UTF8String;args[1]=NULL;}
+    FILE *pipe=NULL;
     #pragma clang diagnostic push
     #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     if(success)status=AuthorizationExecuteWithPrivileges(authorization,binary.fileSystemRepresentation,kAuthorizationFlagDefaults,args,&pipe);else status=-1;
@@ -104,7 +178,7 @@ int main(int argc,const char **argv){@autoreleasepool{
     for(NSString *name in @[@"display-ready.json",@"display-profile.icc",@"source-render.png"]){NSString *from=[source stringByAppendingPathComponent:name],*to=[output stringByAppendingPathComponent:name];if([fm fileExistsAtPath:from]) [fm copyItemAtPath:from toPath:to error:nil];}
     if(chart.isRunning)[chart terminate];[chart waitUntilExit];AuthorizationFree(authorization,kAuthorizationFlagDestroyRights);
     if(!success)return 5;
-    fprintf(stderr,"Same-handle MJPEG-to-YUY2 capture completed; controls were read only and the UVC driver was restored.\n");return 0;
+    fprintf(stderr,liveRegisterState?"Live FE8E/FE8F MJPEG-to-YUY2 capture completed; requested volatile values were read back, restored, and the UVC driver was restored.\n":liveRegisterProbe?"Live-register MJPEG-to-YUY2 capture completed; the volatile register change was read back, restored, and the UVC driver was restored.\n":"Same-handle MJPEG-to-YUY2 capture completed; controls were read only and the UVC driver was restored.\n");return 0;
  }
  if(reconnectCycles){
     NSFileManager *fm=[NSFileManager defaultManager];

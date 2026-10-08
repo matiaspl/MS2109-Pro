@@ -19,7 +19,8 @@ class CompactSharpnessTests(firmware.SharpnessFirmwareTests):
     def allowed_factory_changes(self):
         allowed = super().allowed_factory_changes()
         for start, end in ((0xCC13,0xCC20),(0xCF5E,0xD03A),
-                           (0xD201,0xD238),(0xD2A2,0xD2B2)):
+                           (0xD201,0xD238),(0xD2A2,0xD2B2),
+                           (0xD2B4,0xD3CC)):
             allowed.update(range(start-0xCC00,end-0xCC00))
         allowed.update((0xD03C-0xCC00,0xD03D-0xCC00))
         for _, _, caller in WRAPPERS:
@@ -59,10 +60,27 @@ class CompactSharpnessTests(firmware.SharpnessFirmwareTests):
         with patch.object(factory,'EXPERIMENT',VARIANT.overlay):
             factory.FactorySpaceTests().test_switch_rom_replacement_all_256_commands()
 
+    def test_video_and_audio_names_are_in_eeprom_header_records(self):
+        default,_,_=build(firmware.ORIGINAL,rom=firmware.ROM,
+            sharpness_profile=True,sharpness_edid='rom',compact_sharpness=True)
+        named,_,_=build(firmware.ORIGINAL,rom=firmware.ROM,
+            sharpness_profile=True,sharpness_edid='rom',compact_sharpness=True,
+            video_name='MS2109-Pro',audio_name='MS2109-Pro')
+        self.assertEqual(validate(named),validate(default))
+        self.assertEqual(named[48:48+validate(named)],default[48:48+validate(default)])
+        for offset in (0x10,0x20):
+            self.assertEqual(named[offset:offset+16],
+                bytes((11,))+b'MS2109-Pro'+b'\xff'*5)
+        n=validate(named)
+        self.assertEqual(named[48+n:50+n],
+            (sum(named[2:48])&0xffff).to_bytes(2,'big'))
+        self.assertEqual(named[50+n:52+n],default[50+n:52+n])
+        self.assertLessEqual(len(VARIANT.overlay),1996)
+
     def test_uncompacted_rom_profile_remains_reproducible(self):
         previous=firmware.assemble(firmware.ORIGINAL,firmware.ROM,edid_source='rom')
         self.assertEqual(previous.report['overlay_sha256'],
-                         'dbaeef003752048f70877afd397ca2c3e750d26ec7855107832746e72d98012c')
+                         '0184dcc4712d6c974b59af733cd48d81633d7bb82c7b3921b9f0e4197bf6af0b')
 
 
 class LinkerTests(unittest.TestCase):

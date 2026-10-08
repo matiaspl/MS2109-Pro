@@ -16,9 +16,9 @@ class RomEdidSharpnessTests(firmware.SharpnessFirmwareTests):
     def test_rom_edid_modes_audio_and_size_saving(self):
         baseline = assemble(firmware.ORIGINAL, firmware.ROM)
         self.assertEqual(baseline.report['overlay_sha256'],
-                         'da92df0e3d7f113019a452541ca9aacd3df529cee0098d8f06dfe7c7e5976fa3')
-        self.assertEqual(len(baseline.overlay)-len(VARIANT.overlay), 175)
-        self.assertEqual(VARIANT.report['deficit_bytes'], 443)
+                         '5dcbad120daac1e56272d814d3669dbf41b7ec6ecb53e8735d08f24a49c684f0')
+        self.assertEqual(len(baseline.overlay)-len(VARIANT.overlay), 158)
+        self.assertEqual(VARIANT.report['deficit_bytes'], 284)
         self.assertIsNone(VARIANT.report['memory']['edid_buffer'])
         edid = firmware.ROM[0x7738:0x7838]
         self.assertEqual([sum(edid[i:i+128]) % 256 for i in (0, 128)], [0, 0])

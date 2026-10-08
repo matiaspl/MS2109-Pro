@@ -1,4 +1,4 @@
-"""Offline MS2109 Sharpness implementation and strict 2 KiB packaging gate.
+"""Offline MS2109 control-path prototype and strict 2 KiB packaging gate.
 
 Generated CODE can be executed by the ROM harness even when it exceeds the
 EEPROM budget. Such an overlay is an offline prototype, never an EEPROM image.
@@ -91,7 +91,7 @@ def pop(a, registers):
 
 
 def descriptor_code(a, *, compact=False):
-    """Copy the selected source; send bounded 64-byte packets through ROM."""
+    """Copy the selected source, retire Sharpness, and send bounded packets."""
     a.label('descriptor')
     # Only index zero/interface zero descriptor requests are intercepted.
     a.emit(0xE5, 0x0E, 0x45, 0x0F, 0x45, 0x10)
@@ -128,7 +128,7 @@ def descriptor_code(a, *, compact=False):
     a.label('descriptor_copy')
     a.emit(0x7E, DESC_BUFFER >> 8, 0x7F, DESC_BUFFER & 255)
     a.call(0x5038)  # generic source -> XDATA destination, R4:R5 count
-    # Check PU identity/layout before altering its single capability bit.
+    # Check the PU identity/layout before continuing with the bounded copy.
     a.dptr(DESC_BUFFER + 0x39)
     if compact:
         # Compare against the identical pinned PU header in CODE 714A.
@@ -142,15 +142,15 @@ def descriptor_code(a, *, compact=False):
         pop(a, (0x82, 0x83))
         a.far_if((0x70,), 'delegate')
         a.emit(0xA3, 0x0F)
-        a.rel((0xBF, 8), 'pu_guard')
-        a.emit(0xE0, 0x44, 0x10, 0xF0)
+        a.rel((0xBF, 8), 'pu_guard')  # DPTR now addresses bmControls.
+        a.emit(0xE0, 0x54, 0xEF, 0xF0)  # Clear Sharpness in the response copy.
     else:
         for i, value in enumerate(bytes.fromhex('0b24050201000002')):
             if i:
                 a.emit(0xA3)
             a.emit(0xE0)
             a.far_if((0xB4, value), 'delegate')
-        a.emit(0xA3, 0xE0, 0x44, 0x10, 0xF0)
+        a.emit(0xA3, 0xE0, 0x54, 0xEF, 0xF0)  # Clear only the Sharpness bit.
     # Save original setup length and ROM's cached length. The stock FIFO helper
     # uses both when computing offsets on subsequent packets.
     push(a, (0x11, 0x12))
@@ -218,8 +218,6 @@ def common_code(a, *, compact=False):
     write = compact_stores if compact else stores
     push(a, context)
     a.rel((0xBF, 1), 'common_stage2')
-    a.dptr('selected')
-    a.emit(0x74, 64, 0xF0)
     a.raw(write(0xC6A0, [0xEE, 0xFF, 149, 0, 0, 0, 147, 0]))
     a.raw(write(0xFE90, [0xEE, 149, 147, 0]))
     a.rel((0x80,), 'common_apply')
@@ -228,7 +226,6 @@ def common_code(a, *, compact=False):
     a.raw(write(0xC4C5, [2]) + write(0xC4C9, [0x80, 0xBB, 0]) + write(0xFE60, [1]))
     a.label('common_apply')
     a.call('matrix')
-    a.call('repair')
     a.label('common_done')
     pop(a, context)
     a.dptr(0xDE0B)
@@ -249,15 +246,8 @@ def common_code(a, *, compact=False):
     a.emit(0x22)
 
 
-def query_data(a):
-    a.label('query_values')
-    a.raw(bytes((0, 0, 127, 1, 2, 3, 64)))
-    a.label('selected')
-    a.emit(64)
-
-
-def main_code(origin, *, include_common=True, include_queries=True,
-              assembler=Asm, bank_zero=False, include_descriptor=True):
+def main_code(origin, *, include_common=True, assembler=Asm, bank_zero=False,
+              include_descriptor=True):
     a = assembler(origin)
     context = (0xE0, 0xD0, 0xF0, 0x82, 0x83)
     if include_common:
@@ -301,56 +291,11 @@ def main_code(origin, *, include_common=True, include_queries=True,
     a.far_if((0xB4, 2), 'delegate')
     a.emit(0xE5, 0x10)
     a.far_if((0x70,), 'delegate')
-    a.emit(0xE5, 0x0E, 0x45, 0x11)
-    a.far_if((0x70,), 'reject')
-    a.emit(0xE5, 0x0C)
-    a.rel((0xB4, 1), 'query')
-    a.emit(0xE5, 0x0B)
-    a.far_if((0xB4, 0x21), 'reject')
-    a.emit(0xE5, 0x12)
-    a.far_if((0xB4, 2), 'reject')
-    # Same setup ACK and synchronous OUT wait as ROM 2712.
-    a.emit(0xD2, 0x86)
-    a.label('wait_out')
-    a.rel((0x30, 0x80), 'wait_out')
-    a.call(0x4B69)
-    a.emit(0x7F, 2)
-    a.call(0x62CA)
-    a.dptr(0xC021)
-    a.emit(0xE0)
-    a.far_if((0x70,), 'reject')
-    a.dptr(0xC020)
-    a.emit(0xE0)
-    a.far_if((0x20, 0xE7), 'reject')
-    a.dptr('selected')
-    a.emit(0xF0)
-    a.call('repair')
-    a.emit(0xD2, 0x16)
-    a.jump('complete')
-    a.label('query')
-    a.emit(0xE5, 0x0B)
-    a.far_if((0xB4, 0xA1), 'reject')
-    a.emit(0xE5, 0x0C, 0xC3, 0x94, 0x81)
-    a.far_if((0x40,), 'reject')
-    a.emit(0xFC, 0xC3, 0x94, 7)
-    a.far_if((0x50,), 'reject')
-    a.emit(0x7F, 2, 0xE5, 0x0C)
-    a.rel((0xB4, 0x86), 'query_length')
-    a.emit(0x7F, 1)
-    a.label('query_length')
-    a.emit(0xEF, 0x65, 0x12)
-    a.far_if((0x70,), 'reject')
-    a.dptr('query_values')
-    a.emit(0xEC, 0x93, 0xFD, 0xE5, 0x0C)
-    a.rel((0xB4, 0x81), 'query_store')
-    a.dptr('selected')
-    a.emit(0xE0, 0xFD)
-    a.label('query_store')
-    a.dptr(0xC020)
-    a.emit(0xED, 0xF0, 0xA3, 0xE4, 0xF0, 0xD2, 0x86)
-    a.call(0x4B69)
-    a.call(0x49C2)
-    a.rel((0x80,), 'complete')
+    # Reject any request for UVC Sharpness selector 8. The four procamp
+    # controls and every unrelated control stay on the stock ROM path.
+    a.emit(0xE5, 0x0D)
+    a.far_if((0xB4, 8), 'delegate')
+    a.jump('reject')
     a.label('reject')
     a.emit(0xD2, 0x15)
     a.label('complete')
@@ -359,12 +304,10 @@ def main_code(origin, *, include_common=True, include_queries=True,
     a.label('delegate')
     a.raw(restore_bytes(bank_zero=bank_zero))
     a.call(0x2AD0)
-    a.jump('repair')  # transparent tail-return preserving ROM result registers
+    a.emit(0x22)  # transparent tail-return preserving ROM result registers
     a.label('usb_return')
     a.raw(restore_bytes(bank_zero=bank_zero))
     a.emit(0x22)
-    if include_queries:
-        query_data(a)
     if include_descriptor:
         descriptor_code(a)
     return a
@@ -377,29 +320,6 @@ def restore_bytes(*, bank_zero=False):
     for reg in reversed((0xE0, 0xD0, 0xF0, 0x82, 0x83)):
         result.extend((0xD0, reg))
     return bytes(result)
-
-
-def repair_code(origin, *, assembler=Asm, compact=False):
-    a = assembler(origin)
-    context = (0xE0, 0xF0, 0x82, 0x83) if compact else (0xE0, 0xD0, 0xF0, 0x82, 0x83)
-    a.label('repair')
-    # Preserve every register changed by read/compare/write, including carry.
-    push(a, context)
-    a.dptr('selected')
-    a.emit(0xE0, 0xF5, 0xF0)
-    a.dptr(0xFE84)
-    a.emit(0xE0, 0x65, 0xF0)
-    a.rel((0x60,), 'repair_fe85')
-    a.emit(0xE5, 0xF0, 0xF0)
-    a.label('repair_fe85')
-    a.emit(0xA3, 0xE0)
-    a.rel((0x60,), 'repair_done')
-    a.emit(0xE4, 0xF0)
-    a.label('repair_done')
-    pop(a, context)
-    a.emit(0x22)
-
-    return a
 
 
 def edid_code(origin):
@@ -435,7 +355,7 @@ class Prototype:
     def eeprom(self, original):
         required = len(self.overlay)
         if required > MAX_CODE:
-            raise ValueError(f'Sharpness profile needs {required} code bytes; '
+            raise ValueError(f'Control-repair profile needs {required} code bytes; '
                              f'2 KiB EEPROM permits {MAX_CODE}: deficit {required - MAX_CODE} bytes')
         out = bytearray(original)
         out[4] = 7
@@ -467,25 +387,22 @@ def assemble(original, rom, *, edid_source="custom"):
         if decode_delta(rom[0x7738:0x7838], delta) != custom:
             raise AssertionError('EDID roundtrip failed')
         edid = edid_code(0xCD52 + len(delta))
-        repair = repair_code(edid.pc)
         main = main_code(BASE+n+4)
-        symbols = edid.labels | repair.labels | main.labels
-        table = delta + edid.finish(symbols) + repair.finish(symbols)
+        symbols = edid.labels | main.labels
+        table = delta + edid.finish(symbols)
         decoder_bytes = len(edid.code)
     else:
         # Keep the stock EDID upload sequence, selecting its CODE-space table.
         # Relocate complete generated routines into the vacated custom table.
         shared = Asm(0xCD52)
         common_code(shared)
-        repair = repair_code(shared.pc)
-        video = Asm(repair.pc)
+        video = Asm(shared.pc)
         video.label('video')
         video.label('factory_video')
         video.raw(VIDEO_HELPER)
-        query_data(video)
-        main = main_code(BASE+n+4, include_common=False, include_queries=False)
-        symbols = shared.labels | repair.labels | video.labels | main.labels
-        table = shared.finish(symbols) + repair.finish(symbols) + video.finish(symbols)
+        main = main_code(BASE+n+4, include_common=False)
+        symbols = shared.labels | video.labels | main.labels
+        table = shared.finish(symbols) + video.finish(symbols)
         body[0x51B], body[0x51D] = 0x77, 0x38
         delta = b''
         decoder_bytes = 0
@@ -506,14 +423,12 @@ def assemble(original, rom, *, edid_source="custom"):
         'main_routines_bytes': len(main.code), 'edid_delta_bytes': len(delta),
         'edid_source': edid_source,
         'edid_decoder_bytes': decoder_bytes,
-        'repair_bytes': len(repair.code),
         'edid_table_unused_bytes': 256-table_used,
         'overlay_sha256': hashlib.sha256(body).hexdigest(),
         'rom_sha256': ROM_SHA, 'original_sha256': ORIGINAL_SHA,
         'rollback': 'artifacts/ms2109-calibrated-stereo-channel-order.bin',
         'memory': {
             'overlay': [hex(BASE), hex(BASE+len(body)-1)],
-            'selected': hex(symbols['selected']),
             'descriptor_buffer': [hex(DESC_BUFFER), hex(DESC_BUFFER+1211-1)],
             'edid_buffer': [hex(EDID_BUFFER), hex(EDID_BUFFER+255)] if edid_source == 'custom' else None,
             'ep0_staging_rom_owned': ['0xc020', '0xc021'],

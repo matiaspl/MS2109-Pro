@@ -4,7 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
-from build_patch import build, validate, COLOR_RECORDS
+from build_patch import build, validate, COLOR_RECORDS, set_usb_names
 from analyze_color_metadata import decode_configuration
 from align_pcm import Aligner
 
@@ -52,6 +52,18 @@ def execute(code, stage, memory=None, base=0):
     raise AssertionError('Hook did not return')
 
 class PatchTests(unittest.TestCase):
+    def test_video_and_audio_header_name_records_and_checksums(self):
+        original=(ROOT/'backups/ms2109-original.bin').read_bytes()
+        named=set_usb_names(original,'MS2109-Pro','MS2109-Pro')
+        self.assertEqual(named[0x10:0x20],bytes((11,))+b'MS2109-Pro'+b'\xff'*5)
+        self.assertEqual(named[0x20:0x30],bytes((11,))+b'MS2109-Pro'+b'\xff'*5)
+        n=validate(named)
+        self.assertEqual(named[48+n:50+n],(sum(named[2:48])&0xffff).to_bytes(2,'big'))
+        self.assertEqual(named[50+n:52+n],original[50+n:52+n])
+        for invalid in ('', 'é'*2, 'x'*16):
+            with self.subTest(name=invalid), self.assertRaises(ValueError):
+                set_usb_names(original, video_name=invalid)
+
     def test_stage_behavior(self):
         original=(ROOT/'backups/ms2109-original.bin').read_bytes()
         patched,hook,addr=build(original)

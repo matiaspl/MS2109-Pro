@@ -45,7 +45,6 @@ def export(directory, edid_source="custom", compact=False):
     else:
         segments = [(BASE, 3), (BASE+0x10, 3),
                 (symbols['video'], prototype.report['edid_decoder_bytes'] or 15),
-                (symbols['repair'], prototype.report['repair_bytes']),
                 (symbols['common'], symbols['matrix_done']+1-symbols['common']),
                 (symbols['cc10'], symbols['usb_return']+len(restore_bytes())+1-symbols['cc10']),
                 (symbols['descriptor'], BASE+len(prototype.overlay)-symbols['descriptor'])]
@@ -118,7 +117,7 @@ def export(directory, edid_source="custom", compact=False):
     else:
         if not compact:
             raise AssertionError('Unexpected size change in a retained profile')
-        (directory/'ms2109-sharpness-candidate.bin').write_bytes(candidate)
+        (directory/'ms2109-control-repair-candidate.bin').write_bytes(candidate)
         report['packaging_gate'] = 'passed: exactly 2048 bytes; both checksums valid; not installed'
         report['eeprom_image_emitted'] = True
         report['candidate_sha256'] = sha(candidate)

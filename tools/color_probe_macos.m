@@ -123,6 +123,10 @@ static void refreshChart(NSWindow *window,NSScreen *screen,NSDictionary *pattern
     // patch keeps its declared geometry. The screen-change observer orders it
     // out immediately if that display disappears.
     window.level=NSStatusWindowLevel+1;window.colorSpace=screen.colorSpace;
+    // The pattern must be the HDMI source even when this helper was launched
+    // from an accessory/background process. Raise and activate it explicitly;
+    // the stream-level patch fit remains the final check of visible output.
+    [NSApp activateIgnoringOtherApps:YES];
     PatchView *view=(PatchView*)window.contentView;view.pattern=pattern;view.fullFrameImage=fullFrameImage;
     view.patchSpace=[space isEqual:@"native"] ? screen.colorSpace : NSColorSpace.sRGBColorSpace;
     NSMutableArray *reference=[NSMutableArray array];
@@ -138,7 +142,8 @@ static void refreshChart(NSWindow *window,NSScreen *screen,NSDictionary *pattern
     // NSImage was created. AppKit may add a 2x backing representation while
     // drawing, so its mutable representation list is not the source raster size.
     metadata[@"full_frame_image_size"]=fullFrameImage ? @[@((NSInteger)fullFrameImage.size.width),@((NSInteger)fullFrameImage.size.height)] : NSNull.null;
-    [window setFrame:screen.frame display:YES];[view setNeedsDisplay:YES];[view display];[window orderFrontRegardless];
+    [window setFrame:screen.frame display:YES];[view setNeedsDisplay:YES];[view display];
+    [window makeKeyAndOrderFront:nil];[window orderFrontRegardless];
     metadata[@"window_frame"]=NSStringFromRect(window.frame);metadata[@"window_screen"]=window.screen.localizedName ?: @"none";
     NSBitmapImageRep *render=[view bitmapImageRepForCachingDisplayInRect:view.bounds];
     [view cacheDisplayInRect:view.bounds toBitmapImageRep:render];
@@ -150,7 +155,7 @@ static void refreshChart(NSWindow *window,NSScreen *screen,NSDictionary *pattern
 static NSWindow *presentChart(NSScreen *screen,NSDictionary *pattern,NSImage *fullFrameImage,NSString *space,NSString *out,NSMutableDictionary *metadata) {
     NSWindow *window=[[NSWindow alloc] initWithContentRect:screen.frame styleMask:NSWindowStyleMaskBorderless backing:NSBackingStoreBuffered defer:NO screen:screen];
     window.releasedWhenClosed=NO;window.level=NSStatusWindowLevel+1;window.opaque=YES;
-    window.collectionBehavior=NSWindowCollectionBehaviorCanJoinAllSpaces;
+    window.collectionBehavior=NSWindowCollectionBehaviorCanJoinAllSpaces|NSWindowCollectionBehaviorFullScreenAuxiliary|NSWindowCollectionBehaviorStationary;
     PatchView *view=[[PatchView alloc] initWithFrame:NSMakeRect(0,0,screen.frame.size.width,screen.frame.size.height)];
     window.contentView=view;
     refreshChart(window,screen,pattern,fullFrameImage,space,out,metadata);
@@ -239,7 +244,19 @@ int main(int argc,const char *argv[]) {@autoreleasepool {
         fullFrameImage=[[NSImage alloc] initWithCGImage:cgImage size:NSMakeSize(imageWidth,imageHeight)];CFRelease(cgImage);
     }
     NSScreen *screen=targetChartScreen(rasterWidth,rasterHeight);
-    if(!screen) {fprintf(stderr,"Unique %zux%zu HDMI TO USB extended display not found at 1:1 scale\n",rasterWidth,rasterHeight);return 2;}
+    if(!screen) {
+        NSArray<NSScreen *> *availableScreens=NSScreen.screens;
+        fprintf(stderr,"Unique %zux%zu HDMI TO USB extended display not found at 1:1 scale; AppKit reports %lu screen(s):\n",
+            rasterWidth,rasterHeight,(unsigned long)availableScreens.count);
+        for(NSScreen *candidate in availableScreens) {
+            CGDirectDisplayID did=[candidate.deviceDescription[@"NSScreenNumber"] unsignedIntValue];
+            fprintf(stderr,"  %s pixels=%zux%zu frame=%.0fx%.0f scale=%.2f main=%s\n",
+                candidate.localizedName.UTF8String,CGDisplayPixelsWide(did),CGDisplayPixelsHigh(did),
+                candidate.frame.size.width,candidate.frame.size.height,candidate.backingScaleFactor,
+                did==CGMainDisplayID()?"yes":"no");
+        }
+        return 2;
+    }
     if([transport isEqual:@"display"]) {
         NSMutableDictionary *metadata=[@{@"screens":screensInfo(),@"render_space":space,@"patch_manifest":manifest,@"utc_started":[[NSDate date] description]} mutableCopy];
         NSWindow *window=presentChart(screen,pattern,fullFrameImage,space,out,metadata);
@@ -276,10 +293,10 @@ int main(int argc,const char *argv[]) {@autoreleasepool {
         [NSApp run];return 0;
     }
     AVCaptureDevice *device=nil;
-    for(AVCaptureDevice *d in [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo]) if([d.localizedName isEqual:@"usb video"]) {
+    for(AVCaptureDevice *d in [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo]) if([d.localizedName isEqual:@"MS2109-Pro"]) {
         if(device) {fprintf(stderr,"Ambiguous capture device\n");return 2;} device=d;
     }
-    if(!device) {fprintf(stderr,"usb video capture device not found\n");return 2;}
+    if(!device) {fprintf(stderr,"MS2109-Pro capture device not found\n");return 2;}
     AVCaptureDeviceFormat *chosen=nil; double fps=0;
     for(AVCaptureDeviceFormat *f in device.formats) {
         CMVideoDimensions dim=CMVideoFormatDescriptionGetDimensions(f.formatDescription);

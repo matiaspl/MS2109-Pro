@@ -194,8 +194,8 @@ rtk proxy python3 tools/qualify_reconnect_cycles.py \
 ```
 
 The read-only stereo check replays the existing left/right fixture through the
-current HDMI output and captures the dongle audio input. It requires FE60=01
-and a 48 kHz two-channel descriptor and does not change either:
+current HDMI output and captures the dongle audio input (`MS2109-Pro`). It
+requires FE60=01 and a 48 kHz two-channel descriptor and does not change either:
 
 ```sh
 rtk proxy python3 tools/qualify_stereo_audio.py \

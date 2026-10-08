@@ -1,5 +1,11 @@
 # MS2109 compact Sharpness EEPROM candidate
 
+## Current status — Sharpness removed
+
+8 October 2026. The requested UVC Sharpness control has been removed from the rebuilt source profile. The candidate rejects selector 8, clears its capability bit from standard and other-speed response copies, stores no Sharpness value, and performs no FE84/FE85 writes. Its 1,816-byte image was written to EEPROM and verified by full readback. Cold-boot qualification is still pending: after a USB reset, runtime RAM reported the prior 1,904-byte overlay and UVC requests timed out. See the [removal and installation report](2026-10-08_ms2109-sharpness-removal.md). The following sections preserve the older Sharpness-enabled candidate as historical evidence and do not describe the current EEPROM image.
+
+## Historical Sharpness-enabled candidate
+
 7 October 2026. Offline firmware engineering and instruction-level qualification.
 
 The complete ROM-EDID Sharpness profile fits the existing **2,048-byte EEPROM**. Its declared overlay is **1,994 bytes**, leaving **two bytes free** after the 48-byte header and four checksum bytes. This resolves the previous ROM-profile deficit of 443 bytes. The candidate has since been loaded into volatile RAM for live tests and removed afterward; the EEPROM remains unchanged. See the [RAM qualification report](2026-10-07_ms2109-compact-sharpness-ram-qualification.md). UVC GET/SET and stream tests passed. Type 7 passed through the overlay descriptor path, but the active type-2 response remained `bmControls=0x000F`; a one-byte edit of active descriptor RAM did not alter it. A USB reset clears volatile RAM and reloads the installed EEPROM, so fresh-enumeration qualification of this candidate cannot be done in RAM alone. The active response source and boot-time patch point remain unresolved.
