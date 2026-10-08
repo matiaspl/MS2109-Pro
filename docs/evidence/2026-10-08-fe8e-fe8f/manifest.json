@@ -1,0 +1,74 @@
+{
+  "source_root": "artifacts/ms2109-repair/20261008",
+  "note": "Exact copies of saved measurements and images. Reports retain original local relative references; raw captures and probe tools are outside this focused documentation commit. Paths inside JSON identify the original acquisition location.",
+  "files": {
+    "repeat-run-state.json": {
+      "source": "fe8e10-contrast-regenerated-r2/run-state.json",
+      "sha256": "8fa8b450a9b049e33eaf779b0dd78f20319c805e5d82af9aa2314ac985d39be0"
+    },
+    "repeat-restoration.json": {
+      "source": "fe8e10-contrast-regenerated-r2/restoration.json",
+      "sha256": "1895bf780064225be2057367ea2dc76b07b8ea08fc30d2be90db292f7efc07ec"
+    },
+    "procamp-interaction-report.md": {
+      "source": "fe8e-procamp-interaction-mac-one-auth/report.md",
+      "sha256": "6d95bc68eb1766b93ecd7b44c77a951e84968fafc71e59a78d845bc09f551cb4"
+    },
+    "procamp-interaction-restoration.json": {
+      "source": "fe8e-procamp-interaction-mac-one-auth/restoration.json",
+      "sha256": "1895bf780064225be2057367ea2dc76b07b8ea08fc30d2be90db292f7efc07ec"
+    },
+    "calibrated-bit-analysis.json": {
+      "source": "fe8e-fe8f-color-rerun-after-reconnect-elevated/analysis.json",
+      "sha256": "494c96cab2e9c08b41a6a33dee50acb080f867ae239ce0637ef3a28bc8e16eef"
+    },
+    "calibrated-bit-report.md": {
+      "source": "fe8e-fe8f-color-rerun-after-reconnect-elevated/report.md",
+      "sha256": "ef6cb30bba826bda335958f5ddbd5d73a416969186c6a9148bc24626866748f0"
+    },
+    "comparison-yuy2.png": {
+      "source": "fe8e10-contrast-regenerated-r2/comparison-yuy2.png",
+      "sha256": "ac360a975498f2f82f606ec0e154fcbc43362c44520ab8d25d9f608379471aea"
+    },
+    "comparison-mjpeg.png": {
+      "source": "fe8e10-contrast-regenerated-r2/comparison-mjpeg.png",
+      "sha256": "4a919f5a76661527a37014a6cd3fa68be829bdefcc37aa03a10c97a77162b99a"
+    },
+    "patch-detail-yuy2.png": {
+      "source": "fe8e10-contrast-regenerated-r2/patch-detail-yuy2.png",
+      "sha256": "a8b7d61dbfd96e9ba1e7f7defba6d22184fef1975e98a3e073ca65f720d5cb4f"
+    },
+    "patch-detail-mjpeg.png": {
+      "source": "fe8e10-contrast-regenerated-r2/patch-detail-mjpeg.png",
+      "sha256": "67c543bd7ad8d2015e0a2c612c3f76ebc7544da1e275eb195256d03da6d22d09"
+    },
+    "smpte-bars-baseline-input-modes.png": {
+      "source": "smpte-bars-baseline-input-modes.png",
+      "sha256": "d6eac50520b58a97ced391ec4473f3cead534bfe7621dc56f0dc119a7e5cf25b"
+    },
+    "smpte-rgb444-analysis.json": {
+      "source": "smpte-bars-rgb444-fe8e-fe8f-0-4-live/analysis.json",
+      "sha256": "d18da088843fc2e15865dcb3baa477fc0b3c3b83d30757b48f694507476e657a"
+    },
+    "smpte-rgb444-restore-report.json": {
+      "source": "smpte-bars-rgb444-fe8e-fe8f-0-4-live/restore-report.json",
+      "sha256": "34095d3fc75c3d734a88ad8b2f06a162933eb2948efdde944904cfce3af00a36"
+    },
+    "smpte-yuv422-analysis.json": {
+      "source": "smpte-bars-yuv422-fe8e-fe8f-0-4-live/analysis.json",
+      "sha256": "64aa70381200c8816439a8d408d5e27cdfca2b24e9b989858fb997d14cd5ec71"
+    },
+    "smpte-yuv422-restore-report.json": {
+      "source": "smpte-bars-yuv422-fe8e-fe8f-0-4-live/restore-report.json",
+      "sha256": "34095d3fc75c3d734a88ad8b2f06a162933eb2948efdde944904cfce3af00a36"
+    },
+    "smpte-yuv444-analysis.json": {
+      "source": "smpte-bars-yuv444-fe8e-fe8f-0-4-live/analysis.json",
+      "sha256": "8e8aa919238ab17d176479d49ac418b1e5415ac588d4ea1277ca78bee4ed9504"
+    },
+    "smpte-yuv444-restore-report.json": {
+      "source": "smpte-bars-yuv444-fe8e-fe8f-0-4-live/restore-report.json",
+      "sha256": "34095d3fc75c3d734a88ad8b2f06a162933eb2948efdde944904cfce3af00a36"
+    }
+  }
+}
