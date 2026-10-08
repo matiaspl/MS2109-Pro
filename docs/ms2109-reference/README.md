@@ -2,6 +2,8 @@
 
 Revision 0.5 · 7 October 2026 · reconstructed from one MS2109 ROM revision and one factory EEPROM image.
 
+Browse the address-space overview in the [interactive MS2109 address map](../ms2109-address-map.html).
+
 The MS2109 control firmware uses an 8051 core, immutable CODE, a RAM-backed CODE/XDATA overlay, and an external EEPROM image. ROM loads the image into RAM and calls fixed entry points there. This reference describes that programming interface independently of the local audio/color patches. It is a partial reference, not a vendor datasheet or a complete replacement firmware specification.
 
 Start with [memory and boot](memory-and-boot.md), then [callbacks and ROM services](callbacks.md) and [registers and firmware state](registers.md). Every address includes its address space. Names are descriptive names assigned by this project, not vendor symbols.

@@ -17,6 +17,8 @@ Independent chip documentation: [MS2109 programmer reference](docs/ms2109-refere
 
 The [procamp-defaults v4 image](artifacts/sharpness-firmware/20261008-procamp-defaults/ms2109-procamp-defaults-v4-ms2109-pro-candidate.bin) is installed and cold-boot verified. Its EEPROM and loaded RAM overlay match SHA-256 `a42bfa5919cf164a2a1b4edb4152b156fe65db5c58e55da9d53ef1c0bb52a3eb`; startup RAM, USB names, and all four `GET_DEF` values match brightness −18, contrast 149, hue 0, and saturation 148. See the [updated firmware report](docs/2026-10-08_ms2109-procamp-defaults-coldboot-report.md), [v4 installation record](artifacts/sharpness-firmware/20261008-procamp-defaults/v4-installation.json), [RAM-only GET_DEF test](artifacts/sharpness-firmware/20261008-procamp-defaults/procamp-get-def-ram-v4.json), and [cold-boot qualification](artifacts/sharpness-firmware/20261008-procamp-defaults/cold-boot-qualification-v4.json).
 
+Explore the address spaces in the [interactive MS2109 address map](docs/ms2109-address-map.html). It separates CODE, XDATA, IRAM, SFR, and EEPROM and links mapped regions to the source evidence.
+
 
 Device-specific extension of [A-Dunstan/ms2109_stereo_patch](https://github.com/A-Dunstan/ms2109_stereo_patch), built from the connected dongle's verified EEPROM backup.
 
