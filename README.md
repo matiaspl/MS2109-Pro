@@ -15,6 +15,8 @@ The measurements apply to one device and its tested signal path; they do not est
 
 Independent chip documentation: [MS2109 programmer reference](docs/ms2109-reference/README.md) — memory/boot, callbacks, ROM services, registers, and reproducible offline evidence.
 
+Explore the address spaces in the [interactive MS2109 address map](docs/ms2109-address-map.html). It separates CODE, XDATA, IRAM, SFR, and EEPROM and links mapped regions to the source evidence.
+
 
 Device-specific extension of [A-Dunstan/ms2109_stereo_patch](https://github.com/A-Dunstan/ms2109_stereo_patch), built from the connected dongle's verified EEPROM backup.
 
