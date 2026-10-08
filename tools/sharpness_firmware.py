@@ -218,8 +218,8 @@ def common_code(a, *, compact=False):
     write = compact_stores if compact else stores
     push(a, context)
     a.rel((0xBF, 1), 'common_stage2')
-    a.raw(write(0xC6A0, [0xEE, 0xFF, 149, 0, 0, 0, 147, 0]))
-    a.raw(write(0xFE90, [0xEE, 149, 147, 0]))
+    a.raw(write(0xC6A0, [0xEE, 0xFF, 149, 0, 0, 0, 148, 0]))
+    a.raw(write(0xFE90, [0xEE, 149, 148, 0]))
     a.rel((0x80,), 'common_apply')
     a.label('common_stage2')
     a.rel((0xBF, 2), 'common_done')
@@ -283,6 +283,55 @@ def main_code(origin, *, include_common=True, assembler=Asm, bank_zero=False,
     a.far_if((0xB4, 7), 'delegate')
     a.jump('descriptor')
     a.label('classify_control')
+    # GET_DEF for the four advertised procamp controls is answered from the
+    # same calibrated values installed at startup. All other requests retain
+    # the stock ROM path (including GET_CUR and SET_CUR).
+    a.emit(0xE5, 0x0C)
+    a.far_if((0xB4, 0x87), 'classify_legacy')
+    a.emit(0xE5, 0x0D)
+    a.far_if((0xB4, 8), 'get_def_procamp')
+    a.jump('classify_legacy')  # preserve the retired Sharpness stall behavior
+    a.label('get_def_procamp')
+    a.emit(0xE5, 0x0B)
+    a.far_if((0xB4, 0xA1), 'delegate')
+    a.emit(0xE5, 0x0E)
+    a.far_if((0x70,), 'delegate')  # wValue low byte must be zero
+    a.emit(0xE5, 0x0F)
+    a.far_if((0xB4, 2), 'delegate')  # Processing Unit entity 2
+    a.emit(0xE5, 0x10)
+    a.far_if((0x70,), 'delegate')  # interface zero
+    a.emit(0xE5, 0x11)
+    a.far_if((0x70,), 'delegate')  # exactly two response bytes
+    a.emit(0xE5, 0x12)
+    a.far_if((0xB4, 2), 'delegate')
+    a.emit(0xE5, 0x0D)
+    a.dptr(0xC020)
+    a.far_if((0xB4, 2), 'get_def_contrast')
+    a.emit(0x74, 0xEE, 0xF0, 0xA3, 0x74, 0xFF, 0xF0)
+    a.rel((0x80,), 'get_def_send')
+    a.label('get_def_contrast')
+    a.far_if((0xB4, 3), 'get_def_hue')
+    a.emit(0x74, 149, 0xF0, 0xA3, 0xE4, 0xF0)
+    a.rel((0x80,), 'get_def_send')
+    a.label('get_def_hue')
+    a.far_if((0xB4, 6), 'get_def_saturation')
+    a.emit(0xE4, 0xF0, 0xA3, 0xF0)
+    a.rel((0x80,), 'get_def_send')
+    a.label('get_def_saturation')
+    a.far_if((0xB4, 7), 'classify_legacy')
+    a.emit(0x74, 148, 0xF0, 0xA3, 0xE4, 0xF0)
+    a.label('get_def_send')
+    # The CC10 hook bypasses the ROM class-request dispatcher. The ROM's
+    # 49C2 FIFO sender treats IRAM 08:09 as a transfer offset, so start this
+    # fresh two-byte control reply at offset zero instead of inheriting a
+    # stale offset from the previous EP0 transaction.
+    a.emit(0x75, 0x08, 0x00, 0x75, 0x09, 0x00)
+    a.call(0x4B69)  # R3:R2:R1 = 01:C0:20 for the generic FIFO helper
+    a.emit(0x7F, 2, 0xD2, 0x86)
+    a.call(0x49C2)
+    a.jump('complete')
+    a.label('classify_legacy')
+    a.emit(0xE5, 0x0B)  # restore bmRequestType after checking bRequest above
     a.emit(0x54, 0x60)
     a.far_if((0xB4, 0x20), 'delegate')
     a.emit(0xE5, 0x0D)
@@ -417,6 +466,11 @@ def assemble(original, rom, *, edid_source="custom"):
         raise ValueError('Offline prototype overlaps descriptor buffer')
     report = {
         'status': 'offline prototype; not hardware-qualified',
+        'startup_procamp': {'brightness_signed': -18, 'contrast': 149,
+                            'hue': 0, 'saturation': 148},
+        'get_def': {'status': 'CC10 hook returns the startup procamp defaults',
+                    'brightness_signed': -18, 'contrast': 149,
+                    'hue': 0, 'saturation': 148},
         'eeprom_limit_bytes': 2048, 'code_limit_bytes': MAX_CODE,
         'required_code_bytes': len(body), 'deficit_bytes': max(0, len(body)-MAX_CODE),
         'required_image_bytes': len(body)+52,

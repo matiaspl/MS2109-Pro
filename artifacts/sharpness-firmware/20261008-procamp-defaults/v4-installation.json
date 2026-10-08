@@ -1,0 +1,35 @@
+{
+  "status": "v4 EEPROM installed, fully read back, and cold-boot qualified",
+  "candidate": "artifacts/sharpness-firmware/20261008-procamp-defaults/ms2109-procamp-defaults-v4-ms2109-pro-candidate.bin",
+  "candidate_sha256": "a42bfa5919cf164a2a1b4edb4152b156fe65db5c58e55da9d53ef1c0bb52a3eb",
+  "expected_current_sha256": "91f4d30b5a85a2cca368b84ec1f1437ee30af29bc002fca9073993513a71ba3f",
+  "changed_bytes": 598,
+  "postinstall_readback": "artifacts/sharpness-firmware/20261008-procamp-defaults/postinstall-v4-eeprom-readback.bin",
+  "postinstall_sha256": "a42bfa5919cf164a2a1b4edb4152b156fe65db5c58e55da9d53ef1c0bb52a3eb",
+  "postinstall_matches_candidate": true,
+  "independent_live_eeprom_reads": [
+    "a42bfa5919cf164a2a1b4edb4152b156fe65db5c58e55da9d53ef1c0bb52a3eb",
+    "a42bfa5919cf164a2a1b4edb4152b156fe65db5c58e55da9d53ef1c0bb52a3eb"
+  ],
+  "writer": "tools/flash_eeprom.py with exact-v3 guard, per-byte verification, rollback on error, and complete readback",
+  "ram_qualification": "artifacts/sharpness-firmware/20261008-procamp-defaults/procamp-get-def-ram-v4.json",
+  "ram_qualification_status": "passed: GET_DEF returned -18/149/0/148; exact prior RAM restored; EEPROM remained v3 during test",
+  "postinstall_active_ram": {
+    "header_code_bytes": 1929,
+    "header_matches": "v3",
+    "overlay_matches": "v1",
+    "evidence": "artifacts/sharpness-firmware/20261008-procamp-defaults/v4-postinstall-live-state.json"
+  },
+  "cold_boot_qualification": "passed after full USB power removal and reload",
+  "cold_boot_record": "artifacts/sharpness-firmware/20261008-procamp-defaults/cold-boot-qualification-v4.json",
+  "cold_boot_checks": {
+    "eeprom_matches_candidate": true,
+    "loaded_ram_header_matches_candidate": true,
+    "loaded_ram_overlay_matches_candidate": true,
+    "startup_procamp_matches": true,
+    "usb_names_match": true,
+    "all_get_def_controls_match": true,
+    "writes_performed": 0
+  },
+  "rollback_image": "artifacts/sharpness-firmware/20261008-procamp-defaults/postinstall-v3-eeprom-readback.bin"
+}

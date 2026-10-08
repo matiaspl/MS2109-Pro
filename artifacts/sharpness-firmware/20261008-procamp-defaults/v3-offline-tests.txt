@@ -1,0 +1,25 @@
+test_allocations_and_retained_startup (tests.test_compact_sharpness.CompactSharpnessTests.test_allocations_and_retained_startup) ... ok
+test_common_callback_leaves_unmapped_scaler_registers_untouched (tests.test_compact_sharpness.CompactSharpnessTests.test_common_callback_leaves_unmapped_scaler_registers_untouched) ... ok
+test_descriptor_guards_delegate_without_changing_source (tests.test_compact_sharpness.CompactSharpnessTests.test_descriptor_guards_delegate_without_changing_source) ... ok
+test_descriptor_packets_preserve_selected_configuration (tests.test_compact_sharpness.CompactSharpnessTests.test_descriptor_packets_preserve_selected_configuration) ... ok
+test_edid_factory_call_reconstructs_and_uploads_exact_bytes (tests.test_compact_sharpness.CompactSharpnessTests.test_edid_factory_call_reconstructs_and_uploads_exact_bytes) ... ok
+test_factory_copy_in_final_packed_overlay (tests.test_compact_sharpness.CompactSharpnessTests.test_factory_copy_in_final_packed_overlay) ... ok
+test_factory_switch_in_final_packed_overlay (tests.test_compact_sharpness.CompactSharpnessTests.test_factory_switch_in_final_packed_overlay) ... ok
+test_invalid_control_requests_stall_without_state_change (tests.test_compact_sharpness.CompactSharpnessTests.test_invalid_control_requests_stall_without_state_change) ... ok
+test_legacy_procamp_uses_unchanged_rom_dispatch (tests.test_compact_sharpness.CompactSharpnessTests.test_legacy_procamp_uses_unchanged_rom_dispatch) ... ok
+test_non_sharpness_processing_unit_controls_delegate (tests.test_compact_sharpness.CompactSharpnessTests.test_non_sharpness_processing_unit_controls_delegate) ... ok
+test_oversize_profile_never_emits_eeprom (tests.test_compact_sharpness.CompactSharpnessTests.test_oversize_profile_never_emits_eeprom) ... ok
+test_procamp_get_def_matches_startup_defaults (tests.test_compact_sharpness.CompactSharpnessTests.test_procamp_get_def_matches_startup_defaults) ... ok
+test_query_directions_and_lengths (tests.test_compact_sharpness.CompactSharpnessTests.test_query_directions_and_lengths) ... ok
+test_register_preservation_at_rom_bank_zero_abi (tests.test_compact_sharpness.CompactSharpnessTests.test_register_preservation_at_rom_bank_zero_abi) ... ok
+test_retained_calibration_audio_and_factory_code (tests.test_compact_sharpness.CompactSharpnessTests.test_retained_calibration_audio_and_factory_code) ... ok
+test_sharpness_descriptor_bit_is_cleared_from_active_and_other_speed (tests.test_compact_sharpness.CompactSharpnessTests.test_sharpness_descriptor_bit_is_cleared_from_active_and_other_speed) ... ok
+test_uncompacted_rom_profile_remains_reproducible (tests.test_compact_sharpness.CompactSharpnessTests.test_uncompacted_rom_profile_remains_reproducible) ... ok
+test_unqualified_sharpness_requests_stall_without_register_writes (tests.test_compact_sharpness.CompactSharpnessTests.test_unqualified_sharpness_requests_stall_without_register_writes) ... ok
+test_unrelated_requests_delegate_with_original_context (tests.test_compact_sharpness.CompactSharpnessTests.test_unrelated_requests_delegate_with_original_context) ... ok
+test_video_and_audio_names_are_in_eeprom_header_records (tests.test_compact_sharpness.CompactSharpnessTests.test_video_and_audio_names_are_in_eeprom_header_records) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 18.954s
+
+OK

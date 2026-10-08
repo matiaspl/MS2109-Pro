@@ -198,6 +198,11 @@ def assemble_compact(original,rom):
     body[0x10:0x13]=b'\x02'+symbols['cc10'].to_bytes(2,'big')
     report={
         'status':'offline compact candidate; not hardware-qualified',
+        'startup_procamp':{'brightness_signed':-18,'contrast':149,
+                           'hue':0,'saturation':148},
+        'get_def':{'status':'CC10 hook returns the startup procamp defaults',
+                   'brightness_signed':-18,'contrast':149,
+                   'hue':0,'saturation':148},
         'edid_source':'rom','optimized':True,
         'eeprom_limit_bytes':2048,'code_limit_bytes':MAX_CODE,
         'required_code_bytes':len(body),'deficit_bytes':max(0,len(body)-MAX_CODE),

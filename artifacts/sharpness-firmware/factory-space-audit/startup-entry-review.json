@@ -1,0 +1,48 @@
+{
+  "scope": "offline static review of the pinned mask ROM and original 1716-byte EEPROM overlay; no device access",
+  "inputs": {
+    "mask_rom_sha256": "b383ef31fca43ebc58a22be8e342d9a1e33ec1cc15afce02921910b0ca358bc8",
+    "original_eeprom_sha256": "37103dccfc6c5e2062b6d22a0a619729449427270e52ae4332fde0da0f49dfe1"
+  },
+  "candidate_behavior": {
+    "startup": "D28D: MOV R0,#FF; CLR A; loop MOV @R0,A / DJNZ R0 until R0 wraps to 00; MOV SP,#3C; LJMP D2B2",
+    "loop": "D2B2: SJMP D2B2",
+    "effect": "Clears internal RAM FF through 01, sets the stack pointer, then halts in a tight loop. It does not return.",
+    "raw_overlay_ranges": ["D28D-D298", "D2B2-D2B3"]
+  },
+  "aligned_rom_transfers": {
+    "raw_candidate_4D2F_to_D2B3": {
+      "result": "false positive caused by scanning bytes without instruction alignment",
+      "decoded": ["4D2E: SJMP 4D32", "4D30: SETB B3", "4D32: MOV DPTR,#C786"],
+      "implication": "There is no LJMP D2B3 at 4D2F."
+    },
+    "2CDC_to_D280": {
+      "result": "real ROM LJMP",
+      "decoded": "2CDC: LJMP D280",
+      "overlay_flow": "Starting at D280 executes SETB bit A2, the F814 writes at D282-D289, then LJMP D2A6 at D28A. It exits before D28D.",
+      "implication": "A real entry reaches the nearby D280 sequence, but that sequence does not fall through into the candidate startup."
+    },
+    "direct_targets_in_candidate_ranges": "No aligned direct ROM transfer to D28D-D298 or D2B2-D2B3 was identified."
+  },
+  "computed_transfer_review": {
+    "real_or_plausible_sites": {
+      "0478": "JMP @A+DPTR; immediately preceded by MOV DPTR,#03D3, so this reviewed dispatch is based in mask ROM.",
+      "08A0": "JMP @A+DPTR after four calls to 08A1. Reviewed call sites load code pointers in the Cxxx mask-ROM region; full input coverage is not proven.",
+      "092A": "JMP @A+DPTR with A cleared and DPTR assembled from bytes read through MOVC; a table can select the exact destination, so this remains a computed-reference audit item.",
+      "2B52": "JMP @A+DPTR is followed by table-shaped bytes; this pass did not bound all possible destinations."
+    },
+    "raw_73_false_positives_checked": {
+      "12D4": "Third byte of LCALL 4973 at 12D2.",
+      "12EF": "Third byte of LCALL 4973 at 12ED.",
+      "21B5": "Immediate operand 73 of MOV R5,#73 at 21B4.",
+      "288D": "Immediate operand 73 in MOV DPTR,#C773 beginning at 288B.",
+      "403B": "Relative branch displacement of JNC 40AF at 403A."
+    },
+    "limitation": "The reviewed roots and table cases still do not bound every runtime DPTR value or every computed entry into the overlay. Static evidence supports retaining D28D-D298 and D2B2-D2B3 as a dead-code candidate, not deleting them as proven unreachable."
+  },
+  "reproduction": [
+    "r2 -n -a 8051 -b 8 -q -c 'pd 5 @ 0x2cd8' backups/ms2109-maskrom.bin",
+    "r2 -n -a 8051 -b 8 -q -c 'pd 5 @ 0x4d2a' backups/ms2109-maskrom.bin",
+    "r2 -n -a 8051 -b 8 -m 0xcc00 -q -c 'pd 12 @ 0xd28d; pd 2 @ 0xd2b2' artifacts/sharpness-firmware/factory-space-audit/factory.overlay.bin"
+  ]
+}

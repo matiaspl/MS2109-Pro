@@ -80,7 +80,7 @@ class CompactSharpnessTests(firmware.SharpnessFirmwareTests):
     def test_uncompacted_rom_profile_remains_reproducible(self):
         previous=firmware.assemble(firmware.ORIGINAL,firmware.ROM,edid_source='rom')
         self.assertEqual(previous.report['overlay_sha256'],
-                         '0184dcc4712d6c974b59af733cd48d81633d7bb82c7b3921b9f0e4197bf6af0b')
+                         'e02a60a93080ea0bb8a48dbb82851d10e644a47481b8bf951d49f041bb23e154')
 
 
 class LinkerTests(unittest.TestCase):
