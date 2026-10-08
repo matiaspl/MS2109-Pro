@@ -1,4 +1,4 @@
-"""Run the compact Sharpness profile as a reversible volatile RAM overlay.
+"""Verify Sharpness removal using a reversible volatile control-repair overlay.
 
 This tool verifies the installed EEPROM before touching XDATA, snapshots every
 range the candidate or its callback can change, and restores those ranges on
@@ -17,11 +17,47 @@ from ms2109_hid import Device
 from build_patch import validate
 
 ROOT = Path(__file__).resolve().parents[1]
-ART = ROOT / "artifacts/sharpness-firmware/20261007-compact-final"
-EXPECTED_EEPROM = "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82"
-EXPECTED_CANDIDATE = "d6c1c53fa43e8f4d622c37022fbd91a6bd093813af81585172750380071da596"
-OVERLAY_START, OVERLAY_LENGTH = 0xCC00, 1994
+ART = ROOT / "artifacts/ms2109-repair/20261007"
+EXPECTED_EEPROM = "b1f78dd4ac512fa195261b7619fc8cd50498adaf48e199a0eb607dd0641e1ce8"
+EXPECTED_CANDIDATE = "bee6059bc398bda76348e4dfe7d3df76fbedd32ac8d5a0d79af97ab3ed382bab"
+OVERLAY_START = 0xCC00
 DESC_START, DESC_LENGTH = 0xD800, 1211
+REVIEWED_RUNTIME_OVERRIDES = {
+    # This installed Sharpness build keeps its selected value in CC1A, and
+    # runtime disables its old D0D8 -> D27F repair hook. The replacement
+    # profile removes that state/hook and restores the factory D27F entry.
+    0xCC1A: (0x40, 0x7F, 0xFF),
+    0xD0D8: (0x02, 0x00, 0x02),
+    0xD0D9: (0xD2, 0x00, 0xD2),
+}
+
+
+def classify_runtime_overrides(saved_image, loaded_image, candidate):
+    """Accept only the three reviewed runtime changes, and verify target bytes."""
+    if len(saved_image) != len(loaded_image):
+        raise RuntimeError("Saved and loaded overlay lengths differ")
+    actual = {
+        OVERLAY_START + i: (saved, loaded)
+        for i, (saved, loaded) in enumerate(zip(saved_image, loaded_image))
+        if saved != loaded
+    }
+    expected = {
+        address: (saved, loaded)
+        for address, (saved, loaded, _candidate) in REVIEWED_RUNTIME_OVERRIDES.items()
+    }
+    if actual != expected:
+        details = ", ".join(f"{address:04X}" for address in actual) or "none"
+        raise RuntimeError(f"Unreviewed loaded-overlay differences at {details}")
+    for address, (_saved, _loaded, candidate_value) in REVIEWED_RUNTIME_OVERRIDES.items():
+        candidate_offset = 48 + address - OVERLAY_START
+        if candidate[candidate_offset] != candidate_value:
+            raise RuntimeError(f"Candidate byte at {address:04X} changed from reviewed value")
+    return [
+        {"address": f"0x{address:04X}", "eeprom_byte": f"0x{saved:02X}",
+         "loaded_ram_byte": f"0x{loaded:02X}",
+         "candidate_byte": f"0x{candidate_value:02X}"}
+        for address, (saved, loaded, candidate_value) in REVIEWED_RUNTIME_OVERRIDES.items()
+    ]
 
 
 class UVC:
@@ -75,6 +111,12 @@ class UVC:
 def sha(data): return hashlib.sha256(data).hexdigest()
 
 
+def require_stall(result, label):
+    # libusb error -9 is LIBUSB_ERROR_PIPE, the expected EP0 STALL result.
+    if result.get('status')!='stall_or_transport_error' or result.get('libusb_code')!=-9:
+        raise RuntimeError(f"{label} did not produce an EP0 STALL: {result}")
+
+
 def write_ram(device, address, data):
     for i,value in enumerate(data): device.exchange(0xB6,address+i,value)
 
@@ -90,9 +132,15 @@ def capture_mode(size):
     return {"size":size,"rate":rate,"frames_requested":2,"returncode":output.returncode}
 
 
-def run(output):
-    candidate=(ART/"ms2109-sharpness-candidate.bin").read_bytes()
-    if sha(candidate)!=EXPECTED_CANDIDATE or validate(candidate)!=OVERLAY_LENGTH:
+def run(output, *, candidate_path=None, expected_current_path=None,
+        expected_candidate_sha256=EXPECTED_CANDIDATE):
+    candidate_path = candidate_path or ART/"ms2109-control-repair-candidate.bin"
+    expected_current_path = expected_current_path or ART/"current-eeprom-readback.bin"
+    candidate=candidate_path.read_bytes()
+    overlay_length=validate(candidate)
+    expected_eeprom=expected_current_path.read_bytes()
+    expected_eeprom_sha256=sha(expected_eeprom)
+    if sha(candidate)!=expected_candidate_sha256:
         raise RuntimeError("Candidate hash or EEPROM checksum validation failed")
     if output.exists(): raise RuntimeError(f"Refusing to overwrite {output}")
     output.parent.mkdir(parents=True,exist_ok=True)
@@ -108,9 +156,9 @@ def run(output):
         if device.identify_eeprom()!=2048: raise RuntimeError("Expected 2 KiB EEPROM")
         live_eeprom=device.read('eeprom',0,2048)
         result['live_eeprom_sha256_before']=sha(live_eeprom)
-        if sha(live_eeprom)!=EXPECTED_EEPROM:
-            raise RuntimeError("Live EEPROM differs from the approved rollback image")
-        if live_eeprom!=(ART/"live-prequal-eeprom.bin").read_bytes():
+        if sha(live_eeprom)!=expected_eeprom_sha256:
+            raise RuntimeError("Live EEPROM differs from the approved current image")
+        if live_eeprom!=expected_eeprom:
             raise RuntimeError("Live EEPROM differs from the verified two-read backup")
         # Snapshot the entire candidate image extent, response-copy buffer,
         # descriptor regions touched by retained callbacks, and current controls.
@@ -120,17 +168,30 @@ def run(output):
         for address,length in ranges:
             snapshots[address]=device.read('ram',address,length)
         result['before']={f'{a:04X}':v.hex() for a,v in snapshots.items()}
-        result['loaded_image_matches_eeprom']=(
-            snapshots[0xCBD0][48:48+int.from_bytes(live_eeprom[2:4],'big')+4]
-            ==live_eeprom[48:48+int.from_bytes(live_eeprom[2:4],'big')+4])
-        if not result['loaded_image_matches_eeprom']:
-            raise RuntimeError("Loaded overlay does not match the verified EEPROM image")
-        result['candidate_overlay_sha256']=sha(candidate[48:48+OVERLAY_LENGTH])
+        code_end=48+int.from_bytes(live_eeprom[2:4],'big')+4
+        live_image=snapshots[0xCBD0][48:code_end]
+        saved_image=live_eeprom[48:code_end]
+        image_differences=[{'address':f"0x{0xCC00+i:04X}",
+                            'eeprom_byte':f"0x{saved:02X}",
+                            'loaded_ram_byte':f"0x{loaded:02X}"}
+                           for i,(saved,loaded) in enumerate(zip(saved_image,live_image))
+                           if saved!=loaded]
+        result['loaded_image_diff']=image_differences
+        result['loaded_image_matches_eeprom']=not image_differences
+        if image_differences:
+            result['reviewed_runtime_overrides']=classify_runtime_overrides(
+                saved_image, live_image, candidate)
+            repeated_snapshot=device.read('ram',0xCBD0,len(snapshots[0xCBD0]))
+            if repeated_snapshot != snapshots[0xCBD0]:
+                raise RuntimeError("Loaded RAM changed during preflight; refusing to stage candidate")
+            result['loaded_ram_snapshot_repeated']=True
+        result['candidate_overlay_sha256']=sha(candidate[48:48+overlay_length])
         result['previous_flags']=snapshots[0xCBD0][4]
         # Disable only the three callback gates whose entries or callers are
         # replaced. Keep other original callback bits exactly as they were.
         masked=bytes((result['previous_flags'] & ~0x07,))
-        device.exchange(0xB6,0xCBD4,masked[0]); time.sleep(.03); touched=True
+        touched=True
+        device.exchange(0xB6,0xCBD4,masked[0]); time.sleep(.03)
         if device.read('ram',0xCBD4,1)!=masked:
             raise RuntimeError("Could not quiesce callback gates")
         print("Callbacks quiesced; staging candidate in RAM…",flush=True)
@@ -138,21 +199,17 @@ def run(output):
         # enabled only after the complete loaded-image readback succeeds.
         header=bytearray(candidate[:48]); header[4]=masked[0]
         write_ram(device,0xCBD0,bytes(header))
-        write_ram(device,OVERLAY_START,candidate[48:48+OVERLAY_LENGTH+4])
+        write_ram(device,OVERLAY_START,candidate[48:48+overlay_length+4])
         if device.read('ram',0xCBD0,48)!=bytes(header):
             raise RuntimeError("Candidate header readback failed")
-        if device.read('ram',OVERLAY_START,OVERLAY_LENGTH+4)!=candidate[48:48+OVERLAY_LENGTH+4]:
+        if device.read('ram',OVERLAY_START,overlay_length+4)!=candidate[48:48+overlay_length+4]:
             raise RuntimeError("Candidate overlay/checksum readback failed")
-        # Start at the agreed default. The selection byte is in CC1A.
-        device.exchange(0xB6,0xCC1A,64)
-        device.exchange(0xB6,0xFE84,64)
-        device.exchange(0xB6,0xFE85,0)
         flags=candidate[4]
         device.exchange(0xB6,0xCBD4,flags); time.sleep(.05)
         if device.read('ram',0xCBD4,1)!=bytes((flags,)):
             raise RuntimeError("Candidate callback gates did not enable")
         result['candidate_live']=True
-        print("Candidate is active in volatile RAM; querying UVC controls…",flush=True)
+        print("Candidate is active in volatile RAM; verifying Sharpness removal…",flush=True)
         uvc=UVC()
         # Active and other-speed configuration descriptor paths.
         # ROM 75CC's other-speed header declares 0x0163 (355) bytes; the
@@ -167,37 +224,25 @@ def run(output):
                 "processing_unit_controls":raw[0x41:0x43].hex(),
                 "sharpness_bit":bool(raw[0x41]&0x10),
                 "candidate_scratch_controls":device.read('ram',DESC_START+0x41,2).hex()}
-            if raw[0x41]&0x10==0:
-                result['checks'].setdefault('descriptor_warnings',[]).append(
-                    f"type {kind}: controls {raw[0x41:0x43].hex()} at offset 0x41")
-        expected={0x81:2,0x82:2,0x83:2,0x84:2,0x85:2,0x86:1,0x87:2}
-        for req,length in expected.items():
+            offsets=(0x447,0x476,0x47F) if kind==2 else (0x0EF,0x11E,0x127)
+            indexes=[raw[offset] for offset in offsets]
+            result['checks'][f'descriptor_type_{kind}']['audio_interface_string_indexes']=indexes
+            if raw[0x41]&0x10:
+                raise RuntimeError(f"Configuration type {kind} still advertises Sharpness: {raw[0x41:0x43].hex()}")
+        scaler_before=bytes(snapshots[0xFE84])
+        result['checks']['sharpness_get_requests']={}
+        for req,length in ((0x81,2),(0x82,2),(0x83,2),(0x84,2),
+                           (0x85,2),(0x86,1),(0x87,2)):
             got=uvc.feature(req,length)
-            if got['status']!='ok' or len(bytes.fromhex(got['data_hex']))!=length:
-                raise RuntimeError(f"Sharpness GET request {req:02X} failed: {got}")
-            result['checks'][f'GET_{req:02X}']=got['data_hex']
-        if result['checks']['GET_82']!='0000' or result['checks']['GET_83']!='7f00' or \
-           result['checks']['GET_84']!='0100' or result['checks']['GET_85']!='0200' or \
-           result['checks']['GET_86']!='03' or result['checks']['GET_87']!='4000':
-            raise RuntimeError("Sharpness query values differ from the agreed UVC contract")
-        for value in (0,64,127):
-            sent=uvc.set_feature(value)
-            time.sleep(.02)
-            current=uvc.feature(0x81,2)
-            fe84=device.read('ram',0xFE84,1)[0]
-            fe85=device.read('ram',0xFE85,1)[0]
-            if sent['status']!='ok' or current['data_hex']!=value.to_bytes(2,'little').hex() or \
-               fe84!=value or fe85!=0:
-                raise RuntimeError(f"SET_CUR {value} failed: set={sent}, cur={current}, FE84={fe84:02X}, FE85={fe85:02X}")
-            result['checks'][f'SET_{value}']={"status":"ok","GET_CUR":current['data_hex'],
-                "FE84":fe84,"FE85":fe85}
-        invalid=uvc.set_feature(128)
-        after_invalid=uvc.feature(0x81,2)
-        if invalid['status']=='ok' or after_invalid['data_hex']!='7f00' or \
-           device.read('ram',0xFE84,1)!=b'\x7f':
-            raise RuntimeError(f"Out-of-range SET_CUR was not rejected without changing state: {invalid}")
-        result['checks']['SET_128']={"status":invalid['status'],"GET_CUR_after":after_invalid['data_hex'],
-                                    "FE84_after":127}
+            require_stall(got,f"Retired Sharpness GET {req:02X}")
+            result['checks']['sharpness_get_requests'][f'{req:02X}']=got
+        sent=uvc.set_feature(64)
+        require_stall(sent,'Retired Sharpness SET_CUR')
+        result['checks']['sharpness_set_cur']=sent
+        scaler_after=bytes(device.read('ram',0xFE84,2))
+        if scaler_after!=scaler_before:
+            raise RuntimeError(f"UVC Sharpness requests changed FE84/FE85: {scaler_before.hex()} -> {scaler_after.hex()}")
+        result['checks']['FE84_FE85_unchanged']={"before":scaler_before.hex(),"after":scaler_after.hex()}
         # Unrelated Processing Unit brightness stays on the stock ROM path.
         result['checks']['brightness_GET_CUR']=uvc.transfer(0xA1,0x81,0x0200,0x0200,2)
         if result['checks']['brightness_GET_CUR']['status']!='ok':
@@ -206,16 +251,15 @@ def run(output):
         for size in ('1920x1080','1280x720'):
             print(f"Capturing {size} stream restart…",flush=True)
             captures.append(capture_mode(size))
-            cur=uvc.feature(0x81,2)
-            if cur['data_hex']!='7f00' or device.read('ram',0xFE84,1)!=b'\x7f':
-                raise RuntimeError(f"Sharpness did not survive {size} capture restart: {cur}")
+            scaler_now=bytes(device.read('ram',0xFE84,2))
+            if scaler_now!=scaler_before:
+                raise RuntimeError(f"Stream restart changed FE84/FE85: {scaler_before.hex()} -> {scaler_now.hex()}")
         result['checks']['stream_restarts']=captures
-        result['checks']['SET_CUR_max_after_streams']=uvc.feature(0x81,2)['data_hex']
         uvc.close(); uvc=None
-        descriptor_ok=all(result['checks'][f'descriptor_type_{kind}']['sharpness_bit']
+        descriptor_ok=all(not result['checks'][f'descriptor_type_{kind}']['sharpness_bit']
                           for kind in (2,7))
-        result['status']=('passed; candidate executed in volatile RAM only' if descriptor_ok
-                          else 'partial: UVC controls exercised; descriptor capability bit mismatch')
+        result['status']=('passed; Sharpness hidden and selector requests rejected in volatile RAM only'
+                          if descriptor_ok else 'failed: Sharpness remains advertised')
     finally:
         print("Restoring original RAM snapshot and checking EEPROM…",flush=True)
         if uvc is not None: uvc.close()
@@ -235,15 +279,23 @@ def run(output):
                 result['restoration']['ram_ranges_match']=all(
                     device.read('ram',address,len(data))==data for address,data in snapshots.items())
                 result['restoration']['flags']=device.read('ram',0xCBD4,1).hex()
-                eeprom1=device.read('eeprom',0,2048); eeprom2=device.read('eeprom',0,2048)
-                result['restoration']['eeprom_sha256_read1']=sha(eeprom1)
-                result['restoration']['eeprom_sha256_read2']=sha(eeprom2)
-                result['restoration']['eeprom_unchanged']=(eeprom1==eeprom2 and sha(eeprom1)==EXPECTED_EEPROM)
-                if not result['restoration']['ram_ranges_match'] or not result['restoration']['eeprom_unchanged']:
+                if not result['restoration']['ram_ranges_match']:
                     result['status']='FAILED: restoration verification failed; power-cycle to reload EEPROM'
             except BaseException as error:
                 result['restoration']['error']=repr(error)
                 result['status']='FAILED: RAM restoration needs attention; power-cycle to reload EEPROM'
+        try:
+            eeprom1=device.read('eeprom',0,2048); eeprom2=device.read('eeprom',0,2048)
+            result['postflight_eeprom_sha256_read1']=sha(eeprom1)
+            result['postflight_eeprom_sha256_read2']=sha(eeprom2)
+            result['postflight_eeprom_unchanged']=(
+                eeprom1==eeprom2 and sha(eeprom1)==expected_eeprom_sha256)
+            if not result['postflight_eeprom_unchanged']:
+                result['status']='FAILED: EEPROM changed or readbacks disagree'
+        except BaseException as error:
+            result['postflight_eeprom_error']=repr(error)
+            if result.get('status','').startswith('passed'):
+                result['status']='FAILED: postflight EEPROM verification failed'
         if 'status' not in result:
             result['status']='FAILED: qualification stopped before all checks completed'
         device.close()
@@ -256,5 +308,10 @@ def run(output):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--candidate',type=Path,default=ART/"ms2109-control-repair-candidate.bin")
+    parser.add_argument('--expected-current',type=Path,default=ART/"current-eeprom-readback.bin")
+    parser.add_argument('--expected-candidate-sha256',default=EXPECTED_CANDIDATE)
     args=parser.parse_args()
-    run(args.output)
+    run(args.output,candidate_path=args.candidate,
+        expected_current_path=args.expected_current,
+        expected_candidate_sha256=args.expected_candidate_sha256)

@@ -2,7 +2,7 @@
 
 Date: 7 October 2026. Report type: firmware reverse engineering; no vendor/security-report flavor.
 
-**Current status:** the later [compact ROM-EDID candidate](2026-10-07_ms2109-compact-sharpness-report.md) fits in 1,994 code bytes and emits a checksum-valid 2 KiB image. Hardware qualification remains pending. The oversized profiles and results below document the retained earlier builds.
+**Current status (8 October 2026):** UVC Sharpness has been removed from the rebuilt control-repair candidate. Its volatile RAM qualification stopped before any write because loaded runtime bytes differed from EEPROM; the candidate is not installed. See the [removal report](2026-10-08_ms2109-sharpness-removal.md). The Sharpness-enabled implementations and results below are historical evidence and do not describe the current profile.
 
 The two previous implementation gates are resolved offline: the generated handler consumes two-byte SET_CUR payloads through the stock ROM FIFO reader, and serves guarded Sharpness-enabled configuration descriptors while preserving the stock-selected source. The complete prototype implements the agreed 0–127 range, default 64, FE84 mapping and FE85=0 repair. All 36 repository tests pass. It requires **2,614 code bytes**, exceeding the existing 1,996-byte code budget by **618 bytes**, so no EEPROM candidate was emitted. This deficit measures the current implementation; it does not prove that further compaction is impossible. No device RAM, EEPROM or flash was accessed during this pass.
 

@@ -1,6 +1,6 @@
 # Scaler and sharpness controls
 
-**7 October firmware update:** the [compact standard-UVC Sharpness candidate](../2026-10-07_ms2109-compact-sharpness-report.md) fits a 2 KiB EEPROM (1,994 code bytes). It maps host values 0–127 directly to FE84, defaults to 64, holds FE85 at zero, and stores the current setting at overlay byte `CC1A`. RAM qualification passed all GET/SET probes and captured 1080p/720p streams; type 7 advertises Sharpness, while the active type-2 descriptor path remains unresolved. A controlled USB reset cleared the RAM candidate and reloaded the original EEPROM. See the [live qualification report](../2026-10-07_ms2109-compact-sharpness-ram-qualification.md). The underlying register meaning remains uncertain.
+**8 October firmware update:** the 1,816-byte Sharpness-removal profile was cold-booted after the user unplugged/reconnected the dongle. Both standard and other-speed descriptors returned Processing Unit bitmap `0F00`; Sharpness requests stalled, all four procamp controls passed SET/GET round-trips and restoration, and YUY2 captures started at 1920×1080 and 1280×720. A later header-only EEPROM update set both video and audio names to `MS2109-Pro`; its complete readback matches, while USB strings 2 and 4 still need a cold-boot check. A subsequent RAM-only FE80–FE8F probe used corner markers at native 1080p and 1080p input to 720p capture. Tested values produced no overflow at native size and at most 1 pixel at 720p; the user's reported overflow in other timings or content remains unqualified. See the [live register probe report](../2026-10-08_ms2109-fe80-fe8f-live-probe.md). The following notes retain earlier register and Sharpness experiments as historical evidence.
 
 6 October 2026. Offline review of the pinned MS2109 mask ROM, factory overlay, descriptor data, and local related-family source, followed by explicitly requested RAM-only live probes. No EEPROM bytes were changed.
 
@@ -14,7 +14,7 @@ The strongest parameter lead is the **FE84/FE85 pair**. In the MS2109 ROM mode-c
 
 The related MS2107 firmware declares these exact addresses as `vin_hscale_lo` and `vin_hscale_hi`, and its video-mode handler does `vin_hscale_hi &= 0xFD; vin_hscale_lo = 0x7A`. The matching values and operations make FE84/FE85 **probable horizontal-scale low/high bytes** on MS2109. That is substantially stronger than the F9A0 cross-family lead. Controlled MS2109 tests now show that FE84 changes high-frequency response at 720p, supporting an active scale/filter role; they do not establish exact horizontal-scale arithmetic or prove a user-facing sharpness control. These registers look like scale/filter parameters, not a conventional sharpness gain control.
 
-No sharpness “gauge” or level was identified in the MS2109's advertised controls or reviewed firmware paths. Its Processing Unit advertises brightness, contrast, hue and saturation (`bmControls=0x000F`); it does not advertise sharpness. This only rules out a standard exposed UVC sharpness control in the active descriptor. A private register or fixed internal sharpening stage could still exist.
+No visible Sharpness mapping was demonstrated. Before the removal update, the installed device returned `bmControls=0x001F` even though the pinned CODE/XDATA Processing Unit templates advertise only brightness, contrast, hue and saturation (`bmControls=0x000F`). The cold-booted removal profile now returns `0x000F` in both standard and other-speed descriptors. This descriptor change does not establish that a hardware Sharpness effect exists.
 
 ## Candidate toggle assessment
 
@@ -23,7 +23,7 @@ No sharpness “gauge” or level was identified in the MS2109's advertised cont
 | F9A0 bit 0 | MS2109 getter/set-bit pair and mode-path callers; MS2107 labels the address as scaler enable | Probable scaler-enable bit; semantics cross-family and not fully bench-verified |
 | FE84 / FE85 | MS2109 video setup writes; MS2107 names these horizontal-scale low/high bytes | Scale/timing candidates; not sharpness controls |
 | F6B0, F65C, F65E, F600, F6BE, F6BF | No MOV DPTR immediate or R6:R7 address setup in the pinned MS2109 ROM; no such addresses in the saved EEPROM code | Previously mentioned MS2130 leads do not transfer as MS2109 evidence; computed accesses remain a theoretical limitation |
-| UVC sharpness | No sharpness bit in the active Processing Unit bitmap | No standard OS sharpness slider can be expected from this descriptor |
+| UVC sharpness | Installed descriptor returns `0x001F`; rebuilt candidate clears bit 4 and rejects selector 8 | No demonstrated effect; candidate remains uninstalled |
 
 The raw ROM does contain little-endian bytes `B0 F6` and `5C F6` inside the image, but not as reviewed XDATA-address loads. Raw byte matches are not evidence of register accesses. Searching for the standard `MOV DPTR,#addr` sequence and explicit R6:R7 setup found no access to the listed F6xx candidates. The search cannot exclude an indirect table-driven access whose address is computed elsewhere.
 

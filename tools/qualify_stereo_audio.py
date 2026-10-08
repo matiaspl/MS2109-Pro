@@ -65,7 +65,7 @@ def main():
         raise RuntimeError(f"Live stereo/FE60 state does not match expected 01/2/48000 Hz: {before}")
 
     output.parent.mkdir(parents=True, exist_ok=True)
-    ffmpeg_command = ["ffmpeg", "-n", "-hide_banner", "-f", "avfoundation", "-i", ":usb video",
+    ffmpeg_command = ["ffmpeg", "-n", "-hide_banner", "-f", "avfoundation", "-i", ":MS2109-Pro",
                       "-t", str(args.seconds), "-vn", "-c:a", "pcm_s16le", str(output)]
     capture = subprocess.Popen(ffmpeg_command, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
     playback = None
@@ -102,7 +102,7 @@ def main():
         "reference_sha256": hashlib.sha256(reference.read_bytes()).hexdigest(),
         "capture_wav": str(output),
         "capture_sha256": hashlib.sha256(output.read_bytes()).hexdigest(),
-        "capture_backend": "AVFoundation CoreAudio input :usb video",
+        "capture_backend": "AVFoundation CoreAudio input :MS2109-Pro",
         "system_profiler_default_output": audio_output,
         "device_state_before": before,
         "device_state_after": after,

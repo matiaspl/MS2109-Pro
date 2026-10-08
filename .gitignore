@@ -11,3 +11,5 @@ tools/capture_audio_usb
 *.rgba
 *.ycbcr
 *.mkv
+# Regenerable native helpers used by MS2109 live experiment runners
+artifacts/ms2109-repair/**/compiled-tools/

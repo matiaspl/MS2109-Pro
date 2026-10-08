@@ -21,6 +21,33 @@ def validate(b):
             raise ValueError('EEPROM checksum mismatch')
     return n
 
+def set_usb_names(image, video_name=None, audio_name=None):
+    """Update the ROM-consumed video/audio EEPROM header string records."""
+    if video_name is None and audio_name is None:
+        return image
+    out = bytearray(image)
+    n = validate(out)
+    for offset, label, name in ((0x10, 'video', video_name),
+                                (0x20, 'audio', audio_name)):
+        if name is None:
+            continue
+        if not isinstance(name, str):
+            raise ValueError(f'{label} name must be a string')
+        try:
+            encoded = name.encode('ascii')
+        except UnicodeEncodeError as error:
+            raise ValueError(f'{label} name must use ASCII characters') from error
+        if not encoded or len(encoded) > 15:
+            raise ValueError(f'{label} name must contain 1 to 15 ASCII bytes')
+        # Header record: one byte for the total record length (prefix plus
+        # text), up to 15 ASCII bytes, then FF padding to the fixed 16-byte field.
+        out[offset:offset+16] = (bytes((len(encoded)+1,)) + encoded +
+                                 bytes((0xFF,)) * (15-len(encoded)))
+    checksum_offset = 48 + n
+    out[checksum_offset:checksum_offset+2] = (sum(out[2:48]) & 0xFFFF).to_bytes(2, 'big')
+    validate(out)
+    return bytes(out)
+
 def stores(addr, values):
     out = bytearray([0x90, addr >> 8, addr & 255])
     for i, v in enumerate(values):
@@ -54,25 +81,27 @@ def matrix_patch():
 
 def build(b, channel_order=False, calibrated_color=False, rom=None,
           calibrated_color_v2=False, sharpness_profile=False, sharpness_edid="custom",
-          compact_sharpness=False, product_name=None):
+          compact_sharpness=False, product_name=None, video_name=None, audio_name=None):
     if compact_sharpness and (not sharpness_profile or sharpness_edid != 'rom'):
-        raise ValueError('Compact Sharpness requires --sharpness-profile --sharpness-edid rom')
+        raise ValueError('Compact control repair requires --sharpness-profile --sharpness-edid rom')
     if sharpness_edid != "custom" and not sharpness_profile:
         raise ValueError("EDID selection requires the Sharpness profile")
     if sharpness_profile:
         if product_name is not None:
-            raise ValueError('Product-name editing is not yet packed into the compact Sharpness profile')
+            raise ValueError('Product-name editing is not yet packed into the compact control-repair profile')
         if channel_order or calibrated_color or calibrated_color_v2:
-            raise ValueError('Sharpness is a complete profile; do not combine profile flags')
+            raise ValueError('Control repair is a complete profile; do not combine profile flags')
         if rom is None:
-            raise ValueError('Sharpness profile requires the qualified mask ROM')
+            raise ValueError('Control-repair profile requires the qualified mask ROM')
         from sharpness_firmware import assemble
         if compact_sharpness:
             from compact_sharpness import assemble_compact
             prototype = assemble_compact(b, rom)
         else:
             prototype = assemble(b, rom, edid_source=sharpness_edid)
-        return prototype.eeprom(b), prototype.overlay, 0xCC00
+        image = prototype.eeprom(b)
+        image = set_usb_names(image, video_name, audio_name)
+        return image, prototype.overlay, 0xCC00
     n = validate(b)
     if hashlib.sha256(b).hexdigest() != ORIGINAL_SHA:
         raise ValueError('This patch is qualified only for the backed-up connected dongle')
@@ -170,23 +199,26 @@ def build(b, channel_order=False, calibrated_color=False, rom=None,
     out[48+new_n:50+new_n] = (sum(out[2:48]) & 65535).to_bytes(2,'big')
     out[50+new_n:52+new_n] = (sum(out[48:48+new_n]) & 65535).to_bytes(2,'big')
     validate(out)
-    return bytes(out), bytes(patch), dest
+    image = set_usb_names(bytes(out), video_name, audio_name)
+    return image, bytes(patch), dest
 
 if __name__ == '__main__':
     p=argparse.ArgumentParser(); p.add_argument('original',type=Path); p.add_argument('output',type=Path)
     p.add_argument('--channel-order',action='store_true')
     p.add_argument('--calibrated-color',action='store_true',help='Measured full-span UI B/C/S 110/149/147, hue 0, BT.709 matrix declarations')
     p.add_argument('--calibrated-color-v2',action='store_true',help='Calibrated full-range profile with a shared guarded matrix routine; GET_DEF remains mask-ROM controlled')
-    p.add_argument('--sharpness-profile',action='store_true',help='Calibrated stereo plus UVC Sharpness; refuses output if the complete profile exceeds 2 KiB')
-    p.add_argument('--sharpness-edid',choices=('custom','rom'),default='custom',help='Sharpness profile EDID source; rom reclaims the custom table')
-    p.add_argument('--compact-sharpness',action='store_true',help='Fit the complete ROM-EDID Sharpness candidate into the 2 KiB EEPROM; offline candidate only')
+    p.add_argument('--sharpness-profile',action='store_true',help='Build the calibrated control-repair profile with UVC Sharpness disabled')
+    p.add_argument('--sharpness-edid',choices=('custom','rom'),default='custom',help='EDID source for the control-repair profile; rom reclaims the custom table')
+    p.add_argument('--compact-sharpness',action='store_true',help='Use the compact ROM-EDID control-repair layout; offline candidate only')
     p.add_argument('--product-name',help='Override USB product string index 2 during startup (UTF-16LE descriptor)')
+    p.add_argument('--video-name',help='Set the EEPROM video-name record (ASCII, 1-15 bytes)')
+    p.add_argument('--audio-name',help='Set the EEPROM audio-name record (ASCII, 1-15 bytes)')
     p.add_argument('--rom',type=Path,help='Qualified saved mask ROM (required with either calibrated color profile)')
     a=p.parse_args()
     if a.calibrated_color and a.calibrated_color_v2:p.error('choose only one calibrated color profile')
     if (a.calibrated_color or a.calibrated_color_v2 or a.sharpness_profile) and not a.rom:p.error('calibrated profiles require --rom')
     if a.output.exists() or a.output.with_suffix('.hook.bin').exists() or a.output.with_suffix('.json').exists():p.error('Use a new output filename; existing images are preserved')
-    original=a.original.read_bytes(); out, patch, dest=build(original,a.channel_order,a.calibrated_color,a.rom.read_bytes() if a.rom else None,a.calibrated_color_v2,a.sharpness_profile,a.sharpness_edid,a.compact_sharpness,a.product_name)
+    original=a.original.read_bytes(); out, patch, dest=build(original,a.channel_order,a.calibrated_color,a.rom.read_bytes() if a.rom else None,a.calibrated_color_v2,a.sharpness_profile,a.sharpness_edid,a.compact_sharpness,a.product_name,a.video_name,a.audio_name)
     a.output.write_bytes(out)
     a.output.with_suffix('.hook.bin').write_bytes(patch)
     changes=[{'offset':i,'old':v,'new':out[i]} for i,v in enumerate(original) if v!=out[i]]
@@ -198,7 +230,8 @@ if __name__ == '__main__':
             metadata.update(assemble_compact(original, a.rom.read_bytes()).report)
         else:
             metadata.update(assemble(original, a.rom.read_bytes(), edid_source=a.sharpness_edid).report)
-        metadata.update({'profile': 'calibrated stereo with standard UVC Sharpness', 'channel_order': True})
+        metadata.update({'profile': 'calibrated stereo with UVC Sharpness removed', 'channel_order': True,
+                         'uvc_sharpness': 'descriptor bit cleared; selector 8 rejected; no FE84/FE85 mapping'})
     if a.calibrated_color:
         metadata.update({'controls':CALIBRATED,'color_matching':{'primaries':1,'transfer':1,'matrix':1,'ram_records':[hex(addr) for addr in COLOR_RECORDS],'quantization_range':'No UVC descriptor field; measured full-range target','other_speed_mask_rom':'unchanged'},'get_def':'Unchanged ROM constants: signed brightness -11, contrast 148, hue 0, saturation 180','rom_sha256':hashlib.sha256(a.rom.read_bytes()).hexdigest(),'calibration_result':'artifacts/color-probe/20261006-auto-calibration-v2/result.json'})
     if a.calibrated_color_v2:
@@ -206,5 +239,9 @@ if __name__ == '__main__':
     if a.product_name is not None:
         metadata.update({'product_name':a.product_name,'product_descriptor_xdata':'0xC636',
                          'product_name_status':'stage-2 response-buffer repair; RAM qualification pending'})
+    if a.video_name is not None or a.audio_name is not None:
+        metadata.update({'usb_names':{'video':a.video_name,'audio':a.audio_name,
+                         'header_offsets':{'video':'0x10','audio':'0x20'},
+                         'encoding':'ASCII with length byte including its own prefix'}})
     a.output.with_suffix('.json').write_text(json.dumps(metadata,indent=2)+'\n')
     print(f'{len(changes)} changed bytes; hook {dest:04x}, {len(patch)} bytes; SHA256 {hashlib.sha256(out).hexdigest()}')

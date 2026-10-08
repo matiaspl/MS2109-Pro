@@ -1,9 +1,9 @@
-"""Relocatable, branch-relaxed MS2109 Sharpness profile (offline only)."""
+"""Relocatable, branch-relaxed MS2109 control-repair profile (offline only)."""
 from dataclasses import dataclass
 import hashlib
 
 from sharpness_firmware import (BASE, MAX_CODE, DESC_BUFFER, VIDEO_HELPER, Prototype,
-                                common_code, main_code, repair_code, query_data, descriptor_code)
+                                common_code, main_code, descriptor_code)
 from audit_factory_space import experiment_overlay, load_inputs
 
 
@@ -57,16 +57,13 @@ def split(nodes, names):
 
 def fragments():
     common=LinkAsm();common_code(common,compact=True)
-    main=main_code(0,include_common=False,include_queries=False,include_descriptor=False,
+    main=main_code(0,include_common=False,include_descriptor=False,
                    bank_zero=True,assembler=LinkAsm)
-    repair=repair_code(0,assembler=LinkAsm,compact=True)
     video=LinkAsm();video.label('video');video.label('factory_video');video.raw(VIDEO_HELPER)
-    data=LinkAsm();query_data(data)
     descriptor=LinkAsm();descriptor_code(descriptor,compact=True)
     units = (split(common.nodes,('common','matrix')) |
-             split(main.nodes,('cc10','usb','query')) |
-             {'repair':repair.nodes,'video':video.nodes,'query_values':data.nodes,
-              'descriptor':descriptor.nodes})
+             split(main.nodes,('cc10','usb','reject')) |
+             {'video':video.nodes,'descriptor':descriptor.nodes})
     for node in units['cc10']:
         if node.kind=='raw':
             node.data=node.data.replace(bytes.fromhex('e8c0e0'), bytes.fromhex('c000'))
@@ -211,11 +208,10 @@ def assemble_compact(original,rom):
         'rollback':'artifacts/ms2109-calibrated-stereo-channel-order.bin',
         'packing_candidates_evaluated':attempts,
         'fragments':{name:{'start':hex(origins[name]),'size':len(data),
-                           'kind':'data' if name=='query_values' else 'code'} for name,data in code.items()},
+                           'kind':'code'} for name,data in code.items()},
         'pool_usage':[{'start':hex(base),'capacity':limit,'used':end-base}
                       for (base,limit),end in zip(POOLS,ends)],
         'memory':{'overlay':[hex(BASE),hex(BASE+len(body)-1)],
-                  'selected':hex(symbols['selected']),
                   'descriptor_buffer':[hex(DESC_BUFFER),hex(DESC_BUFFER+1211-1)],
                   'edid_buffer':None,'ep0_staging_rom_owned':['0xc020','0xc021']},
         'symbols':{name:hex(value) for name,value in symbols.items()},

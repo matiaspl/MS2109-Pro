@@ -47,7 +47,7 @@ def main():
         commands = {
             "capture": ["clang", "-Wall", "-Wextra", "-Werror", "-O2", "-I/opt/homebrew/include",
                         "-L/opt/homebrew/lib", str(ROOT / "tools/capture_uvc_same_handle.c"),
-                        "-luvc", "-o", str(capture)],
+                        "-luvc", "-lhidapi", "-lusb-1.0", "-o", str(capture)],
             "admin": ["clang", "-fobjc-arc", "-framework", "Foundation", "-framework", "AppKit", "-framework", "Security",
                       str(ROOT / "tools/run_capture_video_uvc_admin.m"), "-o", str(admin)],
             "display": ["clang", "-fobjc-arc", "-Wno-deprecated-declarations",
