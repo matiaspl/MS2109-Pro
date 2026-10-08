@@ -278,3 +278,5 @@ without opening hardware or presenting a chart:
 [plot_calibration.py](tools/plot_calibration.py) exports SVG/PDF comparisons
 using ReportLab. The run retains original capture sources and executable
 hashes; later file-only analysis revisions have separate source snapshots.
+
+Latest register findings: [FE8E/FE8F procamp bypass characterization](docs/2026-10-08_ms2109-procamp-bypass-findings.md), with saved measurements, captured images, and explicit unresolved mappings.
