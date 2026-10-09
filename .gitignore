@@ -7,3 +7,27 @@ __pycache__/
 *.2vuy
 *.rgba
 *.ycbcr
+
+# Local images and clips are kept out of remote branches
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.bmp
+*.tif
+*.tiff
+*.heic
+*.dng
+*.raw
+*.cr2
+*.nef
+*.arw
+*.mov
+*.mp4
+*.m4v
+*.webm
+*.avi
+*.wmv
+*.mpeg
+*.mpg

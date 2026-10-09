@@ -34,7 +34,7 @@ The original firmware did not advertise a UVC Sharpness control. This release pr
 
 RGB is converted by the source and HDMI path before the capture device produces YUY2 or MJPEG. YUY2 carries sampled Y′CbCr values directly. MJPEG carries quantized JPEG Y′CbCr samples; a host decoder then converts those samples to YUV or RGB using its own matrix and range assumptions. The firmware’s BT.709 descriptor helps only software that reads and applies it. JPEG data from this device does not reliably signal a BT.709 matrix or full-range setting to generic decoders.
 
-The calibration used 96 RGB chart patches and captured the two USB transports. It did not inspect HDMI wire codes, test every RGB/YUV input negotiation, or cover all RGB triplets. HDMI input encoding choices were operator-selected, not independently read from the link. The figures below are earlier calibration runs, not fresh visual qualification of the installed release. See the archived [calibration report](https://github.com/matiaspl/MS2109-Pro/blob/experiments/development/artifacts/color-probe/20261006-auto-calibration-v2/report.md), [startup range comparison](https://github.com/matiaspl/MS2109-Pro/blob/experiments/development/artifacts/color-probe/20261006-calibrated-startup-yuy2/report.md), and [cold-start mode readback](https://github.com/matiaspl/MS2109-Pro/blob/experiments/development/artifacts/uvc-mode-cap-20261009/installed-after-cold-restart-retry.json).
+The calibration used 96 RGB chart patches and captured the two USB transports. It did not inspect HDMI wire codes, test every RGB/YUV input negotiation, or cover all RGB triplets. HDMI input encoding choices were operator-selected, not independently read from the link. The comparison images remain in local working copies and are excluded from Git. The figures referenced in earlier calibration reports are prior runs, not fresh visual qualification of the installed release. See the archived [calibration report](https://github.com/matiaspl/MS2109-Pro/blob/experiments/development/artifacts/color-probe/20261006-auto-calibration-v2/report.md), [startup range comparison](https://github.com/matiaspl/MS2109-Pro/blob/experiments/development/artifacts/color-probe/20261006-calibrated-startup-yuy2/report.md), and [cold-start mode readback](https://github.com/matiaspl/MS2109-Pro/blob/experiments/development/artifacts/uvc-mode-cap-20261009/installed-after-cold-restart-retry.json).
 
 ### Limited and full-range settings
 
@@ -52,23 +52,18 @@ Full-range expansion does not restore precision lost to quantization. The run me
 
 The first panel shows the neutral control baseline; the second shows the calibrated full-range setting. Each compares the RGB source render with captured YUY2 interpreted as BT.601 limited or BT.709 limited. These are calibration captures, not a before/after firmware flash comparison.
 
-![Neutral YUY2 baseline: source render and limited-range matrix interpretations](images/yuy2-before.png)
 
-![Calibrated YUY2: source render and limited-range matrix interpretations](images/yuy2-after.png)
 
 ### MJPEG decoder comparison
 
 Both panels decode the same calibrated MJPEG samples, with the color interpretation changed. The default decoder interpretation shifts the colour result; the second applies BT.709 full range. This shows the host-decoding step, not a new device-side conversion.
 
-![MJPEG decoded with a generic decoder interpretation](images/mjpeg-default-decode.png)
 
-![The same MJPEG patches decoded as BT.709 full range](images/mjpeg-bt709-full.png)
 
 ### Measured range curves
 
 The plot compares calibrated YUY2 and MJPEG patch medians with the full-range BT.709 target and the earlier YUY2 baseline. MJPEG tracks the target closely but resolves fewer adjacent gray inputs.
 
-![Measured YUY2 and MJPEG range calibration curves](images/full-range-curves.png)
 
 ## Qualification and limitations
 
