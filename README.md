@@ -50,7 +50,7 @@ The firmware loads these values at startup:
 | --- | ---: |
 | Brightness | 110 (signed value −18) |
 | Contrast | 149 |
-| Saturation | 147 |
+| Saturation | 148 |
 | Hue | 0 |
 
 The standard UVC control requests remain available. This firmware does not add a Sharpness control.
