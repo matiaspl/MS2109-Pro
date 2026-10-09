@@ -1,0 +1,14 @@
+{
+  "scope": "post-install USB reset and product-string verification",
+  "candidate_sha256": "f55da7863def4ee19d338d07ae75024244316bd6226d87018f301db23f9226b7",
+  "product_expected": "MS2109-Pro",
+  "eeprom_sha256_before_reset": "f55da7863def4ee19d338d07ae75024244316bd6226d87018f301db23f9226b7",
+  "product_before_reset_hex": "16034d00530032003100300039002d00500072006f00",
+  "libusb_reset_device_result": 0,
+  "product_after_reset_hex": "16034d00530032003100300039002d00500072006f00",
+  "product_after_reset": "MS2109-Pro",
+  "product_matches": true,
+  "eeprom_sha256_after_reset": "f55da7863def4ee19d338d07ae75024244316bd6226d87018f301db23f9226b7",
+  "eeprom_unchanged_candidate": true,
+  "status": "passed"
+}

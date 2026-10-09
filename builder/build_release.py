@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from release_builder import build, validate
 
-EXPECTED_SHA256 = "0d8d3139b51edc4ff283dab33f00c2270f2134d95bce4bf7a351dcf38c14bb82"
+EXPECTED_SHA256 = "f55da7863def4ee19d338d07ae75024244316bd6226d87018f301db23f9226b7"
 BASE_EEPROM = ROOT / "firmware/base/original-eeprom.bin"
 MASK_ROM = ROOT / "firmware/base/ms2109-maskrom.bin"
 
@@ -24,6 +24,8 @@ def build_release():
         uvc_control_profile=True,
         uvc_control_edid="rom",
         release_layout=True,
+        video_name="MS2109-Pro",
+        audio_name="MS2109-Pro",
     )
     actual = hashlib.sha256(image).hexdigest()
     if actual != EXPECTED_SHA256:
@@ -52,8 +54,8 @@ def main():
         "entry_address": hex(entry),
         "build_source_commit": "85026a5",
         "uvc_controls": "stock descriptor and request handling",
-        "video_name": "usb video",
-        "audio_name": "usb video",
+        "video_name": "MS2109-Pro",
+        "audio_name": "MS2109-Pro",
         "mjpeg_1080p_intervals_100ns": [333333, 333333, 400000, 500000, 1000000],
     }
     manifest.write_text(json.dumps(metadata, indent=2) + "\n")
