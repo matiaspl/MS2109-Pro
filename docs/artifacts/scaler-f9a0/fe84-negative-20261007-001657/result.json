@@ -1,0 +1,75 @@
+{
+  "test": "FE84 7A\u219274 RAM-only response and settling test",
+  "capture_mode": "1280x720 YUY2 at 10 fps",
+  "chart_session": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/chart-session-20261007-001220-51789",
+  "stages": [
+    {
+      "state": "FE84=7A",
+      "capture": {
+        "movie": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/fe84-negative-20261007-001657/baseline-a.mkv",
+        "image": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/fe84-negative-20261007-001657/baseline-a.png",
+        "image_sha256": "8a078a35d51ccacb25b92c39a6be85ee8ba5488c38ba1e1e1cca2efaf7f86910"
+      },
+      "repeat_capture": {
+        "movie": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/fe84-negative-20261007-001657/baseline-b.mkv",
+        "image": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/fe84-negative-20261007-001657/baseline-b.png",
+        "image_sha256": "328483bbda65db07b5f9d39f6eda8aea76940672d30c1bad6636bc4fb30a2507"
+      }
+    },
+    {
+      "state": "FE84=74, early",
+      "capture": {
+        "movie": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/fe84-negative-20261007-001657/candidate-early.mkv",
+        "image": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/fe84-negative-20261007-001657/candidate-early.png",
+        "image_sha256": "f17457a7c794c1f564f09fa75b5bee56469463e82f7fccebb28db36255acf747"
+      },
+      "fe84_after_capture": 116
+    },
+    {
+      "state": "FE84=74, settled",
+      "capture": {
+        "movie": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/fe84-negative-20261007-001657/candidate-late.mkv",
+        "image": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/fe84-negative-20261007-001657/candidate-late.png",
+        "image_sha256": "e11966fc8a648dd8e836091dc3a964fe4e33fdb6b723799d87b42408c8d57fb4"
+      },
+      "fe84_after_capture": 116
+    },
+    {
+      "state": "FE84 restored to 7A",
+      "capture": {
+        "movie": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/fe84-negative-20261007-001657/restored.mkv",
+        "image": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/fe84-negative-20261007-001657/restored.png",
+        "image_sha256": "cc86a706218913adf218663aa39d4ff28d294603c44220fd867620b3dc1c0c46"
+      }
+    }
+  ],
+  "eeprom_before_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "registers_before": {
+    "FE80": 1,
+    "FE84": 122,
+    "FE85": 0,
+    "F9A0": 0,
+    "F92C": 32,
+    "FEBA": 0
+  },
+  "chart_similarity_baseline_a": 0.938821,
+  "chart_similarity_baseline_b": 0.938822,
+  "baseline_repeat_difference": {
+    "mean_abs_rgb_delta": 0.002637,
+    "changed_pixels": 1376,
+    "changed_pixel_fraction": 0.00149306,
+    "max_abs_rgb_delta": 4
+  },
+  "fe84_after_write": 116,
+  "fe84_restored": 122,
+  "registers_after_restore": {
+    "FE80": 1,
+    "FE84": 122,
+    "FE85": 0,
+    "F9A0": 0,
+    "F92C": 32,
+    "FEBA": 0
+  },
+  "eeprom_after_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "eeprom_unchanged": true
+}

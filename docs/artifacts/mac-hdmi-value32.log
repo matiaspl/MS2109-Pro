@@ -1,0 +1,21 @@
+Input #0, avfoundation, from ':usb video':
+  Duration: N/A, start: 322720.685750, bitrate: 3072 kb/s
+  Stream #0:0: Audio: pcm_f32le, 48000 Hz, stereo, flt, 3072 kb/s, start 322720.685750
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_f32le (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, wav, to 'artifacts/mac-hdmi-value32.wav':
+  Metadata:
+    ISFT            : Lavf63.1.101
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+    Metadata:
+      encoder         : Lavc63.1.101 pcm_s16le
+size=      82KiB time=00:00:00.50 bitrate=1341.2kbits/s speed=0.993x elapsed=0:00:00.50    
+size=     168KiB time=00:00:01.01 bitrate=1358.8kbits/s speed=1.01x elapsed=0:00:01.00    
+size=     250KiB time=00:00:01.51 bitrate=1352.5kbits/s speed=   1x elapsed=0:00:01.51    
+size=     256KiB time=00:00:02.00 bitrate=1045.8kbits/s speed=0.994x elapsed=0:00:02.01    
+size=     256KiB time=00:00:02.52 bitrate= 829.6kbits/s speed=   1x elapsed=0:00:02.52    
+size=     256KiB time=00:00:03.02 bitrate= 692.3kbits/s speed=   1x elapsed=0:00:03.02    
+size=     512KiB time=00:00:03.53 bitrate=1188.0kbits/s speed=   1x elapsed=0:00:03.53    
+[out#0/wav @ 0xa5ac28d80] video:0KiB audio:656KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.011612%
+size=     656KiB time=00:00:03.98 bitrate=1347.2kbits/s speed=0.993x elapsed=0:00:04.01    

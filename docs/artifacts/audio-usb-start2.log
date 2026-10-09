@@ -1,0 +1,4 @@
+MS2109: interface 3, alt 1, endpoint 82; queue 512 ms ahead
+Captured 4096 packets, failures=0
+Reattach driver: LIBUSB_SUCCESS / LIBUSB_TRANSFER_COMPLETED (0)
+Capture exit=0, packet rows=4096

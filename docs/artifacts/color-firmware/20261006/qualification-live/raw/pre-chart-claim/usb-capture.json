@@ -1,0 +1,1 @@
+{"capture_backend":"libuvc USB claim only","mode":"yuy2","getter_profile":"GET_CUR only","controls_before":{"brightness_signed":-18,"contrast":149,"other_getters":null},"controls_restored":{"brightness_signed":-18,"contrast":149,"other_getters":null},"controls_restoration_ok":true,"frames":[],"exit_code":0}

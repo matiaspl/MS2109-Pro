@@ -1,0 +1,9 @@
+{
+  "tools/color_probe_macos.m": "902fbecd3f72482140a483e7853b332f18fa1e4a345e337d0720d49b2fca2015",
+  "tools/probe_colors.py": "ec77efa14b3827160c162b23a992ff67bac95d10c299ada9aff4429c6c0c5049",
+  "tools/plot_color_probe.py": "23cc7751deb738dfb2a90eea6de51d794275850cbe92804945b6d4f11c49127f",
+  "docs/2026-10-06_color-probe-report.md": "54cca6da9a0277cab2d871dfbe781ff96bc90cbc0ead7767dffca56c76a14c27",
+  "artifacts/color-probe/transport-comparison.json": "eae18d11f6da1c7bb76b05c0d1527f1851ec58b15ffb7c342836637d1a58984d",
+  "artifacts/color-probe/source-native-decoded.png": "ab0968f95ec0881387899fad67a95a73d73221f01a1675ab4e92d4842026b4b2",
+  "artifacts/color-probe/gray-ramp.svg": "ddc9ca8b34e17ff5cb5629474ee97c73393d548acd346c19f26c25b5b7e88895"
+}

@@ -1,0 +1,98 @@
+   ┌──────< 0x00004a98      101208         jbc 0x22.2, 0x4aa3          ; [0x22:1]=34
+  ┌───────< 0x00004a9b      20ef54         jb 0xe8.7, 0x4af2           ; [0xe8:1]=44
+  ││╎╎╎╎╎   0x00004a9e      1f             dec r7
+  ││╎╎╎╎╎   0x00004a9f      fd             mov r5, a
+  ││╎╎╎╎╎   0x00004aa0      22             ret
+  ││╎╎╎╎╎   0x00004aa1      900000         mov dptr, #0x0000
+  │ ╎╎╎╎╎   0x00004aa4      1208c7         lcall 0x08c7
+  │ ╎╎╎╎╎   0x00004aa7      900007         mov dptr, #0x0007           ; [0x7:1]=94
+  │ ╎╎╎└──< 0x00004aaa      0205d1         ljmp 0x05d1
+  │ ╎╎╎ ╎   0x00004aad      120866         lcall 0x0866
+  │ ╎╎╎ ╎   0x00004ab0      ad07           mov r5, 0x07                ; [0x7:1]=94
+  │ ╎╎╎ ╎   0x00004ab2      ac06           mov r4, 0x06                ; [0x6:1]=18
+  │ ╎╎╎ ╎   0x00004ab4      22             ret
+  │ ╎╎╎ ╎   0x00004ab5      1208c7         lcall 0x08c7
+  │ ╎╎╎ ╎   0x00004ab8      90000b         mov dptr, #0x000b           ; [0xb:1]=2
+  │ ╎╎╎ ╎   0x00004abb      1205d1         lcall 0x05d1
+  │ ╎╎╎ ╎   0x00004abe      fd             mov r5, a
+  │ ╎╎╎ ╎   0x00004abf      acf0           mov r4, 0xf0                ; [0xf0:1]=237
+  │ ╎╎╎ ╎   0x00004ac1      900003         mov dptr, #0x0003           ; [0x3:1]=2
+  │ ╎╎╎ └─< 0x00004ac4      0205d1         ljmp 0x05d1
+  │ ╎╎╎     0x00004ac7      120866         lcall 0x0866
+  │ ╎╎╎     0x00004aca      ef             mov a, r7
+  │ ╎╎╎     0x00004acb      2401           add a, #0x01
+  │ ╎╎╎     0x00004acd      ff             mov r7, a
+  │ ╎╎╎     0x00004ace      e4             clr a
+  │ ╎╎╎     0x00004acf      3e             addc a, r6
+  │ ╎╎╎     0x00004ad0      fe             mov r6, a
+  │ ╎╎╎     0x00004ad1      e4             clr a
+  │ ╎╎╎     0x00004ad2      3d             addc a, r5
+  │ ╎╎╎     0x00004ad3      fd             mov r5, a
+  │ ╎╎╎     0x00004ad4      e4             clr a
+  │ ╎╎╎     0x00004ad5      3c             addc a, r4
+  │ ╎╎╎     0x00004ad6      fc             mov r4, a
+  │ ╎╎╎     0x00004ad7      22             ret
+  │ ╎╎╎     0x00004ad8      ef             mov a, r7
+  │ ╎╎╎     0x00004ad9      2401           add a, #0x01
+  │ ╎╎╎     0x00004adb      ff             mov r7, a
+  │ ╎╎╎     0x00004adc      e4             clr a
+  │ ╎╎╎     0x00004add      3e             addc a, r6
+  │ ╎╎╎     0x00004ade      c3             clr c
+  │ ╎╎╎     0x00004adf      13             rrc a
+  │ ╎╎╎     0x00004ae0      fc             mov r4, a
+  │ ╎╎╎     0x00004ae1      ef             mov a, r7
+  │ ╎╎╎     0x00004ae2      13             rrc a
+  │ ╎╎╎     0x00004ae3      fd             mov r5, a
+  │ ╎╎╎     0x00004ae4      22             ret
+  │ ╎╎╎     0x00004ae5      12087e         lcall 0x087e
+  │ ╎╎╎     0x00004ae8      90c5a1         mov dptr, #0xc5a1           ; [0xc5a1:1]=61
+  │ └─────< 0x00004aeb      0208c7         ljmp 0x08c7
+  │  ╎╎     0x00004aee      90c5a8         mov dptr, #0xc5a8           ; [0xc5a8:1]=43
+  │  ╎╎     0x00004af1      120872         lcall 0x0872
+     ╎└───< 0x00004af4      0206a2         ljmp 0x06a2
+     ╎      0x00004af7      90c5a4         mov dptr, #0xc5a4           ; [0xc5a4:1]=127
+     └────< 0x00004afa      020866         ljmp 0x0866
+            0x00004afd      e0             movx a, @dptr
+            0x00004afe      ff             mov r7, a
+            0x00004aff      d3             setb c
+            0x00004b00      e512           mov a, 0x12                 ; [0x12:1]=205
+            0x00004b02      9f             subb a, r7
+            0x00004b03      e511           mov a, 0x11                 ; [0x11:1]=101
+            0x00004b05      9400           subb a, #0x00
+            0x00004b07      22             ret
+            0x00004b08      a284           mov c, 0x80.4               ; [0x80:1]=236
+            0x00004b0a      e4             clr a
+            0x00004b0b      33             rlc a
+            0x00004b0c      f527           mov 0x27, a                 ; [0x27:1]=3
+            0x00004b0e      e4             clr a
+            0x00004b0f      22             ret
+            0x00004b10      90c002         mov dptr, #0xc002           ; [0xc002:1]=192
+            0x00004b13      e0             movx a, @dptr
+            0x00000de0      09             inc r1
+            0x00000de1      22             ret
+            0x00000de2      d215           setb 0x22.5                 ; [0x22:1]=34
+            0x00000de4      22             ret
+            0x00000de5      e50b           mov a, 0x0b                 ; [0xb:1]=2
+            0x00000de7      6481           xrl a, #0x81
+        ┌─< 0x00000de9      7054           jnz 0x0e3f
+        │   0x00000deb      e50d           mov a, 0x0d                 ; [0xd:1]=55
+        │   0x00000ded      24de           add a, #0xde
+       ┌──< 0x00000def      6027           jz 0x0e18
+       ││   0x00000df1      04             inc a
+      ┌───< 0x00000df2      704d           jnz 0x0e41
+     ┌────< 0x00000df4      30180a         jnb 0x23.0, 0x0e01          ; [0x23:1]=2
+     ││││   0x00000df7      7bff           mov r3, #0xff
+     ││││   0x00000df9      7a77           mov r2, #0x77               ; 'w'
+     ││││   0x00000dfb      791f           mov r1, #0x1f
+     ││││   0x00000dfd      7f09           mov r7, #0x09
+    ┌─────< 0x00000dff      803b           sjmp 0x0e3c
+    │└────> 0x00000e01      90cbda         mov dptr, #0xcbda           ; [0xcbda:1]=255
+    │ │││   0x00000e04      e0             movx a, @dptr
+    │ │││   0x00000e05      7bff           mov r3, #0xff
+    │┌────< 0x00000e07      30e006         jnb 0xe0.0, 0x0e10          ; [0xe0:1]=18
+    │││││   0x00000e0a      7a75           mov r2, #0x75               ; 'u'
+    │││││   0x00000e0c      79bc           mov r1, #0xbc
+   ┌──────< 0x00000e0e      8004           sjmp 0x0e14
+   ││└────> 0x00000e10      7a77           mov r2, #0x77               ; 'w'
+   ││ │││   0x00000e12      792f           mov r1, #0x2f               ; '/'
+   └──────> 0x00000e14      7f09           mov r7, #0x09

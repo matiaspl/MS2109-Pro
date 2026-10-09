@@ -1,0 +1,74 @@
+{
+  "reference_wav": "artifacts/mac-hdmi-reference.wav",
+  "reference_sha256": "353483993683891543253fc389ba4b3f493568558fa2d4efc45f9e7c5aab582e",
+  "capture_wav": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/audio-stream-start-reset-baseline.wav",
+  "capture_sha256": "63a5a46d5e0db920e0e71f88ae2625dfa69206f148f30a5516907d897a5e04d8",
+  "capture_backend": "AVFoundation CoreAudio input :usb video",
+  "system_profiler_default_output": {
+    "_name": "HDMI TO USB",
+    "_properties": "coreaudio_default_audio_system_device",
+    "coreaudio_default_audio_output_device": "spaudio_yes",
+    "coreaudio_default_audio_system_device": "spaudio_yes",
+    "coreaudio_device_manufacturer": "HJW",
+    "coreaudio_device_output": 2,
+    "coreaudio_device_srate": 48000,
+    "coreaudio_device_transport": "coreaudio_device_type_hdmi",
+    "coreaudio_output_source": "spaudio_default"
+  },
+  "device_state_before": {
+    "fe60": 1,
+    "audio_channels": 2,
+    "audio_sample_rate_descriptor": "80bb00"
+  },
+  "device_state_after": {
+    "fe60": 1,
+    "audio_channels": 2,
+    "audio_sample_rate_descriptor": "80bb00"
+  },
+  "register_policy": "read-only; no FE60, EEPROM, or picture-control writes",
+  "analysis": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/audio-stream-start-reset-baseline.analysis.json",
+  "verified": {
+    "48_khz": true,
+    "channel_0_continuous_left": true,
+    "channel_1_gapped_right": true,
+    "device_state_unchanged": true
+  },
+  "known_sample_offset": [
+    {
+      "lag_samples": -4,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.9008046491174201
+    },
+    {
+      "lag_samples": -3,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.9419659759797885
+    },
+    {
+      "lag_samples": -2,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.967096801501568
+    },
+    {
+      "lag_samples": -1,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.975755188415919
+    },
+    {
+      "lag_samples": 0,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.9677802613104584
+    },
+    {
+      "lag_samples": 1,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.9425968892769668
+    },
+    {
+      "lag_samples": 2,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.9013736331236665
+    },
+    {
+      "lag_samples": 3,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.8448283462291528
+    },
+    {
+      "lag_samples": 4,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.7739390165191192
+    }
+  ]
+}

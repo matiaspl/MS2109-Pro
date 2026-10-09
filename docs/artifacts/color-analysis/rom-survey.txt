@@ -1,0 +1,11 @@
+nth vaddr bind type lib name
+――――――――――――――――――――――――――――
+nth paddr vaddr bind type size lib name demangled
+―――――――――――――――――――――――――――――――――――――――――――――――――
+binsz    52224
+bits     64
+canary   false
+injprot  false
+crypto   false
+endian   little
+havecode false

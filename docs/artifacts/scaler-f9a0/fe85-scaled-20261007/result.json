@@ -1,0 +1,38 @@
+{
+  "test": "RAM-only FE85 sweep with orthogonal line pairs",
+  "input_chart_size": [
+    1920,
+    1080
+  ],
+  "capture_mode": [
+    1280,
+    720
+  ],
+  "frames_per_value": 3,
+  "sweep_values": [
+    "00",
+    "01",
+    "02",
+    "03",
+    "04",
+    "08",
+    "10",
+    "20",
+    "40",
+    "80",
+    "ff"
+  ],
+  "chart_session": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/chart-session-bidirectional-1080-20261007",
+  "firmware_written": false,
+  "interpretation_limit": "Selected FE85 bytes at 1080p input to 720p capture; not a full register decode.",
+  "eeprom_before_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "registers_before": {
+    "FE80": "01",
+    "FE84": "7a",
+    "FE85": "00",
+    "F9A0": "00",
+    "F92C": "20",
+    "FEBA": "00"
+  },
+  "finally_restored_FE85": "00"
+}

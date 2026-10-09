@@ -1,0 +1,14 @@
+[in#0/avfoundation @ 0x737408000] Stream #0: not enough frames to estimate rate; consider increasing probesize
+Input #0, avfoundation, from 'usb video:none':
+  Duration: N/A, start: 385547.262533, bitrate: N/A
+  Stream #0:0: Video: rawvideo (YUY2 / 0x32595559), yuyv422, 1920x1080, 1000k tbr, 1000k tbn, start 385547.262533
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> png (native))
+Output #0, image2, to 'artifacts/no-signal-feba/hdmi-recovered/hdmi-recovered.png':
+  Metadata:
+    encoder         : Lavf63.1.101
+  Stream #0:0: Video: png, rgb24(pc, gbr/unknown/unknown, progressive), 1920x1080, q=2-31, 200 kb/s, 1000k fps, 1000k tbn
+    Metadata:
+      encoder         : Lavc63.1.101 png
+[out#0/image2 @ 0x736c28e40] video:2125KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame=    1 fps=0.0 q=-0.0 Lsize=N/A time=00:00:00.00 bitrate=N/A speed=3.94e-06x elapsed=0:00:00.25    

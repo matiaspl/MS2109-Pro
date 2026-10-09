@@ -1,0 +1,16 @@
+{
+  "/opt/homebrew/bin/r2 -v": {
+    "stdout": "radare2 6.2.2 +0 abi:142 @ darwin-arm_64\nbirth: git.6.2.2 2026-09-06__16:30:03\ncommit: 6.2.2\noptions: gpl release -Os cs:5 cl:2 make\n",
+    "stderr": "",
+    "exit_code": 0
+  },
+  "/opt/homebrew/bin/rabin2 -I -i -E backups/ms2109-maskrom.bin": {
+    "stdout": "nth vaddr bind type lib name\n\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\nnth paddr vaddr bind type size lib name demangled\n\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\u2015\nbinsz    52224\nbits     64\ncanary   false\ninjprot  false\ncrypto   false\nendian   little\nhavecode false\n",
+    "stderr": "",
+    "exit_code": 0
+  },
+  "identity": {
+    "sha256": "b383ef31fca43ebc58a22be8e342d9a1e33ec1cc15afce02921910b0ca358bc8",
+    "format": "Saved raw MS2109 8051 memory; no loader import/export tables. Prior ROM-address-qualified report supplies call targets."
+  }
+}

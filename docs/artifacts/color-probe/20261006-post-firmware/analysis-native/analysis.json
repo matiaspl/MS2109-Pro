@@ -1,0 +1,3381 @@
+[
+  {
+    "run": "native-yuv",
+    "utc_analyzed": "2026-10-05T23:59:35.230980+00:00",
+    "macos_color_state": {
+      "night_shift_configured_cct_kelvin": 4100,
+      "status_field_validation": "Dictionary field mapping only: AutoBlueReductionEnabled byte 0; BlueReductionEnabled byte 1. Does not establish visual effect activity.",
+      "night_shift_api_auto_enabled": 1,
+      "night_shift_status_hex": "01000100000000001600000000000000070000000000000000000000000000000100000000000000",
+      "night_shift_api_limitation": "This flag reported zero during the user-confirmed enabled baseline. Do not use it to infer whether Night Shift affects the output.",
+      "night_shift_strength": 0.5,
+      "night_shift_effect_state_verified": false,
+      "night_shift_api_sun_schedule_allowed": 1,
+      "status_type_encoding": "B24@0:8^{?=BBBi{?={?=ii}{?=ii}}QB}16",
+      "night_shift_api_reported_enabled": 0,
+      "api": "CoreBrightness private API; interpretation guarded by runtime type encoding",
+      "night_shift_status_read_ok": true,
+      "true_tone_enabled": false
+    },
+    "macos_color_state_end": {
+      "night_shift_configured_cct_kelvin": 4100,
+      "status_field_validation": "Dictionary field mapping only: AutoBlueReductionEnabled byte 0; BlueReductionEnabled byte 1. Does not establish visual effect activity.",
+      "night_shift_api_auto_enabled": 1,
+      "night_shift_status_hex": "01000100000000001600000000000000070000000000000000000000000000000100000000000000",
+      "night_shift_api_limitation": "This flag reported zero during the user-confirmed enabled baseline. Do not use it to infer whether Night Shift affects the output.",
+      "night_shift_strength": 0.5,
+      "night_shift_effect_state_verified": false,
+      "night_shift_api_sun_schedule_allowed": 1,
+      "status_type_encoding": "B24@0:8^{?=BBBi{?={?=ii}{?=ii}}QB}16",
+      "night_shift_api_reported_enabled": 0,
+      "api": "CoreBrightness private API; interpretation guarded by runtime type encoding",
+      "night_shift_status_read_ok": true,
+      "true_tone_enabled": false
+    },
+    "render_space": "native",
+    "actual_active_subtype": "yuvs",
+    "actual_frame_duration": 0.2,
+    "frame_count": 8,
+    "delivered_pixel_format": "yuvs",
+    "size": [
+      1920,
+      1080
+    ],
+    "source_render_rgb_rmse": 0.0,
+    "maximum_patch_temporal_span": 0.0,
+    "maximum_patch_spatial_p95_p05": 3.0,
+    "models": [
+      {
+        "matrix": "601",
+        "range": "limited",
+        "direct_yuv_rmse": 10.29100305879215,
+        "direct_yuv_mae": 7.0865965398190225,
+        "rgb_rmse": 16.867077493138332,
+        "gain_fit_rgb": [
+          1.0121551641605209,
+          1.059449130755906,
+          1.042989679259133
+        ],
+        "gain_fit_holdout_yuv_rmse": 8.47671067174607,
+        "gain_fit_all_yuv_rmse": 9.182257057406966
+      },
+      {
+        "matrix": "601",
+        "range": "full",
+        "direct_yuv_rmse": 6.43666521685329,
+        "direct_yuv_mae": 3.7295481433708226,
+        "rgb_rmse": 8.786238627590564,
+        "gain_fit_rgb": [
+          0.958793921177303,
+          1.0098506230004394,
+          0.9809524927995412
+        ],
+        "gain_fit_holdout_yuv_rmse": 6.2959895519716165,
+        "gain_fit_all_yuv_rmse": 6.089667501705229
+      },
+      {
+        "matrix": "709",
+        "range": "limited",
+        "direct_yuv_rmse": 7.047266036036631,
+        "direct_yuv_mae": 4.899489148368769,
+        "rgb_rmse": 12.92565100081466,
+        "gain_fit_rgb": [
+          1.053003167398414,
+          1.0518831857288973,
+          1.0587106390846293
+        ],
+        "gain_fit_holdout_yuv_rmse": 5.465847260792625,
+        "gain_fit_all_yuv_rmse": 5.816599355110341
+      },
+      {
+        "matrix": "709",
+        "range": "full",
+        "direct_yuv_rmse": 0.7995875505009399,
+        "direct_yuv_mae": 0.589716202104097,
+        "rgb_rmse": 1.5462702299732363,
+        "gain_fit_rgb": [
+          0.9916512787725708,
+          1.000314674518304,
+          0.989924724800515
+        ],
+        "gain_fit_holdout_yuv_rmse": 0.632972275007812,
+        "gain_fit_all_yuv_rmse": 0.6323069157831182
+      },
+      {
+        "matrix": "2020",
+        "range": "limited",
+        "direct_yuv_rmse": 7.739209249871001,
+        "direct_yuv_mae": 5.415154984920068,
+        "rgb_rmse": 13.525911314312413,
+        "gain_fit_rgb": [
+          1.0326894345067197,
+          1.0539783381279682,
+          1.0618463886764469
+        ],
+        "gain_fit_holdout_yuv_rmse": 5.967693483391463,
+        "gain_fit_all_yuv_rmse": 6.559235880031474
+      },
+      {
+        "matrix": "2020",
+        "range": "full",
+        "direct_yuv_rmse": 2.7359220865166964,
+        "direct_yuv_mae": 1.6389092046877067,
+        "rgb_rmse": 3.82256021127606,
+        "gain_fit_rgb": [
+          0.9755272769449256,
+          1.0024758618303566,
+          0.9919668479918844
+        ],
+        "gain_fit_holdout_yuv_rmse": 2.635553411547418,
+        "gain_fit_all_yuv_rmse": 2.5622675821389316
+      }
+    ],
+    "best_direct_model": {
+      "matrix": "709",
+      "range": "full",
+      "direct_yuv_rmse": 0.7995875505009399,
+      "direct_yuv_mae": 0.589716202104097,
+      "rgb_rmse": 1.5462702299732363,
+      "gain_fit_rgb": [
+        0.9916512787725708,
+        1.000314674518304,
+        0.989924724800515
+      ],
+      "gain_fit_holdout_yuv_rmse": 0.632972275007812,
+      "gain_fit_all_yuv_rmse": 0.6323069157831182
+    },
+    "affine_rgb_to_yuv": [
+      [
+        0.213710494207334,
+        -0.11543713311435902,
+        0.49704722000526974
+      ],
+      [
+        0.7142422497178523,
+        -0.3818592648353152,
+        -0.45091759805585513
+      ],
+      [
+        0.07275096701957823,
+        0.49758871772889784,
+        -0.04650564340217274
+      ],
+      [
+        -0.4143083086246683,
+        127.34671386102615,
+        127.44850895188377
+      ]
+    ],
+    "affine_holdout_yuv_rmse": 0.6033989617256732,
+    "gray": [
+      {
+        "source_code": 0,
+        "display_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "yuv": [
+          0.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 1,
+        "display_rgb": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "yuv": [
+          0.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 2,
+        "display_rgb": [
+          2.0,
+          2.0,
+          2.0
+        ],
+        "yuv": [
+          1.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 4,
+        "display_rgb": [
+          4.0,
+          4.0,
+          4.0
+        ],
+        "yuv": [
+          4.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 8,
+        "display_rgb": [
+          8.0,
+          8.0,
+          8.0
+        ],
+        "yuv": [
+          7.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 12,
+        "display_rgb": [
+          12.0,
+          12.0,
+          12.0
+        ],
+        "yuv": [
+          12.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 16,
+        "display_rgb": [
+          16.0,
+          16.0,
+          16.0
+        ],
+        "yuv": [
+          15.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 20,
+        "display_rgb": [
+          20.0,
+          20.0,
+          20.0
+        ],
+        "yuv": [
+          20.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 24,
+        "display_rgb": [
+          24.0,
+          24.0,
+          24.0
+        ],
+        "yuv": [
+          23.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 28,
+        "display_rgb": [
+          28.0,
+          28.0,
+          28.0
+        ],
+        "yuv": [
+          28.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 32,
+        "display_rgb": [
+          32.0,
+          32.0,
+          32.0
+        ],
+        "yuv": [
+          32.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 40,
+        "display_rgb": [
+          40.0,
+          40.0,
+          40.0
+        ],
+        "yuv": [
+          40.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 48,
+        "display_rgb": [
+          48.0,
+          48.0,
+          48.0
+        ],
+        "yuv": [
+          48.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 56,
+        "display_rgb": [
+          56.0,
+          56.0,
+          56.0
+        ],
+        "yuv": [
+          56.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 64,
+        "display_rgb": [
+          64.0,
+          64.0,
+          64.0
+        ],
+        "yuv": [
+          64.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 80,
+        "display_rgb": [
+          80.0,
+          80.0,
+          80.0
+        ],
+        "yuv": [
+          79.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 96,
+        "display_rgb": [
+          96.0,
+          96.0,
+          96.0
+        ],
+        "yuv": [
+          96.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 112,
+        "display_rgb": [
+          112.0,
+          112.0,
+          112.0
+        ],
+        "yuv": [
+          112.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 128,
+        "display_rgb": [
+          128.0,
+          128.0,
+          128.0
+        ],
+        "yuv": [
+          127.5,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 144,
+        "display_rgb": [
+          144.0,
+          144.0,
+          144.0
+        ],
+        "yuv": [
+          143.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 160,
+        "display_rgb": [
+          160.0,
+          160.0,
+          160.0
+        ],
+        "yuv": [
+          160.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 176,
+        "display_rgb": [
+          176.0,
+          176.0,
+          176.0
+        ],
+        "yuv": [
+          176.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 192,
+        "display_rgb": [
+          192.0,
+          192.0,
+          192.0
+        ],
+        "yuv": [
+          191.5,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 208,
+        "display_rgb": [
+          208.0,
+          208.0,
+          208.0
+        ],
+        "yuv": [
+          207.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 224,
+        "display_rgb": [
+          224.0,
+          224.0,
+          224.0
+        ],
+        "yuv": [
+          224.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 232,
+        "display_rgb": [
+          232.0,
+          232.0,
+          232.0
+        ],
+        "yuv": [
+          232.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 235,
+        "display_rgb": [
+          235.0,
+          235.0,
+          235.0
+        ],
+        "yuv": [
+          234.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 240,
+        "display_rgb": [
+          240.0,
+          240.0,
+          240.0
+        ],
+        "yuv": [
+          240.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 248,
+        "display_rgb": [
+          248.0,
+          248.0,
+          248.0
+        ],
+        "yuv": [
+          248.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 252,
+        "display_rgb": [
+          252.0,
+          252.0,
+          252.0
+        ],
+        "yuv": [
+          252.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 254,
+        "display_rgb": [
+          254.0,
+          254.0,
+          254.0
+        ],
+        "yuv": [
+          254.0,
+          128.0,
+          128.0
+        ]
+      },
+      {
+        "source_code": 255,
+        "display_rgb": [
+          255.0,
+          255.0,
+          255.0
+        ],
+        "yuv": [
+          255.0,
+          128.0,
+          128.0
+        ]
+      }
+    ],
+    "patches": [
+      {
+        "expected_display_rgb": [
+          0,
+          0,
+          0
+        ],
+        "name": "gray-0",
+        "rgb": [
+          0,
+          0,
+          0
+        ],
+        "rect": [
+          0,
+          0,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          0.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          1,
+          1,
+          1
+        ],
+        "name": "gray-1",
+        "rgb": [
+          1,
+          1,
+          1
+        ],
+        "rect": [
+          160,
+          0,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          0.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          2,
+          2,
+          2
+        ],
+        "name": "gray-2",
+        "rgb": [
+          2,
+          2,
+          2
+        ],
+        "rect": [
+          320,
+          0,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          1.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          4,
+          4,
+          4
+        ],
+        "name": "gray-4",
+        "rgb": [
+          4,
+          4,
+          4
+        ],
+        "rect": [
+          480,
+          0,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          4.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          8,
+          8,
+          8
+        ],
+        "name": "gray-8",
+        "rgb": [
+          8,
+          8,
+          8
+        ],
+        "rect": [
+          640,
+          0,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          7.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          12,
+          12,
+          12
+        ],
+        "name": "gray-12",
+        "rgb": [
+          12,
+          12,
+          12
+        ],
+        "rect": [
+          800,
+          0,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          12.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          16,
+          16,
+          16
+        ],
+        "name": "gray-16",
+        "rgb": [
+          16,
+          16,
+          16
+        ],
+        "rect": [
+          960,
+          0,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          15.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          20,
+          20,
+          20
+        ],
+        "name": "gray-20",
+        "rgb": [
+          20,
+          20,
+          20
+        ],
+        "rect": [
+          1120,
+          0,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          20.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          24,
+          24,
+          24
+        ],
+        "name": "gray-24",
+        "rgb": [
+          24,
+          24,
+          24
+        ],
+        "rect": [
+          1280,
+          0,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          23.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          28,
+          28,
+          28
+        ],
+        "name": "gray-28",
+        "rgb": [
+          28,
+          28,
+          28
+        ],
+        "rect": [
+          1440,
+          0,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          28.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          32,
+          32,
+          32
+        ],
+        "name": "gray-32",
+        "rgb": [
+          32,
+          32,
+          32
+        ],
+        "rect": [
+          1600,
+          0,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          32.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          40,
+          40,
+          40
+        ],
+        "name": "gray-40",
+        "rgb": [
+          40,
+          40,
+          40
+        ],
+        "rect": [
+          1760,
+          0,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          40.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          48,
+          48,
+          48
+        ],
+        "name": "gray-48",
+        "rgb": [
+          48,
+          48,
+          48
+        ],
+        "rect": [
+          0,
+          135,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          48.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          56,
+          56,
+          56
+        ],
+        "name": "gray-56",
+        "rgb": [
+          56,
+          56,
+          56
+        ],
+        "rect": [
+          160,
+          135,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          56.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          64,
+          64,
+          64
+        ],
+        "name": "gray-64",
+        "rgb": [
+          64,
+          64,
+          64
+        ],
+        "rect": [
+          320,
+          135,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          64.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          80,
+          80,
+          80
+        ],
+        "name": "gray-80",
+        "rgb": [
+          80,
+          80,
+          80
+        ],
+        "rect": [
+          480,
+          135,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          79.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          96,
+          96,
+          96
+        ],
+        "name": "gray-96",
+        "rgb": [
+          96,
+          96,
+          96
+        ],
+        "rect": [
+          640,
+          135,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          96.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          112,
+          112,
+          112
+        ],
+        "name": "gray-112",
+        "rgb": [
+          112,
+          112,
+          112
+        ],
+        "rect": [
+          800,
+          135,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          112.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          128,
+          128,
+          128
+        ],
+        "name": "gray-128",
+        "rgb": [
+          128,
+          128,
+          128
+        ],
+        "rect": [
+          960,
+          135,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          127.5,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          144,
+          144,
+          144
+        ],
+        "name": "gray-144",
+        "rgb": [
+          144,
+          144,
+          144
+        ],
+        "rect": [
+          1120,
+          135,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          143.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          160,
+          160,
+          160
+        ],
+        "name": "gray-160",
+        "rgb": [
+          160,
+          160,
+          160
+        ],
+        "rect": [
+          1280,
+          135,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          160.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          176,
+          176,
+          176
+        ],
+        "name": "gray-176",
+        "rgb": [
+          176,
+          176,
+          176
+        ],
+        "rect": [
+          1440,
+          135,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          176.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          192,
+          192,
+          192
+        ],
+        "name": "gray-192",
+        "rgb": [
+          192,
+          192,
+          192
+        ],
+        "rect": [
+          1600,
+          135,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          191.5,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          208,
+          208,
+          208
+        ],
+        "name": "gray-208",
+        "rgb": [
+          208,
+          208,
+          208
+        ],
+        "rect": [
+          1760,
+          135,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          207.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          224,
+          224,
+          224
+        ],
+        "name": "gray-224",
+        "rgb": [
+          224,
+          224,
+          224
+        ],
+        "rect": [
+          0,
+          270,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          224.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          232,
+          232,
+          232
+        ],
+        "name": "gray-232",
+        "rgb": [
+          232,
+          232,
+          232
+        ],
+        "rect": [
+          160,
+          270,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          232.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          235,
+          235,
+          235
+        ],
+        "name": "gray-235",
+        "rgb": [
+          235,
+          235,
+          235
+        ],
+        "rect": [
+          320,
+          270,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          234.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          240,
+          240,
+          240
+        ],
+        "name": "gray-240",
+        "rgb": [
+          240,
+          240,
+          240
+        ],
+        "rect": [
+          480,
+          270,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          240.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          248,
+          248,
+          248
+        ],
+        "name": "gray-248",
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "rect": [
+          640,
+          270,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          248.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          252,
+          252,
+          252
+        ],
+        "name": "gray-252",
+        "rgb": [
+          252,
+          252,
+          252
+        ],
+        "rect": [
+          800,
+          270,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          252.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          254,
+          254,
+          254
+        ],
+        "name": "gray-254",
+        "rgb": [
+          254,
+          254,
+          254
+        ],
+        "rect": [
+          960,
+          270,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          254.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          255,
+          255,
+          255
+        ],
+        "name": "gray-255",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "rect": [
+          1120,
+          270,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          255.0,
+          128.0,
+          128.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          255,
+          0,
+          0
+        ],
+        "name": "red-255",
+        "rgb": [
+          255,
+          0,
+          0
+        ],
+        "rect": [
+          1280,
+          270,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          54.0,
+          98.0,
+          254.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          0,
+          255,
+          0
+        ],
+        "name": "green-255",
+        "rgb": [
+          0,
+          255,
+          0
+        ],
+        "rect": [
+          1440,
+          270,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          182.0,
+          28.0,
+          11.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          0,
+          0,
+          255
+        ],
+        "name": "blue-255",
+        "rgb": [
+          0,
+          0,
+          255
+        ],
+        "rect": [
+          1600,
+          270,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          18.0,
+          254.0,
+          115.5
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          0,
+          255,
+          255
+        ],
+        "name": "cyan-255",
+        "rgb": [
+          0,
+          255,
+          255
+        ],
+        "rect": [
+          1760,
+          270,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          200.0,
+          156.0,
+          1.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          255,
+          0,
+          255
+        ],
+        "name": "magenta-255",
+        "rgb": [
+          255,
+          0,
+          255
+        ],
+        "rect": [
+          0,
+          405,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          72.0,
+          225.0,
+          242.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          255,
+          255,
+          0
+        ],
+        "name": "yellow-255",
+        "rgb": [
+          255,
+          255,
+          0
+        ],
+        "rect": [
+          160,
+          405,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          236.0,
+          1.0,
+          139.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          192,
+          0,
+          0
+        ],
+        "name": "red-192",
+        "rgb": [
+          192,
+          0,
+          0
+        ],
+        "rect": [
+          320,
+          405,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          41.0,
+          105.0,
+          223.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          0,
+          192,
+          0
+        ],
+        "name": "green-192",
+        "rgb": [
+          0,
+          192,
+          0
+        ],
+        "rect": [
+          480,
+          405,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          137.0,
+          53.0,
+          40.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          0,
+          0,
+          192
+        ],
+        "name": "blue-192",
+        "rgb": [
+          0,
+          0,
+          192
+        ],
+        "rect": [
+          640,
+          405,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          13.5,
+          223.0,
+          118.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          0,
+          192,
+          192
+        ],
+        "name": "cyan-192",
+        "rgb": [
+          0,
+          192,
+          192
+        ],
+        "rect": [
+          800,
+          405,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          150.0,
+          149.0,
+          31.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          192,
+          0,
+          192
+        ],
+        "name": "magenta-192",
+        "rgb": [
+          192,
+          0,
+          192
+        ],
+        "rect": [
+          960,
+          405,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          55.0,
+          201.0,
+          214.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          192,
+          192,
+          0
+        ],
+        "name": "yellow-192",
+        "rgb": [
+          192,
+          192,
+          0
+        ],
+        "rect": [
+          1120,
+          405,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          178.0,
+          31.0,
+          135.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          128,
+          0,
+          0
+        ],
+        "name": "red-128",
+        "rgb": [
+          128,
+          0,
+          0
+        ],
+        "rect": [
+          1280,
+          405,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          27.0,
+          113.0,
+          191.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          0,
+          128,
+          0
+        ],
+        "name": "green-128",
+        "rgb": [
+          0,
+          128,
+          0
+        ],
+        "rect": [
+          1440,
+          405,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          91.0,
+          77.0,
+          69.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          0,
+          0,
+          128
+        ],
+        "name": "blue-128",
+        "rgb": [
+          0,
+          0,
+          128
+        ],
+        "rect": [
+          1600,
+          405,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          9.0,
+          191.0,
+          122.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          0,
+          128,
+          128
+        ],
+        "name": "cyan-128",
+        "rgb": [
+          0,
+          128,
+          128
+        ],
+        "rect": [
+          1760,
+          405,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          100.0,
+          141.0,
+          63.5
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          128,
+          0,
+          128
+        ],
+        "name": "magenta-128",
+        "rgb": [
+          128,
+          0,
+          128
+        ],
+        "rect": [
+          0,
+          540,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          36.0,
+          176.0,
+          186.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          128,
+          128,
+          0
+        ],
+        "name": "yellow-128",
+        "rgb": [
+          128,
+          128,
+          0
+        ],
+        "rect": [
+          160,
+          540,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          119.0,
+          63.5,
+          133.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          64,
+          0,
+          0
+        ],
+        "name": "red-64",
+        "rgb": [
+          64,
+          0,
+          0
+        ],
+        "rect": [
+          320,
+          540,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          13.0,
+          119.0,
+          159.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          0,
+          64,
+          0
+        ],
+        "name": "green-64",
+        "rgb": [
+          0,
+          64,
+          0
+        ],
+        "rect": [
+          480,
+          540,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          46.0,
+          102.0,
+          98.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          0,
+          0,
+          64
+        ],
+        "name": "blue-64",
+        "rgb": [
+          0,
+          0,
+          64
+        ],
+        "rect": [
+          640,
+          540,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          5.0,
+          159.0,
+          124.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          0,
+          64,
+          64
+        ],
+        "name": "cyan-64",
+        "rgb": [
+          0,
+          64,
+          64
+        ],
+        "rect": [
+          800,
+          540,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          50.0,
+          134.0,
+          96.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          64,
+          0,
+          64
+        ],
+        "name": "magenta-64",
+        "rgb": [
+          64,
+          0,
+          64
+        ],
+        "rect": [
+          960,
+          540,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          18.0,
+          151.0,
+          156.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          64,
+          64,
+          0
+        ],
+        "name": "yellow-64",
+        "rgb": [
+          64,
+          64,
+          0
+        ],
+        "rect": [
+          1120,
+          540,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          59.0,
+          96.0,
+          130.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          194,
+          150,
+          130
+        ],
+        "name": "skin-light",
+        "rgb": [
+          194,
+          150,
+          130
+        ],
+        "rect": [
+          1280,
+          540,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          157.0,
+          112.0,
+          150.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          115,
+          82,
+          68
+        ],
+        "name": "skin-dark",
+        "rgb": [
+          115,
+          82,
+          68
+        ],
+        "rect": [
+          1440,
+          540,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          87.0,
+          116.0,
+          144.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          220,
+          100,
+          25
+        ],
+        "name": "orange",
+        "rgb": [
+          220,
+          100,
+          25
+        ],
+        "rect": [
+          1600,
+          540,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          120.0,
+          76.0,
+          190.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          100,
+          60,
+          180
+        ],
+        "name": "violet",
+        "rgb": [
+          100,
+          60,
+          180
+        ],
+        "rect": [
+          1760,
+          540,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          77.0,
+          182.0,
+          141.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          40,
+          140,
+          120
+        ],
+        "name": "teal",
+        "rgb": [
+          40,
+          140,
+          120
+        ],
+        "rect": [
+          0,
+          675,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          117.0,
+          128.0,
+          78.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          80,
+          140,
+          210
+        ],
+        "name": "sky",
+        "rgb": [
+          80,
+          140,
+          210
+        ],
+        "rect": [
+          160,
+          675,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          132.0,
+          168.0,
+          94.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          128,
+          140,
+          45
+        ],
+        "name": "olive",
+        "rgb": [
+          128,
+          140,
+          45
+        ],
+        "rect": [
+          320,
+          675,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          131.0,
+          81.0,
+          125.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          110,
+          65,
+          35
+        ],
+        "name": "brown",
+        "rgb": [
+          110,
+          65,
+          35
+        ],
+        "rect": [
+          480,
+          675,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          72.0,
+          107.0,
+          150.5
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          125,
+          162,
+          135
+        ],
+        "name": "mixed-64",
+        "rgb": [
+          125,
+          162,
+          135
+        ],
+        "rect": [
+          640,
+          675,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          151.0,
+          118.0,
+          110.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          104,
+          196,
+          34
+        ],
+        "name": "mixed-65",
+        "rgb": [
+          104,
+          196,
+          34
+        ],
+        "rect": [
+          800,
+          675,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          164.0,
+          57.0,
+          89.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          225,
+          106,
+          145
+        ],
+        "name": "mixed-66",
+        "rgb": [
+          225,
+          106,
+          145
+        ],
+        "rect": [
+          960,
+          675,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          134.0,
+          133.0,
+          184.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          51,
+          73,
+          94
+        ],
+        "name": "mixed-67",
+        "rgb": [
+          51,
+          73,
+          94
+        ],
+        "rect": [
+          1120,
+          675,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          70.0,
+          140.0,
+          115.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          219,
+          127,
+          113
+        ],
+        "name": "mixed-68",
+        "rgb": [
+          219,
+          127,
+          113
+        ],
+        "rect": [
+          1280,
+          675,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          146.0,
+          109.0,
+          174.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          72,
+          171,
+          111
+        ],
+        "name": "mixed-69",
+        "rgb": [
+          72,
+          171,
+          111
+        ],
+        "rect": [
+          1440,
+          675,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          146.0,
+          108.0,
+          81.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          221,
+          79,
+          46
+        ],
+        "name": "mixed-70",
+        "rgb": [
+          221,
+          79,
+          46
+        ],
+        "rect": [
+          1600,
+          675,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          106.0,
+          94.0,
+          199.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          180,
+          163,
+          111
+        ],
+        "name": "mixed-71",
+        "rgb": [
+          180,
+          163,
+          111
+        ],
+        "rect": [
+          1760,
+          675,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          162.0,
+          99.0,
+          138.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          59,
+          153,
+          171
+        ],
+        "name": "mixed-72",
+        "rgb": [
+          59,
+          153,
+          171
+        ],
+        "rect": [
+          0,
+          810,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          134.0,
+          147.0,
+          80.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          84,
+          49,
+          204
+        ],
+        "name": "mixed-73",
+        "rgb": [
+          84,
+          49,
+          204
+        ],
+        "rect": [
+          160,
+          810,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          68.0,
+          200.0,
+          138.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          96,
+          31,
+          93
+        ],
+        "name": "mixed-74",
+        "rgb": [
+          96,
+          31,
+          93
+        ],
+        "rect": [
+          320,
+          810,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          49.0,
+          150.0,
+          157.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          159,
+          105,
+          42
+        ],
+        "name": "mixed-75",
+        "rgb": [
+          159,
+          105,
+          42
+        ],
+        "rect": [
+          480,
+          810,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          112.0,
+          90.0,
+          157.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          43,
+          49,
+          149
+        ],
+        "name": "mixed-76",
+        "rgb": [
+          43,
+          49,
+          149
+        ],
+        "rect": [
+          640,
+          810,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          55.0,
+          178.0,
+          119.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          27,
+          178,
+          147
+        ],
+        "name": "mixed-77",
+        "rgb": [
+          27,
+          178,
+          147
+        ],
+        "rect": [
+          800,
+          810,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          143.0,
+          128.0,
+          53.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          188,
+          175,
+          119
+        ],
+        "name": "mixed-78",
+        "rgb": [
+          188,
+          175,
+          119
+        ],
+        "rect": [
+          960,
+          810,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          174.0,
+          98.0,
+          136.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          169,
+          56,
+          109
+        ],
+        "name": "mixed-79",
+        "rgb": [
+          169,
+          56,
+          109
+        ],
+        "rect": [
+          1120,
+          810,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          84.0,
+          140.5,
+          181.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          107,
+          125,
+          167
+        ],
+        "name": "mixed-80",
+        "rgb": [
+          107,
+          125,
+          167
+        ],
+        "rect": [
+          1280,
+          810,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          124.0,
+          150.0,
+          116.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          227,
+          106,
+          65
+        ],
+        "name": "mixed-81",
+        "rgb": [
+          227,
+          106,
+          65
+        ],
+        "rect": [
+          1440,
+          810,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          128.0,
+          93.0,
+          189.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          69,
+          126,
+          89
+        ],
+        "name": "mixed-82",
+        "rgb": [
+          69,
+          126,
+          89
+        ],
+        "rect": [
+          1600,
+          810,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          111.0,
+          115.0,
+          100.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          197,
+          156,
+          139
+        ],
+        "name": "mixed-83",
+        "rgb": [
+          197,
+          156,
+          139
+        ],
+        "rect": [
+          1760,
+          810,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          163.0,
+          114.0,
+          148.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          69,
+          169,
+          223
+        ],
+        "name": "mixed-84",
+        "rgb": [
+          69,
+          169,
+          223
+        ],
+        "rect": [
+          0,
+          945,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          151.0,
+          165.0,
+          75.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          166,
+          221,
+          206
+        ],
+        "name": "mixed-85",
+        "rgb": [
+          166,
+          221,
+          206
+        ],
+        "rect": [
+          160,
+          945,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          207.0,
+          126.0,
+          100.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          112,
+          29,
+          94
+        ],
+        "name": "mixed-86",
+        "rgb": [
+          112,
+          29,
+          94
+        ],
+        "rect": [
+          320,
+          945,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          51.0,
+          150.0,
+          165.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          25,
+          27,
+          148
+        ],
+        "name": "mixed-87",
+        "rgb": [
+          25,
+          27,
+          148
+        ],
+        "rect": [
+          480,
+          945,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          35.0,
+          188.0,
+          121.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          97,
+          108,
+          162
+        ],
+        "name": "mixed-88",
+        "rgb": [
+          97,
+          108,
+          162
+        ],
+        "rect": [
+          640,
+          945,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          110.0,
+          155.0,
+          119.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          194,
+          163,
+          158
+        ],
+        "name": "mixed-89",
+        "rgb": [
+          194,
+          163,
+          158
+        ],
+        "rect": [
+          800,
+          945,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          169.0,
+          121.0,
+          142.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          153,
+          102,
+          99
+        ],
+        "name": "mixed-90",
+        "rgb": [
+          153,
+          102,
+          99
+        ],
+        "rect": [
+          960,
+          945,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          112.0,
+          119.0,
+          153.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          184,
+          38,
+          214
+        ],
+        "name": "mixed-91",
+        "rgb": [
+          184,
+          38,
+          214
+        ],
+        "rect": [
+          1120,
+          945,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          82.0,
+          198.0,
+          192.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          102,
+          164,
+          216
+        ],
+        "name": "mixed-92",
+        "rgb": [
+          102,
+          164,
+          216
+        ],
+        "rect": [
+          1280,
+          945,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          154.0,
+          160.0,
+          93.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          36,
+          45,
+          216
+        ],
+        "name": "mixed-93",
+        "rgb": [
+          36,
+          45,
+          216
+        ],
+        "rect": [
+          1440,
+          945,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          55.0,
+          214.0,
+          115.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          68,
+          180,
+          29
+        ],
+        "name": "mixed-94",
+        "rgb": [
+          68,
+          180,
+          29
+        ],
+        "rect": [
+          1600,
+          945,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          144.0,
+          65.0,
+          78.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expected_display_rgb": [
+          91,
+          134,
+          119
+        ],
+        "name": "mixed-95",
+        "rgb": [
+          91,
+          134,
+          119
+        ],
+        "rect": [
+          1760,
+          945,
+          160,
+          135
+        ],
+        "measured_yuv": [
+          124.0,
+          124.0,
+          106.0
+        ],
+        "temporal_span": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "limitations": [
+      "RGB reference is the AppKit source render in the display ICC space, before late compositor/HDMI changes.",
+      "AVFoundation may decode compressed transport before delivering YUV; actual active subtype is recorded.",
+      "The on-wire HDMI RGB/YCbCr format and range were not independently measured.",
+      "Smallest residual is a model fit, not proof of an isolated hardware matrix."
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+{
+  "scope": "read-only procamp defaults cold-boot qualification",
+  "candidate_sha256_expected": "91f4d30b5a85a2cca368b84ec1f1437ee30af29bc002fca9073993513a71ba3f",
+  "controls": {
+    "brightness": {
+      "selector": 2,
+      "get_def_return_code": 0,
+      "get_def_hex": "",
+      "get_def_value": null,
+      "get_def_matches": false,
+      "get_cur_return_code": 2,
+      "get_cur_hex": "eeff",
+      "get_cur_value": -18,
+      "get_cur_matches_startup": true
+    },
+    "contrast": {
+      "selector": 3,
+      "get_def_return_code": 0,
+      "get_def_hex": "",
+      "get_def_value": null,
+      "get_def_matches": false,
+      "get_cur_return_code": 2,
+      "get_cur_hex": "9500",
+      "get_cur_value": 149,
+      "get_cur_matches_startup": true
+    },
+    "hue": {
+      "selector": 6,
+      "get_def_return_code": 0,
+      "get_def_hex": "",
+      "get_def_value": null,
+      "get_def_matches": false,
+      "get_cur_return_code": 2,
+      "get_cur_hex": "0000",
+      "get_cur_value": 0,
+      "get_cur_matches_startup": true
+    },
+    "saturation": {
+      "selector": 7,
+      "get_def_return_code": 0,
+      "get_def_hex": "",
+      "get_def_value": null,
+      "get_def_matches": false,
+      "get_cur_return_code": 2,
+      "get_cur_hex": "9400",
+      "get_cur_value": 148,
+      "get_cur_matches_startup": true
+    }
+  },
+  "writes_performed": 0,
+  "eeprom_sha256_reads": [
+    "91f4d30b5a85a2cca368b84ec1f1437ee30af29bc002fca9073993513a71ba3f",
+    "91f4d30b5a85a2cca368b84ec1f1437ee30af29bc002fca9073993513a71ba3f"
+  ],
+  "eeprom_reads_match": true,
+  "eeprom_matches_candidate": true,
+  "eeprom_code_bytes": 1929,
+  "startup_ram": {
+    "C6A0": "eeff950000009400",
+    "FE90": "ee959400"
+  },
+  "startup_ram_matches": true,
+  "usb_strings": {
+    "2": "MS2109-Pro",
+    "4": "MS2109-Pro"
+  },
+  "usb_names_match": true,
+  "status": "failed: one or more cold-boot checks mismatched",
+  "note": "GET_CUR is recorded but is not a pass gate because the USB host may apply its own current-value policy after enumeration."
+}

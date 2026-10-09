@@ -1,0 +1,10 @@
+{"phase":"GET_CUR","direction":"IN","bmRequestType":161,"bRequest":129,"wValue":512,"entity_id":"resolved-by-libuvc","selector":"BRIGHTNESS","api_status":0,"value":-18}
+{"phase":"GET_CUR","direction":"IN","bmRequestType":161,"bRequest":129,"wValue":768,"entity_id":"resolved-by-libuvc","selector":"CONTRAST","api_status":0,"value":149}
+{"phase":"GET_MIN","direction":"IN","bmRequestType":161,"bRequest":130,"wValue":512,"entity_id":"resolved-by-libuvc","selector":"BRIGHTNESS","api_status":0,"value":-128}
+{"phase":"GET_MIN","direction":"IN","bmRequestType":161,"bRequest":130,"wValue":768,"entity_id":"resolved-by-libuvc","selector":"CONTRAST","api_status":0,"value":0}
+{"phase":"GET_MAX","direction":"IN","bmRequestType":161,"bRequest":131,"wValue":512,"entity_id":"resolved-by-libuvc","selector":"BRIGHTNESS","api_status":0,"value":127}
+{"phase":"GET_MAX","direction":"IN","bmRequestType":161,"bRequest":131,"wValue":768,"entity_id":"resolved-by-libuvc","selector":"CONTRAST","api_status":0,"value":255}
+{"phase":"GET_RES","direction":"IN","bmRequestType":161,"bRequest":132,"wValue":512,"entity_id":"resolved-by-libuvc","selector":"BRIGHTNESS","api_status":0,"value":1}
+{"phase":"GET_RES","direction":"IN","bmRequestType":161,"bRequest":132,"wValue":768,"entity_id":"resolved-by-libuvc","selector":"CONTRAST","api_status":0,"value":1}
+{"phase":"GET_DEF","direction":"IN","bmRequestType":161,"bRequest":135,"wValue":512,"entity_id":"resolved-by-libuvc","selector":"BRIGHTNESS","api_status":0,"value":-11}
+{"phase":"GET_DEF","direction":"IN","bmRequestType":161,"bRequest":135,"wValue":768,"entity_id":"resolved-by-libuvc","selector":"CONTRAST","api_status":0,"value":148}

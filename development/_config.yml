@@ -1,0 +1,5 @@
+markdown: kramdown
+exclude:
+  - artifacts/ms2109-repair-local-only
+  - tools/__pycache__
+  - artifacts/**/compiled-tools

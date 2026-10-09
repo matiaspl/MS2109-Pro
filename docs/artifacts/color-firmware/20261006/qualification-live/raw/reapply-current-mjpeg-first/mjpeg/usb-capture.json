@@ -1,0 +1,10 @@
+{"capture_backend":"libuvc USB payload, no host pixel conversion","mode":"mjpeg","getter_profile":"GET_CUR only","control_profile":"reapplied current values","controls_before":{"brightness_signed":-18,"contrast":149,"other_getters":null},"controls_active":{"brightness_signed":-18,"contrast":149,"other_getters":null},"vid":21325,"pid":8457,"format_index":1,"frame_index":1,"interval_100ns":333333,"max_frame_bytes":4147200,"max_payload_bytes":3072,"interface":1,"frames":[
+{"file":"frame-000.jpg","width":1920,"height":1080,"bytes":56750,"sequence":89,"frame_format":7,"pixel_format":"jpeg","pts_seconds":630124.246645000,"jpeg_soi":true},
+{"file":"frame-001.jpg","width":1920,"height":1080,"bytes":56689,"sequence":90,"frame_format":7,"pixel_format":"jpeg","pts_seconds":630124.280469000,"jpeg_soi":true},
+{"file":"frame-002.jpg","width":1920,"height":1080,"bytes":56750,"sequence":91,"frame_format":7,"pixel_format":"jpeg","pts_seconds":630124.313995000,"jpeg_soi":true},
+{"file":"frame-003.jpg","width":1920,"height":1080,"bytes":56689,"sequence":92,"frame_format":7,"pixel_format":"jpeg","pts_seconds":630124.346804000,"jpeg_soi":true},
+{"file":"frame-004.jpg","width":1920,"height":1080,"bytes":56750,"sequence":93,"frame_format":7,"pixel_format":"jpeg","pts_seconds":630124.379896000,"jpeg_soi":true},
+{"file":"frame-005.jpg","width":1920,"height":1080,"bytes":56689,"sequence":94,"frame_format":7,"pixel_format":"jpeg","pts_seconds":630124.414151000,"jpeg_soi":true},
+{"file":"frame-006.jpg","width":1920,"height":1080,"bytes":56750,"sequence":95,"frame_format":7,"pixel_format":"jpeg","pts_seconds":630124.446572000,"jpeg_soi":true},
+{"file":"frame-007.jpg","width":1920,"height":1080,"bytes":56689,"sequence":96,"frame_format":7,"pixel_format":"jpeg","pts_seconds":630124.481522000,"jpeg_soi":true}
+],"frames_captured":8,"frames_skipped_for_settling":88,"controls_restored":{"brightness_signed":-18,"contrast":149,"other_getters":null},"controls_restoration_ok":true,"exit_code":0}

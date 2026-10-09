@@ -1,0 +1,21 @@
+{
+  "scope": "volatile RAM-only live GET_DEF qualification with exact restoration",
+  "current_eeprom_expected_sha256": "91f4d30b5a85a2cca368b84ec1f1437ee30af29bc002fca9073993513a71ba3f",
+  "candidate_sha256": "a42bfa5919cf164a2a1b4edb4152b156fe65db5c58e55da9d53ef1c0bb52a3eb",
+  "current_code_bytes": 1929,
+  "candidate_code_bytes": 1975,
+  "eeprom_writes": 0,
+  "checks": {
+    "eeprom_before_sha256": [
+      "91f4d30b5a85a2cca368b84ec1f1437ee30af29bc002fca9073993513a71ba3f",
+      "91f4d30b5a85a2cca368b84ec1f1437ee30af29bc002fca9073993513a71ba3f"
+    ],
+    "live_header_matches_v3": true,
+    "loaded_v3_overlay_matches": false
+  },
+  "restoration": {
+    "attempted": false
+  },
+  "operation_error": "RuntimeError('Loaded RAM code/checksum is not the exact v3 image')",
+  "status": "failed: qualification or restoration check did not pass"
+}

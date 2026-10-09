@@ -1,0 +1,13 @@
+{
+  "wav": "artifacts/audio-prbs-reference-20261006.wav",
+  "sha256": "4eeca433aa94ecf71409a7cb26575bcaa4db8a0f43cf642ecb497a3fb1222633",
+  "sample_rate": 48000,
+  "channels": 2,
+  "sample_format": "signed 16-bit little-endian PCM",
+  "duration_seconds": 24,
+  "generator": "xorshift32, seed 0x21090001; left is continuous wideband code",
+  "channel_relation": "right duplicates the same sample code except during its silence gate",
+  "right_silence_gate": "first 0.5 seconds of every 2-second period",
+  "peak_amplitude": 3200,
+  "writes": "reference file only; no device access"
+}

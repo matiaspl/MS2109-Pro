@@ -1,0 +1,74 @@
+{
+  "reference_wav": "artifacts/audio-prbs-reference-20261006.wav",
+  "reference_sha256": "4eeca433aa94ecf71409a7cb26575bcaa4db8a0f43cf642ecb497a3fb1222633",
+  "capture_wav": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/audio-stream-start-reset-prbs20261006-baseline.wav",
+  "capture_sha256": "0c3c963357918c30b03753a2c43ac30fbaf14b723c3ee93bd44d69bc1a494ac1",
+  "capture_backend": "AVFoundation CoreAudio input :usb video",
+  "system_profiler_default_output": {
+    "_name": "HDMI TO USB",
+    "_properties": "coreaudio_default_audio_system_device",
+    "coreaudio_default_audio_output_device": "spaudio_yes",
+    "coreaudio_default_audio_system_device": "spaudio_yes",
+    "coreaudio_device_manufacturer": "HJW",
+    "coreaudio_device_output": 2,
+    "coreaudio_device_srate": 48000,
+    "coreaudio_device_transport": "coreaudio_device_type_hdmi",
+    "coreaudio_output_source": "spaudio_default"
+  },
+  "device_state_before": {
+    "fe60": 1,
+    "audio_channels": 2,
+    "audio_sample_rate_descriptor": "80bb00"
+  },
+  "device_state_after": {
+    "fe60": 1,
+    "audio_channels": 2,
+    "audio_sample_rate_descriptor": "80bb00"
+  },
+  "register_policy": "read-only; no FE60, EEPROM, or picture-control writes",
+  "analysis": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/audio-stream-start-reset-prbs20261006-baseline.analysis.json",
+  "verified": {
+    "48_khz": true,
+    "channel_0_continuous_left": true,
+    "channel_1_gapped_right": true,
+    "device_state_unchanged": true
+  },
+  "known_sample_offset": [
+    {
+      "lag_samples": -4,
+      "correlation_ch0_n_ch1_n_plus_lag": -0.001544399000361799
+    },
+    {
+      "lag_samples": -3,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.0030515640467472125
+    },
+    {
+      "lag_samples": -2,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.00031539055451607057
+    },
+    {
+      "lag_samples": -1,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.9789622826459337
+    },
+    {
+      "lag_samples": 0,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.00045846975953210055
+    },
+    {
+      "lag_samples": 1,
+      "correlation_ch0_n_ch1_n_plus_lag": 0.0031409892072780973
+    },
+    {
+      "lag_samples": 2,
+      "correlation_ch0_n_ch1_n_plus_lag": -0.0015262771800340078
+    },
+    {
+      "lag_samples": 3,
+      "correlation_ch0_n_ch1_n_plus_lag": 4.629413504028819e-05
+    },
+    {
+      "lag_samples": 4,
+      "correlation_ch0_n_ch1_n_plus_lag": -1.1861923280045733e-05
+    }
+  ]
+}

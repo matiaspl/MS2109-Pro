@@ -1,0 +1,14 @@
+{
+  "requested_pixel_format": "yuv420p",
+  "ffmpeg_input_result": "not supported by this input device; FFmpeg overrode to uyvy422",
+  "requested_mode": "1920x1080 at 60.00024 fps",
+  "resulting_pts_rate_fps": 4.99895855030202,
+  "frame_count": 25,
+  "first_pts_seconds": 0.0,
+  "last_pts_seconds": 4.801,
+  "pts_interval_avg_seconds": 0.20004166666666667,
+  "pts_interval_min_seconds": 0.19899999999999984,
+  "pts_interval_max_seconds": 0.20100000000000007,
+  "unique_decoded_frame_hashes": 25,
+  "duplicate_frame_occurrences": 0
+}

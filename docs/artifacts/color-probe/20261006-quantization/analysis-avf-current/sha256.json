@@ -1,0 +1,9 @@
+{
+  "artifacts/color-probe/20261006-quantization/analysis-avf-current/analysis.json": "96e23939122406b2649e6c6e21dd5675e37eda112bc9bd08fe9b5888a98771fa",
+  "artifacts/color-probe/20261006-quantization/analysis-avf-current/avf-current-decoded.csv": "ed400732de1a6a13fa62f00b9fdaf702789df18110f4f08b1a5e9834df9ad2fc",
+  "artifacts/color-probe/20261006-quantization/analysis-avf-current/avf-current-yuy2.csv": "2096a901ffb63b580ba4f60faecd4fa61a332e9f3ae4d4daba24212720574fd6",
+  "artifacts/color-probe/20261006-quantization/analysis-avf-current/histograms.json": "2bf986c0b5977dd9410f9a21c51dafc5f8a717c8dd122e5f6b775356a48b9f3e",
+  "artifacts/color-probe/20261006-quantization/analysis-avf-current/plot-data.json": "96c1944f1c4b42abbee28aa05e596aabe6e606ba42c708741a9f266ba9b8d1cf",
+  "artifacts/color-probe/20261006-quantization/analysis-avf-current/ramps.svg": "b7c5cf60f75a41da68b2c93f5ac8b3992e2f7527433431580d172e61c62b275e",
+  "artifacts/color-probe/20261006-quantization/analysis-avf-current/report.md": "325bb54765834d0f9ad11c931f05e0042402ae34a867833d106de0d9b6765460"
+}

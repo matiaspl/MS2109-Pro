@@ -1,0 +1,179 @@
+{
+  "native_directory": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/color-probe/20261006-neutral-yuy2/native-yuv",
+  "decoded_directory": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/color-probe/20261006-neutral-decoded/native-avf420v",
+  "identity_rmse": 6.103846692409996,
+  "full_to_limited_relative_scaling": [
+    0.8588235294117647,
+    0.8784313725490196,
+    0.8784313725490196
+  ],
+  "offset": [
+    16.0,
+    15.560784313725492,
+    15.560784313725492
+  ],
+  "full_to_limited_rmse": 0.27902459511401984,
+  "per_channel_rmse": [
+    0.29235501242016965,
+    0.28278352018364467,
+    0.2610099642944244
+  ],
+  "paired_patches": [
+    {
+      "name": "gray-0",
+      "native_yuv": [
+        16.0,
+        128.0,
+        128.0
+      ],
+      "decoded_yuv": [
+        30.0,
+        128.0,
+        128.0
+      ],
+      "predicted_relative_scaling": [
+        29.741176470588236,
+        128.0,
+        128.0
+      ]
+    },
+    {
+      "name": "gray-255",
+      "native_yuv": [
+        235.0,
+        128.0,
+        128.0
+      ],
+      "decoded_yuv": [
+        218.0,
+        128.0,
+        128.0
+      ],
+      "predicted_relative_scaling": [
+        217.8235294117647,
+        128.0,
+        128.0
+      ]
+    },
+    {
+      "name": "red-255",
+      "native_yuv": [
+        62.0,
+        102.0,
+        238.5
+      ],
+      "decoded_yuv": [
+        69.0,
+        105.0,
+        226.0
+      ],
+      "predicted_relative_scaling": [
+        69.24705882352941,
+        105.16078431372549,
+        225.06666666666666
+      ]
+    },
+    {
+      "name": "green-255",
+      "native_yuv": [
+        172.0,
+        41.0,
+        26.0
+      ],
+      "decoded_yuv": [
+        164.0,
+        52.0,
+        38.0
+      ],
+      "predicted_relative_scaling": [
+        163.71764705882353,
+        51.576470588235296,
+        38.400000000000006
+      ]
+    },
+    {
+      "name": "blue-255",
+      "native_yuv": [
+        31.0,
+        238.5,
+        117.5
+      ],
+      "decoded_yuv": [
+        43.0,
+        226.0,
+        119.0
+      ],
+      "predicted_relative_scaling": [
+        42.62352941176471,
+        225.06666666666666,
+        118.7764705882353
+      ]
+    },
+    {
+      "name": "cyan-255",
+      "native_yuv": [
+        188.0,
+        152.0,
+        16.0
+      ],
+      "decoded_yuv": [
+        177.0,
+        149.0,
+        30.0
+      ],
+      "predicted_relative_scaling": [
+        177.45882352941175,
+        149.08235294117648,
+        29.615686274509805
+      ]
+    },
+    {
+      "name": "magenta-255",
+      "native_yuv": [
+        78.0,
+        213.0,
+        228.0
+      ],
+      "decoded_yuv": [
+        83.0,
+        203.0,
+        216.0
+      ],
+      "predicted_relative_scaling": [
+        82.98823529411764,
+        202.66666666666666,
+        215.84313725490196
+      ]
+    },
+    {
+      "name": "yellow-255",
+      "native_yuv": [
+        219.0,
+        16.0,
+        137.0
+      ],
+      "decoded_yuv": [
+        204.0,
+        30.0,
+        136.0
+      ],
+      "predicted_relative_scaling": [
+        204.08235294117645,
+        29.615686274509805,
+        135.90588235294118
+      ]
+    }
+  ],
+  "Y_fit": [
+    0.8589303418387567,
+    15.997503797189863
+  ],
+  "Cb_fit": [
+    0.8791407634844685,
+    15.533498616139516
+  ],
+  "Cr_fit": [
+    0.8792458406301137,
+    15.467341857350585
+  ]
+}

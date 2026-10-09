@@ -1,0 +1,122 @@
+{
+  "scope": "read-only live GET_DEF dispatch/EP0 buffer trace",
+  "candidate_sha256": "91f4d30b5a85a2cca368b84ec1f1437ee30af29bc002fca9073993513a71ba3f",
+  "eeprom_sha256_reads": [
+    "91f4d30b5a85a2cca368b84ec1f1437ee30af29bc002fca9073993513a71ba3f",
+    "91f4d30b5a85a2cca368b84ec1f1437ee30af29bc002fca9073993513a71ba3f"
+  ],
+  "eeprom_matches_candidate": true,
+  "writes_performed": 0,
+  "snapshots": {
+    "setup_length_C000": {
+      "address": "0xC000",
+      "length": 2
+    },
+    "ep0_offset_C008": {
+      "address": "0xC008",
+      "length": 5
+    },
+    "response_buffer_C020": {
+      "address": "0xC020",
+      "length": 2
+    },
+    "rom_source_pointer_C5F9": {
+      "address": "0xC5F9",
+      "length": 3
+    }
+  },
+  "requests": [
+    {
+      "control": "brightness",
+      "selector": 2,
+      "bmRequestType": "0xA1",
+      "bRequest": "0x87",
+      "wValue": "0x0200",
+      "wIndex": "0x0200",
+      "wLength": 2,
+      "transfer_return_code": 0,
+      "response_hex": "",
+      "before": {
+        "setup_length_C000": "0008",
+        "ep0_offset_C008": "0101801a06",
+        "response_buffer_C020": "9400",
+        "rom_source_pointer_C5F9": "000013"
+      },
+      "after": {
+        "setup_length_C000": "0008",
+        "ep0_offset_C008": "0101801a06",
+        "response_buffer_C020": "eeff",
+        "rom_source_pointer_C5F9": "000013"
+      }
+    },
+    {
+      "control": "contrast",
+      "selector": 3,
+      "bmRequestType": "0xA1",
+      "bRequest": "0x87",
+      "wValue": "0x0300",
+      "wIndex": "0x0200",
+      "wLength": 2,
+      "transfer_return_code": 0,
+      "response_hex": "",
+      "before": {
+        "setup_length_C000": "0008",
+        "ep0_offset_C008": "0101801a06",
+        "response_buffer_C020": "eeff",
+        "rom_source_pointer_C5F9": "000013"
+      },
+      "after": {
+        "setup_length_C000": "0008",
+        "ep0_offset_C008": "0101801a06",
+        "response_buffer_C020": "9500",
+        "rom_source_pointer_C5F9": "000013"
+      }
+    },
+    {
+      "control": "hue",
+      "selector": 6,
+      "bmRequestType": "0xA1",
+      "bRequest": "0x87",
+      "wValue": "0x0600",
+      "wIndex": "0x0200",
+      "wLength": 2,
+      "transfer_return_code": 0,
+      "response_hex": "",
+      "before": {
+        "setup_length_C000": "0008",
+        "ep0_offset_C008": "0101801a06",
+        "response_buffer_C020": "9500",
+        "rom_source_pointer_C5F9": "000013"
+      },
+      "after": {
+        "setup_length_C000": "0008",
+        "ep0_offset_C008": "0101801a06",
+        "response_buffer_C020": "0000",
+        "rom_source_pointer_C5F9": "000013"
+      }
+    },
+    {
+      "control": "saturation",
+      "selector": 7,
+      "bmRequestType": "0xA1",
+      "bRequest": "0x87",
+      "wValue": "0x0700",
+      "wIndex": "0x0200",
+      "wLength": 2,
+      "transfer_return_code": 0,
+      "response_hex": "",
+      "before": {
+        "setup_length_C000": "0008",
+        "ep0_offset_C008": "0101801a06",
+        "response_buffer_C020": "0000",
+        "rom_source_pointer_C5F9": "000013"
+      },
+      "after": {
+        "setup_length_C000": "0008",
+        "ep0_offset_C008": "0101801a06",
+        "response_buffer_C020": "9400",
+        "rom_source_pointer_C5F9": "000013"
+      }
+    }
+  ]
+}

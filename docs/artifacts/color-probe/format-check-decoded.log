@@ -1,0 +1,16 @@
+*** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '*** -[AVCaptureDevice_Tundra setActiveVideoMinFrameDuration:] Not supported - Supported ranges: (
+    "<AVFrameRateRange: 0xc9ce4d040 60.00 - 60.00 (1000000 / 60000240 - 1000000 / 60000240)>",
+    "<AVFrameRateRange: 0xc9ce4d050 30.00 - 30.00 (1000000 / 30000030 - 1000000 / 30000030)>",
+    "<AVFrameRateRange: 0xc9ce4d060 25.00 - 25.00 (1000000 / 25000000 - 1000000 / 25000000)>",
+    "<AVFrameRateRange: 0xc9ce4d070 20.00 - 20.00 (1000000 / 20000000 - 1000000 / 20000000)>",
+    "<AVFrameRateRange: 0xc9ce4d080 10.00 - 10.00 (1000000 / 10000000 - 1000000 / 10000000)>"
+), tried to set maxFrameRate to 30.000000 (1000 / 30000)'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x0000000184b331f0 __exceptionPreprocess + 176
+	1   libobjc.A.dylib                     0x00000001845ae91c objc_exception_throw + 88
+	2   AVFCapture                          0x00000001a8a18c28 -[AVCaptureDALDevice _setActiveVideoMinFrameDuration:] + 0
+	3   ms2109-color-probe                  0x000000010098ceb0 main + 6904
+	4   dyld                                0x000000018463c4e4 start + 6992
+)
+libc++abi: terminating due to uncaught exception of type NSException

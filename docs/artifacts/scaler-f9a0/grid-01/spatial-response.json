@@ -1,0 +1,115 @@
+{
+  "source": "artifacts/scaler-f9a0/test-chart-1920x1080.png",
+  "f9a0_00_frame": "artifacts/scaler-f9a0/grid-01/f9a0-00-1080.png",
+  "f9a0_01_frame": "artifacts/scaler-f9a0/grid-01/f9a0-01-1080.png",
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "f9a0_frames_byte_identical": true,
+  "changed_pixel_count": 0,
+  "stripe_patches": [
+    {
+      "period_px": 32,
+      "source": {
+        "stripe_mean": 235.0,
+        "background_mean": 128.0,
+        "michelson_contrast": 0.294766
+      },
+      "f9a0_00": {
+        "stripe_mean": 252.343,
+        "background_mean": 114.0,
+        "michelson_contrast": 0.377632
+      },
+      "f9a0_01": {
+        "stripe_mean": 252.343,
+        "background_mean": 114.0,
+        "michelson_contrast": 0.377632
+      },
+      "contrast_gain_vs_source": 1.2811
+    },
+    {
+      "period_px": 16,
+      "source": {
+        "stripe_mean": 235.0,
+        "background_mean": 128.0,
+        "michelson_contrast": 0.294766
+      },
+      "f9a0_00": {
+        "stripe_mean": 252.739,
+        "background_mean": 109.631,
+        "michelson_contrast": 0.394923
+      },
+      "f9a0_01": {
+        "stripe_mean": 252.739,
+        "background_mean": 109.631,
+        "michelson_contrast": 0.394923
+      },
+      "contrast_gain_vs_source": 1.3398
+    },
+    {
+      "period_px": 8,
+      "source": {
+        "stripe_mean": 235.0,
+        "background_mean": 128.0,
+        "michelson_contrast": 0.294766
+      },
+      "f9a0_00": {
+        "stripe_mean": 253.545,
+        "background_mean": 102.0,
+        "michelson_contrast": 0.426234
+      },
+      "f9a0_01": {
+        "stripe_mean": 253.545,
+        "background_mean": 102.0,
+        "michelson_contrast": 0.426234
+      },
+      "contrast_gain_vs_source": 1.446
+    },
+    {
+      "period_px": 4,
+      "source": {
+        "stripe_mean": 235.0,
+        "background_mean": 128.0,
+        "michelson_contrast": 0.294766
+      },
+      "f9a0_00": {
+        "stripe_mean": 255.0,
+        "background_mean": 86.0,
+        "michelson_contrast": 0.495601
+      },
+      "f9a0_01": {
+        "stripe_mean": 255.0,
+        "background_mean": 86.0,
+        "michelson_contrast": 0.495601
+      },
+      "contrast_gain_vs_source": 1.6813
+    },
+    {
+      "period_px": 2,
+      "source": {
+        "stripe_mean": 235.0,
+        "background_mean": 128.0,
+        "michelson_contrast": 0.294766
+      },
+      "f9a0_00": {
+        "stripe_mean": 255.0,
+        "background_mean": 56.0,
+        "michelson_contrast": 0.639871
+      },
+      "f9a0_01": {
+        "stripe_mean": 255.0,
+        "background_mean": 56.0,
+        "michelson_contrast": 0.639871
+      },
+      "contrast_gain_vs_source": 2.1708
+    }
+  ],
+  "checker_patch": {
+    "source_alternating_luma_amplitude": 109.5,
+    "f9a0_00_alternating_luma_amplitude": 127.5,
+    "f9a0_01_alternating_luma_amplitude": 127.5
+  },
+  "2px_to_32px_contrast_ratio": 1.6944,
+  "interpretation_limit": "This is end-to-end display, HDMI, MS2109 and YUY2/RGB-conversion response; it identifies frequency-dependent contrast shaping but cannot isolate the chip stage by itself."
+}

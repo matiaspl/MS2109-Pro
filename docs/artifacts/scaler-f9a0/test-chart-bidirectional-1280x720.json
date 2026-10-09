@@ -1,0 +1,115 @@
+{
+  "image": "artifacts/scaler-f9a0/test-chart-bidirectional-1280x720.png",
+  "width": 1280,
+  "height": 720,
+  "levels_rgb": {
+    "black": [
+      16,
+      16,
+      16
+    ],
+    "white": [
+      235,
+      235,
+      235
+    ],
+    "mid": [
+      128,
+      128,
+      128
+    ]
+  },
+  "edge_rois": [
+    {
+      "label": "A  Slanted edge: dark \u2192 light",
+      "bounds_xyxy": [
+        32,
+        75,
+        600,
+        677
+      ],
+      "edge_origin_x": 312,
+      "edge_slope_px_per_row": 0.1
+    },
+    {
+      "label": "B  Slanted edge: light \u2192 dark",
+      "bounds_xyxy": [
+        679,
+        75,
+        1248,
+        133
+      ],
+      "edge_origin_x": 967,
+      "edge_slope_px_per_row": -0.1
+    }
+  ],
+  "frequency_patches": [
+    32,
+    16,
+    8,
+    4,
+    2,
+    1
+  ],
+  "line_pair_patches": {
+    "vertical": [
+      32,
+      16,
+      8,
+      4,
+      2
+    ],
+    "horizontal": [
+      32,
+      16,
+      8,
+      4,
+      2
+    ]
+  },
+  "flat_fields": [
+    {
+      "name": "black",
+      "bounds_xyxy": [
+        679,
+        657,
+        847,
+        705
+      ],
+      "rgb": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "name": "gray",
+      "bounds_xyxy": [
+        879,
+        657,
+        1047,
+        705
+      ],
+      "rgb": [
+        128,
+        128,
+        128
+      ]
+    },
+    {
+      "name": "white",
+      "bounds_xyxy": [
+        1079,
+        657,
+        1247,
+        705
+      ],
+      "rgb": [
+        235,
+        235,
+        235
+      ]
+    }
+  ],
+  "note": "Exact geometry is recorded here. Display at native raster dimensions without browser scaling or image interpolation for strongest measurement."
+}

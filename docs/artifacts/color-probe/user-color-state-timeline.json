@@ -1,0 +1,20 @@
+{
+  "source": "Direct user correction in this chat",
+  "disable_event": "User message: disabled night shift and true tone",
+  "before_event": {
+    "true_tone_enabled": true,
+    "night_shift_enabled": true
+  },
+  "after_event": {
+    "true_tone_enabled": false,
+    "night_shift_enabled": false
+  },
+  "private_api_limitation": "BlueReductionEnabled=0 was observed during the user-confirmed enabled baseline. The dictionary mapping does not establish visual effect activity.",
+  "clean_repeat_roots": [
+    "20261006-neutral-yuy2",
+    "20261006-neutral-decoded",
+    "20261006-original-usb",
+    "20261006-original-usb-source",
+    "20261006-driver-restored-yuy2"
+  ]
+}

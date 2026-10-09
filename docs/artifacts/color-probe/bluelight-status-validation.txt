@@ -1,0 +1,16 @@
+2026-10-06 00:14:16.756 ms2109-read-bluelight-dictionary[86413:12755532] BlueLight status dictionary: {
+    AutoBlueReductionEnabled = 1;
+    BlueLightReductionDisableScheduleAlertCounter = 3;
+    BlueLightReductionSchedule =     {
+        DayStartHour = 7;
+        DayStartMinute = 0;
+        NightStartHour = 22;
+        NightStartMinute = 0;
+    };
+    BlueReductionAvailable = 1;
+    BlueReductionEnabled = 0;
+    BlueReductionMode = 0;
+    BlueReductionSunScheduleAllowed = 1;
+    Version = 1;
+}
+read_ok=1

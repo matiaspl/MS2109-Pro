@@ -1,0 +1,1156 @@
+{
+  "test": "RAM-only FE84 scaled-output range sweep",
+  "capture_mode": [
+    1280,
+    720
+  ],
+  "frames_per_value": 3,
+  "sweep_values": [
+    "40",
+    "44",
+    "48",
+    "4c",
+    "50",
+    "54",
+    "58",
+    "5c",
+    "60",
+    "64",
+    "68",
+    "6c",
+    "70",
+    "74",
+    "78",
+    "7a",
+    "7b",
+    "7c",
+    "80"
+  ],
+  "chart_session": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/chart-session-fe84-range-20261007",
+  "firmware_written": false,
+  "interpretation_limit": "A coarse 0x40\u20130x80 sweep at 1280x720; it does not qualify other modes or FE84 semantics.",
+  "eeprom_before_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "registers_before": {
+    "FE80": "01",
+    "FE84": "7a",
+    "FE85": "00",
+    "F9A0": "00",
+    "F92C": "20",
+    "FEBA": "00"
+  },
+  "states": [
+    {
+      "FE84": "40",
+      "raw_sha256": "40714694db58c6ad6b2b7338b076b25e95784522d9bfeb057d36d1fe87c42c5a",
+      "chart_correlation_per_frame": [
+        0.949013,
+        0.949013,
+        0.949013
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 226.2222,
+          "dark_Y_mean": 123.3256,
+          "michelson_contrast": 0.294371
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 219.2826,
+          "dark_Y_mean": 131.1163,
+          "michelson_contrast": 0.251617
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 208.6818,
+          "dark_Y_mean": 139.6222,
+          "michelson_contrast": 0.198274
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 187.4545,
+          "dark_Y_mean": 161.3864,
+          "michelson_contrast": 0.074728
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.9556,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000127
+        }
+      ]
+    },
+    {
+      "FE84": "44",
+      "raw_sha256": "e62cfa208c8e469ca4c8ffdf9c9d94f1bfb6d3c710546bd598956d859e94e1e0",
+      "chart_correlation_per_frame": [
+        0.948114,
+        0.948114,
+        0.948114
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 226.3111,
+          "dark_Y_mean": 123.186,
+          "michelson_contrast": 0.295067
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 219.5,
+          "dark_Y_mean": 130.8837,
+          "michelson_contrast": 0.252912
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 209.2273,
+          "dark_Y_mean": 139.0444,
+          "michelson_contrast": 0.201517
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 188.1136,
+          "dark_Y_mean": 160.8864,
+          "michelson_contrast": 0.078015
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.9556,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000127
+        }
+      ]
+    },
+    {
+      "FE84": "48",
+      "raw_sha256": "40cce8527dd881c8e738b6750756f2e876ab6caca531c1645400b5e3689e7b1e",
+      "chart_correlation_per_frame": [
+        0.94726,
+        0.947261,
+        0.94726
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 226.3778,
+          "dark_Y_mean": 123.0,
+          "michelson_contrast": 0.295891
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 219.6957,
+          "dark_Y_mean": 130.6512,
+          "michelson_contrast": 0.254161
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 209.9773,
+          "dark_Y_mean": 138.4667,
+          "michelson_contrast": 0.205228
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 188.5682,
+          "dark_Y_mean": 160.1818,
+          "michelson_contrast": 0.081395
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.9333,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000191
+        }
+      ]
+    },
+    {
+      "FE84": "4c",
+      "raw_sha256": "5f04bb99d5cd330486838c958c22b9d91228889b6fa1a69ff5c0dd7fe97504da",
+      "chart_correlation_per_frame": [
+        0.946373,
+        0.946373,
+        0.946373
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 226.5111,
+          "dark_Y_mean": 122.8605,
+          "michelson_contrast": 0.296677
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 220.0217,
+          "dark_Y_mean": 130.3721,
+          "michelson_contrast": 0.255854
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 210.4545,
+          "dark_Y_mean": 137.9333,
+          "michelson_contrast": 0.208162
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 188.3409,
+          "dark_Y_mean": 159.5,
+          "michelson_contrast": 0.082914
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.9111,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000254
+        }
+      ]
+    },
+    {
+      "FE84": "50",
+      "raw_sha256": "83b2daf37cc7bbfc9b1ee42a3fa303b2583c90837a977fa1074939d97ac240b7",
+      "chart_correlation_per_frame": [
+        0.945493,
+        0.945493,
+        0.945493
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 226.6222,
+          "dark_Y_mean": 122.7442,
+          "michelson_contrast": 0.297333
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 220.3043,
+          "dark_Y_mean": 130.2326,
+          "michelson_contrast": 0.256954
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 211.0,
+          "dark_Y_mean": 137.2667,
+          "michelson_contrast": 0.211715
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 188.0909,
+          "dark_Y_mean": 159.0,
+          "michelson_contrast": 0.083814
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.9111,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000254
+        }
+      ]
+    },
+    {
+      "FE84": "54",
+      "raw_sha256": "4e6d5060ae9a96c3afdf0f04922fb20680e6b5887108f41535c110407f28812f",
+      "chart_correlation_per_frame": [
+        0.944535,
+        0.944535,
+        0.944535
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 226.8,
+          "dark_Y_mean": 122.5116,
+          "michelson_contrast": 0.298554
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 220.5652,
+          "dark_Y_mean": 129.9302,
+          "michelson_contrast": 0.258591
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 211.5227,
+          "dark_Y_mean": 136.6444,
+          "michelson_contrast": 0.215064
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 187.7955,
+          "dark_Y_mean": 158.5227,
+          "michelson_contrast": 0.084526
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.9111,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000254
+        }
+      ]
+    },
+    {
+      "FE84": "58",
+      "raw_sha256": "a0ea93a5e650c50010c973eb08669adf534a2c761396e859471aad9b4cf8a9a1",
+      "chart_correlation_per_frame": [
+        0.943591,
+        0.94359,
+        0.943591
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 226.9556,
+          "dark_Y_mean": 122.3488,
+          "michelson_contrast": 0.299472
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 220.8478,
+          "dark_Y_mean": 129.6047,
+          "michelson_contrast": 0.260358
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 212.0909,
+          "dark_Y_mean": 135.9778,
+          "michelson_contrast": 0.218673
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 187.5227,
+          "dark_Y_mean": 157.7955,
+          "michelson_contrast": 0.086087
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.9111,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000254
+        }
+      ]
+    },
+    {
+      "FE84": "5c",
+      "raw_sha256": "59d3679b8b3d0dd11ea90b6064413b0745791df5adaecabdc5bad5ba02db2fe2",
+      "chart_correlation_per_frame": [
+        0.94259,
+        0.94259,
+        0.94259
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 227.1556,
+          "dark_Y_mean": 122.186,
+          "michelson_contrast": 0.300478
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 221.0217,
+          "dark_Y_mean": 129.5116,
+          "michelson_contrast": 0.26106
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 212.4318,
+          "dark_Y_mean": 135.4889,
+          "michelson_contrast": 0.221151
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 187.2273,
+          "dark_Y_mean": 157.2273,
+          "michelson_contrast": 0.087094
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.9111,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000254
+        }
+      ]
+    },
+    {
+      "FE84": "60",
+      "raw_sha256": "d01822bfaafc9bd9a7bfa98b68d2f012127accbf1eb224cf85f293a4c2fb7587",
+      "chart_correlation_per_frame": [
+        0.941605,
+        0.941605,
+        0.941605
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 227.2667,
+          "dark_Y_mean": 122.0465,
+          "michelson_contrast": 0.30122
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 221.3043,
+          "dark_Y_mean": 129.2558,
+          "michelson_contrast": 0.262576
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 212.7727,
+          "dark_Y_mean": 134.9111,
+          "michelson_contrast": 0.223944
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 187.1364,
+          "dark_Y_mean": 156.6364,
+          "michelson_contrast": 0.088721
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.9111,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000254
+        }
+      ]
+    },
+    {
+      "FE84": "64",
+      "raw_sha256": "d84c73c25531e0e92650326c77e2c0859dfe7c8b31707d82443442c8d559e5b9",
+      "chart_correlation_per_frame": [
+        0.940616,
+        0.940616,
+        0.940616
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 227.3333,
+          "dark_Y_mean": 121.7907,
+          "michelson_contrast": 0.302307
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 221.3696,
+          "dark_Y_mean": 128.9767,
+          "michelson_contrast": 0.263719
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 212.75,
+          "dark_Y_mean": 134.2222,
+          "michelson_contrast": 0.226323
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 186.7273,
+          "dark_Y_mean": 155.9091,
+          "michelson_contrast": 0.089944
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.9111,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000254
+        }
+      ]
+    },
+    {
+      "FE84": "68",
+      "raw_sha256": "09075a94d5e10c4519a5d320e0bba385f76d55439d09d77840f49a4f6133c1af",
+      "chart_correlation_per_frame": [
+        0.939596,
+        0.939596,
+        0.939596
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 227.4222,
+          "dark_Y_mean": 121.814,
+          "michelson_contrast": 0.302398
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 221.5217,
+          "dark_Y_mean": 128.7674,
+          "michelson_contrast": 0.264793
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 212.8182,
+          "dark_Y_mean": 133.5778,
+          "michelson_contrast": 0.228757
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 186.5227,
+          "dark_Y_mean": 155.3182,
+          "michelson_contrast": 0.091284
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.9111,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000254
+        }
+      ]
+    },
+    {
+      "FE84": "6c",
+      "raw_sha256": "bcc0555e2e6466207dbdc06527863e3667fb9789d84b73ca01adb3e8c81d5787",
+      "chart_correlation_per_frame": [
+        0.938584,
+        0.938584,
+        0.938584
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 227.5556,
+          "dark_Y_mean": 121.5349,
+          "michelson_contrast": 0.303705
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 221.6522,
+          "dark_Y_mean": 128.4419,
+          "michelson_contrast": 0.266244
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 213.0682,
+          "dark_Y_mean": 133.1778,
+          "michelson_contrast": 0.230733
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 186.0909,
+          "dark_Y_mean": 154.6818,
+          "michelson_contrast": 0.09217
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.9111,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000254
+        }
+      ]
+    },
+    {
+      "FE84": "70",
+      "raw_sha256": "6c13c0d46d81506ac607e34766fc44120518fe9568e4fed2705d0f8b593c5df8",
+      "chart_correlation_per_frame": [
+        0.937565,
+        0.937566,
+        0.937565
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 227.6,
+          "dark_Y_mean": 121.4186,
+          "michelson_contrast": 0.304228
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 221.913,
+          "dark_Y_mean": 128.3256,
+          "michelson_contrast": 0.267211
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 213.1818,
+          "dark_Y_mean": 132.5556,
+          "michelson_contrast": 0.233201
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 185.8636,
+          "dark_Y_mean": 153.9318,
+          "michelson_contrast": 0.093974
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.8889,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000318
+        }
+      ]
+    },
+    {
+      "FE84": "74",
+      "raw_sha256": "3b7964443dfd29e2b62aa2c907183f124ce0619842a48d93001df81ea04c5494",
+      "chart_correlation_per_frame": [
+        0.93654,
+        0.93654,
+        0.93654
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 227.6667,
+          "dark_Y_mean": 121.2558,
+          "michelson_contrast": 0.30497
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 222.0,
+          "dark_Y_mean": 128.093,
+          "michelson_contrast": 0.268234
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 213.0909,
+          "dark_Y_mean": 131.8444,
+          "michelson_contrast": 0.235541
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 185.5,
+          "dark_Y_mean": 152.8636,
+          "michelson_contrast": 0.096454
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.8889,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000318
+        }
+      ]
+    },
+    {
+      "FE84": "78",
+      "raw_sha256": "d4f0b2df55e2786dd1a7c807755ccb3e5b920c8e977832f08104ec58894dc82d",
+      "chart_correlation_per_frame": [
+        0.935545,
+        0.935544,
+        0.935545
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 227.7333,
+          "dark_Y_mean": 121.1163,
+          "michelson_contrast": 0.305625
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 221.8043,
+          "dark_Y_mean": 127.7907,
+          "michelson_contrast": 0.268922
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 213.1818,
+          "dark_Y_mean": 131.3556,
+          "michelson_contrast": 0.237496
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 185.3409,
+          "dark_Y_mean": 151.4773,
+          "michelson_contrast": 0.10054
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.8889,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000318
+        }
+      ]
+    },
+    {
+      "FE84": "7a",
+      "raw_sha256": "ad9c5972cf518680921a162aaf323c503ebd95fbc6916f6c6d5ea9d32818e0fc",
+      "chart_correlation_per_frame": [
+        0.935044,
+        0.935043,
+        0.935044
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 227.7111,
+          "dark_Y_mean": 121.0698,
+          "michelson_contrast": 0.305755
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 221.8261,
+          "dark_Y_mean": 127.6512,
+          "michelson_contrast": 0.269474
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 213.25,
+          "dark_Y_mean": 131.0222,
+          "michelson_contrast": 0.238845
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 185.1364,
+          "dark_Y_mean": 150.75,
+          "michelson_contrast": 0.102375
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.8667,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000381
+        }
+      ]
+    },
+    {
+      "FE84": "7b",
+      "raw_sha256": "7990b3ca21e2fe3db3c736f6d22b8723fa3224d6b4d7b99d16773ae1d6d0e040",
+      "chart_correlation_per_frame": [
+        0.934828,
+        0.934828,
+        0.934828
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 227.6889,
+          "dark_Y_mean": 121.0465,
+          "michelson_contrast": 0.305797
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 221.7826,
+          "dark_Y_mean": 127.6744,
+          "michelson_contrast": 0.269298
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 213.3864,
+          "dark_Y_mean": 130.7333,
+          "michelson_contrast": 0.240187
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 185.1591,
+          "dark_Y_mean": 150.3409,
+          "michelson_contrast": 0.10378
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.8667,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000381
+        }
+      ]
+    },
+    {
+      "FE84": "7c",
+      "raw_sha256": "fe7edeb69e77a7fb2601c1d213564745376d204331ad8a7e1a6fcfb3df19854f",
+      "chart_correlation_per_frame": [
+        0.934535,
+        0.934534,
+        0.934535
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 227.7111,
+          "dark_Y_mean": 121.0233,
+          "michelson_contrast": 0.305929
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 221.8478,
+          "dark_Y_mean": 127.5814,
+          "michelson_contrast": 0.269773
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 213.3409,
+          "dark_Y_mean": 130.7556,
+          "michelson_contrast": 0.240006
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 184.9091,
+          "dark_Y_mean": 150.0455,
+          "michelson_contrast": 0.104085
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.8667,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000381
+        }
+      ]
+    },
+    {
+      "FE84": "80",
+      "raw_sha256": "9b7972e2a74d51b40d9e0b94dcf376e90de4b8cd49da130938cb8e8a9f6ac9ea",
+      "chart_correlation_per_frame": [
+        0.933539,
+        0.933538,
+        0.933539
+      ],
+      "flat_fields": {
+        "black": {
+          "min": 16,
+          "max": 16,
+          "mean": 16.0
+        },
+        "white": {
+          "min": 232,
+          "max": 232,
+          "mean": 232.0
+        },
+        "gray": {
+          "min": 117,
+          "max": 117,
+          "mean": 117.0
+        }
+      },
+      "stripe_response": [
+        {
+          "source_period_px": 32,
+          "bright_Y_mean": 227.7556,
+          "dark_Y_mean": 120.8605,
+          "michelson_contrast": 0.306627
+        },
+        {
+          "source_period_px": 16,
+          "bright_Y_mean": 221.7826,
+          "dark_Y_mean": 127.3256,
+          "michelson_contrast": 0.270567
+        },
+        {
+          "source_period_px": 8,
+          "bright_Y_mean": 213.3864,
+          "dark_Y_mean": 130.1778,
+          "michelson_contrast": 0.242192
+        },
+        {
+          "source_period_px": 4,
+          "bright_Y_mean": 184.7045,
+          "dark_Y_mean": 148.9091,
+          "michelson_contrast": 0.107296
+        },
+        {
+          "source_period_px": 2,
+          "bright_Y_mean": 174.8667,
+          "dark_Y_mean": 175.0,
+          "michelson_contrast": -0.000381
+        }
+      ]
+    }
+  ],
+  "restored_FE84": "7a",
+  "eeprom_after_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "eeprom_unchanged": true,
+  "registers_after": {
+    "FE80": "01",
+    "FE84": "7a",
+    "FE85": "00",
+    "F9A0": "00",
+    "F92C": "20",
+    "FEBA": "00"
+  }
+}

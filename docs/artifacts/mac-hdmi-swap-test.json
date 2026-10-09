@@ -1,0 +1,41 @@
+{
+  "source": {
+    "_name": "HDMI TO USB",
+    "_properties": "coreaudio_default_audio_system_device",
+    "coreaudio_default_audio_output_device": "spaudio_yes",
+    "coreaudio_default_audio_system_device": "spaudio_yes",
+    "coreaudio_device_manufacturer": "HJW",
+    "coreaudio_device_output": 2,
+    "coreaudio_device_srate": 48000,
+    "coreaudio_device_transport": "coreaudio_device_type_hdmi",
+    "coreaudio_output_source": "spaudio_default"
+  },
+  "reference": "artifacts/mac-hdmi-reference.wav",
+  "original_fe60": 16,
+  "captures": [
+    {
+      "label": "swap-baseline",
+      "value": 16,
+      "readback": 16,
+      "exit": 0,
+      "playback_exit": null,
+      "peak": 3277
+    },
+    {
+      "label": "swap01",
+      "value": 1,
+      "readback": 1,
+      "exit": 0,
+      "playback_exit": null
+    },
+    {
+      "label": "swap-restored",
+      "value": 16,
+      "readback": 16,
+      "exit": 0,
+      "playback_exit": null
+    }
+  ],
+  "restored_fe60": 16,
+  "playback_exit": -15
+}

@@ -1,0 +1,30 @@
+{
+  "command": [
+    "/usr/bin/clang",
+    "-fobjc-arc",
+    "-Wno-deprecated-declarations",
+    "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/tools/color_probe_macos.m",
+    "-framework",
+    "Cocoa",
+    "-framework",
+    "AVFoundation",
+    "-framework",
+    "CoreMedia",
+    "-framework",
+    "CoreVideo",
+    "-framework",
+    "CoreGraphics",
+    "-framework",
+    "ImageIO",
+    "-framework",
+    "UniformTypeIdentifiers",
+    "-framework",
+    "ScreenCaptureKit",
+    "-o",
+    "/private/tmp/ms2109-calibrated-startup-tools/observer"
+  ],
+  "sha256": {
+    "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/tools/color_probe_macos.m": "33cf9f5b95c25e5368ccc4c710fe6c59e251ae97b6aae7541d8a337607845f18",
+    "/private/tmp/ms2109-calibrated-startup-tools/observer": "f2edbcc85b0822e659d0f2bf4ec0e7203b802265c63b27db1c293bbcd5fa1169"
+  }
+}

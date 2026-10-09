@@ -1,0 +1,10 @@
+{"capture_backend":"libuvc raw payload, persistent handle","handle_session_pid":34574,"switch_index":0,"mode":"mjpeg","getter_profile":"GET_CUR only","control_profile":"untouched","controls_before":{"brightness_signed":-18,"contrast":149},"controls_active":{"brightness_signed":-18,"contrast":149},"vid":21325,"pid":8457,"format_index":1,"frame_index":1,"interval_100ns":333333,"max_frame_bytes":4147200,"max_payload_bytes":3072,"interface":1,"frames":[
+{"file":"frame-000.jpg","width":1920,"height":1080,"bytes":56728,"sequence":88,"pixel_format":"jpeg","pts_seconds":630790.229839000,"jpeg_soi":true},
+{"file":"frame-001.jpg","width":1920,"height":1080,"bytes":56746,"sequence":89,"pixel_format":"jpeg","pts_seconds":630790.261805000,"jpeg_soi":true},
+{"file":"frame-002.jpg","width":1920,"height":1080,"bytes":56728,"sequence":90,"pixel_format":"jpeg","pts_seconds":630790.297875000,"jpeg_soi":true},
+{"file":"frame-003.jpg","width":1920,"height":1080,"bytes":56746,"sequence":91,"pixel_format":"jpeg","pts_seconds":630790.329782000,"jpeg_soi":true},
+{"file":"frame-004.jpg","width":1920,"height":1080,"bytes":56728,"sequence":92,"pixel_format":"jpeg","pts_seconds":630790.362582000,"jpeg_soi":true},
+{"file":"frame-005.jpg","width":1920,"height":1080,"bytes":56746,"sequence":93,"pixel_format":"jpeg","pts_seconds":630790.393788000,"jpeg_soi":true},
+{"file":"frame-006.jpg","width":1920,"height":1080,"bytes":56728,"sequence":94,"pixel_format":"jpeg","pts_seconds":630790.429533000,"jpeg_soi":true},
+{"file":"frame-007.jpg","width":1920,"height":1080,"bytes":56746,"sequence":95,"pixel_format":"jpeg","pts_seconds":630790.463274000,"jpeg_soi":true}
+],"frames_captured":8,"frames_skipped_for_settling":87,"controls_after":{"brightness_signed":-18,"contrast":149},"controls_restoration_ok":true,"exit_code":0}

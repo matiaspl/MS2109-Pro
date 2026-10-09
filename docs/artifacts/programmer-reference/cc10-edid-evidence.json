@@ -1,0 +1,27 @@
+{
+  "scope": "saved images only; no live device inspection",
+  "images": [
+    {
+      "path": "backups/ms2109-original.bin",
+      "sha256": "37103dccfc6c5e2062b6d22a0a619729449427270e52ae4332fde0da0f49dfe1",
+      "flags": 5,
+      "cc10": "90de05ebf0a3eaf0a3e9f012634522",
+      "edid_sha256": "56732f27ad87a56fb762666b10c4eeb09ab60108c8f44ce19a4fc71ef05f6517",
+      "block_checksums": [
+        0,
+        0
+      ]
+    },
+    {
+      "path": "artifacts/ms2109-calibrated-stereo-channel-order.bin",
+      "sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+      "flags": 5,
+      "cc10": "90de05ebf0a3eaf0a3e9f012634522",
+      "edid_sha256": "56732f27ad87a56fb762666b10c4eeb09ab60108c8f44ce19a4fc71ef05f6517",
+      "block_checksums": [
+        0,
+        0
+      ]
+    }
+  ]
+}

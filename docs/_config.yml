@@ -1,0 +1,4 @@
+markdown: kramdown
+exclude:
+  - tools/__pycache__
+  - artifacts/**/compiled-tools

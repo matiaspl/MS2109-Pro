@@ -1,0 +1,35 @@
+{
+  "scope": "RAM-only pass-through hook trace; EEPROM was read but not written",
+  "run_id": "pass1",
+  "phase": "usb-and-irq",
+  "preflight": {
+    "chip": "534d:2109 MS2109",
+    "eeprom_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+    "initial_hook_flags": "05",
+    "audio_descriptor": "2 channel, 48000 Hz",
+    "status": "passed before installation"
+  },
+  "offline_hook_audit": {
+    "usb_wrapper_bytes": 161,
+    "irq_wrapper_bytes": 85,
+    "logger_bytes": 39,
+    "video_callback_bytes": 15,
+    "callback_relocated_in_ram": true,
+    "stock_usb_dispatch": "0x2AD0",
+    "patch_ram_sha256": "3edf8e0747812a497c70b30db43e75c2a68f34e5c531b06698c48973355d2d37"
+  },
+  "live_result": {
+    "capture": "AVFoundation input :usb video timed out after 26 seconds; no WAV or event log was produced",
+    "restore": "the first HID write to disable the temporary hook timed out; RAM readback could not verify restoration",
+    "eeprom_write_attempted": false
+  },
+  "post_attempt_status": {
+    "ffmpeg_process_remaining": false,
+    "usb_devices_reported_by_system_profiler": 0,
+    "read_only_hid_identity_check": "timed out"
+  },
+  "recovery": {
+    "action": "user unplugged and reconnected the dongle",
+    "verification": "artifacts/audio-usb-hook-trace-pass1-replug-check.json confirms the complete EEPROM, loaded header/code, calibrated descriptors, and FE60=01 match the saved image"
+  }
+}

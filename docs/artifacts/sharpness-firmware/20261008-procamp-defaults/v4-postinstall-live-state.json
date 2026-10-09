@@ -1,0 +1,19 @@
+{
+  "scope": "read-only live state after v4 EEPROM installation",
+  "observed_at": "2026-10-09",
+  "eeprom_size": 2048,
+  "eeprom_sha256_reads": [
+    "a42bfa5919cf164a2a1b4edb4152b156fe65db5c58e55da9d53ef1c0bb52a3eb",
+    "a42bfa5919cf164a2a1b4edb4152b156fe65db5c58e55da9d53ef1c0bb52a3eb"
+  ],
+  "eeprom_matches_v4": true,
+  "ram_header_hex": "a55a07890710ffffffffffff200722040b4d53323130392d50726fffffffffff0b4d53323130392d50726fffffffffff",
+  "ram_header_code_bytes": 1929,
+  "ram_header_matches_v4": false,
+  "ram_header_matches_v3": true,
+  "running_overlay_bytes_in_header": 1933,
+  "running_overlay_sha256": "1318e6431ee101b87547a301630ec7e5be0aaeadfa2ba2ffcb9181151a77d013",
+  "running_overlay_matches_v1": true,
+  "writes_performed": 0,
+  "interpretation": "EEPROM contains v4, but the currently active RAM header/code still reflects the prior v3-header/v1-overlay state. A full power removal and reload are required before v4 startup is qualified."
+}

@@ -1,0 +1,41 @@
+{
+  "scope": "volatile RAM qualification; EEPROM read-only",
+  "candidate_sha256": "b0b25243c155086bb0b96d41a5927104a3f04a8a1f5a3ae3930568943f5690d7",
+  "candidate_code_length": 1993,
+  "checks": {},
+  "restoration": {
+    "attempted": true,
+    "ram_ranges_match": true,
+    "eeprom_sha256_read1": "543d35dc33ff9f0bf60fe24066032c56aa40b23b7c2b58207c7afdb955f41961",
+    "eeprom_sha256_read2": "543d35dc33ff9f0bf60fe24066032c56aa40b23b7c2b58207c7afdb955f41961",
+    "eeprom_unchanged": true
+  },
+  "eeprom_sha256_before": "543d35dc33ff9f0bf60fe24066032c56aa40b23b7c2b58207c7afdb955f41961",
+  "previous_flags": 5,
+  "live_ram_code_length": 1993,
+  "loaded_image_matches_eeprom": true,
+  "before_product_ram_hex": "1403750073006200200076006900640065006f006f00",
+  "before_product_ep0": {
+    "hex": "16034d00530032003100300039002d00500072006f00",
+    "decoded": "MS2109-Pro"
+  },
+  "candidate_staged_in_ram": true,
+  "product_ram_after_poll_hex": "16034d00530032003100300039002d00500072006f00",
+  "callback_stage2_repaired_buffer": true,
+  "product_ep0_before_usb_reset": {
+    "hex": "16034d00530032003100300039002d00500072006f00",
+    "decoded": "MS2109-Pro"
+  },
+  "libusb_reset_device_result": 0,
+  "live_header_after_usb_reset": "a55a07c90510ffffffffffff20072204",
+  "candidate_overlay_survived_usb_reset": true,
+  "product_ram_after_usb_reset_hex": "16034d00530032003100300039002d00500072006f00",
+  "product_ep0_after_usb_reset": {
+    "hex": "16034d00530032003100300039002d00500072006f00",
+    "decoded": "MS2109-Pro"
+  },
+  "ep0_matches_candidate": true,
+  "calibrated_procamp_retained": true,
+  "color_records_retained": true,
+  "status": "passed: stage-2 RAM hook returned MS2109-Pro over raw EP0"
+}

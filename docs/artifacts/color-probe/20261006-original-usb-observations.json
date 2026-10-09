@@ -1,0 +1,57 @@
+{
+  "after_capture_color_state": {
+    "night_shift_strength": 0.5,
+    "night_shift_configured_cct_kelvin": 4100,
+    "night_shift_status_hex": "01000100000000001600000000000000070000000000000000000000000000000100000000000000",
+    "api": "CoreBrightness private API; interpretation guarded by runtime type encoding",
+    "night_shift_status_read_ok": true,
+    "status_field_validation": "Dictionary field mapping only; visual effect activity not verified.",
+    "true_tone_enabled": false,
+    "status_type_encoding": "B24@0:8^{?=BBBi{?={?=ii}{?=ii}}QB}16",
+    "night_shift_api_reported_enabled": 0,
+    "night_shift_api_auto_enabled": 1,
+    "night_shift_api_sun_schedule_allowed": 1,
+    "night_shift_effect_state_verified": false,
+    "night_shift_api_limitation": "BlueReductionEnabled=0 was observed during the user-confirmed enabled baseline. The dictionary mapping does not establish visual effect activity.",
+    "user_reported_color_state": {
+      "true_tone_enabled": false,
+      "night_shift_enabled": false
+    },
+    "user_reported_timeline": "After disable event"
+  },
+  "picture_control_bytes_unchanged": {
+    "c6a0": true,
+    "fe90": true
+  },
+  "procamp_before": {
+    "chip": "MS2109",
+    "eeprom_size": 2048,
+    "c4c1": "0b2402010202100180bb00",
+    "c6a0": "0000800000008000",
+    "fe90": "00808000",
+    "cbd0": "a55a07120510ffffffffffff200722040a75736220766964656fffffffffffff0a75736220766964656fffffffffffff"
+  },
+  "procamp_after": {
+    "chip": "MS2109",
+    "eeprom_size": 2048,
+    "c4c1": "0b2402010202100180bb00",
+    "c6a0": "0000800000008000",
+    "fe90": "00808000",
+    "cbd0": "a55a07120510ffffffffffff200722040a75736220766964656fffffffffffff0a75736220766964656fffffffffffff"
+  },
+  "driver_restored_capture_frames": 3,
+  "driver_restored_best_model": {
+    "matrix": "709",
+    "range": "limited",
+    "direct_yuv_rmse": 0.7593648850687128,
+    "direct_yuv_mae": 0.5182505303228546,
+    "rgb_rmse": 1.6859504297112444,
+    "gain_fit_rgb": [
+      0.9889493838792373,
+      0.9978383144351234,
+      0.9868667186409962
+    ],
+    "gain_fit_holdout_yuv_rmse": 0.5569803190959848,
+    "gain_fit_all_yuv_rmse": 0.5448694187522288
+  }
+}

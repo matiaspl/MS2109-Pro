@@ -1,0 +1,139 @@
+{
+  "test": "RAM-only FE84 scaled-output Y comparison",
+  "capture_mode": [
+    1280,
+    720
+  ],
+  "frames_per_state": 8,
+  "chart_session": "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/scaler-f9a0/chart-session-20261007-001220-51789",
+  "firmware_written": false,
+  "eeprom_before_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "registers_before": {
+    "FE80": "01",
+    "FE84": "7a",
+    "FE85": "00",
+    "F9A0": "00",
+    "F92C": "20",
+    "FEBA": "00"
+  },
+  "baseline_7a": {
+    "sha256": "5c8b18909b7f9f2c6ce06f3a382a2cc7d4450d483b03a83ec6d059543aa6428f",
+    "shape": [
+      8,
+      720,
+      1280
+    ],
+    "frame_means": [
+      64.68004,
+      64.67931,
+      64.68007,
+      64.67932,
+      64.68008,
+      64.67931,
+      64.68006,
+      64.67931
+    ],
+    "frame_stddevs": [
+      45.46898,
+      45.46953,
+      45.46904,
+      45.46956,
+      45.46905,
+      45.46961,
+      45.4691,
+      45.46961
+    ],
+    "flat_regions": {
+      "black": {
+        "min": 16,
+        "max": 85,
+        "mean": 67.50833,
+        "nonmodal_samples": 182888
+      },
+      "white": {
+        "min": 16,
+        "max": 116,
+        "mean": 29.62875,
+        "nonmodal_samples": 137548
+      },
+      "gray": {
+        "min": 0,
+        "max": 127,
+        "mean": 48.90896,
+        "nonmodal_samples": 17416
+      }
+    }
+  },
+  "candidate_40": {
+    "sha256": "4863ae4f19e0771b048fd2bf25fe2d14f5bef85780619f36f2a4f6fe37e6c6c7",
+    "shape": [
+      8,
+      720,
+      1280
+    ],
+    "frame_means": [
+      64.63801,
+      64.63787,
+      64.63805,
+      64.63789,
+      64.63806,
+      64.63792,
+      64.63754,
+      64.63738
+    ],
+    "frame_stddevs": [
+      45.10814,
+      45.10831,
+      45.10821,
+      45.10836,
+      45.10824,
+      45.10841,
+      45.10741,
+      45.10753
+    ],
+    "flat_regions": {
+      "black": {
+        "min": 18,
+        "max": 80,
+        "mean": 67.45315,
+        "nonmodal_samples": 175224
+      },
+      "white": {
+        "min": 22,
+        "max": 111,
+        "mean": 29.5845,
+        "nonmodal_samples": 119644
+      },
+      "gray": {
+        "min": 12,
+        "max": 119,
+        "mean": 48.87271,
+        "nonmodal_samples": 16724
+      }
+    }
+  },
+  "candidate_minus_baseline_y": {
+    "mean_absolute_code_delta": 1.505994,
+    "max_absolute_code_delta": 87,
+    "changed_sample_fraction": 0.69851169,
+    "fraction_within_1_code": 0.6991706,
+    "per_frame_mean_absolute_delta": [
+      1.505889,
+      1.505747,
+      1.505889,
+      1.505747,
+      1.505867,
+      1.506059,
+      1.506437,
+      1.506315
+    ],
+    "mean_absolute_delta_by_region": {
+      "center": 1.474355,
+      "fine_chart": 2.892648,
+      "lower_gray": 0.910417
+    }
+  },
+  "restored_fe84": "7a",
+  "eeprom_after_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "eeprom_unchanged": true
+}

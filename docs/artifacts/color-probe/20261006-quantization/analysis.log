@@ -1,0 +1,484 @@
+{
+  "comparisons": {
+    "current": {
+      "usb_jpeg_vs_yuy2_yuv_rmse": 0.08699631816921909,
+      "avf_yuy2_vs_usb_yuy2_yuv_rmse": 0.0,
+      "avf_decoded_vs_reference": "usb-current-mjpeg",
+      "avf_decoded_identity_rmse": 7.180839305053414,
+      "avf_decoded_extra_full_to_limited_rmse": 0.26289929650869653
+    },
+    "ui127": {
+      "usb_jpeg_vs_yuy2_yuv_rmse": 0.1517583571284736
+    }
+  },
+  "ramps": {
+    "avf-current-decoded": {
+      "gray": {
+        "black_end": [
+          30.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          218.0,
+          128.0,
+          128.0
+        ],
+        "unique_median_codes_per_component": [
+          189,
+          1,
+          1
+        ],
+        "unique_median_triplets": 189,
+        "unchanged_adjacent_input_pairs": 67
+      },
+      "red": {
+        "black_end": [
+          30.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          69.0,
+          105.0,
+          226.0
+        ],
+        "unique_median_codes_per_component": [
+          40,
+          24,
+          99
+        ],
+        "unique_median_triplets": 132,
+        "unchanged_adjacent_input_pairs": 124
+      },
+      "green": {
+        "black_end": [
+          30.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          164.0,
+          52.0,
+          38.0
+        ],
+        "unique_median_codes_per_component": [
+          135,
+          77,
+          91
+        ],
+        "unique_median_triplets": 201,
+        "unchanged_adjacent_input_pairs": 55
+      },
+      "blue": {
+        "black_end": [
+          30.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          43.0,
+          226.0,
+          119.0
+        ],
+        "unique_median_codes_per_component": [
+          14,
+          99,
+          10
+        ],
+        "unique_median_triplets": 106,
+        "unchanged_adjacent_input_pairs": 150
+      }
+    },
+    "avf-current-yuy2": {
+      "gray": {
+        "black_end": [
+          16.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          235.0,
+          128.0,
+          128.0
+        ],
+        "unique_median_codes_per_component": [
+          220,
+          1,
+          1
+        ],
+        "unique_median_triplets": 220,
+        "unchanged_adjacent_input_pairs": 36
+      },
+      "red": {
+        "black_end": [
+          16.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          62.0,
+          102.0,
+          238.5
+        ],
+        "unique_median_codes_per_component": [
+          47,
+          39,
+          127
+        ],
+        "unique_median_triplets": 169,
+        "unchanged_adjacent_input_pairs": 87
+      },
+      "green": {
+        "black_end": [
+          16.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          172.0,
+          41.0,
+          26.0
+        ],
+        "unique_median_codes_per_component": [
+          157,
+          104,
+          124
+        ],
+        "unique_median_triplets": 228,
+        "unchanged_adjacent_input_pairs": 28
+      },
+      "blue": {
+        "black_end": [
+          16.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          31.0,
+          238.5,
+          117.5
+        ],
+        "unique_median_codes_per_component": [
+          16,
+          127,
+          22
+        ],
+        "unique_median_triplets": 145,
+        "unchanged_adjacent_input_pairs": 111
+      }
+    },
+    "usb-current-mjpeg": {
+      "gray": {
+        "black_end": [
+          16.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          235.0,
+          128.0,
+          128.0
+        ],
+        "unique_median_codes_per_component": [
+          220,
+          1,
+          1
+        ],
+        "unique_median_triplets": 220,
+        "unchanged_adjacent_input_pairs": 36
+      },
+      "red": {
+        "black_end": [
+          16.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          62.0,
+          102.0,
+          239.0
+        ],
+        "unique_median_codes_per_component": [
+          47,
+          27,
+          112
+        ],
+        "unique_median_triplets": 149,
+        "unchanged_adjacent_input_pairs": 107
+      },
+      "green": {
+        "black_end": [
+          16.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          172.0,
+          41.0,
+          26.0
+        ],
+        "unique_median_codes_per_component": [
+          157,
+          88,
+          103
+        ],
+        "unique_median_triplets": 220,
+        "unchanged_adjacent_input_pairs": 36
+      },
+      "blue": {
+        "black_end": [
+          16.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          31.0,
+          239.0,
+          118.0
+        ],
+        "unique_median_codes_per_component": [
+          16,
+          112,
+          11
+        ],
+        "unique_median_triplets": 120,
+        "unchanged_adjacent_input_pairs": 136
+      }
+    },
+    "usb-current-yuy2": {
+      "gray": {
+        "black_end": [
+          16.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          235.0,
+          128.0,
+          128.0
+        ],
+        "unique_median_codes_per_component": [
+          220,
+          1,
+          1
+        ],
+        "unique_median_triplets": 220,
+        "unchanged_adjacent_input_pairs": 36
+      },
+      "red": {
+        "black_end": [
+          16.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          62.0,
+          102.0,
+          238.5
+        ],
+        "unique_median_codes_per_component": [
+          47,
+          39,
+          127
+        ],
+        "unique_median_triplets": 169,
+        "unchanged_adjacent_input_pairs": 87
+      },
+      "green": {
+        "black_end": [
+          16.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          172.0,
+          41.0,
+          26.0
+        ],
+        "unique_median_codes_per_component": [
+          157,
+          104,
+          124
+        ],
+        "unique_median_triplets": 228,
+        "unchanged_adjacent_input_pairs": 28
+      },
+      "blue": {
+        "black_end": [
+          16.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          31.0,
+          238.5,
+          117.5
+        ],
+        "unique_median_codes_per_component": [
+          16,
+          127,
+          22
+        ],
+        "unique_median_triplets": 145,
+        "unchanged_adjacent_input_pairs": 111
+      }
+    },
+    "usb-ui127-mjpeg": {
+      "gray": {
+        "black_end": [
+          14.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          232.0,
+          128.0,
+          128.0
+        ],
+        "unique_median_codes_per_component": [
+          219,
+          1,
+          1
+        ],
+        "unique_median_triplets": 219,
+        "unchanged_adjacent_input_pairs": 37
+      },
+      "red": {
+        "black_end": [
+          14.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          60.0,
+          102.0,
+          239.0
+        ],
+        "unique_median_codes_per_component": [
+          47,
+          27,
+          112
+        ],
+        "unique_median_triplets": 152,
+        "unchanged_adjacent_input_pairs": 104
+      },
+      "green": {
+        "black_end": [
+          14.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          169.0,
+          41.0,
+          26.0
+        ],
+        "unique_median_codes_per_component": [
+          156,
+          88,
+          103
+        ],
+        "unique_median_triplets": 221,
+        "unchanged_adjacent_input_pairs": 35
+      },
+      "blue": {
+        "black_end": [
+          14.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          30.0,
+          239.0,
+          118.0
+        ],
+        "unique_median_codes_per_component": [
+          17,
+          112,
+          11
+        ],
+        "unique_median_triplets": 117,
+        "unchanged_adjacent_input_pairs": 139
+      }
+    },
+    "usb-ui127-yuy2": {
+      "gray": {
+        "black_end": [
+          14.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          232.0,
+          128.0,
+          128.0
+        ],
+        "unique_median_codes_per_component": [
+          220,
+          1,
+          1
+        ],
+        "unique_median_triplets": 220,
+        "unchanged_adjacent_input_pairs": 36
+      },
+      "red": {
+        "black_end": [
+          14.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          60.0,
+          102.0,
+          238.5
+        ],
+        "unique_median_codes_per_component": [
+          47,
+          39,
+          127
+        ],
+        "unique_median_triplets": 165,
+        "unchanged_adjacent_input_pairs": 91
+      },
+      "green": {
+        "black_end": [
+          14.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          169.0,
+          41.0,
+          26.0
+        ],
+        "unique_median_codes_per_component": [
+          157,
+          104,
+          124
+        ],
+        "unique_median_triplets": 229,
+        "unchanged_adjacent_input_pairs": 27
+      },
+      "blue": {
+        "black_end": [
+          14.0,
+          128.0,
+          128.0
+        ],
+        "full_end": [
+          29.0,
+          238.5,
+          117.5
+        ],
+        "unique_median_codes_per_component": [
+          16,
+          127,
+          22
+        ],
+        "unique_median_triplets": 145,
+        "unchanged_adjacent_input_pairs": 111
+      }
+    }
+  }
+}

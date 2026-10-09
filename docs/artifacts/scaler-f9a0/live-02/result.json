@@ -1,0 +1,44 @@
+{
+  "scope": "F9A0 bit 0 temporary RAM-only test; 1280x720 YUY2 capture",
+  "input_state": "active HDMI baseline confirmed nonuniform before test",
+  "stages": [
+    {
+      "name": "baseline",
+      "capture_size": [
+        1280,
+        720
+      ],
+      "sampled_luma_mean": 12.194,
+      "sampled_luma_stddev": 43.743,
+      "mean_abs_horizontal_luma_step": 8.248,
+      "mean_abs_vertical_luma_step": 7.483,
+      "sampled_unique_rgb_count": 2703,
+      "raw_frame_sha256": "13151a60d9fb5cd783da0bfa89dbe67c5b685c5fd02e1899c088882aa8b6f6f0"
+    },
+    {
+      "name": "bit0-toggled",
+      "capture_size": [
+        1280,
+        720
+      ],
+      "sampled_luma_mean": 12.195,
+      "sampled_luma_stddev": 43.744,
+      "mean_abs_horizontal_luma_step": 8.255,
+      "mean_abs_vertical_luma_step": 7.493,
+      "sampled_unique_rgb_count": 2724,
+      "raw_frame_sha256": "65f705935d9ea4788a2abbcc7b812e09eca9c9a2fe6f140d3f37abe2f189a085"
+    }
+  ],
+  "eeprom_before_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "f9a0_original": 0,
+  "f92c_before": 32,
+  "feba_before": 0,
+  "f9a0_test_value": 1,
+  "f9a0_after_write": 1,
+  "f9a0_after_test_capture": 1,
+  "f9a0_restored": 1,
+  "f92c_after": 32,
+  "feba_after": 0,
+  "eeprom_after_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "eeprom_unchanged": true
+}

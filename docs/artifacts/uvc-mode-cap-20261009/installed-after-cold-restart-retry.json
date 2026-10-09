@@ -1,0 +1,39 @@
+{
+  "scope": "cold-start EEPROM, descriptor and MJPEG capture qualification",
+  "candidate_sha256": "0d8d3139b51edc4ff283dab33f00c2270f2134d95bce4bf7a351dcf38c14bb82",
+  "overlay_bytes": 1851,
+  "installed_eeprom": {
+    "eeprom_sha256_read1": "0d8d3139b51edc4ff283dab33f00c2270f2134d95bce4bf7a351dcf38c14bb82",
+    "eeprom_sha256_read2": "0d8d3139b51edc4ff283dab33f00c2270f2134d95bce4bf7a351dcf38c14bb82"
+  },
+  "loaded_header_matches": true,
+  "loaded_overlay_and_checksums_match": true,
+  "descriptor_type_2": {
+    "width": 1920,
+    "height": 1080,
+    "default_interval_100ns": 333333,
+    "interval_count": 5,
+    "intervals_100ns": [
+      333333,
+      333333,
+      400000,
+      500000,
+      1000000
+    ],
+    "fps_approx": [
+      30.0,
+      30.0,
+      25.0,
+      20.0,
+      10.0
+    ]
+  },
+  "descriptor_processing_unit_bitmap": "0f00",
+  "capture_process": {
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "UVC acquisition: Access denied (-3)\n",
+    "output_directory": "artifacts/uvc-mode-cap-20261009/installed-mjpeg-1080p30-capture"
+  },
+  "status": "FAILED: Direct UVC capture failed with status 1"
+}

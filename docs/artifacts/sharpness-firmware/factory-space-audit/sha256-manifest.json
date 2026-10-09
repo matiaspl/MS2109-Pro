@@ -1,0 +1,17 @@
+{
+  "artifacts/sharpness-firmware/factory-space-audit/audit.json": "0fe4e4d40d0b0d093a35f56feea6e05514f977abb66bc3b121b80c4d2ed64350",
+  "artifacts/sharpness-firmware/factory-space-audit/factory-linear.txt": "d5b740243497259f8ca20779f95aba219057fb9477535901e8123abfdebb6f41",
+  "artifacts/sharpness-firmware/factory-space-audit/tests.txt": "37dbd581cb1565922b56ee092c98f56e072f0d6af6e3fa350f01d09ab3d1e339",
+  "artifacts/sharpness-firmware/factory-space-audit/rom-switch.txt": "4b8f08001a81d61367cf3829ec538810d313864a96680c7d3292ba5e45733d2d",
+  "artifacts/sharpness-firmware/factory-space-audit/copy.txt": "ec7cdbd428764641b01c0250b7a6e01c09548d6a200c1cbcee0baba9c96dad3b",
+  "artifacts/sharpness-firmware/factory-space-audit/compact-experiment.overlay.bin": "42b62146d0e154ba3fa53bcc01dab8c0cee06cb73b35a41c71055148500d0176",
+  "artifacts/sharpness-firmware/factory-space-audit/factory.overlay.bin": "912a3e060aa5a94af4db7e7245afba62a8e5707785f38fefc1e0cafca1863f6a",
+  "artifacts/sharpness-firmware/factory-space-audit/compact-copy.bin": "1d96790218096edc1a8293ab184a2c0e3547ca17894302d957510bba0d89d754",
+  "tools/audit_factory_space.py": "595471b31d06b03ec1b06b1fbca07749b7bbfff1fc68cb7b3771727740698d7a",
+  "tools/mcs51_rom_harness.py": "c1a4637794505668f6047061d60c7e5b6e7f0f278f9f23f637af985226dbf3a8",
+  "tests/test_factory_space.py": "9de29bdfe97e5946eb393224fd6884abff1d2d85b4785147d71dd6ea03d7c652",
+  "docs/2026-10-07_ms2109-factory-space-report.md": "cb33499b4582877bb53ded6976c44b788d66e5d31a08e61c4481969114bfc2ee",
+  "artifacts/sharpness-firmware/factory-space-audit/startup-entry-review.json": "f90664a7231c650827ebdf95d98fb476dc4f75b541f7dd57cade2919fdde6496",
+  "artifacts/sharpness-firmware/factory-space-audit/startup-root-traces.json": "815c9d44e187bd493fdc181d08c5ea63564a6302fdb9205567ed1fcb52bbb324",
+  "tools/trace_startup_roots.py": "0d025a271226947284fa27435ad20a24aafa77c1b6e510e4416133d3ff7c421c"
+}

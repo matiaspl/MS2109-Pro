@@ -1,0 +1,17 @@
+[AVFoundation indev @ 0xae503c140] Configuration of video device failed, falling back to default.
+[in#0/avfoundation @ 0xae4c54000] Stream #0: not enough frames to estimate rate; consider increasing probesize
+Input #0, avfoundation, from '0:none':
+  Duration: N/A, start: 541156.570000, bitrate: N/A
+  Stream #0:0: Video: rawvideo (NV12 / 0x3231564E), nv12, 1920x1080, 1000k tbr, 1000k tbn, start 541156.570000
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (h264_videotoolbox))
+Press [q] to stop, [?] for help
+Output #0, matroska, to '/tmp/ms2109-native-pattern-nv12-60.mkv':
+  Metadata:
+    encoder         : Lavf63.1.102
+  Stream #0:0: Video: h264 (H264 / 0x34363248), nv12(progressive), 1920x1080, q=2-31, 20000 kb/s, 1000k fps, 1k tbn
+    Metadata:
+      encoder         : Lavc63.1.102 h264_videotoolbox
+[h264_videotoolbox @ 0xae3719880] Color range not set for nv12. Using MPEG range.
+frame=    3 fps=0.0 q=-0.0 size=       1KiB time=00:00:00.00 bitrate=N/A speed=   0x elapsed=0:00:00.51    frame=    5 fps=4.9 q=-0.0 size=       1KiB time=00:00:00.40 bitrate=  11.5kbits/s speed=0.393x elapsed=0:00:01.01    frame=    8 fps=5.3 q=-0.0 size=       1KiB time=00:00:01.00 bitrate=   4.6kbits/s speed=0.657x elapsed=0:00:01.52    frame=   10 fps=4.9 q=-0.0 size=       1KiB time=00:00:01.40 bitrate=   3.3kbits/s speed=0.691x elapsed=0:00:02.02    frame=   13 fps=5.1 q=-0.0 size=       1KiB time=00:00:02.00 bitrate=   2.3kbits/s speed=0.79x elapsed=0:00:02.53    frame=   15 fps=4.9 q=-0.0 size=     256KiB time=00:00:02.40 bitrate= 873.4kbits/s speed=0.791x elapsed=0:00:03.03    frame=   18 fps=5.1 q=-0.0 size=     256KiB time=00:00:03.00 bitrate= 699.1kbits/s speed=0.848x elapsed=0:00:03.53    frame=   20 fps=5.0 q=-0.0 size=     256KiB time=00:00:03.40 bitrate= 616.6kbits/s speed=0.842x elapsed=0:00:04.03    frame=   23 fps=5.1 q=-0.0 size=     256KiB time=00:00:03.99 bitrate= 524.3kbits/s speed=0.88x elapsed=0:00:04.54    frame=   26 fps=5.2 q=-0.0 size=     768KiB time=00:00:04.60 bitrate=1367.4kbits/s speed=0.911x elapsed=0:00:05.04    frame=   28 fps=5.0 q=-0.0 size=     768KiB time=00:00:05.00 bitrate=1258.0kbits/s speed=0.901x elapsed=0:00:05.55    [out#0/matroska @ 0xae4c0edc0] video:1166KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.076946%
+frame=   30 fps=5.0 q=-0.0 Lsize=    1167KiB time=00:00:05.40 bitrate=1770.4kbits/s speed=0.897x elapsed=0:00:06.02    

@@ -15,3 +15,32 @@ tools/capture_audio_usb
 artifacts/ms2109-repair/**/compiled-tools/
 # Large user-owned raw captures retained locally; checksums are in FILE_INVENTORY.tsv
 development/artifacts/ms2109-repair-local-only/
+
+# Images and video clips stay in local working copies, not the remote archive
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.bmp
+*.tif
+*.tiff
+*.heic
+*.dng
+*.raw
+*.cr2
+*.nef
+*.arw
+*.mov
+*.mp4
+*.m4v
+*.webm
+*.avi
+*.wmv
+*.mpeg
+*.mpg
+
+# Generated image-free GitHub Pages source
+/docs/
+!/docs/
+!/docs/**

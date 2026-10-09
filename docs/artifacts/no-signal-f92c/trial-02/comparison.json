@@ -1,0 +1,34 @@
+[
+  {
+    "stage": "baseline",
+    "frames": 20,
+    "unique_frame_hashes": [
+      "c5105c8504014cec18324ce1a79758be"
+    ],
+    "png_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+  },
+  {
+    "stage": "f92c-20",
+    "frames": 20,
+    "unique_frame_hashes": [
+      "c5105c8504014cec18324ce1a79758be"
+    ],
+    "png_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+  },
+  {
+    "stage": "f92c-30",
+    "frames": 20,
+    "unique_frame_hashes": [
+      "c5105c8504014cec18324ce1a79758be"
+    ],
+    "png_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+  },
+  {
+    "stage": "restored",
+    "frames": 20,
+    "unique_frame_hashes": [
+      "c5105c8504014cec18324ce1a79758be"
+    ],
+    "png_sha256": "df26bae2b0813498ed7b378e67577b0f1bca8c383c798283224d7e1291c76e7d"
+  }
+]

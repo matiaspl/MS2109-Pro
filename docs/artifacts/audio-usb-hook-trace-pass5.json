@@ -1,0 +1,85 @@
+{
+  "scope": "temporary RAM hooks; EEPROM untouched",
+  "run_id": "pass5",
+  "phase": "usb-and-irq",
+  "eeprom_sha256": "83d13d9f31aee5301937adffbe8ed86c56ea5ec95a9880c4260cb7d25e1d5e82",
+  "audio_state_before": {
+    "fe60": 1,
+    "audio_channels": 2,
+    "sample_rate_descriptor": "80bb00"
+  },
+  "initial_hook_flags": "05",
+  "hook_sha256": "97f68ad24ed0b21b8e9235edeef8a20e0a311a4597b9a00e984c310b49281633",
+  "capture": {
+    "capture_command": [
+      "ffmpeg",
+      "-n",
+      "-hide_banner",
+      "-f",
+      "avfoundation",
+      "-i",
+      ":usb video",
+      "-t",
+      "8",
+      "-vn",
+      "-c:a",
+      "pcm_s16le",
+      "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/audio-usb-hook-trace-pass5.wav"
+    ],
+    "capture_returncode": 0,
+    "capture_log_tail": "\n  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))\nPress [q] to stop, [?] for help\nOutput #0, wav, to '/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/audio-usb-hook-trace-pass5.wav':\n  Metadata:\n    ISFT            : Lavf63.1.101\n  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s\n    Metadata:\n      encoder         : Lavc63.1.101 pcm_s16le\nsize=      80KiB time=00:00:00.50 bitrate=1308.5kbits/s speed=0.993x elapsed=0:00:00.50    \nsize=     160KiB time=00:00:01.01 bitrate=1294.1kbits/s speed=   1x elapsed=0:00:01.00    \nsize=     248KiB time=00:00:01.52 bitrate=1332.3kbits/s speed=1.01x elapsed=0:00:01.51    \nsize=     256KiB time=00:00:02.02 bitrate=1034.8kbits/s speed=   1x elapsed=0:00:02.01    \nsize=     256KiB time=00:00:02.51 bitrate= 833.1kbits/s speed=0.998x elapsed=0:00:02.52    \nsize=     256KiB time=00:00:03.02 bitrate= 692.3kbits/s speed=   1x elapsed=0:00:03.02    \nsize=     512KiB time=00:00:03.52 bitrate=1191.6kbits/s speed=0.998x elapsed=0:00:03.52    \nsize=     512KiB time=00:00:04.03 bitrate=1040.3kbits/s speed=   1x elapsed=0:00:04.03    \nsize=     512KiB time=00:00:04.53 bitrate= 925.2kbits/s speed=   1x elapsed=0:00:04.53    \nsize=     768KiB time=00:00:05.04 bitrate=1247.0kbits/s speed=   1x elapsed=0:00:05.04    \nsize=     768KiB time=00:00:05.53 bitrate=1136.5kbits/s speed=0.997x elapsed=0:00:05.55    \nsize=     768KiB time=00:00:06.05 bitrate=1038.4kbits/s speed=   1x elapsed=0:00:06.05    \nsize=    1024KiB time=00:00:06.56 bitrate=1278.8kbits/s speed=   1x elapsed=0:00:06.56    \nsize=    1024KiB time=00:00:07.07 bitrate=1186.2kbits/s speed=   1x elapsed=0:00:07.06    \nsize=    1024KiB time=00:00:07.57 bitrate=1107.7kbits/s speed=   1x elapsed=0:00:07.57    \n[out#0/wav @ 0x931035500] video:0KiB audio:1286KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.005923%\nsize=    1286KiB time=00:00:08.00 bitrate=1316.9kbits/s speed=0.997x elapsed=0:00:08.02    \n",
+    "capture_sha256": "516c9ddf48a6f872a9278f59332cb274c678ab807bc4a24324339f90bfcadc3a",
+    "capture_bytes": 1316942,
+    "event_count": 5,
+    "events": [
+      {
+        "index": 0,
+        "code": "0x21",
+        "event": "first EP2 re-arm observation before any SET_INTERFACE"
+      },
+      {
+        "index": 1,
+        "code": "0x11",
+        "event": "SET_INTERFACE alt 1"
+      },
+      {
+        "index": 2,
+        "code": "0x22",
+        "event": "first EP2 re-arm observation after latest SET_INTERFACE"
+      },
+      {
+        "index": 3,
+        "code": "0x10",
+        "event": "SET_INTERFACE alt 0"
+      },
+      {
+        "index": 4,
+        "code": "0x22",
+        "event": "first EP2 re-arm observation after latest SET_INTERFACE"
+      }
+    ],
+    "reference_playback": {
+      "wav": "artifacts/mac-hdmi-reference.wav",
+      "sha256": "353483993683891543253fc389ba4b3f493568558fa2d4efc45f9e7c5aab582e",
+      "command": [
+        "afplay",
+        "/Users/mstarzak/Documents/ChatGPT/ms2901-patches/artifacts/mac-hdmi-reference.wav"
+      ],
+      "hdmi_output": {
+        "_name": "HDMI TO USB",
+        "_properties": "coreaudio_default_audio_system_device",
+        "coreaudio_default_audio_output_device": "spaudio_yes",
+        "coreaudio_default_audio_system_device": "spaudio_yes",
+        "coreaudio_device_manufacturer": "HJW",
+        "coreaudio_device_output": 2,
+        "coreaudio_device_srate": 48000,
+        "coreaudio_device_transport": "coreaudio_device_type_hdmi",
+        "coreaudio_output_source": "spaudio_default"
+      },
+      "playback_log_tail": "",
+      "playback_returncode_after_capture_stop": -15
+    }
+  },
+  "ram_hooks_restored": true,
+  "interpretation_limit": "EP2 re-arm is a ROM service event, not direct observation of the first USB packet or sample alignment"
+}
