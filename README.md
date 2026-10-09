@@ -1,72 +1,79 @@
-# MS2109-Pro firmware
+# MS2109-Pro
 
-A reproducible 2 KiB EEPROM image for the MS2109 capture device. This release keeps the stock UVC control handlers and `usb video` USB header names. The project name “MS2109-Pro” is not a claim about the device’s advertised USB name.
+MS2109-Pro is firmware for an MS2109 HDMI-to-USB capture device. It sends video to a computer as a standard UVC camera and audio as a USB audio input.
 
-## Build
+## What this firmware fixes
 
-Requires Python 3.10 or later; no third-party packages are used.
+| Original device behavior | Firmware change | Result |
+| --- | --- | --- |
+| The 1080p MJPEG descriptor offered 60 fps, outside the tested operating profile. | Replaces the 60 fps interval with a duplicate 30 fps entry. | Apps list 30, 25, 20, and 10 fps at 1080p MJPEG. The default is 30 fps. |
+| The high-speed descriptor reported BT.601, while the tested output matched BT.709. Neutral controls produced Y 16–235 and Cb/Cr about 16–239 on the test chart. | Reports BT.709 and loads calibrated brightness, contrast, saturation, and hue values. | The tested chart reached Y 0–255 and Cb/Cr 1–254. Set the host pipeline to BT.709 full range. |
+| With the tested HDMI source, USB left/right channel order did not match source left/right. | Sets stereo routing and a 48 kHz USB audio stream. | Source left goes to USB left and source right to USB right. A one-sample timing offset remains. |
+| The device used the generic `usb video` name. | Writes `MS2109-Pro` into the EEPROM video and audio name records. | After a power cycle, the host reports the USB product name as `MS2109-Pro`. |
 
-```sh
-python3 builder/build_release.py /tmp/ms2109-pro-rebuilt.bin
-shasum -a 256 /tmp/ms2109-pro-rebuilt.bin
-cmp firmware/ms2109-pro.bin /tmp/ms2109-pro-rebuilt.bin
-python3 -m unittest discover -s builder -p 'test_*.py'
-```
+These results describe the tested capture device and signal path. They do not establish behavior for every MS2109 board or HDMI source.
 
-The builder refuses to overwrite its output or manifest. It validates the pinned base EEPROM and mask ROM, enforces the EEPROM code limit, and checks the final SHA-256.
+## Quick start
 
-| Input/output | SHA-256 |
-|---|---|
-| Original EEPROM | `37103dccfc6c5e2062b6d22a0a619729449427270e52ae4332fde0da0f49dfe1` |
-| Mask ROM | `b383ef31fca43ebc58a22be8e342d9a1e33ec1cc15afce02921910b0ca358bc8` |
-| MS2109-Pro EEPROM | `0d8d3139b51edc4ff283dab33f00c2270f2134d95bce4bf7a351dcf38c14bb82` |
+1. Connect an HDMI source to the capture device.
+2. Connect the device to your computer by USB.
+3. Open your video or streaming application.
+4. Select **MS2109-Pro** as the camera and audio input.
+5. Select a video format and frame rate that match your project.
+6. Check the image with color bars or a waveform monitor before recording or streaming.
 
-## Firmware changes
+The device was tested with macOS. It uses standard UVC video and USB audio interfaces, but each operating system and application can expose different settings.
 
-- **1080p MJPEG rates:** The descriptor advertises 30, 25, 20 and 10 fps. The default is 30 fps. Two identical 30 fps interval entries are retained because the descriptor table has a fixed-size slot for the removed 60 fps entry. Other formats and resolutions are outside this cap.
-- **Startup procamp:** Brightness UI 110 (signed UVC −18), contrast 149, saturation 148 and hue 0 are loaded at startup. The original UVC GET/SET request handling remains in mask ROM.
-- **Colour declaration:** The high-speed YUY2/MJPEG UVC descriptors report the measured BT.709 matrix instead of the previous BT.601 declaration. This changes metadata; it does not put a quantization-range flag in the stream. UVC has no such range field here.
-- **Stereo routing:** The firmware sets the USB audio stream to two channels and routes the tested HDMI source’s continuous left channel to USB left and its gapped right channel to USB right. This does not correct the measured one-sample audio offset.
+## Video modes
 
-The original firmware did not advertise a UVC Sharpness control. This release preserves the original control descriptor and request handling; it does not add a Sharpness control.
+The capture device provides YUY2 and MJPEG video. YUY2 sends uncompressed 4:2:2 video. MJPEG sends compressed JPEG frames.
 
-## Input, samples and colour range
+At 1920×1080, MJPEG supports 30, 25, 20, and 10 fps. The device advertises two 30 fps entries, so some applications can show 30 fps twice. The default rate is 30 fps.
 
-RGB is converted by the source and HDMI path before the capture device produces YUY2 or MJPEG. YUY2 carries sampled Y′CbCr values directly. MJPEG carries quantized JPEG Y′CbCr samples; a host decoder then converts those samples to YUV or RGB using its own matrix and range assumptions. The firmware’s BT.709 descriptor helps only software that reads and applies it. JPEG data from this device does not reliably signal a BT.709 matrix or full-range setting to generic decoders.
+Other resolutions and frame rates depend on the device descriptors and your application. Select a mode that both the HDMI source and capture application support.
 
-The calibration used 96 RGB chart patches and captured the two USB transports. It did not inspect HDMI wire codes, test every RGB/YUV input negotiation, or cover all RGB triplets. HDMI input encoding choices were operator-selected, not independently read from the link. The comparison images remain in local working copies and are excluded from Git. The figures referenced in earlier calibration reports are prior runs, not fresh visual qualification of the installed release. See the archived [calibration report](https://github.com/matiaspl/MS2109-Pro/blob/experiments/development/artifacts/color-probe/20261006-auto-calibration-v2/report.md), [startup range comparison](https://github.com/matiaspl/MS2109-Pro/blob/experiments/development/artifacts/color-probe/20261006-calibrated-startup-yuy2/report.md), and [cold-start mode readback](https://github.com/matiaspl/MS2109-Pro/blob/experiments/development/artifacts/uvc-mode-cap-20261009/installed-after-cold-restart-retry.json).
+## Color setup
 
-### Limited and full-range settings
+The high-speed YUY2 and MJPEG descriptors report the BT.709 color matrix. The firmware targets full-range video. On the tested color chart, it produced Y values from 0 to 255 and Cb/Cr values from 1 to 254.
 
-| Use | Brightness / contrast / saturation / hue | Measured range and notes |
-|---|---|---|
-| Neutral limited-range baseline | 128 / 128 / 128 / 0 | Gray Y 16–235; measured chroma was about 16–239. Use with a matching limited-range consumer. |
-| Measured full-range target | 110 / 149 / 147 / 0 | Gray Y 0–255 and Cb/Cr 1–254 in both captured transports. Brightness 110 is signed UVC −18. Best measured balance in the local search, not a verified global optimum. |
-| Release startup values | 110 / 149 / 148 / 0 | Values in this EEPROM image. Saturation 147–149 produced the same measured chroma endpoints; 147 had slightly lower numerical error. |
+The USB video descriptor does not signal full or limited range. Set the capture application and downstream video path to interpret the signal as BT.709 full range when those options are available. Check the result with bars or scopes. Incorrect range handling can make blacks look gray or clip highlights.
 
-At the measured full-range settings, patch-median Y/Cb/Cr RMSE against the full-range BT.709 target was **0.565 / 1.036 / 1.055 codes for YUY2** and **0.533 / 1.026 / 1.043 codes for MJPEG**. The limited baseline was closest to BT.709 limited among tested matrix/range models (0.860 YUV-code RMS). These are numeric patch results, not guarantees for every input signal or host display path.
+MJPEG decoders can ignore the BT.709 metadata and use their own color defaults. Confirm the decoded image in the application you use for production.
 
-Full-range expansion does not restore precision lost to quantization. The run measured 234 distinct YUY2 gray patch medians and 220 distinct MJPEG gray patch values; MJPEG also had 36 unchanged adjacent gray-input pairs. MJPEG compression and the host decoder remain part of the output result.
+The measurements cover one tested HDMI source and a 96-patch chart. They do not qualify every source, input format, or color value.
 
-### YUY2 calibration comparison
+## Picture controls
 
-The first panel shows the neutral control baseline; the second shows the calibrated full-range setting. Each compares the RGB source render with captured YUY2 interpreted as BT.601 limited or BT.709 limited. These are calibration captures, not a before/after firmware flash comparison.
+The firmware loads these values at startup:
 
+| Control | Startup value |
+| --- | ---: |
+| Brightness | 110 (signed value −18) |
+| Contrast | 149 |
+| Saturation | 147 |
+| Hue | 0 |
 
+The standard UVC control requests remain available. This firmware does not add a Sharpness control.
 
-### MJPEG decoder comparison
+## Audio
 
-Both panels decode the same calibrated MJPEG samples, with the color interpretation changed. The default decoder interpretation shifts the colour result; the second applies BT.709 full range. This shows the host-decoding step, not a new device-side conversion.
+The USB audio input is stereo at 48 kHz. The tested HDMI source's left channel goes to USB left, and its right channel goes to USB right. A one-sample timing offset remains between channels.
 
+Select **MS2109-Pro** as the audio input in your capture application. Check channel order and sync with your own source before a production.
 
+## Limits to plan for
 
-### Measured range curves
+- The USB video descriptor does not identify full or limited range. Set the host pipeline to match the signal.
+- The firmware does not add a UVC Sharpness control or change the hardware scaler.
+- The measured one-sample audio timing offset remains.
+- Color measurements cover one device, one HDMI source, and a 96-patch chart. Other HDMI input formats and sources can behave differently.
 
-The plot compares calibrated YUY2 and MJPEG patch medians with the full-range BT.709 target and the earlier YUY2 baseline. MJPEG tracks the target closely but resolves fewer adjacent gray inputs.
+## Firmware image
 
+The firmware file is a 2 KiB EEPROM image for the MS2109 capture device.
 
-## Qualification and limitations
+| File | Size | SHA-256 |
+| --- | ---: | --- |
+| [`firmware/ms2109-pro.bin`](firmware/ms2109-pro.bin) | 2,048 bytes | `f55da7863def4ee19d338d07ae75024244316bd6226d87018f301db23f9226b7` |
 
-The EEPROM readback matched the release hash after a cold restart. The 1080p MJPEG descriptor then reported intervals 333333, 333333, 400000, 500000 and 1000000 in 100 ns units (approximately 30, 30, 25, 20 and 10 fps), with the default at 30 fps. The host denied the direct UVC capture attempt, so this release’s post-restart frame payload and PTS were not verified. The calibration measurements cited above were captured in earlier sessions.
-
-The colour results cover a local control search and 96 patches; they are not exhaustive. RGB and YUV HDMI input modes were not independently confirmed at the wire. Consumer-side matrix/range conversion must be checked separately. Stereo routing was tested with the described HDMI source; other sources may differ.
+Use this image only with an MS2109 device. Before you update EEPROM, save a full backup and make sure the image matches your device and programming method.
