@@ -1,0 +1,22 @@
+{
+  "firmware": "ms2109-pro.bin",
+  "sha256": "0d8d3139b51edc4ff283dab33f00c2270f2134d95bce4bf7a351dcf38c14bb82",
+  "bytes": 2048,
+  "base_eeprom": "base/original-eeprom.bin",
+  "base_eeprom_sha256": "37103dccfc6c5e2062b6d22a0a619729449427270e52ae4332fde0da0f49dfe1",
+  "mask_rom": "base/ms2109-maskrom.bin",
+  "mask_rom_sha256": "b383ef31fca43ebc58a22be8e342d9a1e33ec1cc15afce02921910b0ca358bc8",
+  "release_builder_origin": "commit 85026a5",
+  "installed_eeprom_readback_sha256": "0d8d3139b51edc4ff283dab33f00c2270f2134d95bce4bf7a351dcf38c14bb82",
+  "cold_restart_descriptor": {
+    "format": "MJPEG",
+    "width": 1920,
+    "height": 1080,
+    "default_interval_100ns": 333333,
+    "intervals_100ns": [333333,333333,400000,500000,1000000],
+    "fps_approx": [30,30,25,20,10]
+  },
+  "uvc_controls": "stock mask-ROM descriptor and request handling",
+  "usb_header_names": {"video": "usb video", "audio": "usb video"},
+  "capture_validation": "Cold-start descriptor/readback verified; direct UVC capture attempt was denied by host device permissions"
+}

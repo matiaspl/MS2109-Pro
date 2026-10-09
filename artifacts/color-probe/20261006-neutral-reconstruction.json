@@ -1,7 +1,0 @@
-{
-  "native_709_limited_rgb_rmse": 1.6859504297112444,
-  "decoded_601_limited_rgb_rmse": 13.261135594013117,
-  "decoded_709_limited_rgb_rmse": 11.383328027674525,
-  "decoded_range_restored_709_limited_rgb_rmse": 1.6813954676553418,
-  "restored_vs_native_yuv_rmse": 0.3203124991081037
-}

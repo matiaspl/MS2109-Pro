@@ -1,1 +1,0 @@
-/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg -hide_banner -loglevel info -f avfoundation -framerate 60 -video_size 1920x1080 -pixel_format nv12 -i '0:none' -t 6 -map 0:v:0 -copyts -start_at_zero -fps_mode passthrough -c:v h264_videotoolbox -allow_sw 1 -realtime 1 -b:v 20M -bf 0 -y capture.mkv

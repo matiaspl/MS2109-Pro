@@ -1,15 +1,9 @@
-upstream/
 __pycache__/
-tools/ms-tools
-tools/capture_audio_usb
-# Host metadata and large raw capture data (analysis summaries remain tracked)
 .DS_Store
+*.mkv
 *.yuy2
 *.yuvs
 *.BGRA
 *.2vuy
 *.rgba
 *.ycbcr
-*.mkv
-# Regenerable native helpers used by MS2109 live experiment runners
-artifacts/ms2109-repair/**/compiled-tools/

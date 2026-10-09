@@ -1,9 +1,0 @@
-{
-  "register": "FE61",
-  "original": 9,
-  "basis": "ROM 3EEC sets bit 0 when input/output sample rates differ",
-  "disabled_readback": 8,
-  "enabled_readback": 9,
-  "returncode": 0,
-  "restored": true
-}

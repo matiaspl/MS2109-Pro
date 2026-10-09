@@ -1,14 +1,0 @@
-[in#0/avfoundation @ 0x911408000] Stream #0: not enough frames to estimate rate; consider increasing probesize
-Input #0, avfoundation, from 'usb video:none':
-  Duration: N/A, start: 385353.167067, bitrate: N/A
-  Stream #0:0: Video: rawvideo (YUY2 / 0x32595559), yuyv422, 1920x1080, 1000k tbr, 1000k tbn, start 385353.167067
-Stream mapping:
-  Stream #0:0 -> #0:0 (rawvideo (native) -> ffv1 (native))
-Output #0, matroska, to 'artifacts/no-signal-feba/trial-03/feba-08.mkv':
-  Metadata:
-    encoder         : Lavf63.1.101
-  Stream #0:0: Video: ffv1 (FFV1 / 0x31564646), yuv422p(tv, progressive), 1920x1080, q=2-31, 200 kb/s, 5 fps, 1k tbn
-    Metadata:
-      encoder         : Lavc63.1.101 ffv1
-frame=    4 fps=0.0 q=-0.0 size=       1KiB time=00:00:00.80 bitrate=   5.7kbits/s speed=1.58x elapsed=0:00:00.50    frame=    6 fps=5.9 q=-0.0 size=       1KiB time=00:00:01.20 bitrate=   3.8kbits/s speed=1.19x elapsed=0:00:01.00    frame=    9 fps=5.9 q=-0.0 size=       1KiB time=00:00:01.80 bitrate=   2.6kbits/s speed=1.19x elapsed=0:00:01.51    frame=   11 fps=5.5 q=-0.0 size=       1KiB time=00:00:02.20 bitrate=   2.1kbits/s speed=1.09x elapsed=0:00:02.01    frame=   14 fps=5.6 q=-0.0 size=      68KiB time=00:00:02.80 bitrate= 198.9kbits/s speed=1.11x elapsed=0:00:02.52    [out#0/matroska @ 0x91113aac0] video:83KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.889557%
-frame=   15 fps=4.8 q=-0.0 Lsize=      84KiB time=00:00:03.00 bitrate= 229.3kbits/s speed=0.967x elapsed=0:00:03.10    
