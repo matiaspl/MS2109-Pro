@@ -1,0 +1,94 @@
+{
+  "device": {
+    "vid": "534d",
+    "pid": "2109",
+    "cold_restart_reported_by_user": true
+  },
+  "active_configuration_read": {
+    "length_bytes": 1211,
+    "mjpeg_format_index": 1,
+    "frame_index": 1,
+    "resolution": "1920x1080",
+    "intervals_100ns": [
+      166666,
+      333333,
+      400000,
+      500000,
+      1000000
+    ],
+    "rates_fps_approx": [
+      60,
+      30,
+      25,
+      20,
+      10
+    ],
+    "descriptor_offset": "0x0070",
+    "interval_count": 5
+  },
+  "probe_retest": {
+    "initial_get_cur_interval_100ns": 333333,
+    "request_50fps_interval_100ns": 200000,
+    "request_50fps_set_cur_bytes": 26,
+    "request_50fps_get_cur_interval_100ns": 200000,
+    "request_60fps_interval_100ns": 166666,
+    "request_60fps_set_cur_bytes": 26,
+    "request_60fps_get_cur_interval_100ns": 166666,
+    "restore_set_cur_bytes": 26,
+    "restore_get_cur_bytes": 26,
+    "original_probe_state_restored": true,
+    "stream_started": false
+  },
+  "current_eeprom_backup": {
+    "path": "current-eeprom-before-change.bin",
+    "sha256": "a42bfa5919cf164a2a1b4edb4152b156fe65db5c58e55da9d53ef1c0bb52a3eb",
+    "overlay_bytes": 1975,
+    "video_name": "MS2109-Pro"
+  },
+  "firmware_write_performed": false,
+  "avfoundation_capture_attempts": [
+    {
+      "requested": {
+        "resolution": "1920x1080",
+        "fps": 60,
+        "capture_raw_data": true
+      },
+      "configuration_result": "requested configuration failed; AVFoundation fell back to default",
+      "captured": {
+        "pixel_format": "uyvy422",
+        "frames": 16,
+        "duration_seconds": 2.999967,
+        "reported_fps": 5
+      },
+      "duplicate_frames_observed": true,
+      "sha256": "4bd4ef0d3b2f901c28518c27e3c9668d15d512a47ece979226d9ab0fcdc78335",
+      "path": "current-firmware-1080p60-raw.mov"
+    },
+    {
+      "requested": {
+        "resolution": "1920x1080",
+        "fps": 30,
+        "pixel_format": "nv12"
+      },
+      "configuration_result": "requested configuration failed; AVFoundation fell back to default",
+      "capture_result": "discarded because the MOV muxer could not describe raw NV12 frames"
+    }
+  ],
+  "direct_uvc_capture": {
+    "result": "libuvc could not claim device interface",
+    "error": "Access denied (-3)"
+  },
+  "post_test_state": {
+    "probe": {
+      "format_index": 1,
+      "frame_index": 1,
+      "interval_100ns": 333333
+    },
+    "commit": {
+      "format_index": 1,
+      "frame_index": 1,
+      "interval_100ns": 333333
+    },
+    "verified": true
+  }
+}

@@ -207,7 +207,7 @@ if __name__ == '__main__':
     p.add_argument('--channel-order',action='store_true')
     p.add_argument('--calibrated-color',action='store_true',help='Measured full-span UI B/C/S 110/149/147, hue 0, BT.709 matrix declarations')
     p.add_argument('--calibrated-color-v2',action='store_true',help='Calibrated full-range profile with a shared guarded matrix routine; GET_DEF remains mask-ROM controlled')
-    p.add_argument('--sharpness-profile',action='store_true',help='Build the calibrated control-repair profile with UVC Sharpness disabled')
+    p.add_argument('--sharpness-profile',action='store_true',help='Build the compact calibrated-control profile; UVC controls follow mask ROM')
     p.add_argument('--sharpness-edid',choices=('custom','rom'),default='custom',help='EDID source for the control-repair profile; rom reclaims the custom table')
     p.add_argument('--compact-sharpness',action='store_true',help='Use the compact ROM-EDID control-repair layout; offline candidate only')
     p.add_argument('--product-name',help='Override USB product string index 2 during startup (UTF-16LE descriptor)')
@@ -230,8 +230,8 @@ if __name__ == '__main__':
             metadata.update(assemble_compact(original, a.rom.read_bytes()).report)
         else:
             metadata.update(assemble(original, a.rom.read_bytes(), edid_source=a.sharpness_edid).report)
-        metadata.update({'profile': 'calibrated stereo with UVC Sharpness removed', 'channel_order': True,
-                         'uvc_sharpness': 'descriptor bit cleared; selector 8 rejected; no FE84/FE85 mapping'})
+        metadata.update({'profile': 'calibrated stereo with ROM EDID and UVC MJPEG rate cap', 'channel_order': True,
+                         'uvc_controls': 'stock mask-ROM descriptor and request handling preserved'})
     if a.calibrated_color:
         metadata.update({'controls':CALIBRATED,'color_matching':{'primaries':1,'transfer':1,'matrix':1,'ram_records':[hex(addr) for addr in COLOR_RECORDS],'quantization_range':'No UVC descriptor field; measured full-range target','other_speed_mask_rom':'unchanged'},'get_def':'Unchanged ROM constants: signed brightness -11, contrast 148, hue 0, saturation 180','rom_sha256':hashlib.sha256(a.rom.read_bytes()).hexdigest(),'calibration_result':'artifacts/color-probe/20261006-auto-calibration-v2/result.json'})
     if a.calibrated_color_v2:

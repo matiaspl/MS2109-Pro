@@ -62,19 +62,17 @@ def fragments():
     video=LinkAsm();video.label('video');video.label('factory_video');video.raw(VIDEO_HELPER)
     descriptor=LinkAsm();descriptor_code(descriptor,compact=True)
     units = (split(common.nodes,('common','matrix')) |
-             split(main.nodes,('cc10','usb','reject')) |
+             split(main.nodes,('cc10','usb')) |
              {'video':video.nodes,'descriptor':descriptor.nodes})
     for node in units['cc10']:
         if node.kind=='raw':
             node.data=node.data.replace(bytes.fromhex('e8c0e0'), bytes.fromhex('c000'))
             node.data=node.data.replace(bytes.fromhex('d0e0f8'), bytes.fromhex('d000'))
-    # Nearby failure trampolines let all guards retain their semantics while
-    # using short conditional branches instead of repeated long expansions.
+    # A nearby delegation trampoline keeps guards short.
     for node in units['usb']:
-        if node.target in ('delegate','reject'):
+        if node.target == 'delegate':
             node.target='usb_'+node.target
-    for target in ('delegate','reject'):
-        units['usb'] += [Node('label',name='usb_'+target),Node('jump',target=target)]
+    units['usb'] += [Node('label',name='usb_delegate'),Node('jump',target='delegate')]
     nodes=[]
     for node in units['descriptor']:
         if node.kind=='label' and node.name=='descriptor_copy':

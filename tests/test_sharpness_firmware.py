@@ -36,67 +36,80 @@ def request(c, code, payload=None, **fields):
     return bytes(c.output)
 
 
+def cap_mjpeg_1080p(descriptor):
+    result = bytearray(descriptor)
+    frame = 0x70
+    result[frame + 21:frame + 25] = (333333).to_bytes(4, 'little')
+    result[frame + 26:frame + 30] = (333333).to_bytes(4, 'little')
+    return bytes(result)
+
+
 class SharpnessFirmwareTests(unittest.TestCase):
-    def test_unqualified_sharpness_requests_stall_without_register_writes(self):
+    def test_selector_8_requests_are_delegated_to_stock_rom(self):
         for code, payload in ((1, 0), (0x81, None), (0x82, None), (0x83, None),
                               (0x84, None), (0x85, None), (0x86, None), (0x87, None)):
             with self.subTest(request=code):
                 c = cpu()
                 c.xdata[0xFE84:0xFE86] = b'\x7a\x02'
                 before = bytes(c.xdata[0xFE84:0xFE86])
+                delegated = []
+                c.traps[0x2AD0] = lambda machine: (delegated.append(True), machine.ret())
                 result = request(c, code, payload)
-                self.assertEqual(result, b'')
-                self.assertTrue(c.bit(0x85))
+                self.assertEqual(delegated, [True])
                 self.assertEqual(bytes(c.xdata[0xFE84:0xFE86]), before)
                 self.assertFalse(any(address in (0xFE84, 0xFE85)
                                      for address, _ in c.writes))
 
-    def test_invalid_control_requests_stall_without_state_change(self):
+    def test_processing_unit_set_cur_requests_delegate_to_stock_rom(self):
         for fields in ({'length': 0}, {'length': 1}, {'length': 3},
                        {'length': 258}, {'value': 0x0801}, {'bm': 0xA1}):
             c = cpu()
             c.xdata[0xFE84:0xFE86] = b'\x7a\x02'
             before = bytes(c.xdata[0xFE84:0xFE86])
+            delegated = []
+            c.traps[0x2AD0] = lambda machine: (delegated.append(True), machine.ret())
             request(c, 1, 37, **fields)
+            self.assertEqual(delegated, [True], fields)
             self.assertEqual(bytes(c.xdata[0xFE84:0xFE86]), before)
-            self.assertTrue(c.bit(0x85), fields)
             self.assertFalse(any(addr in (0xFE84, 0xFE85) for addr, _ in c.writes))
         for value in (128, 255, 256, 0x7FFF, 0x8000, 0xFFFF):
             c = cpu()
             c.xdata[0xFE84:0xFE86] = b'\x7a\x02'
             before = bytes(c.xdata[0xFE84:0xFE86])
+            delegated = []
+            c.traps[0x2AD0] = lambda machine: (delegated.append(True), machine.ret())
             request(c, 1, value)
+            self.assertEqual(delegated, [True])
             self.assertEqual(bytes(c.xdata[0xFE84:0xFE86]), before)
-            self.assertTrue(c.bit(0x85))
-        for code in (0, 2, 0x80, 0x88, 0xFF):
-            c = cpu()
-            request(c, code)
-            self.assertTrue(c.bit(0x85))
 
-    def test_query_directions_and_lengths(self):
+    def test_processing_unit_queries_delegate_to_stock_rom(self):
         for code in range(0x81, 0x88):
             for fields in ({'bm': 0x21}, {'bm': 0xA0}, {'length': 0},
                            {'length': 3}, {'length': 0x102}):
                 c = cpu()
                 c.xdata[0xFE84:0xFE86] = b'\x7a\x02'
-                self.assertEqual(request(c, code, **fields), b'')
-                self.assertTrue(c.bit(0x85))
+                before = bytes(c.xdata[0xFE84:0xFE86])
+                delegated = []
+                c.traps[0x2AD0] = lambda machine: (delegated.append(True), machine.ret())
+                request(c, code, **fields)
+                self.assertEqual(delegated, [True], (code, fields))
+                self.assertEqual(bytes(c.xdata[0xFE84:0xFE86]), before)
 
     def test_register_preservation_at_rom_bank_zero_abi(self):
         for flags in (0, 0x84, 0xC6):
-            c = cpu()
-            c.put(0xD0, flags)
-            c.a = 0xD9
-            c.put(0xF0, 0xA7)
-            c.dptr = 0xBCDE
-            for r in range(8):
-                c.setreg(r, 0x91+r)
-            request(c, 0x81)
-            self.assertEqual([c.reg(r) for r in range(8)], list(range(0x91, 0x99)))
-            self.assertEqual(c.a, 0xD9)
-            self.assertEqual(c.direct(0xF0), 0xA7)
-            self.assertEqual(c.dptr, 0xBCDE)
-            self.assertEqual(c.direct(0xD0), flags)
+            actual, stock = cpu(), cpu()
+            for c in (actual, stock):
+                c.put(0xD0, flags)
+                c.a = 0xD9
+                c.put(0xF0, 0xA7)
+                c.dptr = 0xBCDE
+                for r in range(8):
+                    c.setreg(r, 0x91+r)
+            stock.traps[0xCC10] = lambda machine: setattr(machine, 'pc', 0x2AD0)
+            request(actual, 0x81)
+            request(stock, 0x81)
+            for reg in (*range(8), 0xE0, 0xD0, 0x82, 0x83, 0xF0):
+                self.assertEqual(actual.direct(reg), stock.direct(reg), (flags, reg))
 
     def test_common_callback_leaves_unmapped_scaler_registers_untouched(self):
         c = cpu()
@@ -144,7 +157,9 @@ class SharpnessFirmwareTests(unittest.TestCase):
                         source_bytes = bytes(c.xdata[pointer:pointer+len(source)])
                     else:
                         source_bytes = source
-                    expected = bytearray(source_bytes)
+                    expected = source_bytes
+                    if kind == 2 and pointer == 0xC03A:
+                        expected = cap_mjpeg_1080p(expected)
                     c.xdata[DESC_BUFFER-1] = 0xA5
                     c.xdata[DESC_BUFFER+1211] = 0x5A
                     received = bytearray(request(c, 6, bm=0x80, value=kind << 8,
@@ -168,7 +183,7 @@ class SharpnessFirmwareTests(unittest.TestCase):
                         self.assertEqual(c.xdata[pointer:pointer+len(source)], source_bytes)
 
     def test_descriptor_guards_delegate_without_changing_source(self):
-        for offset in (0, 1, 2, 3, *range(0x39, 0x41)):
+        for offset in (0, 1, 2, 3):
             c = cpu()
             c.xdata[0xC03A:0xC03A+1211] = ROM[0x7111:0x75CC]
             c.xdata[0xC002:0xC004] = b'\xc0\x3a'
@@ -179,6 +194,26 @@ class SharpnessFirmwareTests(unittest.TestCase):
             request(c, 6, bm=0x80, value=0x0200, index=0, length=1211)
             self.assertEqual(calls, [0x2AD0])
             self.assertEqual(c.xdata[0xC03A:0xC03A+1211], before)
+
+    def test_active_configuration_caps_only_1080p_mjpeg_default_and_first_rate(self):
+        c = cpu()
+        source = ROM[0x7111:0x75CC]
+        c.xdata[0xC03A:0xC03A + len(source)] = source
+        c.xdata[0xC002:0xC004] = b'\xC0\x3A'
+        received = bytearray(request(c, 6, bm=0x80, value=0x0200,
+                                     index=0, length=len(source)))
+        for _ in range(32):
+            if not any(c.iram[8:10]):
+                break
+            c.output.clear()
+            c.put(0x80, 0)
+            c.run(0xCC10, return_to=0x4792)
+            received.extend(c.output)
+        self.assertEqual(bytes(received), cap_mjpeg_1080p(source))
+        frame = 0x70
+        self.assertEqual(int.from_bytes(received[frame + 21:frame + 25], 'little'), 333333)
+        self.assertEqual(int.from_bytes(received[frame + 26:frame + 30], 'little'), 333333)
+        self.assertEqual(c.xdata[0xC03A:0xC03A + len(source)], source)
 
     def test_legacy_procamp_uses_unchanged_rom_dispatch(self):
         for selector, value in ((2, 0xFFEE), (3, 149), (6, 0), (7, 147)):
@@ -197,9 +232,9 @@ class SharpnessFirmwareTests(unittest.TestCase):
                 self.assertIn(0x2AD0, actual.visits)
 
     def test_non_sharpness_processing_unit_controls_delegate(self):
-        # Entity 2 owns brightness, contrast, hue, and saturation. Those
-        # selectors stay on the ROM path; retired selector 8 is rejected.
-        for selector in (2, 3, 6, 7):
+        # The profile does not replace Processing Unit controls. All selectors
+        # stay on the stock ROM path, including unsupported selector 8.
+        for selector in (2, 3, 6, 7, 8):
             for code, payload in ((1, 127), (0x81, None)):
                 c = cpu()
                 c.xdata[0xFE84] = 64
@@ -212,7 +247,7 @@ class SharpnessFirmwareTests(unittest.TestCase):
                 self.assertFalse(any(address in (0xFE84, 0xFE85)
                                      for address, _ in c.writes))
 
-    def test_sharpness_descriptor_bit_is_cleared_from_active_and_other_speed(self):
+    def test_processing_unit_control_bitmap_is_preserved(self):
         cases = ((2, 0xC03A, ROM[0x7111:0x75CC]),
                  (7, 0xC03A, ROM[0x75CC:0x772F]))
         for kind, pointer, source in cases:
@@ -240,7 +275,7 @@ class SharpnessFirmwareTests(unittest.TestCase):
                         received.extend(c.output)
                     self.assertEqual(len(received), len(source))
                     self.assertEqual(received[0x41:0x43],
-                                     bytes((bitmap & 0xEF, source[0x42])))
+                                     bytes((bitmap, source[0x42])))
                     if kind == 2:
                         self.assertEqual(bytes(c.xdata[pointer:pointer + len(source)]),
                                          original_source)

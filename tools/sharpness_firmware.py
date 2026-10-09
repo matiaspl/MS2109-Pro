@@ -91,7 +91,7 @@ def pop(a, registers):
 
 
 def descriptor_code(a, *, compact=False):
-    """Copy the selected source, retire Sharpness, and send bounded packets."""
+    """Copy selected descriptors, cap MJPEG rate, and send bounded packets."""
     a.label('descriptor')
     # Only index zero/interface zero descriptor requests are intercepted.
     a.emit(0xE5, 0x0E, 0x45, 0x0F, 0x45, 0x10)
@@ -128,29 +128,27 @@ def descriptor_code(a, *, compact=False):
     a.label('descriptor_copy')
     a.emit(0x7E, DESC_BUFFER >> 8, 0x7F, DESC_BUFFER & 255)
     a.call(0x5038)  # generic source -> XDATA destination, R4:R5 count
-    # Check the PU identity/layout before continuing with the bounded copy.
-    a.dptr(DESC_BUFFER + 0x39)
-    if compact:
-        # Compare against the identical pinned PU header in CODE 714A.
-        # Keep the RAM cursor on the stack while MOVC reads the ROM byte.
-        a.emit(0x7F, 0)
-        a.label('pu_guard')
-        a.emit(0xE0, 0xFC)
-        push(a, (0x82, 0x83))
-        a.dptr(0x714A)
-        a.emit(0xEF, 0x93, 0x6C)
-        pop(a, (0x82, 0x83))
-        a.far_if((0x70,), 'delegate')
-        a.emit(0xA3, 0x0F)
-        a.rel((0xBF, 8), 'pu_guard')  # DPTR now addresses bmControls.
-        a.emit(0xE0, 0x54, 0xEF, 0xF0)  # Clear Sharpness in the response copy.
-    else:
-        for i, value in enumerate(bytes.fromhex('0b24050201000002')):
+    # The active configuration copy advertises 1080p MJPEG at
+    # 60 fps first. Keep the mode at a qualified 30 fps default and replace
+    # the 60 fps discrete interval with a duplicate 30 fps interval. Its
+    # existing 46-byte frame descriptor and interval count stay well-formed.
+    # The ROM copy helper uses R5 for the descriptor length, so inspect the
+    # copied header rather than the now-clobbered setup register.
+    a.dptr(DESC_BUFFER + 1)
+    a.emit(0xE0)
+    a.far_if((0xB4, 2), 'descriptor_rates_done')
+    a.dptr(DESC_BUFFER + 2)
+    a.emit(0xE0)
+    a.far_if((0xB4, 0xBB), 'descriptor_rates_done')
+    a.emit(0xA3, 0xE0)
+    a.far_if((0xB4, 0x04), 'descriptor_rates_done')
+    for address in (DESC_BUFFER + 0x70 + 21, DESC_BUFFER + 0x70 + 26):
+        a.dptr(address)
+        for i, value in enumerate(bytes.fromhex('15 16 05 00')):
             if i:
                 a.emit(0xA3)
-            a.emit(0xE0)
-            a.far_if((0xB4, value), 'delegate')
-        a.emit(0xA3, 0xE0, 0x54, 0xEF, 0xF0)  # Clear only the Sharpness bit.
+            a.emit(0x74, value, 0xF0)
+    a.label('descriptor_rates_done')
     # Save original setup length and ROM's cached length. The stock FIFO helper
     # uses both when computing offsets on subsequent packets.
     push(a, (0x11, 0x12))
@@ -291,13 +289,8 @@ def main_code(origin, *, include_common=True, assembler=Asm, bank_zero=False,
     a.far_if((0xB4, 2), 'delegate')
     a.emit(0xE5, 0x10)
     a.far_if((0x70,), 'delegate')
-    # Reject any request for UVC Sharpness selector 8. The four procamp
-    # controls and every unrelated control stay on the stock ROM path.
-    a.emit(0xE5, 0x0D)
-    a.far_if((0xB4, 8), 'delegate')
-    a.jump('reject')
-    a.label('reject')
-    a.emit(0xD2, 0x15)
+    # This profile does not replace UVC controls; leave matching requests to ROM.
+    a.jump('delegate')
     a.label('complete')
     a.call(0x2B8E)
     a.rel((0x80,), 'usb_return')
