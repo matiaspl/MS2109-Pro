@@ -10,5 +10,8 @@
   "tools/audit_factory_space.py": "595471b31d06b03ec1b06b1fbca07749b7bbfff1fc68cb7b3771727740698d7a",
   "tools/mcs51_rom_harness.py": "c1a4637794505668f6047061d60c7e5b6e7f0f278f9f23f637af985226dbf3a8",
   "tests/test_factory_space.py": "9de29bdfe97e5946eb393224fd6884abff1d2d85b4785147d71dd6ea03d7c652",
-  "docs/2026-10-07_ms2109-factory-space-report.md": "cf211c12f9089f0bdfb10b31be073754624d177ef49e1a1f7f523b175fdafa7d"
+  "docs/2026-10-07_ms2109-factory-space-report.md": "cb33499b4582877bb53ded6976c44b788d66e5d31a08e61c4481969114bfc2ee",
+  "artifacts/sharpness-firmware/factory-space-audit/startup-entry-review.json": "f90664a7231c650827ebdf95d98fb476dc4f75b541f7dd57cade2919fdde6496",
+  "artifacts/sharpness-firmware/factory-space-audit/startup-root-traces.json": "815c9d44e187bd493fdc181d08c5ea63564a6302fdb9205567ed1fcb52bbb324",
+  "tools/trace_startup_roots.py": "0d025a271226947284fa27435ad20a24aafa77c1b6e510e4416133d3ff7c421c"
 }

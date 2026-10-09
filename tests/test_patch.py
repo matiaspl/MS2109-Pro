@@ -98,7 +98,7 @@ class PatchTests(unittest.TestCase):
         validate(patched)
         memory=dict(enumerate(rom))
         colors={0xc2a9:1,0xc440:1}
-        controls=dict(zip(range(0xc6a0,0xc6a8),[238,255,149,0,0,0,147,0])) | dict(zip(range(0xfe90,0xfe94),[238,149,147,0]))
+        controls=dict(zip(range(0xc6a0,0xc6a8),[238,255,149,0,0,0,148,0])) | dict(zip(range(0xfe90,0xfe94),[238,149,148,0]))
         for stage in range(256):
             writes,dptr=execute(hook,stage,memory,addr)
             self.assertEqual(dptr,0xde0b)
@@ -139,22 +139,6 @@ class PatchTests(unittest.TestCase):
         with self.assertRaises(ValueError):build(original,calibrated_color_v2=True)
         with self.assertRaises(ValueError):build(original,calibrated_color=True,calibrated_color_v2=True,rom=(ROOT/'backups/ms2109-maskrom.bin').read_bytes())
 
-    def test_product_name_descriptor_startup_patch(self):
-        original=(ROOT/'backups/ms2109-original.bin').read_bytes()
-        rom=(ROOT/'backups/ms2109-maskrom.bin').read_bytes()
-        candidate,hook,addr=build(original,channel_order=True,calibrated_color=True,
-                                  rom=rom,product_name='MS2109-Pro')
-        self.assertEqual(validate(candidate),1993)
-        self.assertEqual(len(candidate),2048)
-        memory=dict(enumerate(rom))
-        startup,_=execute(hook,1,memory,addr)
-        self.assertNotIn(0xc636,startup)
-        writes,_=execute(hook,2,memory,addr)
-        expected=bytes((22,3))+ 'MS2109-Pro'.encode('utf-16le')
-        self.assertEqual(bytes(writes[0xC636+i] for i in range(len(expected))),expected)
-        self.assertEqual(candidate[2:4],bytes((0x07,0xc9)))
-        self.assertEqual(candidate[50+validate(candidate):52+validate(candidate)],
-                         (sum(candidate[48:48+validate(candidate)])&0xffff).to_bytes(2,'big'))
     def test_rom_get_def_constants_are_preserved(self):
         rom=(ROOT/'backups/ms2109-maskrom.bin').read_bytes()
         self.assertEqual(rom[0x4dea:0x4df2],bytes.fromhex('74f5f0a374ff8014'))
@@ -186,7 +170,7 @@ class PatchTests(unittest.TestCase):
             writes,dptr=execute(hook,stage,memory,addr)
             self.assertEqual(dptr,0xde0b)
             if stage==1:
-                self.assertEqual(writes,dict(zip(range(0xc6a0,0xc6a8),[238,255,149,0,0,0,147,0])) | dict(zip(range(0xfe90,0xfe94),[238,149,147,0])) | {0xc2a9:1,0xc440:1})
+                self.assertEqual(writes,dict(zip(range(0xc6a0,0xc6a8),[238,255,149,0,0,0,148,0])) | dict(zip(range(0xfe90,0xfe94),[238,149,148,0])) | {0xc2a9:1,0xc440:1})
             elif stage==2:
                 self.assertEqual(writes,{0xc4c5:2,0xc4c9:128,0xc4ca:187,0xc4cb:0,0xfe60:1,0xc2a9:1,0xc440:1})
             else:

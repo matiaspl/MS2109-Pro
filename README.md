@@ -4,16 +4,20 @@ This repository documents a 2 KiB EEPROM overlay for the MS2109, the built-in RO
 
 ## Changes from the built-in firmware
 
-- **USB product name:** changes the ROM-provided `usb video` string to `MS2109-Pro`. The polling callback repairs the EP0 response buffer after the ROM rebuilds it. The installed image was checked after a USB power cycle.
-- **Video color:** sets calibrated startup controls (brightness UI 110 / signed −18, contrast 149, saturation 147, hue 0) and corrects the high-speed MJPEG/YUY2 color descriptors to BT.709 matrix value 1 while preserving the existing primaries and transfer values.
+- **USB video/audio names:** stored in EEPROM header records and read by the ROM at startup. The current builder supports `--video-name` and `--audio-name`; both names were verified as `MS2109-Pro` after reconnect. The experimental product-string response-buffer repair has been removed from the builder.
+- **Video color:** sets startup controls (brightness UI 110 / signed −18, contrast 149, saturation 148, hue 0) and corrects the high-speed MJPEG/YUY2 color descriptors to BT.709 matrix value 1 while preserving the existing primaries and transfer values.
 - **Stereo routing:** sets `FE60=01`, which corrected the tested left/right channel order.
 - **Existing firmware paths:** retains the configured EDID and ROM-driven HID programming transport. It does not add the proposed UVC Sharpness control, bypass the scaler, or fix the measured one-sample audio offset.
 
-The currently installed image is [`ms2109-pro-calibrated-stereo-stage2.bin`](artifacts/ms2109-pro-name/20261007/ms2109-pro-calibrated-stereo-stage2.bin), SHA-256 `b0b25243c155086bb0b96d41a5927104a3f04a8f5a1a3ae3930568943f5690d7`. It is a 2,048-byte image with 1,993 declared code bytes. Full EEPROM readback and the cold-boot USB product descriptor were verified. See the [installation record](artifacts/ms2109-pro-name/20261007/stage2-installation.json) and [cold-boot qualification](artifacts/ms2109-pro-name/20261007/stage2-cold-boot-qualification.json).
+The earlier stage-2 product-string candidate and its qualification records remain in `artifacts/ms2109-pro-name/20261007/` as historical evidence. New images from this builder do not include that response-buffer repair.
 
 The measurements apply to one device and its tested signal path; they do not establish that every MS2109 board needs the same color calibration. Large raw capture frames and recordings are excluded from Git to keep clones practical; compact reports, plots and analysis data remain available where included.
 
 Independent chip documentation: [MS2109 programmer reference](docs/ms2109-reference/README.md) — memory/boot, callbacks, ROM services, registers, and reproducible offline evidence.
+
+The [procamp-defaults v4 image](artifacts/sharpness-firmware/20261008-procamp-defaults/ms2109-procamp-defaults-v4-ms2109-pro-candidate.bin) is installed and cold-boot verified. Its EEPROM and loaded RAM overlay match SHA-256 `a42bfa5919cf164a2a1b4edb4152b156fe65db5c58e55da9d53ef1c0bb52a3eb`; startup RAM, USB names, and all four `GET_DEF` values match brightness −18, contrast 149, hue 0, and saturation 148. See the [updated firmware report](docs/2026-10-08_ms2109-procamp-defaults-coldboot-report.md), [v4 installation record](artifacts/sharpness-firmware/20261008-procamp-defaults/v4-installation.json), [RAM-only GET_DEF test](artifacts/sharpness-firmware/20261008-procamp-defaults/procamp-get-def-ram-v4.json), and [cold-boot qualification](artifacts/sharpness-firmware/20261008-procamp-defaults/cold-boot-qualification-v4.json).
+
+Explore the address spaces in the [interactive MS2109 address map](docs/ms2109-address-map.html). It separates CODE, XDATA, IRAM, SFR, and EEPROM and links mapped regions to the source evidence.
 
 
 Device-specific extension of [A-Dunstan/ms2109_stereo_patch](https://github.com/A-Dunstan/ms2109_stereo_patch), built from the connected dongle's verified EEPROM backup.
@@ -53,10 +57,11 @@ separate unresolved midtone discrepancy. See the
 [post-reconnect checks](docs/2026-10-06_calibrated-startup-color-report.md)
 for measurements and qualification limits.
 
-UVC `GET_DEF` still returns ROM constants −11/148/0/180; an application that
-resets controls to those values can undo the calibration. The other-speed
-color descriptor served from mask ROM is unchanged. This patch does not
-fix the extra initial audio sample, add JPEG markers, or implement
+That earlier calibrated-color profile leaves UVC `GET_DEF` at ROM constants
+−11/148/0/180; an application using that separate image can reset controls to
+those values. The installed v4 profile reports its configured defaults. The
+other-speed color descriptor served from mask ROM is unchanged. This patch does
+not fix the extra initial audio sample, add JPEG markers, or implement
 scaler/sharpening bypass.
 
 ## Previous neutral profile

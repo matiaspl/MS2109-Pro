@@ -52,6 +52,8 @@ Tests execute the real ROM callees through both routes with eight input-register
 ## Further candidates, not credited yet
 
 - **14 bytes at D28D–D298 and D2B2–D2B3:** an alternate C-runtime startup clearing IRAM, setting SP=3C, then jumping into an infinite loop. The table-aware graph reaches 773 of 780 decoded instructions from CC00, CC10 and CC20; these seven instructions are the only unreached code. No direct literal call to their entries was found in the saved ROM. This is a strong dead-code candidate, but the graph is not a proof about every possible computed ROM entry.
+- **Follow-up entry review (8 October 2026):** aligned ROM disassembly disproved the raw `4D2F -> D2B3` byte-scan hit: `4D2E` is `SJMP 4D32` and `4D30` is `SETB B3`. One real nearby transfer remains: ROM `2CDC` executes `LJMP D280`; that entry runs through the F814 writes and leaves at `D28A -> D2A6`, before the candidate startup at D28D. The reviewed computed jumps include ROM-local dispatch at `0478` and table-driven sites at `08A0`, `092A` and `2B52`; raw `0x73` hits at `12D4`, `12EF`, `21B5`, `288D` and `403B` are operands or branch data. No aligned direct transfer to D28D–D298 or D2B2–D2B3 was identified. The candidate remains unproven unreachable because not every computed DPTR value is bounded. See E-005.
+- **Default-state emulator cross-check (8 October 2026):** the instruction harness returned from CC00, CC10 and CC20 without visiting either candidate range. CC00 took one computed jump, D22C → D05D. The harness stops when execution leaves the saved ROM/overlay range. These three traces cover only default modeled IRAM/SFR/XDATA and do not exercise interrupts or all peripheral states; they support, but do not prove, the static conclusion. See E-006.
 - **One padding byte at CC1F.** In the Sharpness profiles, CC10 already jumps to a replacement dispatcher, also leaving the remaining 12 bytes of the old CC10 helper as a possible reuse area. Do not count the padding twice.
 - **Four old checksum bytes at D2B4–D2B7:** currently retained for compatibility with the original append strategy. A new layout could omit this obsolete pair, while retaining the real checksums at the end of the new image.
 - **22 bytes already unused inside the former EDID region** of the ROM-only Sharpness prototype. Reusing that existing slack requires packing; it is not an additional feature deletion.
@@ -76,6 +78,8 @@ The [manifest](../artifacts/sharpness-firmware/factory-space-audit/sha256-manife
 | E-002 | [Original linear listing](../artifacts/sharpness-firmware/factory-space-audit/factory-linear.txt); inline data is not code | See the separate table-aware regions in the auditor; the linear listing is contextual evidence only |
 | E-003 | [Compact copy listing](../artifacts/sharpness-firmware/factory-space-audit/copy.txt), [identical ROM switch](../artifacts/sharpness-firmware/factory-space-audit/rom-switch.txt) | `python3 tools/audit_factory_space.py` |
 | E-004 | [Execution/regression log](../artifacts/sharpness-firmware/factory-space-audit/tests.txt) | `python3 -m unittest discover -s tests -v` |
+| E-005 | [Aligned ROM transfer and computed-jump review](../artifacts/sharpness-firmware/factory-space-audit/startup-entry-review.json) | `r2 -n -a 8051 -b 8 -q -c 'pd 5 @ 0x2cd8' backups/ms2109-maskrom.bin`; repeat at `0x4d2a`; decode overlay at `0xd28d` and `0xd2b2` with base `0xcc00` |
+| E-006 | [Default-state root traces](../artifacts/sharpness-firmware/factory-space-audit/startup-root-traces.json) | `python3 tools/trace_startup_roots.py` |
 
 | Finding | Status / confidence / severity | Evidence | Location and implication |
 |---|---|---|---|
@@ -86,7 +90,7 @@ The [manifest](../artifacts/sharpness-firmware/factory-space-audit/sha256-manife
 
 **P-001 — Factory descriptor initialization** (`path_type=callflow`): CC20 tests IRAM33 bit 2 → calls D2AE/ROM6069 → calls CF5E → copies CE52 into eleven descriptor records → returns to CC20. E-001/E-002 establish the route; E-003/E-004 support F-001/F-002 for the replacement. Residual risks are unseen computed entry points, complete interrupt/peripheral behavior and placement of new code in reclaimed holes.
 
-Timeline: decoded factory sections and the inline command table; identified the exact ROM duplicate and unreachable startup fragment; wrote and tested the 78-byte copy routine; compared the four actual ROM callees against their wrappers; ran repository regressions. No hardware operations occurred.
+Timeline: decoded factory sections and the inline command table; identified the exact ROM duplicate and startup candidate; wrote and tested the 78-byte copy routine; compared the four actual ROM callees against their wrappers; then checked raw ROM transfer candidates at instruction boundaries, reviewed computed-jump sites, and traced the three documented overlay roots in the bounded emulator. No hardware operations occurred.
 
 ## Reproduce and next step
 

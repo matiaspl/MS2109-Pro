@@ -19,14 +19,14 @@ def cpu():
     return CPU(ROM, PROTOTYPE.overlay)
 
 
-def request(c, code, payload=None, **fields):
+def request(c, code, payload=None, *, ep0_offset=(0, 0), **fields):
     setup = {'bm': 0x21 if code == 1 else 0xA1, 'request': code,
              'value': 0x0800, 'index': 0x0200,
              'length': 1 if code == 0x86 else 2} | fields
     c.iram[0x0B:0x13] = bytes((setup['bm'], setup['request'])) + \
         setup['value'].to_bytes(2, 'big') + setup['index'].to_bytes(2, 'big') + \
         setup['length'].to_bytes(2, 'big')
-    c.iram[8:10] = b'\0\0'
+    c.iram[8:10] = bytes(ep0_offset)
     c.xdata[0xC000:0xC002] = setup['length'].to_bytes(2, 'big')
     c.output.clear()
     c.put(0x80, 1 if payload is not None else 0)
@@ -217,7 +217,9 @@ class SharpnessFirmwareTests(unittest.TestCase):
 
     def test_legacy_procamp_uses_unchanged_rom_dispatch(self):
         for selector, value in ((2, 0xFFEE), (3, 149), (6, 0), (7, 147)):
-            for code in (1, 0x81, 0x82, 0x83, 0x84, 0x86, 0x87):
+            # GET_DEF is now intercepted to report the installed startup
+            # defaults; every other current-value request remains ROM-owned.
+            for code in (1, 0x81, 0x82, 0x83, 0x84, 0x86):
                 actual, stock = cpu(), cpu()
                 # Route stock directly through ROM, maintaining the same return ABI.
                 stock.traps[0xCC10] = lambda machine: setattr(machine, 'pc', 0x2AD0)
@@ -246,6 +248,19 @@ class SharpnessFirmwareTests(unittest.TestCase):
                 self.assertEqual(bytes(c.xdata[0xFE84:0xFE86]), before)
                 self.assertFalse(any(address in (0xFE84, 0xFE85)
                                      for address, _ in c.writes))
+
+    def test_procamp_get_def_matches_startup_defaults(self):
+        for selector, expected in ((2, -18), (3, 149), (6, 0), (7, 148)):
+            with self.subTest(selector=selector):
+                c = cpu()
+                # The live hook can run after a prior EP0 transfer left a
+                # nonzero ROM FIFO offset in IRAM 08:09. Model that state.
+                response = request(c, 0x87, value=selector << 8,
+                                   ep0_offset=(0, 1))
+                signed = selector in (2, 6)
+                self.assertEqual(response, expected.to_bytes(2, 'little', signed=signed))
+                self.assertNotIn(0x2AD0, c.visits)
+                self.assertEqual(bytes(c.xdata[0xC020:0xC022]), response)
 
     def test_processing_unit_control_bitmap_is_preserved(self):
         cases = ((2, 0xC03A, ROM[0x7111:0x75CC]),
@@ -286,7 +301,11 @@ class SharpnessFirmwareTests(unittest.TestCase):
     def test_retained_calibration_audio_and_factory_code(self):
         baseline, _, entry = build(ORIGINAL, channel_order=True,
                                   calibrated_color=True, rom=ROM)
-        self.assertEqual(baseline, (ROOT / PROTOTYPE.report['rollback']).read_bytes())
+        previous = (ROOT / PROTOTYPE.report['rollback']).read_bytes()
+        differences = {i: (previous[i], baseline[i])
+                       for i in range(len(previous)) if previous[i] != baseline[i]}
+        self.assertEqual(differences, {1800: (147, 148), 1818: (147, 148),
+                                       2001: (111, 113)})
         for stage in range(32):
             for damaged in (None, *(address+i for address in COLOR_RECORDS for i in range(6))):
                 actual = cpu()
@@ -298,20 +317,6 @@ class SharpnessFirmwareTests(unittest.TestCase):
                 actual.run(PROTOTYPE.symbols['common'])
                 stock.run(entry)
                 actual_writes = actual.writes
-                if PROTOTYPE.report.get('product_name'):
-                    name_writes = [(address, value) for address, value in actual_writes
-                                   if 0xC636 <= address < 0xC636 + 22]
-                    # The ROM copy helper uses this small XDATA scratch window
-                    # while it constructs the string descriptor.
-                    actual_writes = [(address, value) for address, value in actual_writes
-                                     if not (0xC5EE <= address < 0xC5F7 or
-                                             0xC636 <= address < 0xC636 + 22)]
-                    if stage == 2:
-                        expected_name = list(zip(range(0xC636, 0xC636 + 22),
-                                                 bytes((22, 3)) + 'MS2109-Pro'.encode('utf-16le')))
-                        self.assertEqual(name_writes, expected_name, (stage, damaged))
-                    else:
-                        self.assertEqual(name_writes, [], (stage, damaged))
                 self.assertEqual(actual_writes, stock.writes, (stage, damaged))
                 self.assertFalse(any(address in (0xFE84, 0xFE85)
                                      for address, _ in actual.writes))

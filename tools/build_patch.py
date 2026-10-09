@@ -7,7 +7,7 @@ import json
 ORIGINAL_SHA = '37103dccfc6c5e2062b6d22a0a619729449427270e52ae4332fde0da0f49dfe1'
 ROM_SHA = 'b383ef31fca43ebc58a22be8e342d9a1e33ec1cc15afce02921910b0ca358bc8'
 CALIBRATED = {'brightness_signed': -18, 'brightness_ui': 110,
-              'contrast': 149, 'saturation': 147, 'hue': 0}
+              'contrast': 149, 'saturation': 148, 'hue': 0}
 COLOR_RECORDS = (0xc2a4, 0xc43b)
 
 def validate(b):
@@ -81,14 +81,12 @@ def matrix_patch():
 
 def build(b, channel_order=False, calibrated_color=False, rom=None,
           calibrated_color_v2=False, sharpness_profile=False, sharpness_edid="custom",
-          compact_sharpness=False, product_name=None, video_name=None, audio_name=None):
+          compact_sharpness=False, video_name=None, audio_name=None):
     if compact_sharpness and (not sharpness_profile or sharpness_edid != 'rom'):
         raise ValueError('Compact control repair requires --sharpness-profile --sharpness-edid rom')
     if sharpness_edid != "custom" and not sharpness_profile:
         raise ValueError("EDID selection requires the Sharpness profile")
     if sharpness_profile:
-        if product_name is not None:
-            raise ValueError('Product-name editing is not yet packed into the compact control-repair profile')
         if channel_order or calibrated_color or calibrated_color_v2:
             raise ValueError('Control repair is a complete profile; do not combine profile flags')
         if rom is None:
@@ -109,16 +107,6 @@ def build(b, channel_order=False, calibrated_color=False, rom=None,
         raise ValueError('Unexpected Patch_Common hook')
     if calibrated_color and calibrated_color_v2:
         raise ValueError('Choose one calibrated color profile')
-    if product_name is not None and calibrated_color_v2:
-        raise ValueError('Product-name hook requires the stage-2 calibrated profile')
-    product_descriptor = None
-    if product_name is not None:
-        if not isinstance(product_name, str) or not product_name:
-            raise ValueError('USB product name must not be empty')
-        product_payload = product_name.encode('utf-16le')
-        if len(product_payload) + 2 > 255:
-            raise ValueError('USB product string descriptor is too long')
-        product_descriptor = bytes((len(product_payload) + 2, 3)) + product_payload
     # Stage 1 occurs after ROM 4d54 initializes current state + hardware.
     calibrated = calibrated_color or calibrated_color_v2
     if calibrated:
@@ -128,12 +116,10 @@ def build(b, channel_order=False, calibrated_color=False, rom=None,
             if rom[addr:addr+6] != bytes.fromhex('06 24 0d 01 01 04'):
                 raise ValueError('Unexpected saved color descriptor')
     # Signed UVC brightness is a little-endian int16, hardware is signed8.
-    procamp = stores(0xc6a0, [0xee,0xff,149,0,0,0,147,0]) if calibrated else stores(0xc6a0, [0,0,128,0,0,0,128,0])
-    procamp += stores(0xfe90, [0xee,149,147,0]) if calibrated else stores(0xfe90, [0,128,128,0])
+    procamp = stores(0xc6a0, [0xee,0xff,149,0,0,0,148,0]) if calibrated else stores(0xc6a0, [0,0,128,0,0,0,128,0])
+    procamp += stores(0xfe90, [0xee,149,148,0]) if calibrated else stores(0xfe90, [0,128,128,0])
     if calibrated_color:
         procamp += matrix_patch()
-    product_call_offset = None
-    matrix_call_offset = None
     # Stage 2: exact same descriptor fields as the specified upstream patch.
     stereo = stores(0xc4c5, [2]) + stores(0xc4c9, [0x80,0xbb,0])
     # Qualified with the Mac HDMI source: FE60=01 routes continuous source L
@@ -142,12 +128,6 @@ def build(b, channel_order=False, calibrated_color=False, rom=None,
         stereo += stores(0xfe60, [1])
     if calibrated_color:
         stereo += matrix_patch()
-    if product_descriptor is not None:
-        # ROM boot calls stage 1 immediately before its product-string builder
-        # at 22DC, which overwrites C636. Stage 2 runs from the later poll loop;
-        # repair the generated response there so it survives enumeration.
-        product_call_offset = len(stereo)
-        stereo += b'\x12\x00\x00'
     # CJNE uses SIGNED relative displacement; a 128..255-byte block would
     # silently branch backward. Use a forward LJMP for larger stage bodies.
     def stage(number, body, start):
@@ -158,14 +138,10 @@ def build(b, channel_order=False, calibrated_color=False, rom=None,
     dest = 0xcc00+n+4
     if calibrated_color_v2:
         # Retain both runtime patch points, but share one guarded routine.
-        first = bytearray(stage(1,procamp + (b'' if product_descriptor is not None else b'\x12\x00\x00'),dest))
+        first = bytearray(stage(1,procamp + b'\x12\x00\x00',dest))
         second = bytearray(stage(2,stereo + b'\x12\x00\x00',dest+len(first)))
         helper = dest + len(first) + len(second) + 4
-        first_header = len(first) - len(procamp)
-        if product_descriptor is None:
-            first[-2:] = helper.to_bytes(2,'big')
-        else:
-            first[first_header+matrix_call_offset+1:first_header+matrix_call_offset+3] = helper.to_bytes(2,'big')
+        first[-2:] = helper.to_bytes(2,'big')
         second[-2:] = helper.to_bytes(2,'big')
         patch = bytearray(first + second + b[48:51] + b'\x22')
         if dest + len(patch) != helper:
@@ -174,19 +150,9 @@ def build(b, channel_order=False, calibrated_color=False, rom=None,
     else:
         first = stage(1,procamp,dest)
         second = stage(2,stereo,dest+len(first))
-        second_header = len(second)-len(stereo)
         patch = bytearray(first)
         patch += second
         patch += b[48:51] + b'\x22'  # displaced MOV DPTR, then RET
-    if product_descriptor is not None:
-        product_helper = dest + len(patch)
-        call_offset = len(first) + second_header + product_call_offset
-        patch[call_offset+1:call_offset+3] = product_helper.to_bytes(2,'big')
-        source = product_helper + 18
-        patch.extend(bytes((0x7b,0xff,0x7a,(source>>8)&255,0x79,source&255,
-                            0x7c,0,0x7d,len(product_descriptor),0x7e,0xc6,0x7f,0x36,
-                            0x12,0x50,0x38,0x22)))
-        patch.extend(product_descriptor)
     # Preserve old checksums as upstream does; append only into erased EEPROM.
     off = 48+n+4
     if off+len(patch)+4 > len(b) or any(v != 255 for v in b[off:off+len(patch)+4]):
@@ -207,10 +173,9 @@ if __name__ == '__main__':
     p.add_argument('--channel-order',action='store_true')
     p.add_argument('--calibrated-color',action='store_true',help='Measured full-span UI B/C/S 110/149/147, hue 0, BT.709 matrix declarations')
     p.add_argument('--calibrated-color-v2',action='store_true',help='Calibrated full-range profile with a shared guarded matrix routine; GET_DEF remains mask-ROM controlled')
-    p.add_argument('--sharpness-profile',action='store_true',help='Build the compact calibrated-control profile; UVC controls follow mask ROM')
+    p.add_argument('--sharpness-profile',action='store_true',help='Build the compact calibrated-control profile; GET_CUR/SET_CUR follow mask ROM, with calibrated GET_DEF defaults')
     p.add_argument('--sharpness-edid',choices=('custom','rom'),default='custom',help='EDID source for the control-repair profile; rom reclaims the custom table')
     p.add_argument('--compact-sharpness',action='store_true',help='Use the compact ROM-EDID control-repair layout; offline candidate only')
-    p.add_argument('--product-name',help='Override USB product string index 2 during startup (UTF-16LE descriptor)')
     p.add_argument('--video-name',help='Set the EEPROM video-name record (ASCII, 1-15 bytes)')
     p.add_argument('--audio-name',help='Set the EEPROM audio-name record (ASCII, 1-15 bytes)')
     p.add_argument('--rom',type=Path,help='Qualified saved mask ROM (required with either calibrated color profile)')
@@ -218,7 +183,7 @@ if __name__ == '__main__':
     if a.calibrated_color and a.calibrated_color_v2:p.error('choose only one calibrated color profile')
     if (a.calibrated_color or a.calibrated_color_v2 or a.sharpness_profile) and not a.rom:p.error('calibrated profiles require --rom')
     if a.output.exists() or a.output.with_suffix('.hook.bin').exists() or a.output.with_suffix('.json').exists():p.error('Use a new output filename; existing images are preserved')
-    original=a.original.read_bytes(); out, patch, dest=build(original,a.channel_order,a.calibrated_color,a.rom.read_bytes() if a.rom else None,a.calibrated_color_v2,a.sharpness_profile,a.sharpness_edid,a.compact_sharpness,a.product_name,a.video_name,a.audio_name)
+    original=a.original.read_bytes(); out, patch, dest=build(original,a.channel_order,a.calibrated_color,a.rom.read_bytes() if a.rom else None,a.calibrated_color_v2,a.sharpness_profile,a.sharpness_edid,a.compact_sharpness,a.video_name,a.audio_name)
     a.output.write_bytes(out)
     a.output.with_suffix('.hook.bin').write_bytes(patch)
     changes=[{'offset':i,'old':v,'new':out[i]} for i,v in enumerate(original) if v!=out[i]]
@@ -231,14 +196,11 @@ if __name__ == '__main__':
         else:
             metadata.update(assemble(original, a.rom.read_bytes(), edid_source=a.sharpness_edid).report)
         metadata.update({'profile': 'calibrated stereo with ROM EDID and UVC MJPEG rate cap', 'channel_order': True,
-                         'uvc_controls': 'stock mask-ROM descriptor and request handling preserved'})
+                         'uvc_controls': 'stock descriptor, GET_CUR/SET_CUR, and selector-8 handling; calibrated GET_DEF for procamp selectors 2, 3, 6, and 7'})
     if a.calibrated_color:
         metadata.update({'controls':CALIBRATED,'color_matching':{'primaries':1,'transfer':1,'matrix':1,'ram_records':[hex(addr) for addr in COLOR_RECORDS],'quantization_range':'No UVC descriptor field; measured full-range target','other_speed_mask_rom':'unchanged'},'get_def':'Unchanged ROM constants: signed brightness -11, contrast 148, hue 0, saturation 180','rom_sha256':hashlib.sha256(a.rom.read_bytes()).hexdigest(),'calibration_result':'artifacts/color-probe/20261006-auto-calibration-v2/result.json'})
     if a.calibrated_color_v2:
-        metadata.update({'controls':CALIBRATED,'color_matching':{'primaries':1,'transfer':1,'matrix':1,'ram_records':[hex(addr) for addr in COLOR_RECORDS],'quantization_range':'No UVC descriptor field; measured full-range target','other_speed_mask_rom':'unchanged'},'get_def':{'status':'unchanged; mask-ROM request path has no verified safe EEPROM override hook','brightness_signed':-11,'contrast':148,'hue':0,'saturation':180,'desired_calibrated':{'brightness_signed':-18,'contrast':149,'hue':0,'saturation':147}},'rom_sha256':hashlib.sha256(a.rom.read_bytes()).hexdigest(),'calibration_result':'artifacts/color-probe/20261006-auto-calibration-v2/result.json','matrix_patch':'One guarded helper called at stages 1 and 2','candidate_release_status':'not flash-qualified; host color signaling and GET_DEF override gates remain open'})
-    if a.product_name is not None:
-        metadata.update({'product_name':a.product_name,'product_descriptor_xdata':'0xC636',
-                         'product_name_status':'stage-2 response-buffer repair; RAM qualification pending'})
+        metadata.update({'controls':CALIBRATED,'color_matching':{'primaries':1,'transfer':1,'matrix':1,'ram_records':[hex(addr) for addr in COLOR_RECORDS],'quantization_range':'No UVC descriptor field; measured full-range target','other_speed_mask_rom':'unchanged'},'get_def':{'status':'unchanged for this profile; calibrated GET_DEF override is available in the compact calibrated-control profile','brightness_signed':-11,'contrast':148,'hue':0,'saturation':180,'desired_calibrated':{'brightness_signed':-18,'contrast':149,'hue':0,'saturation':148}},'rom_sha256':hashlib.sha256(a.rom.read_bytes()).hexdigest(),'calibration_result':'artifacts/color-probe/20261006-auto-calibration-v2/result.json','matrix_patch':'One guarded helper called at stages 1 and 2','candidate_release_status':'not flash-qualified; host color signaling remains an open gate'})
     if a.video_name is not None or a.audio_name is not None:
         metadata.update({'usb_names':{'video':a.video_name,'audio':a.audio_name,
                          'header_offsets':{'video':'0x10','audio':'0x20'},
