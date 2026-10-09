@@ -13,3 +13,5 @@ tools/capture_audio_usb
 *.mkv
 # Regenerable native helpers used by MS2109 live experiment runners
 artifacts/ms2109-repair/**/compiled-tools/
+# Large user-owned raw captures retained locally; checksums are in FILE_INVENTORY.tsv
+development/artifacts/ms2109-repair-local-only/
