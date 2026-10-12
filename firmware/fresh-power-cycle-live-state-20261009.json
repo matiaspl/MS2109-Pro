@@ -1,0 +1,8 @@
+{
+  "chip": "MS2109",
+  "eeprom_size": 2048,
+  "c4c1": "0b2402010202100180bb00",
+  "c6a0": "eeff950000009300",
+  "fe90": "ee959300",
+  "cbd0": "a55a073b0710ffffffffffff200722040b4d53323130392d50726fffffffffff0b4d53323130392d50726fffffffffff"
+}
