@@ -2,7 +2,7 @@
 
 A reproducible 2 KiB EEPROM image for the MS2109 capture device. This release preserves the live-qualified firmware fixes and advertises `MS2109-Pro` for video and audio. Startup procamp is B−17/C148/H0/S146. The unmodified mask-ROM EDID advertises its original deep-color capabilities; no sRGB/D65 or USB transfer workaround is applied.
 
-Native display-space patch drawing measured raw Y/Cb/Cr straight-line RMS of 0.403/0.446/0.446 codes, with all channels spanning 1–254. The earlier PNG/NSImage source path introduced curvature. The predecessor startup image was cold-boot validated. A native-patch baseline–deep-color–baseline comparison produced identical sampled values and RMS; the rebuilt image removing the 8-bit restriction awaits cold-boot validation. See [native calibration](docs/native-patch-calibration.md).
+Native display-space patch drawing measured raw Y/Cb/Cr straight-line RMS of 0.403/0.446/0.446 codes, with all channels spanning 1–254. The earlier PNG/NSImage source path introduced curvature. The predecessor startup image was cold-boot validated. A native-patch baseline–deep-color–baseline comparison produced identical sampled values and RMS; the rebuilt image removing the 8-bit restriction also passed cold-boot validation. See [native calibration](docs/native-patch-calibration.md).
 
 ## Build
 
@@ -46,7 +46,7 @@ The calibration used 96 RGB chart patches and captured the two USB transports. I
 |---|---|---|
 | Neutral limited-range baseline | 128 / 128 / 128 / 0 | Gray Y 16–235; measured chroma was about 16–239. Use with a matching limited-range consumer. |
 | Measured full-range target | 110 / 149 / 147 / 0 | Gray Y 0–255 and Cb/Cr 1–254 in both captured transports. Brightness 110 is signed UVC −18. Best measured balance in the local search, not a verified global optimum. |
-| Current release startup values | 111 / 148 / 146 / 0 | Signed brightness −17. Runtime native-patch capture measured Y/Cb/Cr 1–254 with sub-code straight-line RMS. Predecessor startup image cold-boot qualified; current callback removal awaits cold-boot qualification. |
+| Current release startup values | 111 / 148 / 146 / 0 | Signed brightness −17. Runtime native-patch capture measured Y/Cb/Cr 1–254 with sub-code straight-line RMS. Current release cold-boot qualified with the original deep-color EDID. |
 
 At the measured full-range settings, patch-median Y/Cb/Cr RMSE against the full-range BT.709 target was **0.565 / 1.036 / 1.055 codes for YUY2** and **0.533 / 1.026 / 1.043 codes for MJPEG**. The limited baseline was closest to BT.709 limited among tested matrix/range models (0.860 YUV-code RMS). These are numeric patch results, not guarantees for every input signal or host display path.
 
@@ -71,6 +71,6 @@ The plot compares calibrated YUY2 and MJPEG patch medians with the full-range BT
 
 ## Qualification and limitations
 
-The predecessor release (`64d761a9…`) passed cold-boot EEPROM, startup-control, descriptor and native-patch raw YUY2 validation. The current image removes only the 8-bit EDID callback from that release and updates the code checksum. The original deep-color advertisement passed a reversible RAM A–B–A comparison, but this rebuilt EEPROM image has not been flashed or cold-boot validated.
+The predecessor release (`64d761a9…`) passed cold-boot EEPROM, startup-control, descriptor and native-patch raw YUY2 validation. The current image removes only the 8-bit EDID callback from that release and updates the code checksum. The original deep-color advertisement passed a reversible RAM A–B–A comparison, and this rebuilt EEPROM image passed cold-boot EEPROM, startup-control, source-EDID, USB-descriptor and native-patch raw YUY2 validation.
 
 The colour results cover a local control search and 96 patches; they are not exhaustive. RGB and YUV HDMI input modes were not independently confirmed at the wire. Consumer-side matrix/range conversion must be checked separately. Stereo routing was tested with the described HDMI source; other sources may differ.
