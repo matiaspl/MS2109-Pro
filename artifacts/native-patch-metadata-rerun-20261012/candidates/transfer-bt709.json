@@ -1,0 +1,13 @@
+{
+  "kind": "usb-transfer",
+  "name": "bt709",
+  "baseline_sha256": "7a8379955877f550f2a9048e86afd3bd6bb0d5b7c265197ffc55401e9442c33a",
+  "persistent_flashing_approved": false,
+  "uvc_value": 1,
+  "firmware": {
+    "baseline_sha256": "7a8379955877f550f2a9048e86afd3bd6bb0d5b7c265197ffc55401e9442c33a",
+    "candidate_sha256": "7a8379955877f550f2a9048e86afd3bd6bb0d5b7c265197ffc55401e9442c33a",
+    "bytes": 2048,
+    "changes": []
+  }
+}

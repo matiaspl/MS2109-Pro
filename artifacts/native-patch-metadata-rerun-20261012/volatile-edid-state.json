@@ -1,0 +1,7 @@
+{
+  "target": "baseline",
+  "expected_source_sha256": "502ed39a4eb936d007df71a7087ae2ebe0dea6c47c71abc1eb8dada271b69ac5",
+  "restore_edid": "baseline-source-edid.bin",
+  "status": "awaiting-source-reconnect",
+  "aperture_readback_verified": true
+}

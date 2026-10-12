@@ -1,0 +1,63 @@
+{
+  "silicon_id": "a7109a",
+  "eeprom_bytes": 2048,
+  "eeprom_sha256": "7a8379955877f550f2a9048e86afd3bd6bb0d5b7c265197ffc55401e9442c33a",
+  "source_edid_sha256": "502ed39a4eb936d007df71a7087ae2ebe0dea6c47c71abc1eb8dada271b69ac5",
+  "configuration_sha256": "dc81ce483dac2f4f1f5cff0dfeeefc981c61025ac267c19979069c5e88dac08f",
+  "active_ram_base": 49210,
+  "bcdUVC": 256,
+  "colors": [
+    {
+      "offset": 618,
+      "format": "MJPEG",
+      "bytes": "06240d010101",
+      "primaries": 1,
+      "transfer": 1,
+      "matrix": 1
+    },
+    {
+      "offset": 1025,
+      "format": "YUY2",
+      "bytes": "06240d010101",
+      "primaries": 1,
+      "transfer": 1,
+      "matrix": 1
+    }
+  ],
+  "procamp_shadow": "efff940000009200",
+  "ram_ep0_differences": [
+    {
+      "offset": 133,
+      "ram": 10,
+      "ep0": 21
+    },
+    {
+      "offset": 134,
+      "ram": 139,
+      "ep0": 22
+    },
+    {
+      "offset": 135,
+      "ram": 2,
+      "ep0": 5
+    },
+    {
+      "offset": 138,
+      "ram": 10,
+      "ep0": 21
+    },
+    {
+      "offset": 139,
+      "ram": 139,
+      "ep0": 22
+    },
+    {
+      "offset": 140,
+      "ram": 2,
+      "ep0": 5
+    }
+  ],
+  "f819": "00",
+  "raw_frames_saved": false,
+  "other_speed_error": "Require UVC header and one color record per MJPEG/YUY2 format"
+}

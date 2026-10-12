@@ -1,0 +1,399 @@
+{
+  "kind": "usb-transfer",
+  "name": "bt470bg",
+  "baseline_sha256": "7a8379955877f550f2a9048e86afd3bd6bb0d5b7c265197ffc55401e9442c33a",
+  "persistent_flashing_approved": false,
+  "uvc_value": 3,
+  "firmware": {
+    "baseline_sha256": "7a8379955877f550f2a9048e86afd3bd6bb0d5b7c265197ffc55401e9442c33a",
+    "candidate_sha256": "5872b3d3dd2f27194236a7e74f6bb92f07183b0972b92b240217bd315d72205f",
+    "bytes": 2048,
+    "changes": [
+      {
+        "offset": 3,
+        "before": 147,
+        "after": 203
+      },
+      {
+        "offset": 49,
+        "before": 207,
+        "after": 210
+      },
+      {
+        "offset": 50,
+        "before": 172,
+        "after": 162
+      },
+      {
+        "offset": 1746,
+        "before": 255,
+        "after": 18
+      },
+      {
+        "offset": 1747,
+        "before": 255,
+        "after": 207
+      },
+      {
+        "offset": 1748,
+        "before": 255,
+        "after": 172
+      },
+      {
+        "offset": 1749,
+        "before": 255,
+        "after": 192
+      },
+      {
+        "offset": 1750,
+        "before": 255,
+        "after": 224
+      },
+      {
+        "offset": 1751,
+        "before": 255,
+        "after": 192
+      },
+      {
+        "offset": 1752,
+        "before": 255,
+        "after": 130
+      },
+      {
+        "offset": 1753,
+        "before": 255,
+        "after": 192
+      },
+      {
+        "offset": 1754,
+        "before": 255,
+        "after": 131
+      },
+      {
+        "offset": 1755,
+        "before": 255,
+        "after": 192
+      },
+      {
+        "offset": 1756,
+        "before": 255,
+        "after": 208
+      },
+      {
+        "offset": 1757,
+        "before": 255,
+        "after": 2
+      },
+      {
+        "offset": 1758,
+        "before": 255,
+        "after": 211
+      },
+      {
+        "offset": 1759,
+        "before": 255,
+        "after": 147
+      },
+      {
+        "offset": 1987,
+        "before": 22,
+        "after": 144
+      },
+      {
+        "offset": 1988,
+        "before": 152,
+        "after": 194
+      },
+      {
+        "offset": 1989,
+        "before": 223,
+        "after": 164
+      },
+      {
+        "offset": 1990,
+        "before": 190,
+        "after": 18
+      },
+      {
+        "offset": 1991,
+        "before": 255,
+        "after": 211
+      },
+      {
+        "offset": 1992,
+        "before": 255,
+        "after": 168
+      },
+      {
+        "offset": 1993,
+        "before": 255,
+        "after": 144
+      },
+      {
+        "offset": 1994,
+        "before": 255,
+        "after": 196
+      },
+      {
+        "offset": 1995,
+        "before": 255,
+        "after": 59
+      },
+      {
+        "offset": 1996,
+        "before": 255,
+        "after": 18
+      },
+      {
+        "offset": 1997,
+        "before": 255,
+        "after": 211
+      },
+      {
+        "offset": 1998,
+        "before": 255,
+        "after": 168
+      },
+      {
+        "offset": 1999,
+        "before": 255,
+        "after": 208
+      },
+      {
+        "offset": 2000,
+        "before": 255,
+        "after": 208
+      },
+      {
+        "offset": 2001,
+        "before": 255,
+        "after": 208
+      },
+      {
+        "offset": 2002,
+        "before": 255,
+        "after": 131
+      },
+      {
+        "offset": 2003,
+        "before": 255,
+        "after": 208
+      },
+      {
+        "offset": 2004,
+        "before": 255,
+        "after": 130
+      },
+      {
+        "offset": 2005,
+        "before": 255,
+        "after": 208
+      },
+      {
+        "offset": 2006,
+        "before": 255,
+        "after": 224
+      },
+      {
+        "offset": 2007,
+        "before": 255,
+        "after": 34
+      },
+      {
+        "offset": 2008,
+        "before": 255,
+        "after": 224
+      },
+      {
+        "offset": 2009,
+        "before": 255,
+        "after": 180
+      },
+      {
+        "offset": 2010,
+        "before": 255,
+        "after": 6
+      },
+      {
+        "offset": 2011,
+        "before": 255,
+        "after": 30
+      },
+      {
+        "offset": 2012,
+        "before": 255,
+        "after": 163
+      },
+      {
+        "offset": 2013,
+        "before": 255,
+        "after": 224
+      },
+      {
+        "offset": 2014,
+        "before": 255,
+        "after": 180
+      },
+      {
+        "offset": 2015,
+        "before": 255,
+        "after": 36
+      },
+      {
+        "offset": 2016,
+        "before": 255,
+        "after": 25
+      },
+      {
+        "offset": 2017,
+        "before": 255,
+        "after": 163
+      },
+      {
+        "offset": 2018,
+        "before": 255,
+        "after": 224
+      },
+      {
+        "offset": 2019,
+        "before": 255,
+        "after": 180
+      },
+      {
+        "offset": 2020,
+        "before": 255,
+        "after": 13
+      },
+      {
+        "offset": 2021,
+        "before": 255,
+        "after": 20
+      },
+      {
+        "offset": 2022,
+        "before": 255,
+        "after": 163
+      },
+      {
+        "offset": 2023,
+        "before": 255,
+        "after": 224
+      },
+      {
+        "offset": 2024,
+        "before": 255,
+        "after": 180
+      },
+      {
+        "offset": 2025,
+        "before": 255,
+        "after": 1
+      },
+      {
+        "offset": 2026,
+        "before": 255,
+        "after": 15
+      },
+      {
+        "offset": 2027,
+        "before": 255,
+        "after": 163
+      },
+      {
+        "offset": 2028,
+        "before": 255,
+        "after": 224
+      },
+      {
+        "offset": 2029,
+        "before": 255,
+        "after": 180
+      },
+      {
+        "offset": 2030,
+        "before": 255,
+        "after": 1
+      },
+      {
+        "offset": 2031,
+        "before": 255,
+        "after": 10
+      },
+      {
+        "offset": 2032,
+        "before": 255,
+        "after": 163
+      },
+      {
+        "offset": 2033,
+        "before": 255,
+        "after": 224
+      },
+      {
+        "offset": 2034,
+        "before": 255,
+        "after": 180
+      },
+      {
+        "offset": 2035,
+        "before": 255,
+        "after": 1
+      },
+      {
+        "offset": 2036,
+        "before": 255,
+        "after": 5
+      },
+      {
+        "offset": 2037,
+        "before": 255,
+        "after": 21
+      },
+      {
+        "offset": 2038,
+        "before": 255,
+        "after": 130
+      },
+      {
+        "offset": 2039,
+        "before": 255,
+        "after": 116
+      },
+      {
+        "offset": 2040,
+        "before": 255,
+        "after": 3
+      },
+      {
+        "offset": 2041,
+        "before": 255,
+        "after": 240
+      },
+      {
+        "offset": 2042,
+        "before": 255,
+        "after": 34
+      },
+      {
+        "offset": 2043,
+        "before": 255,
+        "after": 22
+      },
+      {
+        "offset": 2044,
+        "before": 255,
+        "after": 208
+      },
+      {
+        "offset": 2045,
+        "before": 255,
+        "after": 246
+      },
+      {
+        "offset": 2046,
+        "before": 255,
+        "after": 143
+      }
+    ]
+  }
+}

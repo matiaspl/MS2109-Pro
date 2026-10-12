@@ -1,0 +1,65 @@
+{
+  "baseline_sha256": "502ed39a4eb936d007df71a7087ae2ebe0dea6c47c71abc1eb8dada271b69ac5",
+  "candidate_sha256": "7b2626be53f1a2817b33769f0d4cd5830258fee300474759d06d693d3c981c72",
+  "bytes": 256,
+  "changes": [
+    {
+      "offset": 24,
+      "before": 234,
+      "after": 238
+    },
+    {
+      "offset": 25,
+      "before": 217,
+      "after": 238
+    },
+    {
+      "offset": 26,
+      "before": 176,
+      "after": 145
+    },
+    {
+      "offset": 28,
+      "before": 87,
+      "after": 84
+    },
+    {
+      "offset": 29,
+      "before": 73,
+      "after": 76
+    },
+    {
+      "offset": 30,
+      "before": 156,
+      "after": 153
+    },
+    {
+      "offset": 31,
+      "before": 37,
+      "after": 38
+    },
+    {
+      "offset": 32,
+      "before": 17,
+      "after": 15
+    },
+    {
+      "offset": 33,
+      "before": 73,
+      "after": 80
+    },
+    {
+      "offset": 34,
+      "before": 75,
+      "after": 84
+    },
+    {
+      "offset": 127,
+      "before": 38,
+      "after": 32
+    }
+  ],
+  "kind": "edid",
+  "persistent_flashing_approved": false,
+  "persistent_candidate_error": "Live image lacks the qualified gate-aware 8-bit EDID callback"
+}

@@ -1,0 +1,7 @@
+{
+  "kind": "usb-transfer",
+  "name": "srgb",
+  "baseline_sha256": "7a8379955877f550f2a9048e86afd3bd6bb0d5b7c265197ffc55401e9442c33a",
+  "persistent_flashing_approved": false,
+  "persistent_candidate_error": "sRGB transfer requires UVC 1.1 or newer"
+}

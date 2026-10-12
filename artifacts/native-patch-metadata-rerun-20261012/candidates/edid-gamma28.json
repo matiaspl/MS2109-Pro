@@ -1,0 +1,20 @@
+{
+  "baseline_sha256": "502ed39a4eb936d007df71a7087ae2ebe0dea6c47c71abc1eb8dada271b69ac5",
+  "candidate_sha256": "9efe6b3da386db70f310fb248caf87ff2d3930a08222e8736ccf4550acdb519e",
+  "bytes": 256,
+  "changes": [
+    {
+      "offset": 23,
+      "before": 120,
+      "after": 180
+    },
+    {
+      "offset": 127,
+      "before": 38,
+      "after": 234
+    }
+  ],
+  "kind": "edid",
+  "persistent_flashing_approved": false,
+  "persistent_candidate_error": "Live image lacks the qualified gate-aware 8-bit EDID callback"
+}

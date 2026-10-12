@@ -1,0 +1,295 @@
+{
+  "baseline": {
+    "Y": {
+      "rmse": 0.4027345465338058,
+      "span": 253.0,
+      "minimum": 1.0,
+      "maximum": 254.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 2,
+      "high_endpoint_plateau": 1,
+      "extra_rail_samples": 0,
+      "slope": 0.9930718533236393,
+      "intercept": 0.8833387012359356
+    },
+    "Cb": {
+      "rmse": 0.4460672213976137,
+      "span": 253.0,
+      "minimum": 1.0,
+      "maximum": 254.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 1,
+      "high_endpoint_plateau": 1,
+      "extra_rail_samples": 0,
+      "slope": 0.9904005323696362,
+      "intercept": 0.6787318566864597
+    },
+    "Cr": {
+      "rmse": 0.44606722139761384,
+      "span": 253.0,
+      "minimum": 1.0,
+      "maximum": 254.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 1,
+      "high_endpoint_plateau": 1,
+      "extra_rail_samples": 0,
+      "slope": 0.9904005323696362,
+      "intercept": 0.678731856686453
+    }
+  },
+  "conditions": [
+    {
+      "label": "gamma24",
+      "metrics": {
+        "Y": {
+          "rmse": 0.4027345465338058,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 2,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9930718533236393,
+          "intercept": 0.8833387012359356
+        },
+        "Cb": {
+          "rmse": 0.4460672213976137,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 1,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9904005323696362,
+          "intercept": 0.6787318566864597
+        },
+        "Cr": {
+          "rmse": 0.44606722139761384,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 1,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9904005323696362,
+          "intercept": 0.678731856686453
+        }
+      },
+      "checks": {
+        "luma_error_halved": false,
+        "chroma_error_not_worse": true,
+        "coverage_preserved": true,
+        "no_new_clipping": true,
+        "monotonic": true,
+        "baseline_repeat_stable": true
+      },
+      "accepted": false
+    },
+    {
+      "label": "gamma28",
+      "metrics": {
+        "Y": {
+          "rmse": 0.4027345465338058,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 2,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9930718533236393,
+          "intercept": 0.8833387012359356
+        },
+        "Cb": {
+          "rmse": 0.4460672213976137,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 1,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9904005323696362,
+          "intercept": 0.6787318566864597
+        },
+        "Cr": {
+          "rmse": 0.44606722139761384,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 1,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9904005323696362,
+          "intercept": 0.678731856686453
+        }
+      },
+      "checks": {
+        "luma_error_halved": false,
+        "chroma_error_not_worse": true,
+        "coverage_preserved": true,
+        "no_new_clipping": true,
+        "monotonic": true,
+        "baseline_repeat_stable": true
+      },
+      "accepted": false
+    },
+    {
+      "label": "baseline-repeat",
+      "metrics": {
+        "Y": {
+          "rmse": 0.4027345465338058,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 2,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9930718533236393,
+          "intercept": 0.8833387012359356
+        },
+        "Cb": {
+          "rmse": 0.4460672213976137,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 1,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9904005323696362,
+          "intercept": 0.6787318566864597
+        },
+        "Cr": {
+          "rmse": 0.44606722139761384,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 1,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9904005323696362,
+          "intercept": 0.678731856686453
+        }
+      },
+      "checks": {
+        "luma_error_halved": false,
+        "chroma_error_not_worse": true,
+        "coverage_preserved": true,
+        "no_new_clipping": true,
+        "monotonic": true,
+        "baseline_repeat_stable": true
+      },
+      "accepted": false
+    },
+    {
+      "label": "baseline",
+      "metrics": {
+        "Y": {
+          "rmse": 0.4027345465338058,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 2,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9930718533236393,
+          "intercept": 0.8833387012359356
+        },
+        "Cb": {
+          "rmse": 0.4460672213976137,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 1,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9904005323696362,
+          "intercept": 0.6787318566864597
+        },
+        "Cr": {
+          "rmse": 0.44606722139761384,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 1,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9904005323696362,
+          "intercept": 0.678731856686453
+        }
+      },
+      "checks": {
+        "luma_error_halved": false,
+        "chroma_error_not_worse": true,
+        "coverage_preserved": true,
+        "no_new_clipping": true,
+        "monotonic": true,
+        "baseline_repeat_stable": true
+      },
+      "accepted": false
+    },
+    {
+      "label": "srgb",
+      "metrics": {
+        "Y": {
+          "rmse": 0.4027345465338058,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 2,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9930718533236393,
+          "intercept": 0.8833387012359356
+        },
+        "Cb": {
+          "rmse": 0.4460672213976137,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 1,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9904005323696362,
+          "intercept": 0.6787318566864597
+        },
+        "Cr": {
+          "rmse": 0.44606722139761384,
+          "span": 253.0,
+          "minimum": 1.0,
+          "maximum": 254.0,
+          "monotonic_decreases": 0,
+          "low_endpoint_plateau": 1,
+          "high_endpoint_plateau": 1,
+          "extra_rail_samples": 0,
+          "slope": 0.9904005323696362,
+          "intercept": 0.678731856686453
+        }
+      },
+      "checks": {
+        "luma_error_halved": false,
+        "chroma_error_not_worse": true,
+        "coverage_preserved": true,
+        "no_new_clipping": true,
+        "monotonic": true,
+        "baseline_repeat_stable": true
+      },
+      "accepted": false
+    }
+  ],
+  "raw_frames_saved": false,
+  "conclusion": "No qualified correction; unmeasured conditions are not failures",
+  "baseline_repeat_present": true
+}

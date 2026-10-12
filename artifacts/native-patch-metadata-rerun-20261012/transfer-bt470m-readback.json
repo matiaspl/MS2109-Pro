@@ -1,0 +1,37 @@
+{
+  "target": "bt470m",
+  "requested_value": 2,
+  "ep0_verified_before_reset": false,
+  "reset_requested": true,
+  "reset_performed": false,
+  "ram_transfer_before_request": [
+    2,
+    2
+  ],
+  "ram_transfer_after_request": [
+    2,
+    2
+  ],
+  "served_configuration": {
+    "bcdUVC": 256,
+    "colors": [
+      {
+        "offset": 618,
+        "format": "MJPEG",
+        "bytes": "06240d010101",
+        "primaries": 1,
+        "transfer": 1,
+        "matrix": 1
+      },
+      {
+        "offset": 1025,
+        "format": "YUY2",
+        "bytes": "06240d010101",
+        "primaries": 1,
+        "transfer": 1,
+        "matrix": 1
+      }
+    ]
+  },
+  "status": "edit-not-served"
+}
