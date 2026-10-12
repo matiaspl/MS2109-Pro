@@ -1,0 +1,44 @@
+{
+  "sha256": "73201cd1a43864a2a32a3162b7ee453470bac649edd226ab683c2ba422e005dd",
+  "provenance": "Live EEPROM saved twice and repeatedly verified during EDID/USB experiments; restored byte-for-byte after trials",
+  "code_bytes": 1939,
+  "edid": "ROM-derived baseline with qualified gate-aware deep-color clearing callback",
+  "release_changes": [
+    {
+      "offset": 1003,
+      "before": 238,
+      "after": 239
+    },
+    {
+      "offset": 1011,
+      "before": 149,
+      "after": 148
+    },
+    {
+      "offset": 1022,
+      "before": 147,
+      "after": 146
+    },
+    {
+      "offset": 1031,
+      "before": 238,
+      "after": 239
+    },
+    {
+      "offset": 1035,
+      "before": 149,
+      "after": 148
+    },
+    {
+      "offset": 1039,
+      "before": 147,
+      "after": 146
+    },
+    {
+      "offset": 1990,
+      "before": 124,
+      "after": 122
+    }
+  ],
+  "remaining_code_bytes": 57
+}

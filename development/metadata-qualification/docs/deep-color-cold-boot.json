@@ -1,0 +1,124 @@
+{
+  "eeprom_sha256": "7a8379955877f550f2a9048e86afd3bd6bb0d5b7c265197ffc55401e9442c33a",
+  "expected_release_sha256": "7a8379955877f550f2a9048e86afd3bd6bb0d5b7c265197ffc55401e9442c33a",
+  "release_image_matches": true,
+  "eeprom_two_reads_identical": true,
+  "startup_procamp": {
+    "brightness": -17,
+    "contrast": 148,
+    "hue": 0,
+    "saturation": 146,
+    "verified": true
+  },
+  "startup_procamp_matches": true,
+  "ram_control_bytes": "efff940000009200",
+  "hardware_procamp_bytes": "ef949200",
+  "usb_colors": {
+    "bcdUVC": 256,
+    "colors": [
+      {
+        "offset": 618,
+        "format": "MJPEG",
+        "bytes": "06240d010101",
+        "primaries": 1,
+        "transfer": 1,
+        "matrix": 1
+      },
+      {
+        "offset": 1025,
+        "format": "YUY2",
+        "bytes": "06240d010101",
+        "primaries": 1,
+        "transfer": 1,
+        "matrix": 1
+      }
+    ]
+  },
+  "usb_names": {
+    "product": "MS2109-Pro",
+    "interfaces": [
+      {
+        "interface": 0,
+        "class": 14,
+        "name": "MS2109-Pro"
+      },
+      {
+        "interface": 2,
+        "class": 1,
+        "name": "MS2109-Pro"
+      },
+      {
+        "interface": 3,
+        "class": 1,
+        "name": "MS2109-Pro"
+      },
+      {
+        "interface": 3,
+        "class": 1,
+        "name": "MS2109-Pro"
+      }
+    ]
+  },
+  "mjpeg_1080p": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "default_interval_100ns": 333333,
+      "intervals_100ns": [
+        333333,
+        333333,
+        400000,
+        500000,
+        1000000
+      ]
+    }
+  ],
+  "source_edid_sha256": "502ed39a4eb936d007df71a7087ae2ebe0dea6c47c71abc1eb8dada271b69ac5",
+  "edid_matches": true,
+  "persistent_writes": false,
+  "capture_metrics": {
+    "Y": {
+      "rmse": 0.4027345465338058,
+      "span": 253.0,
+      "minimum": 1.0,
+      "maximum": 254.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 2,
+      "high_endpoint_plateau": 1,
+      "extra_rail_samples": 0,
+      "slope": 0.9930718533236393,
+      "intercept": 0.8833387012359356
+    },
+    "Cb": {
+      "rmse": 0.4460672213976137,
+      "span": 253.0,
+      "minimum": 1.0,
+      "maximum": 254.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 1,
+      "high_endpoint_plateau": 1,
+      "extra_rail_samples": 0,
+      "slope": 0.9904005323696362,
+      "intercept": 0.6787318566864597
+    },
+    "Cr": {
+      "rmse": 0.44606722139761384,
+      "span": 253.0,
+      "minimum": 1.0,
+      "maximum": 254.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 1,
+      "high_endpoint_plateau": 1,
+      "extra_rail_samples": 0,
+      "slope": 0.9904005323696362,
+      "intercept": 0.678731856686453
+    }
+  },
+  "capture_valid": true,
+  "cold_boot_passed": true,
+  "limitations": [
+    "HDMI wire bit depth not measured",
+    "No fresh audio waveform or timing measurement",
+    "Native RGB gradients, not exhaustive RGB-cube qualification"
+  ]
+}

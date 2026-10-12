@@ -285,3 +285,7 @@ using ReportLab. The run retains original capture sources and executable
 hashes; later file-only analysis revisions have separate source snapshots.
 
 Latest register findings: [FE8E/FE8F procamp bypass characterization](docs/2026-10-08_ms2109-procamp-bypass-findings.md), with saved measurements, captured images, and explicit unresolved mappings.
+
+## Native metadata qualification
+
+See [metadata-qualification](metadata-qualification/README.md) for the direct-native-patch EDID/USB comparison tools, in-memory YUY2 analysis, procamp sweep sources and corrected color findings.
