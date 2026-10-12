@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from release_builder import validate
 from qualified_release import build_qualified_release, PROCAM, BASE_SHA256
 
-EXPECTED_SHA256 = "64d761a92fdfc140222a6d24e316eb212ce17fa1ec43c33517011b2d7527a769"
+EXPECTED_SHA256 = "7a8379955877f550f2a9048e86afd3bd6bb0d5b7c265197ffc55401e9442c33a"
 BASE_EEPROM = ROOT / "firmware/base/qualified-eeprom.bin"
 MASK_ROM = ROOT / "firmware/base/ms2109-maskrom.bin"
 
@@ -43,11 +43,12 @@ def main():
         "qualified_baseline_sha256": BASE_SHA256,
         "startup_procamp": PROCAM,
         "source_renderer": "direct display-native RGB patches",
-        "qualification": "runtime controls and baseline live-qualified; rebuilt startup image not cold-boot tested",
-        "edid": "baseline ROM-derived EDID with verified 8-bit capability patch; no sRGB edit",
+        "qualification": "Predecessor cold-boot qualified; deep-color EDID RAM A–B–A qualified with identical raw response; rebuilt callback removal not cold-boot tested",
+        "edid": "unmodified mask-ROM EDID; deep-color restriction removed; no sRGB edit",
+        "edid_sha256": "502ed39a4eb936d007df71a7087ae2ebe0dea6c47c71abc1eb8dada271b69ac5",
         "uvc_controls": "stock mask-ROM descriptor and request handling",
         "usb_header_names": {"video":"MS2109-Pro","audio":"MS2109-Pro"},
-        "cold_restart_descriptor": {"fps_approx":[30,30,25,20,10],"default_interval_100ns":333333,"qualification":"inherited baseline descriptor repair; new startup image has not been cold-boot tested"},
+        "cold_restart_descriptor": {"fps_approx":[30,30,25,20,10],"default_interval_100ns":333333,"qualification":"inherited cold-boot-qualified descriptor repair; rebuilt callback removal not cold-boot tested"},
         "video_name": "MS2109-Pro",
         "audio_name": "MS2109-Pro",
         "mjpeg_1080p_intervals_100ns": [333333, 333333, 400000, 500000, 1000000],
