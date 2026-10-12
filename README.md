@@ -1,6 +1,8 @@
 # MS2109-Pro firmware
 
-A reproducible 2 KiB EEPROM image for the MS2109 capture device. This release keeps the stock UVC control handlers and `usb video` USB header names. The project name “MS2109-Pro” is not a claim about the device’s advertised USB name.
+A reproducible 2 KiB EEPROM image for the MS2109 capture device. This release preserves the live-qualified firmware fixes and advertises `MS2109-Pro` for video and audio. Startup procamp is B−17/C148/H0/S146. The baseline EDID is retained; no sRGB/D65 or USB transfer workaround is applied.
+
+Native display-space patch drawing measured raw Y/Cb/Cr straight-line RMS of 0.403/0.446/0.446 codes, with all channels spanning 1–254. The earlier PNG/NSImage source path introduced curvature. These settings were tested as runtime controls; the rebuilt EEPROM startup image has not been cold-boot tested. See [native calibration](docs/native-patch-calibration.md).
 
 ## Build
 
@@ -13,18 +15,19 @@ cmp firmware/ms2109-pro.bin /tmp/ms2109-pro-rebuilt.bin
 python3 -m unittest discover -s builder -p 'test_*.py'
 ```
 
-The builder refuses to overwrite its output or manifest. It validates the pinned base EEPROM and mask ROM, enforces the EEPROM code limit, and checks the final SHA-256.
+The builder refuses to overwrite its output or manifest. It validates the pinned live-qualified EEPROM baseline, replaces two unique same-length startup routines, checks EEPROM capacity/checksums and final SHA-256. Existing firmware fixes are preserved byte-for-byte outside the startup values and code checksum. The factory EEPROM and mask ROM remain reference inputs; this release builds from `firmware/base/qualified-eeprom.bin`.
 
 | Input/output | SHA-256 |
 |---|---|
-| Original EEPROM | `37103dccfc6c5e2062b6d22a0a619729449427270e52ae4332fde0da0f49dfe1` |
+| Factory reference EEPROM | `37103dccfc6c5e2062b6d22a0a619729449427270e52ae4332fde0da0f49dfe1` |
 | Mask ROM | `b383ef31fca43ebc58a22be8e342d9a1e33ec1cc15afce02921910b0ca358bc8` |
-| MS2109-Pro EEPROM | `0d8d3139b51edc4ff283dab33f00c2270f2134d95bce4bf7a351dcf38c14bb82` |
+| Qualified build baseline | `73201cd1a43864a2a32a3162b7ee453470bac649edd226ab683c2ba422e005dd` |
+| MS2109-Pro EEPROM | `64d761a92fdfc140222a6d24e316eb212ce17fa1ec43c33517011b2d7527a769` |
 
 ## Firmware changes
 
 - **1080p MJPEG rates:** The descriptor advertises 30, 25, 20 and 10 fps. The default is 30 fps. Two identical 30 fps interval entries are retained because the descriptor table has a fixed-size slot for the removed 60 fps entry. Other formats and resolutions are outside this cap.
-- **Startup procamp:** Brightness UI 110 (signed UVC −18), contrast 149, saturation 148 and hue 0 are loaded at startup. The original UVC GET/SET request handling remains in mask ROM.
+- **Startup procamp:** Brightness UI 111 (signed UVC −17), contrast 148, saturation 146 and hue 0 are loaded at startup. The original UVC GET/SET request handling remains in mask ROM.
 - **Colour declaration:** The high-speed YUY2/MJPEG UVC descriptors report the measured BT.709 matrix instead of the previous BT.601 declaration. This changes metadata; it does not put a quantization-range flag in the stream. UVC has no such range field here.
 - **Stereo routing:** The firmware sets the USB audio stream to two channels and routes the tested HDMI source’s continuous left channel to USB left and its gapped right channel to USB right. This does not correct the measured one-sample audio offset.
 
@@ -42,7 +45,7 @@ The calibration used 96 RGB chart patches and captured the two USB transports. I
 |---|---|---|
 | Neutral limited-range baseline | 128 / 128 / 128 / 0 | Gray Y 16–235; measured chroma was about 16–239. Use with a matching limited-range consumer. |
 | Measured full-range target | 110 / 149 / 147 / 0 | Gray Y 0–255 and Cb/Cr 1–254 in both captured transports. Brightness 110 is signed UVC −18. Best measured balance in the local search, not a verified global optimum. |
-| Release startup values | 110 / 149 / 148 / 0 | Values in this EEPROM image. Saturation 147–149 produced the same measured chroma endpoints; 147 had slightly lower numerical error. |
+| Current release startup values | 111 / 148 / 146 / 0 | Signed brightness −17. Runtime native-patch capture measured Y/Cb/Cr 1–254 with sub-code straight-line RMS. New startup image awaits cold-boot qualification. |
 
 At the measured full-range settings, patch-median Y/Cb/Cr RMSE against the full-range BT.709 target was **0.565 / 1.036 / 1.055 codes for YUY2** and **0.533 / 1.026 / 1.043 codes for MJPEG**. The limited baseline was closest to BT.709 limited among tested matrix/range models (0.860 YUV-code RMS). These are numeric patch results, not guarantees for every input signal or host display path.
 

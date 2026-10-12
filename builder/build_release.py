@@ -8,27 +8,17 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from release_builder import build, validate
+from release_builder import validate
+from qualified_release import build_qualified_release, PROCAM, BASE_SHA256
 
-EXPECTED_SHA256 = "0d8d3139b51edc4ff283dab33f00c2270f2134d95bce4bf7a351dcf38c14bb82"
-BASE_EEPROM = ROOT / "firmware/base/original-eeprom.bin"
+EXPECTED_SHA256 = "64d761a92fdfc140222a6d24e316eb212ce17fa1ec43c33517011b2d7527a769"
+BASE_EEPROM = ROOT / "firmware/base/qualified-eeprom.bin"
 MASK_ROM = ROOT / "firmware/base/ms2109-maskrom.bin"
 
-
 def build_release():
-    original = BASE_EEPROM.read_bytes()
-    rom = MASK_ROM.read_bytes()
-    image, overlay, entry = build(
-        original,
-        rom=rom,
-        uvc_control_profile=True,
-        uvc_control_edid="rom",
-        release_layout=True,
-    )
-    actual = hashlib.sha256(image).hexdigest()
-    if actual != EXPECTED_SHA256:
-        raise ValueError(f"Release image hash mismatch: {actual}")
-    validate(image)
+    image, overlay, entry = build_qualified_release(BASE_EEPROM.read_bytes())
+    if hashlib.sha256(image).hexdigest() != EXPECTED_SHA256:
+        raise ValueError("Release image hash mismatch")
     return image, overlay, entry
 
 
@@ -50,10 +40,16 @@ def main():
         "eeprom_bytes": len(image),
         "overlay_bytes": len(overlay),
         "entry_address": hex(entry),
-        "build_source_commit": "85026a5",
-        "uvc_controls": "stock descriptor and request handling",
-        "video_name": "usb video",
-        "audio_name": "usb video",
+        "qualified_baseline_sha256": BASE_SHA256,
+        "startup_procamp": PROCAM,
+        "source_renderer": "direct display-native RGB patches",
+        "qualification": "runtime controls and baseline live-qualified; rebuilt startup image not cold-boot tested",
+        "edid": "baseline ROM-derived EDID with verified 8-bit capability patch; no sRGB edit",
+        "uvc_controls": "stock mask-ROM descriptor and request handling",
+        "usb_header_names": {"video":"MS2109-Pro","audio":"MS2109-Pro"},
+        "cold_restart_descriptor": {"fps_approx":[30,30,25,20,10],"default_interval_100ns":333333,"qualification":"inherited baseline descriptor repair; new startup image has not been cold-boot tested"},
+        "video_name": "MS2109-Pro",
+        "audio_name": "MS2109-Pro",
         "mjpeg_1080p_intervals_100ns": [333333, 333333, 400000, 500000, 1000000],
     }
     manifest.write_text(json.dumps(metadata, indent=2) + "\n")

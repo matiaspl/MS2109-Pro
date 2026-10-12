@@ -1,0 +1,5 @@
+#include <libuvc/libuvc.h>
+#include <stdio.h>
+#include <stdlib.h>
+static int get(uvc_device_handle_t*h,int16_t*b,uint16_t*c,int16_t*hu,uint16_t*s){return uvc_get_brightness(h,b,UVC_GET_CUR)>=0&&uvc_get_contrast(h,c,UVC_GET_CUR)>=0&&uvc_get_hue(h,hu,UVC_GET_CUR)>=0&&uvc_get_saturation(h,s,UVC_GET_CUR)>=0;}
+int main(int n,char**v){uvc_context_t*ctx=0;uvc_device_t*d=0;uvc_device_handle_t*h=0;if(uvc_init(&ctx,0)<0||uvc_find_device(ctx,&d,0x534d,0x2109,0)<0||uvc_open(d,&h)<0)return 2;int16_t b,hu,ob;uint16_t c,s,oc,os;if(!get(h,&b,&c,&hu,&s))return 3;ob=b;oc=c;os=s;int ok=1;if(n==4){int nb=atoi(v[1]),nc=atoi(v[2]),ns=atoi(v[3]);if(nb< -128||nb>127||nc<0||nc>255||ns<0||ns>255)return 4;ok=uvc_set_brightness(h,nb)>=0&&uvc_set_contrast(h,nc)>=0&&uvc_set_saturation(h,ns)>=0&&get(h,&b,&c,&hu,&s)&&b==nb&&c==nc&&s==ns;if(!ok){uvc_set_brightness(h,ob);uvc_set_contrast(h,oc);uvc_set_saturation(h,os);get(h,&b,&c,&hu,&s);}}printf("{\"brightness\":%d,\"contrast\":%u,\"hue\":%d,\"saturation\":%u,\"verified\":%s}\n",b,c,hu,s,ok?"true":"false");uvc_close(h);uvc_unref_device(d);uvc_exit(ctx);return ok?0:5;}

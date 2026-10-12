@@ -1,0 +1,125 @@
+{
+  "procamp": {
+    "brightness": -17,
+    "contrast": 148,
+    "hue": 0,
+    "saturation": 146
+  },
+  "raw_png": {
+    "Y": {
+      "rmse": 4.514402001374897,
+      "span": 253.0,
+      "minimum": 1.0,
+      "maximum": 254.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 2,
+      "high_endpoint_plateau": 1,
+      "extra_rail_samples": 0,
+      "slope": 0.9832166209210846,
+      "intercept": -3.426785834104985
+    },
+    "Cb": {
+      "rmse": 4.85474689833642,
+      "span": 223.0,
+      "minimum": 24.0,
+      "maximum": 247.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 6,
+      "high_endpoint_plateau": 2,
+      "extra_rail_samples": 0,
+      "slope": 0.935515306811157,
+      "intercept": 12.254040728171752
+    },
+    "Cr": {
+      "rmse": 4.762895620179057,
+      "span": 223.0,
+      "minimum": 27.0,
+      "maximum": 250.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 3,
+      "high_endpoint_plateau": 2,
+      "extra_rail_samples": 0,
+      "slope": 0.9159356846325623,
+      "intercept": 15.185232367031892
+    }
+  },
+  "raw_native_patches": {
+    "Y": {
+      "rmse": 0.4027345465338058,
+      "span": 253.0,
+      "minimum": 1.0,
+      "maximum": 254.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 2,
+      "high_endpoint_plateau": 1,
+      "extra_rail_samples": 0,
+      "slope": 0.9930718533236393,
+      "intercept": 0.8833387012359356
+    },
+    "Cb": {
+      "rmse": 0.4460672213976137,
+      "span": 253.0,
+      "minimum": 1.0,
+      "maximum": 254.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 1,
+      "high_endpoint_plateau": 1,
+      "extra_rail_samples": 0,
+      "slope": 0.9904005323696362,
+      "intercept": 0.6787318566864597
+    },
+    "Cr": {
+      "rmse": 0.44606722139761384,
+      "span": 253.0,
+      "minimum": 1.0,
+      "maximum": 254.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 1,
+      "high_endpoint_plateau": 1,
+      "extra_rail_samples": 0,
+      "slope": 0.9904005323696362,
+      "intercept": 0.678731856686453
+    }
+  },
+  "native_camera_native_patches": {
+    "Y": {
+      "rmse": 0.4246728168312567,
+      "span": 217.0,
+      "minimum": 17.0,
+      "maximum": 234.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 2,
+      "high_endpoint_plateau": 1,
+      "extra_rail_samples": 0,
+      "slope": 0.852550424735295,
+      "intercept": 16.899820846249842
+    },
+    "Cb": {
+      "rmse": 0.5119004517634552,
+      "span": 223.0,
+      "minimum": 16.0,
+      "maximum": 239.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 1,
+      "high_endpoint_plateau": 1,
+      "extra_rail_samples": 0,
+      "slope": 0.869928220090322,
+      "intercept": 16.099187828438648
+    },
+    "Cr": {
+      "rmse": 0.5015079883353152,
+      "span": 223.0,
+      "minimum": 16.0,
+      "maximum": 239.0,
+      "monotonic_decreases": 0,
+      "low_endpoint_plateau": 1,
+      "high_endpoint_plateau": 1,
+      "extra_rail_samples": 0,
+      "slope": 0.8701656313719167,
+      "intercept": 16.193799184394518
+    }
+  },
+  "baseline_edid_unchanged": true,
+  "eeprom_unchanged": true,
+  "interpretation": "Direct display-native RGB drawing removes the prior measured curvature. The previous untagged NSImage source path did not deliver the intended RGB code ramp unchanged."
+}
