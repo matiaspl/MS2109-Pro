@@ -14,8 +14,6 @@ The 2026-10-12 release uses **B−17/C148/H0/S146** at startup and retains the o
 | The tested source's audio channel order did not match USB left/right. | Retains the qualified stereo routing fix and 48 kHz audio declaration. | Source left routes to USB left and right to USB right; a measured one-sample offset remains unresolved. |
 | Generic USB video/audio names. | Uses `MS2109-Pro` product and interface names. | Names verified after USB power cycling. |
 
-The earlier 8-bit EDID restriction has been removed. A baseline–deep-color–baseline comparison produced identical sampled values, spans and RMS. Source-visible EDID was verified, but actual HDMI wire bit depth was not measured. No sRGB/D65 or alternative USB transfer declaration is included.
-
 ## Quick start
 
 1. Connect an HDMI source, then connect the device by USB.
@@ -58,7 +56,7 @@ Audio is advertised as stereo, 16-bit, 48 kHz. Channel routing was qualified wit
 - UVC metadata here has no full/limited-range field. Configure and verify the host range separately.
 - Full-range expansion cannot recover precision lost to quantization or JPEG compression.
 - Actual HDMI transport bit depth and input encoding were not independently measured.
-- A one-sample audio timing offset remains unresolved.
+- A one-sample audio timing offset remains unresolved. As a workaround turn your head 2 degrees to compensate for the ~2 microsecond delay :)
 
 ## Firmware and build
 
